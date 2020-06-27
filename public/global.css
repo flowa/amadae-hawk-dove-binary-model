@@ -1,0 +1,95 @@
+html, body {
+    height: 100%;
+  }
+
+#app,
+#main-container  {
+    height: 100%;
+}
+
+#settings {
+    background-color: linen;
+    height: 100%;
+    padding: 1em;
+    padding-left: 1.5em;
+}
+
+#results {
+    height: 100%;
+    padding: 1em;
+    padding: 1em;
+    padding-left: 1.5em;
+    overflow: scroll;
+}
+
+h1 {
+    font-size: 18pt;
+    font-weight: 800;
+    border-bottom: 1px solid black;
+
+}
+
+.agent-listing {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.agent-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    border: #00000099;
+    background-color: #d3d3d3;
+    box-shadow: 2px 4px #c4c3c3;
+}
+
+.strategy {
+    flex-shrink: initial;
+    text-align: center;
+    font-weight: 600;
+    color: white;
+}
+
+.agent {
+    flex-shrink: initial;
+    text-align: center;
+    font-weight: 600;
+    color: white;
+}
+
+.Red {
+    background-color: pink;
+}
+
+.agent-id {
+    text-align: right;
+    padding-right: 2px;
+}
+
+.payoff span {
+    font-size: 80%;
+    font-weight: 600;
+}
+
+.Red .strategy,
+.Red .agent-id {
+    font-weight: 600;
+    color: white;
+    background-color: red;
+}
+
+.Blue .strategy,
+.Blue .agent-id {
+    font-weight: 600;
+    color: white;
+    background-color: blue;
+}
+
+.Blue {
+    background-color: lightblue;
+}

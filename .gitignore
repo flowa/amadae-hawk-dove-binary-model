@@ -12,6 +12,7 @@ temp/**
 *.sln.docstates
 .ionide
 .vscode
+output
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 

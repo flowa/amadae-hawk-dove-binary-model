@@ -1,7 +1,11 @@
 {
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "test": "fable-splitter -c splitter.config.js --config=jest.config.js --commonjs && jest",
+    "watch-test:build": "fable-splitter -c splitter.config.js -w --commonjs",
+    "watch-test:run": "jest --config=jest.config.js --watchAll",
+    "watch-test": "npm-run-all --parallel watch-test:*"
   },
   "dependencies": {
     "@babel/core": "^7.8.4",
@@ -12,5 +16,11 @@
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.0"
+  },
+  "devDependencies": {
+    "fable-splitter": "^2.2.0",
+    "jest": "^26.1.0",
+    "npm-run-all": "^4.1.5",
+    "source-map-loader": "^1.0.0"
   }
 }
