@@ -63,33 +63,47 @@ h1 {
 }
 
 .Red {
+    border: 2px solid red;
+    border-color: red;
     background-color: pink;
+}
+
+.Blue {
+    border: 2px solid blue;
+    background-color: lightblue;
 }
 
 .agent-id {
     text-align: right;
     padding-right: 2px;
 }
+.payoff {
+    padding: 2px;
 
+}
 .payoff span {
     font-size: 80%;
     font-weight: 600;
 }
 
-.Red .strategy,
+.Dove .strategy {
+    color: black;
+    background-color: whitesmoke;
+}
+
+.Hawk .strategy {
+    color:  whitesmoke;
+    background-color:  black;
+}
+
 .Red .agent-id {
     font-weight: 600;
     color: white;
     background-color: red;
 }
 
-.Blue .strategy,
 .Blue .agent-id {
     font-weight: 600;
     color: white;
     background-color: blue;
-}
-
-.Blue {
-    background-color: lightblue;
 }

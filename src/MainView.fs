@@ -13,14 +13,14 @@ module ResultTable =
     let avg =
       match rounds with
       | 0 -> 0.0
-      | r -> (float model.PayOff) / (float r)
-    div [ ClassName (sprintf "agent-box %A" model.Color)] [
+      | r -> model.Payoff / (float r)
+    div [ ClassName (sprintf "agent-box %A %A" model.Color model.Strategy)] [
       div [ ClassName "strategy" ] [ str (sprintf "%A" model.Strategy) ]
       div [ ClassName "payoff"]
           [
             div [] [
                 span [] [str "Total: "]
-                ofInt model.PayOff
+                ofFloat model.Payoff
               ]
             div [] [
                 span [] [str "Avg: "]
@@ -40,10 +40,14 @@ let view (model: State) dispatch =
   div [ Id "main-container"; ClassName "columns"; ] [
     div [ ClassName "column is-one-quarter"; Id "settings" ] [
       h1 [] [ str "Setting" ]
+      pre [] [
+        str (sprintf "%A" model.Setup)
+      ]
     ]
     div [ Id "results"; ClassName "column" ] [
       h1 [] [ str (sprintf "Results (Round %i)" model.State.ResolvedRounds.Length) ]
       ResultTable.view (model: State) dispatch
-    ]
+      pre [] [str (sprintf "%A" model.State.ResolvedRounds)]
 
+    ]
   ]

@@ -1,4 +1,5 @@
 module App
+
 open Model
 open Elmish
 open Simulation
@@ -6,24 +7,45 @@ open Simulation
 let init() : State =
     let setup: GameSetup =
         {
-            RoundToPlay = 10
-            ColorSpecs = [Red, 2; Blue, 4]
-            StrategySpecs = [Hawk, 2; Dowe, 4]
-            PayOffTable = Map.ofList [
-                (Hawk, Hawk), (0, 0)
-                (Hawk, Dowe), (4, 0)
-                (Dowe, Hawk), (0, 4)
-                (Dowe, Dowe), (2, 2)
-            ]
+            RoundToPlay = 200
+            // In use totaln number
+            // ration of Red agentes
+            ColorSpecs = [Red, 6; Blue, 12]
+            StrategySpecs = [Hawk, 9; Dove, 9]
+            // UseNashPortions
+            // CustomPortion [Hawk, 9; Dove, 9]
+
+            // In UI
+            // number of rounds of certain type of game
+            // - stage 1
+            // - stage 2
+            // - stage 3
+            // PayoffMatric cost
+            // Show payoff materic
+            // Note:
+            //    Technically in game stage thtree there are two
+            //    Matrices
+            // Add possibility to download simulation data as csv
+            // Add summary table
+            // - row per stage, avg payoff for per color and per strategy
+            // Add cability so see historical round and animation
+
+            PayoffMatrixType = FromRewardAndCost (10.0, 20.0)
+            // PayoffMatrixType = Custom [
+            //     (Hawk, Hawk), (0.0, 0.0)
+            //     (Hawk, Dove), (4.0, 0.0)
+            //     (Dove, Hawk), (0.0, 4.0)
+            //     (Dove, Dove), (2.0, 2.0)
+            // ]
         }
     let initialGameState = GameState.FromSetup setup
     let afterSimulatio = initialGameState.SimulateRounds
                             setup.RoundToPlay
-                            GameModes.simpleGame
+                            GameModes.stage2Game
+                            // GameModes.simpleGame
     {
         Setup = setup
         State = afterSimulatio
-
     }
 
 // UPDATE
