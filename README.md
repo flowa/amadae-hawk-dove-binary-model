@@ -28,23 +28,26 @@ At the moment you can run simulation only on your own machine. Download this rep
 
 You need to have dotnet SDK and node.js Installed to your machine.
 
-* [Install dotnet SDK](https://www.microsoft.com/net/download/core) 3.0 or higher
-* [Install node.js](https://nodejs.org)
-
-If you want to edit code good options are
-* Visual Studio
-* Visual Studio Code with [Ionide](http://ionide.io/)
-* [JetBrains Rider](https://www.jetbrains.com/rider/).
+* [Download and install .NET Core SDK](https://www.microsoft.com/net/download/core) 3.0 or higher
+* [Download and install node.js](https://nodejs.org)
 
 ## 2. Building and running the app
 
-In repository root folder (the place extracted the code if you didn't clone it)
+In the repository root folder in shell (bash, cmd, etc.):
 
 * Install JS dependencies: `npm install`
 * Install F# dependencies: `npm start`
 * After the first compilation is finished, in your browser open: http://localhost:8080/
 
 Any modification you do to the F# code will be reflected in the web page after saving.
+
+## Optional tooling
+
+If you want to edit code good options are:
+* Visual Studio
+* Visual Studio Code with [Ionide](http://ionide.io/)
+* [JetBrains Rider](https://www.jetbrains.com/rider/).
+
 
 ----
 
