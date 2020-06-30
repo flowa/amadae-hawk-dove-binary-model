@@ -6,11 +6,11 @@ The repository contains simulation for Amadae Hawk Dove Binary Model by [S.M. Am
 
 * TODO: Explain the model shortly
 
-Simulation is relates article:
+The simulation is related to the article(s):
 
 * TODO: Put proper reverence here
 
-Implementation of this simulation is funded by:
+The implementation of the simulation is funded by:
 
 * TODO: Add funder(s)
 
