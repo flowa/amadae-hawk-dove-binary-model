@@ -1,20 +1,52 @@
-# Fable Minimal App
+# Amadae Hawk Dove binary model simulation
 
-This is a small Fable app project so you can easily get started and add your own code easily in it.
+## Synopsis
 
-## Requirements
+The repository contains simulation for Amadae Hawk Dove Binary Model by [S.M. Amadae](https://amadae.com/).
 
-* [dotnet SDK](https://www.microsoft.com/net/download/core) 3.0 or higher
-* [node.js](https://nodejs.org) with [npm](https://www.npmjs.com/)
-* An F# editor like Visual Studio, Visual Studio Code with [Ionide](http://ionide.io/) or [JetBrains Rider](https://www.jetbrains.com/rider/).
+* TODO: Explain the model shortly
 
-## Building and running the app
+Simulation is relates article:
+
+* TODO: Put proper reverence here
+
+Implementation of this simulation is funded by:
+
+* TODO: Add funder(s)
+
+---
+
+## Implementation & running simulation
+
+Simulation is implemented with F# using Fable and React. Bundling is done with Webpack.
+
+At the moment you can run simulation only on your own machine. Download this repo (or use `git clone`) and follow instructions below.
+
+* TODO: Release as github pages.
+
+## 1. Install prerequisites
+
+You need to have dotnet SDK and node.js Installed to your machine.
+
+* [Install dotnet SDK](https://www.microsoft.com/net/download/core) 3.0 or higher
+* [Install node.js](https://nodejs.org)
+
+If you want to edit code good options are
+* Visual Studio
+* Visual Studio Code with [Ionide](http://ionide.io/)
+* [JetBrains Rider](https://www.jetbrains.com/rider/).
+
+## 2. Building and running the app
+
+In repository root folder (the place extracted the code if you didn't clone it)
 
 * Install JS dependencies: `npm install`
 * Install F# dependencies: `npm start`
 * After the first compilation is finished, in your browser open: http://localhost:8080/
 
 Any modification you do to the F# code will be reflected in the web page after saving.
+
+----
 
 ## Project structure
 
@@ -29,6 +61,8 @@ JS dependencies are declared in `package.json`, while `package-lock.json` is a l
 ### F#
 
 The sample only contains two F# files: the project (.fsproj) and a source file (.fs) in the `src` folder.
+
+The tests are located in `test` folder
 
 ### Web assets
 
