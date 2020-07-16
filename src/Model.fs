@@ -1,5 +1,6 @@
 module Model
 open Helpers
+open System
 
 type Color =
     | Blue
@@ -27,10 +28,12 @@ type Agent =
         // Only these values should be used in simulation
         Color: Color
         Payoff: float
+        // TODO Should be memory
         Strategy: Strategy
     }
 
-type PayoffMatrix = Map<(Strategy * Strategy), (float * float)>
+type PayoffMatrix =Map<(Strategy * Strategy), (float * float)>
+
 type PayOffMatrixType =
     | Custom of ((Strategy * Strategy) * (float * float)) list
     | FromRewardAndCost of revard: float * cost: float
@@ -61,6 +64,13 @@ type ResolvedChallenge =
         Players: Agent * Agent
         Choices: Strategy * Strategy
     }
+    member this.ToPlayersList () =
+        match this.Players with
+        | (first, second) -> [first; second]
+    member this.ToColorChoiseList () =
+        match this.Players, this.Choices with
+        | (a1, a2), (c1, c2) -> [(a1.Color, c1); (a2.Color, c2)]
+
 
 type GameRound = ResolvedChallenge list
 type GameHistory = GameRound list
@@ -88,6 +98,7 @@ type GameState =
             PayoffMatrix = setup.PayoffMatrixType.ToMatrix()
             ResolvedRounds = []
         }
+
     member this.Simulate (playFn: (Agent -> Color -> GameState -> Strategy)) =
         let gamePairs =
             this.Agents

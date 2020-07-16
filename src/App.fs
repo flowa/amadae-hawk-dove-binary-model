@@ -7,11 +7,11 @@ open Simulation
 let init() : State =
     let setup: GameSetup =
         {
-            RoundToPlay = 200
+            RoundToPlay = 100
             // In use totaln number
             // ration of Red agentes
-            ColorSpecs = [Red, 6; Blue, 12]
-            StrategySpecs = [Hawk, 9; Dove, 9]
+            ColorSpecs = [Red, 10; Blue, 10]
+            StrategySpecs = [Hawk, 10; Dove, 10]
             // UseNashPortions
             // CustomPortion [Hawk, 9; Dove, 9]
 
@@ -41,6 +41,7 @@ let init() : State =
     let initialGameState = GameState.FromSetup setup
     let afterSimulatio = initialGameState.SimulateRounds
                             setup.RoundToPlay
+                            // GameModes.nashEqlibiumGame
                             GameModes.stage2Game
                             // GameModes.simpleGame
     {

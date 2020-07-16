@@ -1,5 +1,11 @@
 {
   "private": true,
+  "author": {
+    "name": "Ari-Pekka Lappi"
+  },
+  "license": "MIT",
+  "name": "amadae-hawk-dove-binary-model",
+  "description": "Amadae Hawk Dove Binary Model",
   "scripts": {
     "start": "webpack-dev-server",
     "test": "fable-splitter -c splitter.config.js --config=jest.config.js --commonjs && jest",
