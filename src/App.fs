@@ -10,8 +10,8 @@ let init() : State =
             RoundToPlay = 100
             // In use totaln number
             // ration of Red agentes
-            ColorSpecs = [Red, 10; Blue, 10]
-            StrategySpecs = [Hawk, 10; Dove, 10]
+            ColorSpecs = [Red, 3; Blue, 3]
+            StrategySpecs = [Hawk, 3; Dove, 3]
             // UseNashPortions
             // CustomPortion [Hawk, 9; Dove, 9]
 
@@ -47,6 +47,7 @@ let init() : State =
     {
         Setup = setup
         State = afterSimulatio
+        ViewState = ShowResults { ShowRound = setup.RoundToPlay }
     }
 
 // UPDATE
@@ -63,6 +64,12 @@ let update (msg:Msg) (state: State) =
 
     match msg with
     | Set field -> setField field
+    | ShowRound round ->
+        { state with
+            ViewState = ShowResults { ShowRound = round }}
+    | RunSimulation ->
+        { state with
+            ViewState = ShowResults { ShowRound = state.Setup.RoundToPlay }}
 
 open MainView
 open Elmish.React

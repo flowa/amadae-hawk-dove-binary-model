@@ -6,7 +6,24 @@ open Elmish.React
 open Fable.React
 open Fable.React.Props
 
+
 // VIEW (rendered with React)
+module RoundSlider =
+  open Fulma.Extensions.Wikiki
+  let slider (model: State) (dispatch) =
+    let max = float (model.Setup.RoundToPlay)
+    let onChange (e: Browser.Types.Event) =
+        dispatch (ShowRound (int e.Value))
+    div [ ClassName "block"]
+        [ Slider.slider
+            [
+              Slider.IsFullWidth
+              Slider.Max max
+              Slider.Min 1.0
+              Slider.Value (float model.CurrentRound)
+              Slider.OnChange onChange
+            ]
+        ]
 
 module ResultTable =
   let agentBox (rounds: int) (model: Agent) =
@@ -24,19 +41,27 @@ module ResultTable =
               ]
             div [] [
                 span [] [str "Avg: "]
-                ofFloat avg
+                ofString (sprintf "%.3f" avg)
               ]
           ]
       div [ ClassName "agent-id"] [ str "#"; ofInt model.Id ]
     ]
 
   let view (model: State) dispatch =
-    let playedRounds = model.State.ResolvedRounds.Length
-    let agents = (model.State.Agents |> List.map (agentBox playedRounds))
+    let totalRounds = model.State.ResolvedRounds.TotalRounds
+    let currentRound = model.CurrentRound
+    let currentRoundAgents = model.CurrentRoundAgents()
+
+    let agents =
+        currentRoundAgents
+        |> List.map (agentBox currentRound)
     div [ ClassName "agent-listing" ] agents
 
 // Main view
 let view (model: State) dispatch =
+  let currentRound = model.CurrentRound
+  let currentRound = model.CurrentRound
+  let roundData = model
   div [ Id "main-container"; ClassName "columns"; ] [
     div [ ClassName "column is-one-quarter"; Id "settings" ] [
       h1 [] [ str "Setting" ]
@@ -45,7 +70,8 @@ let view (model: State) dispatch =
       ]
     ]
     div [ Id "results"; ClassName "column" ] [
-      h1 [] [ str (sprintf "Results (Round %i)" model.State.ResolvedRounds.Length) ]
+      h1 [] [ str (sprintf "Results (Round %i/%i)" model.CurrentRound model.Setup.RoundToPlay) ]
+      RoundSlider.slider model dispatch
       ResultTable.view (model: State) dispatch
       pre [] [str (sprintf "%A" model.State.ResolvedRounds)]
 

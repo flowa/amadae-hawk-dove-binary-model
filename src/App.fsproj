@@ -16,5 +16,7 @@
     <PackageReference Include="Fable.Elmish.Debugger" Version="3.2.0" />
     <PackageReference Include="Fable.Elmish.React" Version="3.0.1" />
     <PackageReference Include="Fable.Jester" Version="0.22.0" />
+    <PackageReference Include="Fulma" Version="2.9.0" />
+    <PackageReference Include="Fulma.Extensions.Wikiki.Slider" Version="2.0.1" />
   </ItemGroup>
 </Project>

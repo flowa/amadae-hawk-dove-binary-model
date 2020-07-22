@@ -7,8 +7,6 @@ module Helpers
 module GenerateModules =
     let value = true
 
-
-
 module ArrayHelpers =
     let rand = System.Random()
 

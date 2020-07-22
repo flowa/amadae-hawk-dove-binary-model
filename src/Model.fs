@@ -32,7 +32,8 @@ type Agent =
         Strategy: Strategy
     }
 
-type PayoffMatrix =Map<(Strategy * Strategy), (float * float)>
+type PayoffMatrix =
+    Map<(Strategy * Strategy), (float * float)>
 
 type PayOffMatrixType =
     | Custom of ((Strategy * Strategy) * (float * float)) list
@@ -57,7 +58,16 @@ type GameSetup =
         PayoffMatrixType: PayOffMatrixType
     }
 
-type AgentRef = int
+type ColorStatistics =
+    {
+        CountOfRedHawks: float
+        CountOfBlueHawks: float
+    }
+    member this.HawkCountFor(c: Color) =
+        match c with
+        | Red  -> this.CountOfRedHawks
+        | Blue -> this.CountOfRedHawks
+
 type ResolvedChallenge =
     {
         // Players after game was resolved
@@ -70,15 +80,67 @@ type ResolvedChallenge =
     member this.ToColorChoiseList () =
         match this.Players, this.Choices with
         | (a1, a2), (c1, c2) -> [(a1.Color, c1); (a2.Color, c2)]
+    member this.CountOf(pairToMatch: Color * Strategy) =
+        this.ToColorChoiseList()
+        |> List.filter ((=) pairToMatch)
+        |> List.length
+        |> float
+    member this.GetColorStatistics() =
+        {
+            CountOfRedHawks = this.CountOf (Red, Hawk)
+            CountOfBlueHawks = this.CountOf (Blue, Hawk)
+        }
 
 
-type GameRound = ResolvedChallenge list
-type GameHistory = GameRound list
+type GameRound =
+    | Round of (ResolvedChallenge list)
+    member this.ToList() =
+        match this with
+        | Round round -> round
+    member this.Agents
+        with get() =
+          match this with
+          | Round challenges ->
+            challenges
+            |> List.collect (fun {Players = (p1, p2)} -> [p1; p2])
+            |> List.sortBy (fun a -> a.Id)
+
+    member this.ColorStats () =
+        let initialValue = { CountOfBlueHawks = 0.0; CountOfRedHawks = 0.0 }
+        let updateStats (accumulatedStats: ColorStatistics) (currentChallenge: ResolvedChallenge) =
+            let currentChallengeStats = currentChallenge.GetColorStatistics()
+            {
+                CountOfRedHawks = accumulatedStats.CountOfRedHawks + currentChallengeStats.CountOfRedHawks
+                CountOfBlueHawks = accumulatedStats.CountOfBlueHawks + currentChallengeStats.CountOfBlueHawks
+            }
+        match this with
+        | Round round ->
+            round
+            |> List.fold (updateStats) initialValue
+
+type GameHistory =
+    | Rounds of GameRound list
+    member this.Append(round: GameRound) =
+        match this with
+        | Rounds previousRounds -> Rounds (List.append previousRounds [round])
+    member this.ToList() =
+        match this with
+        | Rounds rounds -> rounds
+    member this.TotalRounds with get() = this.ToList().Length
+    member this.GetRoundByRoundNumber (roundNumber: int) =
+        let roundIndex = roundNumber - 1
+        this.ToList().[roundIndex]
+
+    member this.GetRoundCount() =
+        this.ToList().Length
+
 type GameState =
     {
         PayoffMatrix: PayoffMatrix
+        // TODO: this is agents on before game is pley
+        // -> probably it should not be here at all because it's confusing
         Agents: Agent list
-        ResolvedRounds: ResolvedChallenge list list
+        ResolvedRounds:GameHistory
     }
     static member FromSetup (setup: GameSetup)=
         let agents =
@@ -96,9 +158,8 @@ type GameState =
         {
             GameState.Agents = agents
             PayoffMatrix = setup.PayoffMatrixType.ToMatrix()
-            ResolvedRounds = []
+            ResolvedRounds = Rounds []
         }
-
     member this.Simulate (playFn: (Agent -> Color -> GameState -> Strategy)) =
         let gamePairs =
             this.Agents
@@ -126,7 +187,7 @@ type GameState =
 
         let round = gamePairs |> List.map play
         { this with
-            ResolvedRounds = List.append this.ResolvedRounds [round]
+            ResolvedRounds = this.ResolvedRounds.Append (Round round)
             Agents =
                 round
                 |> List.collect (fun {Players = (p1, p2)} -> [p1; p2])
@@ -141,11 +202,30 @@ type GameState =
                 simulateRec (currentRound + 1) updatedState
         simulateRec 1 this
 
+type ShowResultsViewState =
+    {
+        ShowRound: int
+    }
+type ResultViewState =
+    | InitGame
+    | ShowResults of ShowResultsViewState
+
 type State =
     {
         Setup: GameSetup
         State: GameState
+        ViewState: ResultViewState
     }
+    member this.CurrentRound
+        with get() =
+            match this.ViewState with
+            | ShowResults { ShowRound = round } -> round
+            | _ -> 0
+    member this.CurrentRoundAgents() =
+        match this.ViewState with
+        | ShowResults { ShowRound = round } ->
+            this.State.ResolvedRounds.GetRoundByRoundNumber(round).Agents
+        | _ -> []
 
 type FieldValue =
     | MaxRoundsField of int
@@ -155,4 +235,6 @@ type FieldValue =
     | CostOfLoss of int
 
 type Msg =
-| Set of FieldValue
+    | Set of FieldValue
+    | ShowRound of int
+    | RunSimulation

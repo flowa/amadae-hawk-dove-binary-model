@@ -6,15 +6,6 @@ type StragyPropability =
         Hawk: float
         Dove: float
     }
-type ColorStatistics =
-    {
-        CountOfRedHawks: float
-        CountOfBlueHawks: float
-    }
-    member this.HawkCountFor(c: Color) =
-        match c with
-        | Red  -> this.CountOfRedHawks
-        | Blue -> this.CountOfRedHawks
 
 type PropabilitiesForColor = Color * StragyPropability
 type PropabilityMap = Map<Color, StragyPropability>
@@ -65,35 +56,34 @@ module NashEquilibrium =
 
 
 module Stats =
-    let countOfAgentMatching (pairToMatch: Color * Strategy) (challenge: ResolvedChallenge) =
-            challenge.ToColorChoiseList()
-            |> List.filter ((=) pairToMatch)
-            |> List.length
-            |> float
+    // let countOfAgentMatching (pairToMatch: Color * Strategy) (challenge: ResolvedChallenge) =
+    //         challenge.ToColorChoiseList()
+    //         |> List.filter ((=) pairToMatch)
+    //         |> List.length
+    //         |> float
 
-    let calcStatsForChallenge (challenge: ResolvedChallenge) =
-        {
-            CountOfRedHawks = countOfAgentMatching (Red, Hawk) challenge
-            CountOfBlueHawks = countOfAgentMatching (Blue, Hawk) challenge
-        }
+    // let calcStatsForChallenge (challenge: ResolvedChallenge) =
+    //     {
+    //         CountOfRedHawks = countOfAgentMatching (Red, Hawk) challenge
+    //         CountOfBlueHawks = countOfAgentMatching (Blue, Hawk) challenge
+    //     }
 
 
-    let calcStatsForRound (round: GameRound): ColorStatistics =
-        let total = round.Length * 2; // two player per round
-        let initialValue = { CountOfBlueHawks = 0.0; CountOfRedHawks = 0.0 }
-        let updateStats (accumulatedStats: ColorStatistics) (currentChallenge: ResolvedChallenge) =
-            let currentChallengeStats = calcStatsForChallenge currentChallenge
-            {
-                CountOfRedHawks = accumulatedStats.CountOfRedHawks + currentChallengeStats.CountOfRedHawks
-                CountOfBlueHawks = accumulatedStats.CountOfBlueHawks + currentChallengeStats.CountOfBlueHawks
-            }
+    // let calcStatsForRound (round: GameRound): ColorStatistics =
+    //     let initialValue = { CountOfBlueHawks = 0.0; CountOfRedHawks = 0.0 }
+    //     let updateStats (accumulatedStats: ColorStatistics) (currentChallenge: ResolvedChallenge) =
+    //         let currentChallengeStats = current currentChallenge
+    //         {
+    //             CountOfRedHawks = accumulatedStats.CountOfRedHawks + currentChallengeStats.CountOfRedHawks
+    //             CountOfBlueHawks = accumulatedStats.CountOfBlueHawks + currentChallengeStats.CountOfBlueHawks
+    //         }
 
-        round
-        |> List.fold (updateStats) initialValue
+    //     round
+    //     |> List.fold (updateStats) initialValue
 
     let calcStatsForLastRound (rounds: GameHistory): ColorStatistics =
-        let lastRound = rounds |> List.rev |> List.head
-        calcStatsForRound lastRound
+        let lastRound = rounds.ToList() |> List.rev |> List.head
+        lastRound.ColorStats()
 
     let calcStrategyPropability
         (color: Color, choises: Strategy list)
@@ -135,10 +125,10 @@ module Stats =
         (gameState: GameState)
         : PropabilityMap option =
                 match gameState.ResolvedRounds with
-                | [] -> None
-                | rounds ->
+                | Rounds [] -> None
+                | Rounds rounds ->
                     let lastRound = rounds |> List.last
-                    lastRound
+                    lastRound.ToList()
                     |> List.collect mapToColorChoicePairs
                     |> List.groupBy (fun (color, _) -> color)
                     |> List.map (mapToColorStrategyListPair
@@ -204,17 +194,25 @@ module GameModes =
             |> List.filter (fun a -> a.Color = opponentColor)
             |> List.length
             |> float
+        let roundCount = gameState.ResolvedRounds.GetRoundCount()
 
         let hawkPortion =
             let stats = Stats.calcStatsForLastRound gameState.ResolvedRounds
+            printfn "Round: %i stats: %O" roundCount stats
             let countOfHawks = stats.HawkCountFor opponentColor
             countOfHawks / total
 
         let chance = rand.NextDouble() // range [0.0, 1.0[
-        if (hawkPortion> chance) then
-            Hawk
-        else
-            Dove
+        let choise =
+            if (hawkPortion > chance) then
+                Hawk
+            else
+                Dove
+
+        printfn "Round: %i Total: %f; hawks (%%): %f (random %f), opponent color %O (vs. %O) => choise: %O"
+                (gameState.ResolvedRounds.GetRoundCount()) total hawkPortion chance opponentColor agent.Color choise
+        // 0.2
+        choise
 
     // let stage 3
     let stage2Game (agent: Agent)
@@ -242,9 +240,10 @@ module GameModes =
 
             match (agent.Color = opponentColor), (euHawk - euDove) with
             | true , _ -> onHawksOnLastRound agent opponentColor gameState
+
             // When you have expected value for playing hawk and playing dove are equal
             // choose randomly
-            | false , 0.0 ->
+            | false, 0.0 ->
                 let rand = System.Random()
                 let change = rand.NextDouble() // Range [0.0, 1.0]
                 if change < 0.5 then
@@ -253,7 +252,7 @@ module GameModes =
                     Hawk
             // if expected payoff for playing hawk is better, play hawk
             // otherwise play dove
-            | false, diff when diff > 0.0 ->
+            | false, diff when diff >= 0.0 ->
                 Hawk
             | _  ->
                 Dove
