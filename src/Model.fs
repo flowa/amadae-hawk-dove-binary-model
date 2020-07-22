@@ -15,11 +15,11 @@ type Color =
 type Strategy =
     | Dove
     | Hawk
-    static member GenerateList
-        (specs: (Strategy * int) list) : Strategy list =
-        specs
-        |> List.collect (fun (value, count) ->
-                List.init count (fun _ -> value))
+    // static member GenerateList
+    //     (specs: (Strategy * int) list) : Strategy list =
+    //     specs
+    //     |> List.collect (fun (value, count) ->
+    //             List.init count (fun _ -> value))
 
 type Agent =
     {
@@ -29,18 +29,30 @@ type Agent =
         Color: Color
         Payoff: float
         // TODO Should be memory
-        Strategy: Strategy
+        Strategy: Strategy option
     }
 
 type PayoffMatrix =
     Map<(Strategy * Strategy), (float * float)>
 
 type PayOffMatrixType =
-    | Custom of ((Strategy * Strategy) * (float * float)) list
+    //    | Custom of ((Strategy * Strategy) * (float * float)) list
     | FromRewardAndCost of revard: float * cost: float
-    member this.ToMatrix () =
+    member this.Cost with get() =
         match this with
-        | Custom m -> Map.ofList m
+        | FromRewardAndCost (_, cost) -> cost
+    member this.VictoryBenefit with get() =
+        match this with
+        | FromRewardAndCost (victory, _) -> victory
+    member this.SetV(newValue) =
+        match this with
+        | FromRewardAndCost (victory, cost) -> FromRewardAndCost (newValue, cost)
+    member this.SetC(newValue)  =
+        match this with
+        | FromRewardAndCost (victory, cost) -> FromRewardAndCost (victory, newValue)
+    member this.ToMatrix ()  =
+        match this with
+    //    | Custom m -> Map.ofList m
         | FromRewardAndCost (revard, cost) ->
             Map.ofList [
                 (Hawk, Hawk), (((revard - cost) / 2.0), ((revard - cost) / 2.0))
@@ -53,10 +65,26 @@ type PayOffMatrixType =
 type GameSetup =
     {
         RoundToPlay: int
-        ColorSpecs:  (Color * int) list
-        StrategySpecs:  (Strategy * int) list
+        AgentCount: int
+        PortionOfRed: int
         PayoffMatrixType: PayOffMatrixType
     }
+    member this.CountOfRed
+        with get() =
+            (float this.AgentCount) * ((float this.PortionOfRed) / 100.0)
+            |> round
+            |> int
+    member this.CountOfBlue
+        with get() = this.AgentCount - this.CountOfRed
+
+    member this.ColorSpecs
+        with get() =
+            [
+                Red, this.CountOfRed
+                Blue, this.CountOfBlue
+            ]
+
+
 
 type ColorStatistics =
     {
@@ -145,16 +173,16 @@ type GameState =
     static member FromSetup (setup: GameSetup)=
         let agents =
             let colors = Color.GenerateList setup.ColorSpecs |> ListHelpers.shuffle
-            let strategies = Strategy.GenerateList setup.StrategySpecs |> ListHelpers.shuffle
+            // let strategies = Strategy.GenerateList setup.StrategySpecs |> ListHelpers.shuffle
             let agentIds = List.init colors.Length id
-            List.map3
-                (fun color strategy agentId ->
+            List.map2
+                (fun color agentId ->
                     {
                         Agent.Id = agentId
                         Color = color
-                        Strategy = strategy
+                        Strategy = None
                         Payoff = 0.0
-                    }) colors strategies agentIds
+                    }) colors agentIds
         {
             GameState.Agents = agents
             PayoffMatrix = setup.PayoffMatrixType.ToMatrix()
@@ -174,11 +202,11 @@ type GameState =
                 match payOffPair with
                 (p1, p2) -> { agent1 with
                                 Payoff = agent1.Payoff + p1
-                                Strategy = agent1Choise
+                                Strategy = Some agent1Choise
                             },
                             { agent2 with
                                 Payoff = agent2.Payoff + p2
-                                Strategy = agent2Choise
+                                Strategy = Some agent2Choise
                             }
             {
                 ResolvedChallenge.Players = updatedAgents
@@ -228,13 +256,14 @@ type State =
         | _ -> []
 
 type FieldValue =
-    | MaxRoundsField of int
-    | CountOfRed of int
-    | CountOfHawks of int
+    | TotalRoundsInGame of int
+    | AgentCount of int
+    | PortionOfRed of int
     | BenefitOnVictory of int
     | CostOfLoss of int
 
 type Msg =
-    | Set of FieldValue
+    | SetValue of FieldValue
     | ShowRound of int
     | RunSimulation
+    | ToInitialization

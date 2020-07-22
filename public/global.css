@@ -7,11 +7,38 @@ html, body {
     height: 100%;
 }
 
+.payoff-summary th,
+.payoff-summary td {
+    text-align: center !important;
+}
+
 #settings {
     background-color: linen;
     height: 100%;
     padding: 1em;
     padding-left: 1.5em;
+    overflow-y: scroll;
+}
+
+.field-label {
+    flex-grow: 3;
+}
+
+.field-body input {
+    width: 100%;
+}
+#settings table {
+    width: 100%;
+}
+
+#settings fieldset {
+    padding: 0.5em;
+    border: solid 1pt #00000022;
+}
+
+#settings fieldset legend {
+    padding: 0 0.5em;
+    color: #00000099;
 }
 
 #results {
@@ -26,7 +53,6 @@ h1 {
     font-size: 18pt;
     font-weight: 800;
     border-bottom: 1px solid black;
-
 }
 
 .agent-listing {
@@ -86,24 +112,41 @@ h1 {
     font-weight: 600;
 }
 
+th.Dove,
 .Dove .strategy {
     color: black;
     background-color: whitesmoke;
+    transition: background-color 0.2s ease-in-out;
 }
 
+th.Hawk,
 .Hawk .strategy {
     color:  whitesmoke;
     background-color:  black;
+    transition: background-color 0.2s ease-in-out;
 }
 
 .Red .agent-id {
     font-weight: 600;
     color: white;
     background-color: red;
+    transition: background-color 0.2s ease-in-out;
 }
 
 .Blue .agent-id {
     font-weight: 600;
     color: white;
     background-color: blue;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.Hawk.fade-in,
+.Dove.fade-in {
+    animation: fade-in 0.2s ease-in-out;
+
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }

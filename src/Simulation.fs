@@ -142,11 +142,11 @@ module Stats =
 
 let rand = System.Random()
 module GameModes =
-    let simpleGame (agent: Agent)
-                   (opponentColor: Color)
-                   (gameState: GameState)
-                   : Strategy =
-       agent.Strategy
+    // let simpleGame (agent: Agent)
+    //                (opponentColor: Color)
+    //                (gameState: GameState)
+    //                : Strategy =
+    //    agent.Strategy
 
     let nashEqlibiumGame (agent: Agent)
                    (opponentColor: Color)

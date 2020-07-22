@@ -4,14 +4,30 @@ open Model
 open Elmish
 open Simulation
 // MODEL
+let runSimulation (setup)=
+    let initialGameState = GameState.FromSetup setup
+    let afterSimulatio = initialGameState.SimulateRounds
+                            setup.RoundToPlay
+                            // GameModes.nashEqlibiumGame
+                            GameModes.stage2Game
+                            // GameModes.simpleGame
+    {
+        Setup = setup
+        State = afterSimulatio
+        ViewState = ShowResults { ShowRound = setup.RoundToPlay }
+    }
+
+
 let init() : State =
     let setup: GameSetup =
         {
             RoundToPlay = 100
+            AgentCount = 10
             // In use totaln number
             // ration of Red agentes
-            ColorSpecs = [Red, 3; Blue, 3]
-            StrategySpecs = [Hawk, 3; Dove, 3]
+            PortionOfRed = 50
+            PayoffMatrixType = FromRewardAndCost (10.0, 20.0)
+            // StrategySpecs = [Hawk, 3; Dove, 3]
             // UseNashPortions
             // CustomPortion [Hawk, 9; Dove, 9]
 
@@ -30,7 +46,7 @@ let init() : State =
             // - row per stage, avg payoff for per color and per strategy
             // Add cability so see historical round and animation
 
-            PayoffMatrixType = FromRewardAndCost (10.0, 20.0)
+
             // PayoffMatrixType = Custom [
             //     (Hawk, Hawk), (0.0, 0.0)
             //     (Hawk, Dove), (4.0, 0.0)
@@ -38,17 +54,7 @@ let init() : State =
             //     (Dove, Dove), (2.0, 2.0)
             // ]
         }
-    let initialGameState = GameState.FromSetup setup
-    let afterSimulatio = initialGameState.SimulateRounds
-                            setup.RoundToPlay
-                            // GameModes.nashEqlibiumGame
-                            GameModes.stage2Game
-                            // GameModes.simpleGame
-    {
-        Setup = setup
-        State = afterSimulatio
-        ViewState = ShowResults { ShowRound = setup.RoundToPlay }
-    }
+    runSimulation setup
 
 // UPDATE
 
@@ -57,19 +63,39 @@ let update (msg:Msg) (state: State) =
         { state with Setup = updatedGameSetup}
     let setField (field: FieldValue) =
         match field with
-        | MaxRoundsField value -> (setGameSetup { state.Setup with RoundToPlay = value })
-        | f ->
-            eprintfn "Not implemented %A" f;
-            state
+        | TotalRoundsInGame value ->
+            (setGameSetup { state.Setup with RoundToPlay = value })
+        | AgentCount value ->
+            (setGameSetup { state.Setup with AgentCount = value })
+        | PortionOfRed value ->
+            (setGameSetup { state.Setup with PortionOfRed = value })
+        | BenefitOnVictory value ->
+            (setGameSetup {
+                    state.Setup with
+                        PayoffMatrixType = (state.Setup.PayoffMatrixType.SetV (float value))
+                })
+        | CostOfLoss value ->
+            (setGameSetup {
+                    state.Setup with
+                        PayoffMatrixType = (state.Setup.PayoffMatrixType.SetC (float value))
+                })
+
+        // | f ->
+        //     eprintfn "Not implemented %A" f;
+        //     state
 
     match msg with
-    | Set field -> setField field
+    | SetValue field -> setField field
     | ShowRound round ->
         { state with
             ViewState = ShowResults { ShowRound = round }}
+    | ToInitialization ->
+        { state with ViewState = InitGame }
     | RunSimulation ->
-        { state with
-            ViewState = ShowResults { ShowRound = state.Setup.RoundToPlay }}
+        runSimulation state.Setup
+
+        // { state with
+        //     ViewState = ShowResults { ShowRound = state.Setup.RoundToPlay }}
 
 open MainView
 open Elmish.React
