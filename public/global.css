@@ -7,9 +7,53 @@ html, body {
     height: 100%;
 }
 
+.subtitle-row th{
+    padding-top: 0.5em;
+}
+
+table .Red,
+table .Blue {
+    border: 0 !important;
+}
+
 .payoff-summary th,
 .payoff-summary td {
     text-align: center !important;
+}
+
+.hawk-dove-stats {
+    font-size: 80%;
+}
+.hawk-dove-stats th {
+    width: 30%;
+}
+.hawk-dove-stats td {
+    /* o-text-align: center !important;*/
+    padding-left: 0.5em;
+}
+
+.hawk-dove-stats td.Sum {
+    /* o-text-align: center !important;*/
+    border-top: 1px solid #00000022 ;
+}
+
+.cell-intent {
+    width: 1em;
+}
+.subtitle-row td {
+
+}
+
+table th.Hawk,
+table th.Dove,
+table th.Blue,
+table th.Red,
+table th.AllTotal {
+    text-align: center !important;
+}
+
+.animation-buttons {
+    margin-top: 5px;
 }
 
 #settings {

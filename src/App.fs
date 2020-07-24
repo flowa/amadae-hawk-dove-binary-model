@@ -2,29 +2,29 @@ module App
 
 open Model
 open Elmish
+open Browser
 open Simulation
 // MODEL
 let runSimulation (setup)=
     let initialGameState = GameState.FromSetup setup
     let afterSimulatio = initialGameState.SimulateRounds
-                            setup.RoundToPlay
+                            setup.RoundsToPlay
                             // GameModes.nashEqlibiumGame
                             GameModes.stage2Game
                             // GameModes.simpleGame
     {
         Setup = setup
         State = afterSimulatio
-        ViewState = ShowResults { ShowRound = setup.RoundToPlay }
+        ViewState = ShowResults (setup.RoundsToPlay)
+        PlayAnimation = false
     }
 
 
 let init() : State =
     let setup: GameSetup =
         {
-            RoundToPlay = 100
+            RoundsToPlay = 100
             AgentCount = 10
-            // In use totaln number
-            // ration of Red agentes
             PortionOfRed = 50
             PayoffMatrixType = FromRewardAndCost (10.0, 20.0)
             // StrategySpecs = [Hawk, 3; Dove, 3]
@@ -64,7 +64,7 @@ let update (msg:Msg) (state: State) =
     let setField (field: FieldValue) =
         match field with
         | TotalRoundsInGame value ->
-            (setGameSetup { state.Setup with RoundToPlay = value })
+            (setGameSetup { state.Setup with RoundsToPlay = value })
         | AgentCount value ->
             (setGameSetup { state.Setup with AgentCount = value })
         | PortionOfRed value ->
@@ -87,12 +87,33 @@ let update (msg:Msg) (state: State) =
     match msg with
     | SetValue field -> setField field
     | ShowRound round ->
-        { state with
-            ViewState = ShowResults { ShowRound = round }}
+        { state with ViewState = ShowResults round }
     | ToInitialization ->
-        { state with ViewState = InitGame }
+        { state with
+            ViewState = InitGame
+            PlayAnimation = false }
     | RunSimulation ->
         runSimulation state.Setup
+    | Tick _ ->
+        let maxRound = state.Setup.RoundsToPlay
+        let currentRound = state.CurrentRound
+        match (state.PlayAnimation, state.ViewState) with
+        | true, ShowResults round when maxRound > currentRound ->
+            { state with ViewState = ShowResults (round + 1)}
+        | true, ShowResults _ when maxRound = currentRound ->
+            { state with PlayAnimation = false }
+        | _ -> state
+    | PlayAnimation ->
+        { state with
+            PlayAnimation = true
+            ViewState =
+                if state.CurrentRound = state.Setup.RoundsToPlay then
+                    ShowResults 0
+                else
+                    state.ViewState }
+    | StopAnimation ->
+        { state with PlayAnimation = false }
+
 
         // { state with
         //     ViewState = ShowResults { ShowRound = state.Setup.RoundToPlay }}
@@ -100,8 +121,16 @@ let update (msg:Msg) (state: State) =
 open MainView
 open Elmish.React
 
+let timer initial =
+    let sub dispatch =
+        window.setInterval
+            (fun _ -> dispatch (Tick System.DateTime.Now)
+            , 500) |> ignore
+    Cmd.ofSub sub
+
 // App
 Program.mkSimple init update MainView.view
 |> Program.withReactBatched "app"
-|> Program.withConsoleTrace
+|> Program.withSubscription timer
+// |> Program.withConsoleTrace
 |> Program.run

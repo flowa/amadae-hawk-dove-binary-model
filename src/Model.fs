@@ -15,11 +15,6 @@ type Color =
 type Strategy =
     | Dove
     | Hawk
-    // static member GenerateList
-    //     (specs: (Strategy * int) list) : Strategy list =
-    //     specs
-    //     |> List.collect (fun (value, count) ->
-    //             List.init count (fun _ -> value))
 
 type Agent =
     {
@@ -64,7 +59,7 @@ type PayOffMatrixType =
 
 type GameSetup =
     {
-        RoundToPlay: int
+        RoundsToPlay: int
         AgentCount: int
         PortionOfRed: int
         PayoffMatrixType: PayOffMatrixType
@@ -84,8 +79,7 @@ type GameSetup =
                 Blue, this.CountOfBlue
             ]
 
-
-
+// TODO: refactor
 type ColorStatistics =
     {
         CountOfRedHawks: float
@@ -95,6 +89,11 @@ type ColorStatistics =
         match c with
         | Red  -> this.CountOfRedHawks
         | Blue -> this.CountOfRedHawks
+
+
+type ChallengeType =
+    | DifferentColor
+    | SameColor
 
 type ResolvedChallenge =
     {
@@ -118,6 +117,13 @@ type ResolvedChallenge =
             CountOfRedHawks = this.CountOf (Red, Hawk)
             CountOfBlueHawks = this.CountOf (Blue, Hawk)
         }
+    member this.ChalengeType
+        with get() =
+            match this.Players with
+            | {Color = color1}, {Color = color2} when color1 = color2 -> SameColor
+            | _ -> DifferentColor
+
+
 
 
 type GameRound =
@@ -161,6 +167,7 @@ type GameHistory =
 
     member this.GetRoundCount() =
         this.ToList().Length
+
 
 type GameState =
     {
@@ -236,22 +243,27 @@ type ShowResultsViewState =
     }
 type ResultViewState =
     | InitGame
-    | ShowResults of ShowResultsViewState
+    | ShowResults of roundNumber: int
 
 type State =
     {
         Setup: GameSetup
         State: GameState
         ViewState: ResultViewState
+        PlayAnimation: Boolean
     }
     member this.CurrentRound
         with get() =
             match this.ViewState with
-            | ShowResults { ShowRound = round } -> round
+            | ShowResults round -> round
             | _ -> 0
+    member this.CurrentRoundChallenges
+        with get() =
+            this.State.ResolvedRounds.GetRoundByRoundNumber(this.CurrentRound)
+
     member this.CurrentRoundAgents() =
         match this.ViewState with
-        | ShowResults { ShowRound = round } ->
+        | ShowResults round ->
             this.State.ResolvedRounds.GetRoundByRoundNumber(round).Agents
         | _ -> []
 
@@ -267,3 +279,43 @@ type Msg =
     | ShowRound of int
     | RunSimulation
     | ToInitialization
+    | Tick of DateTime
+    | PlayAnimation
+    | StopAnimation
+
+
+module Stats =
+
+    let calcRoundAggregates (round: GameRound): Map<ChallengeType * Strategy * Color, int> =
+        let items = round.ToList()
+        items
+        |>  List.collect (
+            fun challenge ->
+                let (a1, a2) = challenge.Players
+                let challengeType = challenge.ChalengeType
+                [
+                    (challengeType, a1.Strategy.Value, a1.Color)
+                    (challengeType, a2.Strategy.Value, a2.Color)
+                ]
+            )
+        |> List.groupBy id
+        |> List.map (fun (key, items) -> (key, items.Length))
+        |> Map.ofList
+
+    let aggregateBy<'a when 'a : equality and 'a : comparison>
+        (keyFn: ChallengeType * Strategy * Color -> 'a)
+        (aggs: Map<ChallengeType * Strategy * Color, int>): Map<'a, int> =
+        aggs
+        |> Map.toList
+        |> List.map (fun (key, total) -> (keyFn key), total)
+        |> List.groupBy (fun (key, _) -> key)
+        |> List.map (fun (key, subAggs) -> key, subAggs |> List.sumBy (fun (_, value) -> value))
+        |> Map.ofList
+
+    let valueOrZero<'a when 'a : equality and 'a : comparison> (map: Map<'a, int>) (key: 'a) =
+        match map.TryFind(key) with
+        | None -> 0
+        | Some v -> v
+
+type GameRound with
+    member this.Aggregates with get() = Stats.calcRoundAggregates(this)
