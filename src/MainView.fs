@@ -21,47 +21,45 @@ module Common =
     let emptyCellHeader = th [] []
 
 module RoundSlider =
-  open Fulma.Extensions.Wikiki
-  let stopIcon = i [ Key "stop";  ClassName "fa fa-stop" ] []
-  let playIcon = i [ Key "play"; ClassName "fa fa-play" ] []
-  let playOrStopButton (model: State) (dispatch) =
-      if model.PlayAnimation then
-        Button.button [
-            Button.Color IsDanger
-            Button.Size IsSmall
-            Button.OnClick (fun e -> e.preventDefault(); dispatch StopAnimation)] [
-            stopIcon
-            // ofString "\u00a0 Stop"
-        ]
-      else
-        Button.button [
-            Button.Color IsPrimary
-            Button.Size IsSmall
-            Button.OnClick (fun e -> e.preventDefault(); dispatch PlayAnimation) ] [
-            playIcon
-            // str "\u00a0 Play"
+    open Fulma.Extensions.Wikiki
+    let playOrStopButton (model: State) (dispatch) =
+        div [ClassName "animation-buttons column is-narrow"] [
+            if model.PlayAnimation then
+                button [
+                    Key "stop"
+                    ClassName "button is-small is-danger"
+                    OnClick (fun e -> e.preventDefault(); dispatch StopAnimation)] [
+                    i [ Key "stop"; ClassName "fa fa-stop" ] []
+                ]
+            else
+                button [
+                    Key "play"
+                    ClassName "button is-small is-primary"
+                    OnClick (fun e -> e.preventDefault(); dispatch PlayAnimation) ] [
+                    i [ Key "play"; ClassName "fa fa-play" ] []
+                ]
         ]
 
-  let slider (model: State) (dispatch) =
-    let max = float (model.Setup.RoundsToPlay)
-    let onChange (e: Browser.Types.Event) =
-        dispatch (ShowRound (int e.Value))
-    div [ ClassName "block"]
-        [
-            div [ClassName "animation-controls columns"] [
-                div [ClassName "animation-buttons column is-narrow"] [ playOrStopButton model dispatch ]
-                div [ClassName "simulation-frame-slider column"] [
-                    Slider.slider
-                        [
-                          Slider.IsFullWidth
-                          Slider.Max max
-                          Slider.Min 1.0
-                          Slider.Value (float model.CurrentRound)
-                          Slider.OnChange onChange
-                        ]
+    let slider (model: State) (dispatch) =
+        let max = float (model.Setup.RoundsToPlay)
+        let onChange (e: Browser.Types.Event) =
+            dispatch (ShowRound (int e.Value))
+        div [ ClassName "block"]
+            [
+                div [ClassName "animation-controls columns"] [
+                    playOrStopButton model dispatch
+                    div [ClassName "simulation-frame-slider column"] [
+                        Slider.slider
+                            [
+                              Slider.IsFullWidth
+                              Slider.Max max
+                              Slider.Min 1.0
+                              Slider.Value (float model.CurrentRound)
+                              Slider.OnChange onChange
+                            ]
+                    ]
                 ]
             ]
-        ]
 
 module Tables =
     open Common

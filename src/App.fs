@@ -122,7 +122,7 @@ let update (msg:Msg) (state: State) =
             PlayAnimation = true
             ViewState =
                 if state.CurrentRound = state.Setup.RoundsToPlay then
-                    ShowResults 0
+                    ShowResults 1
                 else
                     state.ViewState }
     | StopAnimation ->
