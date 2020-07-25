@@ -160,14 +160,14 @@ module Tables =
             tbody [] [
                 subTitle "Different color"
                 row [
-                        hawkDoveStatsHeader
+                        cellHtml hawkDoveStatsHeader
                         cellHtml (hawkDoveStats "Red"  (statsTupleFor DifferentColor Red))
                         cellHtml (hawkDoveStats "Blue" (statsTupleFor DifferentColor Blue))
                         cellHtml (hawkDoveStats "All"  (statsTupleColorsCombined DifferentColor))
                     ]
                 subTitle "Same color"
                 row [
-                        hawkDoveStatsHeader
+                        cellHtml hawkDoveStatsHeader
                         cellHtml (hawkDoveStats "Red" (statsTupleFor SameColor Red))
                         cellHtml (hawkDoveStats "Blue" (statsTupleFor SameColor Blue))
                         cellHtml (hawkDoveStats "All" (statsTupleColorsCombined SameColor))
@@ -175,7 +175,7 @@ module Tables =
 
                 subTitle "All"
                 row [
-                        hawkDoveStatsHeader
+                        cellHtml hawkDoveStatsHeader
                         cellHtml (hawkDoveStats "Red"  (statsTupleChallengeTypeCombined Red))
                         cellHtml (hawkDoveStats "Blue" (statsTupleChallengeTypeCombined Blue))
                         cellHtml (hawkDoveStats "All"  statsTupleByStrategy)

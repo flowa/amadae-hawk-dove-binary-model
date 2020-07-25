@@ -5,12 +5,14 @@ open Elmish
 open Browser
 open Simulation
 // MODEL
-let runSimulation (setup)=
-    let initialGameState = GameState.FromSetup setup
-    let afterSimulatio = initialGameState.SimulateRounds
-                            setup.RoundsToPlay
+let runSimulation (setup: GameSetup)=
+    let initialGameState = setup.ToInitialGameState()
+    let initialAgents = setup.GenerateAgents()
+    //
+    let afterSimulatio = initialGameState.SimulateRounds initialAgents
+                            // setup.RoundsToPlay
                             // GameModes.nashEqlibiumGame
-                            GameModes.stage2Game
+                            // GameModes.stage2Game
                             // GameModes.simpleGame
     {
         Setup = setup
@@ -21,12 +23,24 @@ let runSimulation (setup)=
 
 
 let init() : State =
-    let setup: GameSetup =
+    let setup =
         {
-            RoundsToPlay = 100
+            GameSetup.RoundsToPlay = 100
             AgentCount = 10
             PortionOfRed = 50
             PayoffMatrixType = FromRewardAndCost (10.0, 20.0)
+            SimulationFrames = [
+                {
+                    SimulationFrame.RoundCount = 10
+                    StageName = "Stage 1"
+                    StrategyFn = GameModes.nashEqlibiumGame
+                }
+                {
+                    SimulationFrame.RoundCount = 90
+                    StageName = "Stage 2"
+                    StrategyFn = GameModes.stage2Game
+                }
+            ]
             // StrategySpecs = [Hawk, 3; Dove, 3]
             // UseNashPortions
             // CustomPortion [Hawk, 9; Dove, 9]

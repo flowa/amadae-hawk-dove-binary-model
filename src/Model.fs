@@ -11,7 +11,6 @@ type Color =
         |> List.collect (fun (value, count) ->
                 List.init count (fun _ -> value))
 
-
 type Strategy =
     | Dove
     | Hawk
@@ -23,7 +22,7 @@ type Agent =
         // Only these values should be used in simulation
         Color: Color
         Payoff: float
-        // TODO Should be memory
+        // TODO Should be memory?
         Strategy: Strategy option
     }
 
@@ -54,29 +53,6 @@ type PayOffMatrixType =
                 (Hawk, Dove), (revard, 0.0)
                 (Dove, Hawk), (0.0, revard)
                 (Dove, Dove), ((revard / 2.0), (revard / 2.0))
-            ]
-
-
-type GameSetup =
-    {
-        RoundsToPlay: int
-        AgentCount: int
-        PortionOfRed: int
-        PayoffMatrixType: PayOffMatrixType
-    }
-    member this.CountOfRed
-        with get() =
-            (float this.AgentCount) * ((float this.PortionOfRed) / 100.0)
-            |> round
-            |> int
-    member this.CountOfBlue
-        with get() = this.AgentCount - this.CountOfRed
-
-    member this.ColorSpecs
-        with get() =
-            [
-                Red, this.CountOfRed
-                Blue, this.CountOfBlue
             ]
 
 // TODO: refactor
@@ -112,6 +88,7 @@ type ResolvedChallenge =
         |> List.filter ((=) pairToMatch)
         |> List.length
         |> float
+    // TODO: refactor/remove
     member this.GetColorStatistics() =
         {
             CountOfRedHawks = this.CountOf (Red, Hawk)
@@ -122,9 +99,6 @@ type ResolvedChallenge =
             match this.Players with
             | {Color = color1}, {Color = color2} when color1 = color2 -> SameColor
             | _ -> DifferentColor
-
-
-
 
 type GameRound =
     | Round of (ResolvedChallenge list)
@@ -138,7 +112,7 @@ type GameRound =
             challenges
             |> List.collect (fun {Players = (p1, p2)} -> [p1; p2])
             |> List.sortBy (fun a -> a.Id)
-
+    // TODO: refactor/remove
     member this.ColorStats () =
         let initialValue = { CountOfBlueHawks = 0.0; CountOfRedHawks = 0.0 }
         let updateStats (accumulatedStats: ColorStatistics) (currentChallenge: ResolvedChallenge) =
@@ -164,46 +138,46 @@ type GameHistory =
     member this.GetRoundByRoundNumber (roundNumber: int) =
         let roundIndex = roundNumber - 1
         this.ToList().[roundIndex]
-
     member this.GetRoundCount() =
         this.ToList().Length
 
+type GameInformation =
+    {
+        Agent: Agent
+        OpponentColor: Color
+        PayoffMatrix: PayoffMatrix
+        Agents: Agent list
+        History: GameHistory
+    }
 
-type GameState =
+type StrategyFn = GameInformation -> Strategy
+type PlannedRound =
     {
         PayoffMatrix: PayoffMatrix
-        // TODO: this is agents on before game is pley
-        // -> probably it should not be here at all because it's confusing
-        Agents: Agent list
-        ResolvedRounds:GameHistory
+        StrategyFn: StrategyFn
     }
-    static member FromSetup (setup: GameSetup)=
-        let agents =
-            let colors = Color.GenerateList setup.ColorSpecs |> ListHelpers.shuffle
-            // let strategies = Strategy.GenerateList setup.StrategySpecs |> ListHelpers.shuffle
-            let agentIds = List.init colors.Length id
-            List.map2
-                (fun color agentId ->
-                    {
-                        Agent.Id = agentId
-                        Color = color
-                        Strategy = None
-                        Payoff = 0.0
-                    }) colors agentIds
-        {
-            GameState.Agents = agents
-            PayoffMatrix = setup.PayoffMatrixType.ToMatrix()
-            ResolvedRounds = Rounds []
-        }
-    member this.Simulate (playFn: (Agent -> Color -> GameState -> Strategy)) =
+    member this.PlayRound (agents: Agent list) (history: GameHistory) =
         let gamePairs =
-            this.Agents
+            agents
             |> ListHelpers.shuffle
             |> ListHelpers.toPairs
 
         let play (agent1: Agent, agent2: Agent): ResolvedChallenge =
-            let agent1Choise = playFn agent1 agent2.Color this
-            let agent2Choise = playFn agent2 agent1.Color this
+            let gameInformationForAgent1: GameInformation =
+                {
+                    Agent = agent1
+                    OpponentColor = agent2.Color
+                    Agents = agents
+                    History = history
+                    PayoffMatrix = this.PayoffMatrix
+                }
+            let gameInformationForAgent2: GameInformation =
+                { gameInformationForAgent1 with
+                    Agent = agent2
+                    OpponentColor = agent1.Color
+                }
+            let agent1Choise = this.StrategyFn gameInformationForAgent1
+            let agent2Choise = this.StrategyFn gameInformationForAgent2
             let payOffPair = this.PayoffMatrix.Item (agent1Choise, agent2Choise)
             let updatedAgents =
                 match payOffPair with
@@ -220,22 +194,90 @@ type GameState =
                 Choices = agent1Choise, agent2Choise
             }
 
-        let round = gamePairs |> List.map play
-        { this with
-            ResolvedRounds = this.ResolvedRounds.Append (Round round)
-            Agents =
-                round
-                |> List.collect (fun {Players = (p1, p2)} -> [p1; p2])
-                |> List.sortBy (fun a -> a.Id)
+        gamePairs
+        |> List.map play
+        |> Round
+
+type GameState =
+    {
+        PayoffMatrix: PayoffMatrix
+        PlannedRounds: PlannedRound list
+        ResolvedRounds:GameHistory
+    }
+    member this.SimulateRounds (agents: Agent list) =
+        let (_, playedRounds: GameHistory) =
+            this.PlannedRounds
+            |> List.fold
+                (fun (agents: Agent list, history: GameHistory) plannedRound ->
+                    let roundResult = plannedRound.PlayRound agents history
+                    let updatedHistory = history.Append roundResult
+                    let agentsAfterRound = roundResult.Agents
+                    (agentsAfterRound, updatedHistory))
+                (agents, Rounds [])
+        {
+            this with ResolvedRounds = playedRounds
         }
-    member this.SimulateRounds (rounds: int) playFn =
-        let rec simulateRec (currentRound: int) (stateAcc: GameState) =
-            let updatedState = stateAcc.Simulate playFn
-            if currentRound = rounds then
-                updatedState
-            else
-                simulateRec (currentRound + 1) updatedState
-        simulateRec 1 this
+
+type SimulationFrame =
+    {
+        RoundCount: int
+        StageName: string
+        StrategyFn: StrategyFn
+    }
+
+type GameSetup =
+    {
+        RoundsToPlay: int
+        AgentCount: int
+        PortionOfRed: int
+        SimulationFrames: SimulationFrame list
+        PayoffMatrixType: PayOffMatrixType
+    }
+    member this.CountOfRed
+        with get() =
+            (float this.AgentCount) * ((float this.PortionOfRed) / 100.0)
+            |> round
+            |> int
+    member this.CountOfBlue
+        with get() = this.AgentCount - this.CountOfRed
+    member this.ColorSpecs
+        with get() =
+            [
+                Red, this.CountOfRed
+                Blue, this.CountOfBlue
+            ]
+    member this.GenerateAgents() =
+        let colors =
+            Color.GenerateList this.ColorSpecs
+            |> ListHelpers.shuffle
+        let agentIds = List.init colors.Length id
+        List.map2
+            (fun color agentId ->
+                {
+                    Agent.Id = agentId
+                    Color = color
+                    Strategy = None
+                    Payoff = 0.0
+                }) colors agentIds
+    member this.ToInitialGameState () =
+        let payoffMatrics = this.PayoffMatrixType.ToMatrix()
+        let plannedRounds =
+                this.SimulationFrames
+                |> List.filter (fun f -> f.RoundCount > 0)
+                |> List.collect
+                    (fun frame ->
+                        let plannedRound: PlannedRound =
+                            {
+                               PayoffMatrix = payoffMatrics
+                               StrategyFn = frame.StrategyFn
+                            }
+                        List.replicate frame.RoundCount plannedRound
+                    )
+        {
+            PayoffMatrix   = payoffMatrics
+            PlannedRounds  = plannedRounds
+            ResolvedRounds = Rounds []
+        }
 
 type ShowResultsViewState =
     {
@@ -285,7 +327,6 @@ type Msg =
 
 
 module Stats =
-
     let calcRoundAggregates (round: GameRound): Map<ChallengeType * Strategy * Color, int> =
         let items = round.ToList()
         items
