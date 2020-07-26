@@ -156,6 +156,7 @@ type PlannedRound =
     {
         PayoffMatrix: PayoffMatrix
         StrategyFn: StrategyFn
+        StageName: string
     }
     member this.PlayRound (agents: Agent list) (history: GameHistory) =
         let gamePairs =
@@ -286,6 +287,7 @@ type GameSetup =
                             {
                                PayoffMatrix = payoffMatrics
                                StrategyFn = frame.StrategyFn
+                               StageName = frame.StageName
                             }
                         List.replicate frame.RoundCount plannedRound
                     )
@@ -325,6 +327,13 @@ type State =
         | ShowResults round ->
             this.State.ResolvedRounds.GetRoundByRoundNumber(round).Agents
         | _ -> []
+    member this.CurrentStageName
+        with get() =
+            match this.ViewState with
+            | ShowResults round -> this.State.PlannedRounds.[round - 1].StageName
+            | _ -> String.Empty
+
+
 
 type FieldValue =
     | RoundCountOfStage of stageName: string * roundCount: int

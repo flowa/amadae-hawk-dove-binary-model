@@ -430,7 +430,7 @@ let view (model: State) dispatch =
         | ShowResults round ->
             div [] [
               h1 [] [
-                  str (sprintf "Results (Round %i/%i)" round model.Setup.RoundsToPlay)
+                  str (sprintf "Results (Round %i/%i - %s)" round model.Setup.RoundsToPlay model.CurrentStageName)
               ]
               RoundSlider.slider model dispatch
               ResultTable.view (model: State) dispatch

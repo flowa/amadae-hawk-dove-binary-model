@@ -38,7 +38,7 @@ let init () =
                     StrategyFn = GameModes.nashEqlibiumGame
                 }
                 {
-                    SimulationFrame.RoundCount = 90
+                    SimulationFrame.RoundCount = 10
                     StageName = "Stage 2"
                     StrategyFn = GameModes.stage2Game
                 }
