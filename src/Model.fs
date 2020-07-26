@@ -1,4 +1,5 @@
 module Model
+open Fable
 open Helpers
 open System
 
@@ -204,18 +205,31 @@ type GameState =
         PlannedRounds: PlannedRound list
         ResolvedRounds:GameHistory
     }
-    member this.SimulateRounds (agents: Agent list) =
-        let (_, playedRounds: GameHistory) =
-            this.PlannedRounds
-            |> List.fold
-                (fun (agents: Agent list, history: GameHistory) plannedRound ->
-                    let roundResult = plannedRound.PlayRound agents history
-                    let updatedHistory = history.Append roundResult
-                    let agentsAfterRound = roundResult.Agents
-                    (agentsAfterRound, updatedHistory))
-                (agents, Rounds [])
-        {
-            this with ResolvedRounds = playedRounds
+    member this.SimulateRoundsAsync (agents: Agent list) =
+        promise {
+            // let! (_, playedRounds: GameHistory), err =
+            let initialValue = Promise.lift (agents, (Rounds []))
+            let! (_, playedRounds) =
+                this.PlannedRounds
+                |> List.fold
+                    (fun accPromise plannedRound ->
+                        // (agents: Agent list, history: GameHistory)
+                        Promise.bind
+                                (fun (agents: Agent list, history: GameHistory) ->
+                                    promise {
+                                            do! Promise.sleep 100
+                                            let roundResult = plannedRound.PlayRound agents history
+                                            let updatedHistory = history.Append roundResult
+                                            let agentsAfterRound = roundResult.Agents
+                                            return (agentsAfterRound, updatedHistory)
+                                    })
+                                accPromise
+                    )
+                    initialValue
+
+            return {
+                this with ResolvedRounds = playedRounds
+            }
         }
 
 type SimulationFrame =
@@ -227,12 +241,14 @@ type SimulationFrame =
 
 type GameSetup =
     {
-        RoundsToPlay: int
+        // RoundsToPlay: int
         AgentCount: int
         PortionOfRed: int
         SimulationFrames: SimulationFrame list
         PayoffMatrixType: PayOffMatrixType
     }
+    member this.RoundsToPlay
+        with get() = this.SimulationFrames |> List.sumBy (fun f -> f.RoundCount)
     member this.CountOfRed
         with get() =
             (float this.AgentCount) * ((float this.PortionOfRed) / 100.0)
@@ -285,6 +301,7 @@ type ShowResultsViewState =
     }
 type ResultViewState =
     | InitGame
+    | Loading
     | ShowResults of roundNumber: int
 
 type State =
@@ -310,23 +327,24 @@ type State =
         | _ -> []
 
 type FieldValue =
-    | TotalRoundsInGame of int
-    | AgentCount of int
-    | PortionOfRed of int
-    | BenefitOnVictory of int
-    | CostOfLoss of int
+    | RoundCountOfStage of stageName: string * roundCount: int
+    | AgentCount of agentCount: int
+    | PortionOfRed of percentsOfRed: int
+    | BenefitOnVictory of v: int
+    | CostOfLoss of c: int
 
 type Msg =
     | SetValue of FieldValue
     | ShowRound of int
     | RunSimulation
+    | OnSimulationComplated of GameState
     | ToInitialization
     | Tick of DateTime
     | PlayAnimation
     | StopAnimation
 
 
-module Stats =
+module RoundStats =
     let calcRoundAggregates (round: GameRound): Map<ChallengeType * Strategy * Color, int> =
         let items = round.ToList()
         items
@@ -359,4 +377,4 @@ module Stats =
         | Some v -> v
 
 type GameRound with
-    member this.Aggregates with get() = Stats.calcRoundAggregates(this)
+    member this.Aggregates with get() = RoundStats.calcRoundAggregates(this)

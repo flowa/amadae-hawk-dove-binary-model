@@ -5,28 +5,30 @@ open Elmish
 open Browser
 open Simulation
 // MODEL
-let runSimulation (setup: GameSetup)=
-    let initialGameState = setup.ToInitialGameState()
-    let initialAgents = setup.GenerateAgents()
-    //
-    let afterSimulatio = initialGameState.SimulateRounds initialAgents
-                            // setup.RoundsToPlay
-                            // GameModes.nashEqlibiumGame
-                            // GameModes.stage2Game
-                            // GameModes.simpleGame
-    {
-        Setup = setup
-        State = afterSimulatio
-        ViewState = ShowResults (setup.RoundsToPlay)
-        PlayAnimation = false
+let runSimulationAsync (setup: GameSetup) =
+    promise {
+        let initialGameState = setup.ToInitialGameState()
+        let initialAgents = setup.GenerateAgents()
+
+        let! afterSimulation = initialGameState.SimulateRoundsAsync initialAgents
+                                // setup.RoundsToPlay
+                                // GameModes.nashEqlibiumGame
+                                // GameModes.stage2Game
+                                // GameModes.simpleGame
+        return afterSimulation
+        // {
+        //     Setup = setup
+        //     State = afterSimulation
+        //     ViewState = ShowResults (setup.RoundsToPlay)
+        //     PlayAnimation = false
+        // }
     }
 
 
-let init() : State =
+let init () =
     let setup =
         {
-            GameSetup.RoundsToPlay = 100
-            AgentCount = 10
+            GameSetup.AgentCount = 100
             PortionOfRed = 50
             PayoffMatrixType = FromRewardAndCost (10.0, 20.0)
             SimulationFrames = [
@@ -68,7 +70,13 @@ let init() : State =
             //     (Dove, Dove), (2.0, 2.0)
             // ]
         }
-    runSimulation setup
+    let initialGameState = setup.ToInitialGameState()
+    {
+        Setup = setup
+        State = initialGameState
+        ViewState = InitGame
+        PlayAnimation = false
+    }, Cmd.none
 
 // UPDATE
 
@@ -77,8 +85,18 @@ let update (msg:Msg) (state: State) =
         { state with Setup = updatedGameSetup}
     let setField (field: FieldValue) =
         match field with
-        | TotalRoundsInGame value ->
-            (setGameSetup { state.Setup with RoundsToPlay = value })
+        | RoundCountOfStage (stage, value) ->
+            (setGameSetup
+                {
+                    state.Setup with
+                        SimulationFrames =
+                            state.Setup.SimulationFrames
+                            |> List.map
+                                (fun frame ->
+                                    if frame.StageName = stage then
+                                        { frame with RoundCount = value}
+                                    else frame)
+                })
         | AgentCount value ->
             (setGameSetup { state.Setup with AgentCount = value })
         | PortionOfRed value ->
@@ -99,38 +117,53 @@ let update (msg:Msg) (state: State) =
         //     state
 
     match msg with
-    | SetValue field -> setField field
+    | SetValue field -> (setField field), Cmd.none
     | ShowRound round ->
-        { state with ViewState = ShowResults round }
+        { state with ViewState = ShowResults round }, Cmd.none
     | ToInitialization ->
         { state with
             ViewState = InitGame
-            PlayAnimation = false }
+            PlayAnimation = false }, Cmd.none
     | RunSimulation ->
-        runSimulation state.Setup
+        let runSimulation () =
+                promise {
+                    printfn "starting"
+                    do! Promise.sleep 200
+                    let! results = runSimulationAsync state.Setup
+                    printfn "beforeDispatch"
+                    return (OnSimulationComplated results)
+                }
+        {state with ViewState = Loading},
+        Cmd.OfPromise.perform runSimulation () id
+
+    | OnSimulationComplated gameState ->
+        { state with
+            ViewState = ShowResults state.Setup.RoundsToPlay
+            State = gameState}, Cmd.none
     | Tick _ ->
         let maxRound = state.Setup.RoundsToPlay
         let currentRound = state.CurrentRound
-        match (state.PlayAnimation, state.ViewState) with
-        | true, ShowResults round when maxRound > currentRound ->
-            { state with ViewState = ShowResults (round + 1)}
-        | true, ShowResults _ when maxRound = currentRound ->
-            { state with PlayAnimation = false }
-        | _ -> state
+        let updatedState =
+            match (state.PlayAnimation, state.ViewState) with
+            | true, ShowResults round when maxRound > currentRound ->
+                { state with ViewState = ShowResults (round + 1)}
+            | true, ShowResults _ when maxRound = currentRound ->
+                { state with PlayAnimation = false }
+            | _ -> state
+        updatedState, Cmd.none
     | PlayAnimation ->
-        { state with
-            PlayAnimation = true
-            ViewState =
-                if state.CurrentRound = state.Setup.RoundsToPlay then
-                    ShowResults 1
-                else
-                    state.ViewState }
+        {
+            state with
+                PlayAnimation = true
+                ViewState =
+                    if state.CurrentRound = state.Setup.RoundsToPlay then
+                        ShowResults 1
+                    else
+                        state.ViewState
+        }, Cmd.none
+
     | StopAnimation ->
-        { state with PlayAnimation = false }
-
-
-        // { state with
-        //     ViewState = ShowResults { ShowRound = state.Setup.RoundToPlay }}
+        { state with PlayAnimation = false }, Cmd.none
 
 open MainView
 open Elmish.React
@@ -143,7 +176,7 @@ let timer initial =
     Cmd.ofSub sub
 
 // App
-Program.mkSimple init update MainView.view
+Program.mkProgram init update MainView.view
 |> Program.withReactBatched "app"
 |> Program.withSubscription timer
 // |> Program.withConsoleTrace

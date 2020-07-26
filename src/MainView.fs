@@ -123,26 +123,26 @@ module Tables =
             tr [Class "subtitle-row"] [th [ColSpan 4] [str title]]
         let aggs: Map<ChallengeType * Strategy * Color, int> = model.CurrentRoundChallenges.Aggregates
         let statsTupleFor (challengeType: ChallengeType) (color: Color) =
-            let hawkN = Stats.valueOrZero aggs (challengeType, Hawk, color)
-            let doveN = Stats.valueOrZero aggs (challengeType, Dove, color)
+            let hawkN = RoundStats.valueOrZero aggs (challengeType, Hawk, color)
+            let doveN = RoundStats.valueOrZero aggs (challengeType, Dove, color)
             (hawkN, doveN)
 
         let statsTupleColorsCombined (challengeType: ChallengeType) =
-            let subAgg = Stats.aggregateBy (fun (challenge, strategy, _) -> (challenge, strategy)) aggs
-            let hawkN = Stats.valueOrZero subAgg (challengeType, Hawk)
-            let doveN = Stats.valueOrZero subAgg (challengeType, Dove)
+            let subAgg = RoundStats.aggregateBy (fun (challenge, strategy, _) -> (challenge, strategy)) aggs
+            let hawkN = RoundStats.valueOrZero subAgg (challengeType, Hawk)
+            let doveN = RoundStats.valueOrZero subAgg (challengeType, Dove)
             (hawkN, doveN)
 
         let statsTupleChallengeTypeCombined (color: Color) =
-            let subAgg = Stats.aggregateBy (fun (_, strategy, color) -> (strategy, color)) aggs
-            let hawkN = Stats.valueOrZero subAgg (Hawk, color)
-            let doveN = Stats.valueOrZero subAgg (Dove, color)
+            let subAgg = RoundStats.aggregateBy (fun (_, strategy, color) -> (strategy, color)) aggs
+            let hawkN = RoundStats.valueOrZero subAgg (Hawk, color)
+            let doveN = RoundStats.valueOrZero subAgg (Dove, color)
             (hawkN, doveN)
 
         let statsTupleByStrategy =
-            let subAgg = Stats.aggregateBy (fun (_, strategy, _) -> strategy) aggs
-            let hawkN = Stats.valueOrZero subAgg Hawk
-            let doveN = Stats.valueOrZero subAgg Dove
+            let subAgg = RoundStats.aggregateBy (fun (_, strategy, _) -> strategy) aggs
+            let hawkN = RoundStats.valueOrZero subAgg Hawk
+            let doveN = RoundStats.valueOrZero subAgg Dove
             (hawkN, doveN)
 
         table [ClassName "hawk-dowe-stats"] [
@@ -213,6 +213,7 @@ module Tables =
 module Fields =
     type NumberFieldProps =
         {
+            Disabled:bool
             Label: string
             Value: int
             OnChange: (int -> FieldValue)
@@ -238,6 +239,7 @@ module Fields =
                             Control.div
                                 []
                                 [ Input.number [
+                                    Input.Disabled props.Disabled
                                     Input.Props [ClassName "is-small"]
                                     Input.OnChange
                                         (fun e -> dispatch (SetValue (props.OnChange (strToInt e.Value))))
@@ -252,8 +254,19 @@ module SettingsForm =
     open Tables
     let view (model: State) (dispatch: Msg -> unit) =
         let numberField = Fields.numberField dispatch
-        match model.ViewState with
-        | InitGame ->
+        let renderStageRoundCountFields (isDisabled: bool) =
+            model.Setup.SimulationFrames
+            |> List.map<SimulationFrame, ReactElement>
+                (fun f ->
+                    numberField
+                        {
+                            Disabled = isDisabled
+                            Label =    f.StageName
+                            Value =    f.RoundCount
+                            OnChange = (fun value -> (RoundCountOfStage (f.StageName, value)))
+                        })
+
+        let renderSetupForm (isDisabled: bool) =
             div [
                     ClassName "column is-one-quarter"
                     Id "settings"
@@ -263,17 +276,12 @@ module SettingsForm =
                         str "Setting"
                     ]
 
-                    group "Duration" [
-                            numberField
-                                {
-                                    Label =    "Rounds"
-                                    Value =    model.Setup.RoundsToPlay
-                                    OnChange = (fun value -> (TotalRoundsInGame value))
-                                }
-                        ]
+                    group "Duration" (renderStageRoundCountFields isDisabled)
+
                     group "Agents" [
                             numberField
                                 {
+                                    Disabled =  isDisabled
                                     Label =    "Agent count"
                                     Value =    model.Setup.AgentCount
                                     OnChange = (fun value -> (AgentCount value))
@@ -281,6 +289,7 @@ module SettingsForm =
 
                             numberField
                                 {
+                                    Disabled =  isDisabled
                                     Label =    "Reds agents (%)"
                                     Value =    model.Setup.PortionOfRed
                                     OnChange = (fun value -> (PortionOfRed value))
@@ -291,6 +300,7 @@ module SettingsForm =
                     group "Payoff" [
                             numberField
                                 {
+                                    Disabled =  isDisabled
                                     Label =    "Reward (V)"
                                     Value =    (int model.Setup.PayoffMatrixType.VictoryBenefit)
                                     OnChange = (fun value -> (BenefitOnVictory value))
@@ -298,6 +308,7 @@ module SettingsForm =
 
                             numberField
                                 {
+                                    Disabled =  isDisabled
                                     Label =    "Cost (C)"
                                     Value =    (int model.Setup.PayoffMatrixType.Cost)
                                     OnChange = (fun value -> (CostOfLoss value))
@@ -305,7 +316,9 @@ module SettingsForm =
                             renderPayoffMatrics (model.Setup.PayoffMatrixType.ToMatrix())
                         ]
                 ]
-
+        match model.ViewState with
+        | InitGame -> renderSetupForm false
+        | Loading -> renderSetupForm true
         | ShowResults viewState ->
             div [ ClassName "column is-one-quarter"; Id "settings" ] [
                 h1  []
@@ -390,12 +403,30 @@ let view (model: State) dispatch =
   let resultPanel =
         match model.ViewState with
         | InitGame ->
-            Button.button
+            div []
                 [
-                    Button.Size IsLarge
-                    Button.OnClick (fun _ -> dispatch RunSimulation)
+                    h1 [] [
+                        str (sprintf "Results")
+                    ]
+                    br []
+                    Button.button
+                        [
+                            Button.Color IsPrimary
+                            Button.Size IsLarge
+                            Button.OnClick (fun _ -> dispatch RunSimulation)
+                        ]
+                        [ str "Run simulation" ]
                 ]
-                [ str "Run simulation" ]
+        | Loading ->
+            div []
+                [
+                    h1 [] [
+                        str (sprintf "Results")
+                    ]
+                    br []
+                    Progress.progress [Progress.Size IsLarge] []
+                    str "Running simulation..."
+                ]
         | ShowResults round ->
             div [] [
               h1 [] [
