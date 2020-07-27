@@ -123,6 +123,14 @@ module GameModes =
     //                : Strategy =
     //    agent.Strategy
 
+    let randomChoiseGame (gameInformation: GameInformation): Strategy =
+        let rand = System.Random()
+        let change = rand.NextDouble() // Range [0.0, 1.0]
+        if change < 0.5 then
+            Dove
+        else
+            Hawk
+
     let nashEqlibiumGame (gameInformation: GameInformation) : Strategy =
         let ``change of hawk`` =
             NashEquilibrium.calculateNashEquilibriumPortionOfHawksFromPayoff gameInformation.PayoffMatrix
@@ -132,6 +140,7 @@ module GameModes =
             Hawk
         else
             Dove
+
 
     let nashEqlibiumOnBasedOfPayoffAndHistory (gameInformation: GameInformation) =
         let total =
@@ -183,7 +192,7 @@ module GameModes =
         choise
 
 
-    let stage2Game (gameInformation: GameInformation): Strategy =
+    let highestEuOnDifferentColorGame (onSameColorStragy: GameInformation -> Strategy) (gameInformation: GameInformation): Strategy =
         let probablities: PropabilityMap option =
             Stats.calcProbablities gameInformation
 
@@ -191,6 +200,7 @@ module GameModes =
         | (None, _) ->
             // if there are not stats play nashEquilibium game
             nashEqlibiumGame gameInformation
+        | (Some p, opponentColor) when opponentColor = gameInformation.Agent.Color -> onSameColorStragy gameInformation
         | (Some p, opponentColor) ->
             let agent = gameInformation.Agent
             let matrix = gameInformation.PayoffMatrix
@@ -204,21 +214,18 @@ module GameModes =
             let euDove = pHawk * getPayoff (Dove, Hawk) +
                          pDove * getPayoff (Dove, Dove)
 
-            match (agent.Color = opponentColor), (euHawk - euDove) with
-            | true , _ -> onHawksOnLastRound gameInformation
-
+            match (euHawk - euDove) with
             // When you have expected value for playing hawk and playing dove are equal
             // choose randomly
-            | false, 0.0 ->
-                let rand = System.Random()
-                let change = rand.NextDouble() // Range [0.0, 1.0]
-                if change < 0.5 then
-                    Dove
-                else
-                    Hawk
+            | 0.0 -> randomChoiseGame gameInformation
             // if expected payoff for playing hawk is better, play hawk
             // otherwise play dove
-            | false, diff when diff >= 0.0 ->
-                Hawk
-            | _  ->
-                Dove
+            | diff when diff >= 0.0 -> Hawk
+            | _  -> Dove
+
+    let stage2Game = highestEuOnDifferentColorGame nashEqlibiumGame
+
+    let stage3Game (gameInformation: GameInformation): Strategy =
+        match gameInformation.Agent.Strategy with
+        | None -> nashEqlibiumGame gameInformation
+        | Some choice -> choice

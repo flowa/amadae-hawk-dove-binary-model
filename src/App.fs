@@ -11,10 +11,6 @@ let runSimulationAsync (setup: GameSetup) =
         let initialAgents = setup.GenerateAgents()
 
         let! afterSimulation = initialGameState.SimulateRoundsAsync initialAgents
-                                // setup.RoundsToPlay
-                                // GameModes.nashEqlibiumGame
-                                // GameModes.stage2Game
-                                // GameModes.simpleGame
         return afterSimulation
         // {
         //     Setup = setup
@@ -41,6 +37,11 @@ let init () =
                     SimulationFrame.RoundCount = 10
                     StageName = "Stage 2"
                     StrategyFn = GameModes.stage2Game
+                }
+                {
+                    SimulationFrame.RoundCount = 10
+                    StageName = "Stage 3"
+                    StrategyFn = GameModes.stage3Game
                 }
             ]
             // StrategySpecs = [Hawk, 3; Dove, 3]
