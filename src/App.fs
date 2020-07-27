@@ -7,17 +7,17 @@ open Simulation
 // MODEL
 let runSimulationAsync (setup: GameSetup) =
     promise {
+        printfn "0"
         let initialGameState = setup.ToInitialGameState()
+
+        printfn "f"
         let initialAgents = setup.GenerateAgents()
+        printfn "1"
 
         let! afterSimulation = initialGameState.SimulateRoundsAsync initialAgents
+        printfn "2"
+
         return afterSimulation
-        // {
-        //     Setup = setup
-        //     State = afterSimulation
-        //     ViewState = ShowResults (setup.RoundsToPlay)
-        //     PlayAnimation = false
-        // }
     }
 
 
@@ -63,13 +63,6 @@ let init () =
             // - row per stage, avg payoff for per color and per strategy
             // Add cability so see historical round and animation
 
-
-            // PayoffMatrixType = Custom [
-            //     (Hawk, Hawk), (0.0, 0.0)
-            //     (Hawk, Dove), (4.0, 0.0)
-            //     (Dove, Hawk), (0.0, 4.0)
-            //     (Dove, Dove), (2.0, 2.0)
-            // ]
         }
     let initialGameState = setup.ToInitialGameState()
     {

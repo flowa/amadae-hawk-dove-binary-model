@@ -1,6 +1,8 @@
 module MainView
 
 open Model
+open Statistics
+open Statistics.ModelExtensions
 open Elmish
 open Elmish.React
 open Fable.React
@@ -388,7 +390,7 @@ module ResultTable =
 
   let view (model: State) dispatch =
     let currentRound = model.CurrentRound
-    let currentRoundAgents = model.CurrentRoundAgents()
+    let currentRoundAgents = model.CurrentRoundAgents
 
     let agents =
         currentRoundAgents

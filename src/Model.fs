@@ -128,11 +128,12 @@ type GameRound =
             |> List.fold (updateStats) initialValue
 
 type GameHistory =
-    | Rounds of GameRound list
+    | Rounds of GameRound array
     member this.Append(round: GameRound) =
         match this with
-        | Rounds previousRounds -> Rounds (List.append previousRounds [round])
-    member this.ToList() =
+        | Rounds previousRounds -> Rounds (Array.append previousRounds [|round|])
+    member this.ToList() = this.Unwrap() |> List.ofArray
+    member this.Unwrap() =
         match this with
         | Rounds rounds -> rounds
     member this.TotalRounds with get() = this.ToList().Length
@@ -209,7 +210,7 @@ type GameState =
     member this.SimulateRoundsAsync (agents: Agent list) =
         promise {
             // let! (_, playedRounds: GameHistory), err =
-            let initialValue = Promise.lift (agents, (Rounds []))
+            let initialValue = Promise.lift (agents, (Rounds [||]))
             let! (_, playedRounds) =
                 this.PlannedRounds
                 |> List.fold
@@ -276,6 +277,7 @@ type GameSetup =
                     Strategy = None
                     Payoff = 0.0
                 }) colors agentIds
+
     member this.ToInitialGameState () =
         let payoffMatrics = this.PayoffMatrixType.ToMatrix()
         let plannedRounds =
@@ -294,7 +296,7 @@ type GameSetup =
         {
             PayoffMatrix   = payoffMatrics
             PlannedRounds  = plannedRounds
-            ResolvedRounds = Rounds []
+            ResolvedRounds = Rounds [||]
         }
 
 type ShowResultsViewState =
@@ -321,19 +323,17 @@ type State =
     member this.CurrentRoundChallenges
         with get() =
             this.State.ResolvedRounds.GetRoundByRoundNumber(this.CurrentRound)
-
-    member this.CurrentRoundAgents() =
-        match this.ViewState with
-        | ShowResults round ->
-            this.State.ResolvedRounds.GetRoundByRoundNumber(round).Agents
-        | _ -> []
+    member this.CurrentRoundAgents
+        with get() =
+            match this.ViewState with
+            | ShowResults round ->
+                this.State.ResolvedRounds.GetRoundByRoundNumber(round).Agents
+            | _ -> []
     member this.CurrentStageName
         with get() =
             match this.ViewState with
             | ShowResults round -> this.State.PlannedRounds.[round - 1].StageName
             | _ -> String.Empty
-
-
 
 type FieldValue =
     | RoundCountOfStage of stageName: string * roundCount: int
@@ -351,39 +351,3 @@ type Msg =
     | Tick of DateTime
     | PlayAnimation
     | StopAnimation
-
-
-module RoundStats =
-    let calcRoundAggregates (round: GameRound): Map<ChallengeType * Strategy * Color, int> =
-        let items = round.ToList()
-        items
-        |>  List.collect (
-            fun challenge ->
-                let (a1, a2) = challenge.Players
-                let challengeType = challenge.ChalengeType
-                [
-                    (challengeType, a1.Strategy.Value, a1.Color)
-                    (challengeType, a2.Strategy.Value, a2.Color)
-                ]
-            )
-        |> List.groupBy id
-        |> List.map (fun (key, items) -> (key, items.Length))
-        |> Map.ofList
-
-    let aggregateBy<'a when 'a : equality and 'a : comparison>
-        (keyFn: ChallengeType * Strategy * Color -> 'a)
-        (aggs: Map<ChallengeType * Strategy * Color, int>): Map<'a, int> =
-        aggs
-        |> Map.toList
-        |> List.map (fun (key, total) -> (keyFn key), total)
-        |> List.groupBy (fun (key, _) -> key)
-        |> List.map (fun (key, subAggs) -> key, subAggs |> List.sumBy (fun (_, value) -> value))
-        |> Map.ofList
-
-    let valueOrZero<'a when 'a : equality and 'a : comparison> (map: Map<'a, int>) (key: 'a) =
-        match map.TryFind(key) with
-        | None -> 0
-        | Some v -> v
-
-type GameRound with
-    member this.Aggregates with get() = RoundStats.calcRoundAggregates(this)

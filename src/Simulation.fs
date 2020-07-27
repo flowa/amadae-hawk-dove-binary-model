@@ -57,7 +57,7 @@ module NashEquilibrium =
 
 module Stats =
     let calcStatsForLastRound (rounds: GameHistory): ColorStatistics =
-        let lastRound = rounds.ToList() |> List.rev |> List.head
+        let lastRound = rounds.Unwrap() |> Array.last
         lastRound.ColorStats()
 
     let calcStrategyPropability
@@ -100,9 +100,9 @@ module Stats =
         (gameState: GameInformation)
         : PropabilityMap option =
                 match gameState.History with
-                | Rounds [] -> None
+                | Rounds [||] -> None
                 | Rounds rounds ->
-                    let lastRound = rounds |> List.last
+                    let lastRound = rounds |> Array.last
                     lastRound.ToList()
                     |> List.collect mapToColorChoicePairs
                     |> List.groupBy (fun (color, _) -> color)

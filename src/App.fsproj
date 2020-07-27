@@ -5,6 +5,7 @@
   <ItemGroup>
     <Compile Include="Helpers.fs" />
     <Compile Include="Model.fs" />
+    <Compile Include="Statistics.fs" />
     <Compile Include="Simulation.fs" />
     <Compile Include="MainView.fs" />
     <Compile Include="App.fs" />
