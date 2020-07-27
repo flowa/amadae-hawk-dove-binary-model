@@ -142,6 +142,10 @@ type GameHistory =
         this.ToList().[roundIndex]
     member this.GetRoundCount() =
         this.ToList().Length
+    member this.HasHistory
+        with get() = this.Unwrap() |> Array.isEmpty |> not
+    member this.LastRoundChallenges
+        with get() = this.Unwrap() |> Array.last
 
 type GameInformation =
     {

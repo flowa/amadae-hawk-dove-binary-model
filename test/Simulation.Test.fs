@@ -14,10 +14,10 @@ Jest.describe("NashEquilibrioum", fun () ->
 
 module TestData  =
     module Agents =
-        let BH = {Agent.Color = Blue; Strategy = Hawk; Id = 0; Payoff = 0.0 }
-        let RH = {Agent.Color = Red; Strategy = Hawk; Id = 1; Payoff = 0.0 }
-        let BD = {Agent.Color = Blue; Strategy = Dove; Id = 3; Payoff = 0.0 }
-        let RD = {Agent.Color = Red; Strategy = Dove; Id = 2; Payoff = 0.0 }
+        let BH = {Agent.Color = Blue; Strategy = Some Hawk; Id = 0; Payoff = 0.0 }
+        let RH = {Agent.Color = Red; Strategy = Some Hawk; Id = 1; Payoff = 0.0 }
+        let BD = {Agent.Color = Blue; Strategy = Some Dove; Id = 3; Payoff = 0.0 }
+        let RD = {Agent.Color = Red; Strategy = Some Dove; Id = 2; Payoff = 0.0 }
 
     module Challenges =
         let RedVsBlue =

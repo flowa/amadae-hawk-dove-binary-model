@@ -56,67 +56,13 @@ module NashEquilibrium =
 
 
 module Stats =
-    let calcStatsForLastRound (rounds: GameHistory): ColorStatistics =
-        let lastRound = rounds.Unwrap() |> Array.last
-        lastRound.ColorStats()
-
-    let calcStrategyPropability
-        (color: Color, choises: Strategy list)
-        : PropabilitiesForColor =
-        let total = (float choises.Length)
-        let countFor choice =
-            choises
-            |> List.filter (fun item -> item = choice)
-            |> List.length
-            |> float
-
-        color, {
-           Hawk = (countFor Hawk) / total
-           Dove = (countFor Dove) / total
-        }
-
-    let mapToColorChoicePairs
-        (challenge: ResolvedChallenge):
-        (Color * Strategy) list =
-        match challenge with
-        | { ResolvedChallenge.Players = (p1, p2)
-            Choices = (c1, c2)} ->
-                [
-                    (p1.Color, c1)
-                    (p2.Color, c2)
-                ]
-
-    let selectStartegyFromPair
-        (pairs: (Color * Strategy) list )
-        : Strategy list =
-        pairs
-        |> List.map (fun (c, s) -> s)
-
-    let mapToColorStrategyListPair
-        (color: Color, pairs) =
-        (color, selectStartegyFromPair pairs)
-
-    let calcProbablities
-        (gameState: GameInformation)
-        : PropabilityMap option =
-                match gameState.History with
-                | Rounds [||] -> None
-                | Rounds rounds ->
-                    let lastRound = rounds |> Array.last
-                    lastRound.ToList()
-                    |> List.collect mapToColorChoicePairs
-                    |> List.groupBy (fun (color, _) -> color)
-                    |> List.map (mapToColorStrategyListPair
-                                >> calcStrategyPropability)
-                    |> Map.ofList
-                    |> Some
-
     let myPayoff (matrix: PayoffMatrix) pair =
         let (myPayoff, _) = matrix.[pair]
         myPayoff
 
 let rand = System.Random()
 module GameModes =
+    open Statistics.ModelExtensions
     // let simpleGame (agent: Agent)
     //                (opponentColor: Color)
     //                (gameState: GameState)
@@ -131,7 +77,7 @@ module GameModes =
         else
             Hawk
 
-    let nashEqlibiumGame (gameInformation: GameInformation) : Strategy =
+    let nashMixedStrategyEquilibriumGame (gameInformation: GameInformation) : Strategy =
         let ``change of hawk`` =
             NashEquilibrium.calculateNashEquilibriumPortionOfHawksFromPayoff gameInformation.PayoffMatrix
 
@@ -142,17 +88,9 @@ module GameModes =
             Dove
 
 
-    let nashEqlibiumOnBasedOfPayoffAndHistory (gameInformation: GameInformation) =
-        let total =
-            gameInformation.Agents
-            |> List.filter (fun a -> a.Color = gameInformation.OpponentColor)
-            |> List.length
-            |> float
-
-        let hawkPortion =
-            let stats = Stats.calcStatsForLastRound gameInformation.History
-            let countOfHawks = stats.HawkCountFor gameInformation.OpponentColor
-            countOfHawks / total
+    let nashMixedStrategyEquilibriumPayoffAndHistory (gameInformation: GameInformation) =
+        let opposingColorStats = gameInformation.History.LastRoundChallenges.StrategyStatsFor (gameInformation.OpponentColor)
+        let hawkPortion = opposingColorStats.HawkPortion
 
         let ``change of hawk`` =
             NashEquilibrium.calculateNashEquilibriumPortionOfHawksFromPayoffAndPortionOfHawks
@@ -166,20 +104,8 @@ module GameModes =
             Dove
 
     let onHawksOnLastRound (gameInformation: GameInformation) =
-
-        let total =
-            gameInformation.Agents
-            |> List.filter (fun a -> a.Color = gameInformation.OpponentColor)
-            |> List.length
-            |> float
-        let roundCount = gameInformation.History.GetRoundCount()
-
-        let hawkPortion =
-            let stats = Stats.calcStatsForLastRound gameInformation.History
-            printfn "Round: %i stats: %O" roundCount stats
-            let countOfHawks = stats.HawkCountFor gameInformation.OpponentColor
-            countOfHawks / total
-
+        let lastRoundStats = gameInformation.History.LastRoundChallenges.StrategyStats ()
+        let hawkPortion = lastRoundStats.HawkPortion
         let chance = rand.NextDouble() // range [0.0, 1.0[
         let choise =
             if (hawkPortion > chance) then
@@ -187,26 +113,25 @@ module GameModes =
             else
                 Dove
 
-        printfn "Round: %i Total: %f; hawks (%%): %f (random %f), opponent color %O (vs. %O) => choise: %O"
-                (gameInformation.History.GetRoundCount()) total hawkPortion chance gameInformation.OpponentColor gameInformation.Agent.Color choise
         choise
 
 
-    let highestEuOnDifferentColorGame (onSameColorStragy: GameInformation -> Strategy) (gameInformation: GameInformation): Strategy =
-        let probablities: PropabilityMap option =
-            Stats.calcProbablities gameInformation
+    let highestEuOnDifferentColorGame (onSameColorStragy: GameInformation -> Strategy) (info: GameInformation): Strategy =
 
-        match (probablities, gameInformation.OpponentColor) with
-        | (None, _) ->
+        match (info.History.HasHistory, info.OpponentColor) with
+        | (false, _) ->
             // if there are not stats play nashEquilibium game
-            nashEqlibiumGame gameInformation
-        | (Some p, opponentColor) when opponentColor = gameInformation.Agent.Color -> onSameColorStragy gameInformation
-        | (Some p, opponentColor) ->
-            let agent = gameInformation.Agent
-            let matrix = gameInformation.PayoffMatrix
+            nashMixedStrategyEquilibriumGame info
+        | (true, opponentColor) when opponentColor = info.Agent.Color ->
+            onSameColorStragy info
+        | (true, opponentColor) ->
+            let agent = info.Agent
+            let matrix = info.PayoffMatrix
             let getPayoff = Stats.myPayoff matrix
-            let pHawk = (p.Item opponentColor).Hawk
-            let pDove = (p.Item opponentColor).Dove
+            let lastRound = info.History.LastRoundChallenges
+            let opposingColorStats = lastRound.StrategyStatsFor (opponentColor)
+            let pHawk = opposingColorStats.HawkPortion
+            let pDove = opposingColorStats.DovePortion
 
             // Caclulate expected payoff for playinf hawk and for playing dove
             let euHawk = pHawk * getPayoff (Hawk, Hawk) +
@@ -217,15 +142,15 @@ module GameModes =
             match (euHawk - euDove) with
             // When you have expected value for playing hawk and playing dove are equal
             // choose randomly
-            | 0.0 -> randomChoiseGame gameInformation
+            | 0.0 -> randomChoiseGame info
             // if expected payoff for playing hawk is better, play hawk
             // otherwise play dove
-            | diff when diff >= 0.0 -> Hawk
+            | diff when diff > 0.0 -> Hawk
             | _  -> Dove
 
-    let stage2Game = highestEuOnDifferentColorGame nashEqlibiumGame
+    let stage2Game = highestEuOnDifferentColorGame nashMixedStrategyEquilibriumGame
 
     let stage3Game (gameInformation: GameInformation): Strategy =
         match gameInformation.Agent.Strategy with
-        | None -> nashEqlibiumGame gameInformation
+        | None -> nashMixedStrategyEquilibriumGame gameInformation
         | Some choice -> choice

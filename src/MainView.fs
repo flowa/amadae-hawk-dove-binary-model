@@ -101,21 +101,17 @@ module Tables =
                 ]
             ]
 
-    let hawkDoveStats className (hawkN: int, doveN: int) =
+    let hawkDoveStats className (stats: RoundStats.StrategyStats) = // (hawkN: int, doveN: int) =
         let format (n, portion) =
-            sprintf "%i (%.0f%%)" n portion
-        let totalN = hawkN + doveN
-        let portionFor a =
-            match totalN with
-            | 0 -> 0.0
-            | _ -> ((float a) / (float totalN)) * 100.0
+            sprintf "%i (%.0f%%)" n (portion * 100.0)
+
 
         table [ClassName ("hawk-dove-stats " + className)] [
             tbody []
                 [
-                    row [ cell ((hawkN, (portionFor hawkN)) |> format) ]
-                    row [ cell ((doveN, (portionFor doveN)) |> format) ]
-                    row [ td [ClassName "Sum"] [ofInt totalN] ]
+                    row [ cell ((stats.HawkN, stats.HawkPortion) |> format) ]
+                    row [ cell ((stats.DoveN, stats.DovePortion) |> format) ]
+                    row [ td [ClassName "Sum"] [ofInt stats.TotalN] ]
                 ]
             ]
 
@@ -123,30 +119,8 @@ module Tables =
         let intentTd = td [ClassName "cell-intent"] []
         let subTitle title =
             tr [Class "subtitle-row"] [th [ColSpan 4] [str title]]
-        let aggs: Map<ChallengeType * Strategy * Color, int> = model.CurrentRoundChallenges.Aggregates
-        let statsTupleFor (challengeType: ChallengeType) (color: Color) =
-            let hawkN = RoundStats.valueOrZero aggs (challengeType, Hawk, color)
-            let doveN = RoundStats.valueOrZero aggs (challengeType, Dove, color)
-            (hawkN, doveN)
 
-        let statsTupleColorsCombined (challengeType: ChallengeType) =
-            let subAgg = RoundStats.aggregateBy (fun (challenge, strategy, _) -> (challenge, strategy)) aggs
-            let hawkN = RoundStats.valueOrZero subAgg (challengeType, Hawk)
-            let doveN = RoundStats.valueOrZero subAgg (challengeType, Dove)
-            (hawkN, doveN)
-
-        let statsTupleChallengeTypeCombined (color: Color) =
-            let subAgg = RoundStats.aggregateBy (fun (_, strategy, color) -> (strategy, color)) aggs
-            let hawkN = RoundStats.valueOrZero subAgg (Hawk, color)
-            let doveN = RoundStats.valueOrZero subAgg (Dove, color)
-            (hawkN, doveN)
-
-        let statsTupleByStrategy =
-            let subAgg = RoundStats.aggregateBy (fun (_, strategy, _) -> strategy) aggs
-            let hawkN = RoundStats.valueOrZero subAgg Hawk
-            let doveN = RoundStats.valueOrZero subAgg Dove
-            (hawkN, doveN)
-
+        let challenges = model.CurrentRoundChallenges
         table [ClassName "hawk-dowe-stats"] [
             thead [] [
                 row [
@@ -154,31 +128,30 @@ module Tables =
                         cellHeader "Red" "Red"
                         cellHeader "Blue" "Blue"
                         cellHeader "AllTotal" "All"
-
                     ]
             ]
             tbody [] [
                 subTitle "Different color"
                 row [
                         cellHtml hawkDoveStatsHeader
-                        cellHtml (hawkDoveStats "Red"  (statsTupleFor DifferentColor Red))
-                        cellHtml (hawkDoveStats "Blue" (statsTupleFor DifferentColor Blue))
-                        cellHtml (hawkDoveStats "All"  (statsTupleColorsCombined DifferentColor))
+                        cellHtml (hawkDoveStats "Red"  (challenges.StrategyStatsFor (DifferentColor, Red)))
+                        cellHtml (hawkDoveStats "Blue" (challenges.StrategyStatsFor (DifferentColor, Blue)))
+                        cellHtml (hawkDoveStats "All"  (challenges.StrategyStatsFor DifferentColor))
                     ]
                 subTitle "Same color"
                 row [
                         cellHtml hawkDoveStatsHeader
-                        cellHtml (hawkDoveStats "Red" (statsTupleFor SameColor Red))
-                        cellHtml (hawkDoveStats "Blue" (statsTupleFor SameColor Blue))
-                        cellHtml (hawkDoveStats "All" (statsTupleColorsCombined SameColor))
+                        cellHtml (hawkDoveStats "Red"  (challenges.StrategyStatsFor(SameColor, Red)))
+                        cellHtml (hawkDoveStats "Blue" (challenges.StrategyStatsFor(SameColor, Blue)))
+                        cellHtml (hawkDoveStats "All"  (challenges.StrategyStatsFor(SameColor)))
                     ]
 
                 subTitle "All"
                 row [
                         cellHtml hawkDoveStatsHeader
-                        cellHtml (hawkDoveStats "Red"  (statsTupleChallengeTypeCombined Red))
-                        cellHtml (hawkDoveStats "Blue" (statsTupleChallengeTypeCombined Blue))
-                        cellHtml (hawkDoveStats "All"  statsTupleByStrategy)
+                        cellHtml (hawkDoveStats "Red"  (challenges.StrategyStatsFor Red))
+                        cellHtml (hawkDoveStats "Blue" (challenges.StrategyStatsFor Blue))
+                        cellHtml (hawkDoveStats "All"  (challenges.StrategyStats ()))
                     ]
             ]
         ]

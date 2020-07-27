@@ -31,7 +31,7 @@ let init () =
                 {
                     SimulationFrame.RoundCount = 10
                     StageName = "Stage 1"
-                    StrategyFn = GameModes.nashEqlibiumGame
+                    StrategyFn = GameModes.nashMixedStrategyEquilibriumGame
                 }
                 {
                     SimulationFrame.RoundCount = 10
