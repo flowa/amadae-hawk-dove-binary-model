@@ -2,17 +2,14 @@ module Simulation
 
 open Model
 
-module GameModes =
-    open Statistics.ModelExtensions
-
-    // Helpers
-    // Composite strategy make it easier to test and read strategies
+module Composition =
     type CompositeStrategySetup =
         {
             NoHistoryStrategy: GameInformation -> Strategy;
             SameColorStrategy: GameInformation -> Strategy;
             DifferentColorStrategy: GameInformation -> Strategy
         }
+
     let compositeStrategy (setup: CompositeStrategySetup) (info: GameInformation) =
         match (info.History.HasHistory, info.OpponentColor) with
         | (false, _) ->
@@ -22,6 +19,8 @@ module GameModes =
         | _ ->
             setup.DifferentColorStrategy info
 
+module GameMode =
+    open Statistics.ModelExtensions
 
     /// Random Choice game is used in e.g. in stage 2 when euHawk = euDove
     let randomChoiceGame (info: GameInformation): Strategy =
@@ -30,17 +29,14 @@ module GameModes =
         else
             Hawk
 
-
-    let nashMixedStrategyEquilibriumGameFromPayoff (info: GameInformation) : Strategy =
+    let nashMixedStrategyEquilibriumGameFromPayoffParameters (info: GameInformation) : Strategy =
         let ``change of hawk`` =
-            let (hawkMax, doveMin) = info.PayoffMatrix.GetPayoffFor(Hawk, Dove)
-            let (doveMax, _)       = info.PayoffMatrix.GetPayoffFor(Dove, Dove)
-            let (hawkMin, _)       = info.PayoffMatrix.GetPayoffFor(Hawk, Hawk)
-            match (hawkMin - doveMin) with
+            let C = info.PayoffMatrix.``Cost (C)``
+            let V = info.PayoffMatrix.``Revard (V)``
+            match C with
             | 0.0 -> 1.0
             | _ ->
-                let hawksPerDove = (doveMax - hawkMax) / (hawkMin - doveMin)
-                let portionOfHawks = hawksPerDove / (1.0 + hawksPerDove)
+                let portionOfHawks = V / C
                 if (portionOfHawks > 1.0) then
                     1.0
                 else
@@ -50,41 +46,11 @@ module GameModes =
             Hawk
         else
             Dove
-
-
-    // let nashMixedStrategyEquilibriumPayoffAndHistory (info: GameInformation) =
-    //     let ``change of hawk`` =
-    //         let payoff = info.PayoffMatrix
-    //         let stats = info.History.LastRoundChallenges.StrategyStatsFor (info.OpponentColor)
-    //         // Caclulate expected payoff for playinf hawk and for playing dove
-    //         let euHawk = stats.HawkPortion * payoff.GetMyPayoff (Hawk, Hawk) +
-    //                      stats.DovePortion * payoff.GetMyPayoff (Hawk, Dove)
-    //         let euDove = stats.HawkPortion * payoff.GetMyPayoff (Dove, Hawk) +
-    //                      stats.DovePortion * payoff.GetMyPayoff (Dove, Dove)
-
-    //         match euDove with
-    //         | 0.0 -> 1.0
-    //         | _ ->
-    //             // Presuming that everyone play alike in last round
-    //             let equilibirium = euHawk / euDove
-    //             let portionOfHawks = equilibirium / (1.0 + equilibirium)
-    //             if (portionOfHawks > 1.0) then
-    //                 1.0
-    //             else
-    //                 portionOfHawks
-
-    //     if (``change of hawk`` > info.RandomNumber) then // random number range [0.0, 1.0[
-    //         Hawk
-    //     else
-    //         Dove
-
-    let onHawksOnLastRound (info: GameInformation) =
-        let lastRoundStats = info.History.LastRoundChallenges.StrategyStats ()
-        let hawkPortion = lastRoundStats.HawkPortion
-        if (hawkPortion > info.RandomNumber) then // random number range: [0.0, 1.0[
-            Hawk
-        else
-            Dove
+    let keepSameStrategy (info: GameInformation): Strategy  =
+        match info.Agent.Strategy with
+        // TODO: Should this be randomm
+        | None -> nashMixedStrategyEquilibriumGameFromPayoffParameters info
+        | Some choice -> choice
 
     let highestEuOnDifferentColorGame (info: GameInformation): Strategy =
             let payoff = info.PayoffMatrix
@@ -110,14 +76,67 @@ module GameModes =
             | diff when diff > 0.0 -> Hawk
             | _  -> Dove
 
-    let stage2Game = compositeStrategy {
-            NoHistoryStrategy = nashMixedStrategyEquilibriumGameFromPayoff
-            SameColorStrategy = nashMixedStrategyEquilibriumGameFromPayoff
-            DifferentColorStrategy = highestEuOnDifferentColorGame
+// These modes are included in this file temporarily and are not used in the simulation
+module ExtraGameModes =
+    open Statistics.ModelExtensions
+    let nashMixedStrategyEquilibriumGameFromPayoffMatrix (info: GameInformation) : Strategy =
+        let ``change of hawk`` =
+            let (hawkMax, doveMin) = info.PayoffMatrix.GetPayoffFor(Hawk, Dove)
+            let (doveMax, _)       = info.PayoffMatrix.GetPayoffFor(Dove, Dove)
+            let (hawkMin, _)       = info.PayoffMatrix.GetPayoffFor(Hawk, Hawk)
+            match (hawkMin - doveMin) with
+            | 0.0 -> 1.0
+            | _ ->
+                let hawksPerDove = (doveMax - hawkMax) / (hawkMin - doveMin)
+                let portionOfHawks = hawksPerDove / (1.0 + hawksPerDove)
+                if (portionOfHawks > 1.0) then
+                    1.0
+                else
+                    portionOfHawks
+
+        if (``change of hawk`` > info.RandomNumber) then // Random number range [0.0, 1.0[
+            Hawk
+        else
+            Dove
+
+    let dependingHawksWithinColorSegment (info: GameInformation) =
+        let lastRoundStats = info.History.LastRoundChallenges.StrategyStatsFor (info.OpponentColor)
+        let hawkPortion = lastRoundStats.HawkPortion
+        if (hawkPortion > info.RandomNumber) then // random number range: [0.0, 1.0[
+            Hawk
+        else
+            Dove
+
+    let onHawksOnLastRound (info: GameInformation) =
+        let lastRoundStats = info.History.LastRoundChallenges.StrategyStats ()
+        let hawkPortion = lastRoundStats.HawkPortion
+        if (hawkPortion > info.RandomNumber) then // random number range: [0.0, 1.0[
+            Hawk
+        else
+            Dove
+
+
+module SimulationStages =
+
+    let stage1Game  = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+
+    let stage2Game = Composition.compositeStrategy {
+            NoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+            SameColorStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+            DifferentColorStrategy = GameMode.highestEuOnDifferentColorGame
         }
 
-    let stage3Game (gameInformation: GameInformation): Strategy =
-        match gameInformation.Agent.Strategy with
-        // TODO: Should this be randomm
-        | None -> nashMixedStrategyEquilibriumGameFromPayoff gameInformation
-        | Some choice -> choice
+    let stage2GameVersion2 = Composition.compositeStrategy {
+            NoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+            SameColorStrategy = GameMode.keepSameStrategy
+            DifferentColorStrategy = GameMode.highestEuOnDifferentColorGame
+        }
+
+    let stage2GameVersion3 = Composition.compositeStrategy {
+            NoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+            SameColorStrategy = ExtraGameModes.dependingHawksWithinColorSegment
+            DifferentColorStrategy = GameMode.highestEuOnDifferentColorGame
+        }
+
+
+    let stage3Game  = GameMode.keepSameStrategy

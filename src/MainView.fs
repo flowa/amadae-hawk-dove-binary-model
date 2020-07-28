@@ -265,7 +265,7 @@ module SettingsForm =
                             numberField
                                 {
                                     Disabled =  isDisabled
-                                    Label =    "Reds agents (%)"
+                                    Label =    "Red agents (%)"
                                     Value =    model.Setup.PortionOfRed
                                     OnChange = (fun value -> (PortionOfRed value))
                                 }
@@ -340,14 +340,16 @@ module SettingsForm =
             ]
 
 module ResultTable =
-  let agentBox (rounds: int) (model: Agent) =
+  let agentBox (usedColor: bool) (rounds: int) (model: Agent) =
+    let colorTypeColor =
+        if usedColor then model.Color.ToString() else "UnknownColor"
     let avg =
       match rounds with
       | 0 -> 0.0
       | r -> model.Payoff / (float r)
     div [
             Key (model.Id.ToString())
-            ClassName (sprintf "agent-box fade-in %A %A" model.Color model.Strategy.Value)
+            ClassName (sprintf "agent-box fade-in %s %A" colorTypeColor model.Strategy.Value)
         ] [
           div [ ClassName "strategy" ] [ str (sprintf "%A" model.Strategy.Value) ]
           div [ ClassName "payoff"]
@@ -367,13 +369,14 @@ module ResultTable =
   let view (model: State) dispatch =
     let currentRound = model.CurrentRound
     let currentRoundAgents = model.CurrentRoundAgents
+    let mayUseColor = model.CurrentStageMayUseColor;
 
     let agents =
         currentRoundAgents
         |> List.groupBy (fun a -> a.LastRoundChallengeType)
         |> List.map (fun (group, agents) ->
                         group,
-                        agents |> List.map (agentBox currentRound))
+                        agents |> List.map (agentBox mayUseColor currentRound))
         |> Map.ofList
 
     div [ ClassName "agent-group" ] [
@@ -385,9 +388,6 @@ module ResultTable =
 
 // Main view
 let view (model: State) dispatch =
-  let currentRound = model.CurrentRound
-  let currentRound = model.CurrentRound
-  let roundData = model
   let resultPanel =
         match model.ViewState with
         | InitGame ->

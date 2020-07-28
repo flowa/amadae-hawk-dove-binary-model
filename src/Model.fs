@@ -78,25 +78,12 @@ type ResolvedChallenge =
         // Players after game was resolved
         Players: Agent * Agent
     }
-    member this.ToList () =
-        match this.Players with
-        | (first, second) -> [first; second]
     member this.ChalengeType
         with get() =
             match this.Players with
             | p2, p1 when p1.Color = p2.Color -> SameColor
             | _ -> DifferentColor
 
-// type PayoffMatrix =
-//    Map<(Strategy * Strategy), (float * float)>
-
-// Payoff matrics is type alias hence extension methos is used
-// [<System.Runtime.CompilerServices.Extension>]
-// type PayoffMatrixExtensions =
-//     [<System.Runtime.CompilerServices.Extension>]
-//     static member inline GetMyPayoff (this: PayoffMatrixType, myChoise:Strategy, opponentChoise: Strategy) =
-//         let (myPayoff, _) = PayoffMatrixType.ToMatrix().[(myChoise, opponentChoise)]
-//         myPayoff
 
 type PayoffMatrixType =
     | FromRewardAndCost of reward: float * cost: float
@@ -196,6 +183,7 @@ type PlannedRound =
         PayoffMatrix: PayoffMatrixType
         StrategyFn: StrategyFn
         StageName: string
+        MayUseColor: bool
     }
     member this.PlayRound (agents: Agent list) (history: GameHistory) =
         let gamePairs =
@@ -269,6 +257,7 @@ type SimulationFrame =
         RoundCount: int
         StageName: string
         StrategyFn: StrategyFn
+        MayUseColor: bool
     }
 
 type GameSetup =
@@ -317,6 +306,7 @@ type GameSetup =
                                PayoffMatrix = payoffMatrics
                                StrategyFn = frame.StrategyFn
                                StageName = frame.StageName
+                               MayUseColor = frame.MayUseColor
                             }
                         List.replicate frame.RoundCount plannedRound
                     )
@@ -361,6 +351,11 @@ type State =
             match this.ViewState with
             | ShowResults round -> this.GameState.PlannedRounds.[round - 1].StageName
             | _ -> String.Empty
+    member this.CurrentStageMayUseColor
+        with get() =
+            match this.ViewState with
+            | ShowResults round -> this.GameState.PlannedRounds.[round - 1].MayUseColor
+            | _ -> false
 
 type FieldValue =
     | RoundCountOfStage of stageName: string * roundCount: int

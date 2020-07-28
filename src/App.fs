@@ -31,17 +31,31 @@ let init () =
                 {
                     SimulationFrame.RoundCount = 10
                     StageName = "Stage 1"
-                    StrategyFn = GameModes.nashMixedStrategyEquilibriumGameFromPayoff
+                    StrategyFn = SimulationStages.stage1Game
+                    MayUseColor = false
                 }
                 {
-                    SimulationFrame.RoundCount = 10
-                    StageName = "Stage 2"
-                    StrategyFn = GameModes.stage2Game
+                     SimulationFrame.RoundCount = 10
+                     StageName = "Stage 2"
+                     StrategyFn = SimulationStages.stage2Game
+                     MayUseColor = true
+
                 }
+                // {
+                //     SimulationFrame.RoundCount = 10
+                //     StageName = "Stage 2 v2"
+                //     StrategyFn = SimulationStages.stage2GameVersion2
+                // }
+                // {
+                //      SimulationFrame.RoundCount = 10
+                //      StageName = "Stage 2 v3"
+                //      StrategyFn = SimulationStages.stage2GameVersion3
+                // }
                 {
                     SimulationFrame.RoundCount = 10
                     StageName = "Stage 3"
-                    StrategyFn = GameModes.stage3Game
+                    StrategyFn = SimulationStages.stage3Game
+                    MayUseColor = true
                 }
             ]
 
