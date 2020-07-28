@@ -26,12 +26,12 @@ let init () =
         {
             GameSetup.AgentCount = 100
             PortionOfRed = 50
-            PayoffMatrixType = FromRewardAndCost (10.0, 20.0)
+            PayoffMatrix = FromRewardAndCost (10.0, 20.0)
             SimulationFrames = [
                 {
                     SimulationFrame.RoundCount = 10
                     StageName = "Stage 1"
-                    StrategyFn = GameModes.nashMixedStrategyEquilibriumGame
+                    StrategyFn = GameModes.nashMixedStrategyEquilibriumGameFromPayoff
                 }
                 {
                     SimulationFrame.RoundCount = 10
@@ -44,30 +44,12 @@ let init () =
                     StrategyFn = GameModes.stage3Game
                 }
             ]
-            // StrategySpecs = [Hawk, 3; Dove, 3]
-            // UseNashPortions
-            // CustomPortion [Hawk, 9; Dove, 9]
-
-            // In UI
-            // number of rounds of certain type of game
-            // - stage 1
-            // - stage 2
-            // - stage 3
-            // PayoffMatric cost
-            // Show payoff materic
-            // Note:
-            //    Technically in game stage thtree there are two
-            //    Matrices
-            // Add possibility to download simulation data as csv
-            // Add summary table
-            // - row per stage, avg payoff for per color and per strategy
-            // Add cability so see historical round and animation
 
         }
     let initialGameState = setup.ToInitialGameState()
     {
         Setup = setup
-        State = initialGameState
+        GameState = initialGameState
         ViewState = InitGame
         PlayAnimation = false
     }, Cmd.none
@@ -98,12 +80,12 @@ let update (msg:Msg) (state: State) =
         | BenefitOnVictory value ->
             (setGameSetup {
                     state.Setup with
-                        PayoffMatrixType = (state.Setup.PayoffMatrixType.SetV (float value))
+                        PayoffMatrix = (state.Setup.PayoffMatrix.SetV (float value))
                 })
         | CostOfLoss value ->
             (setGameSetup {
                     state.Setup with
-                        PayoffMatrixType = (state.Setup.PayoffMatrixType.SetC (float value))
+                        PayoffMatrix = (state.Setup.PayoffMatrix.SetC (float value))
                 })
 
         // | f ->
@@ -133,7 +115,7 @@ let update (msg:Msg) (state: State) =
     | OnSimulationComplated gameState ->
         { state with
             ViewState = ShowResults state.Setup.RoundsToPlay
-            State = gameState}, Cmd.none
+            GameState = gameState}, Cmd.none
     | Tick _ ->
         let maxRound = state.Setup.RoundsToPlay
         let currentRound = state.CurrentRound

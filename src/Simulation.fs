@@ -1,20 +1,41 @@
 module Simulation
 
 open Model
-type StragyPropability =
-    {
-        Hawk: float
-        Dove: float
-    }
 
-type PropabilitiesForColor = Color * StragyPropability
-type PropabilityMap = Map<Color, StragyPropability>
+module GameModes =
+    open Statistics.ModelExtensions
 
-module NashEquilibrium =
-    let calculateNashEquilibriumPortionOfHawksFromPayoff(payOff: PayoffMatrix) : float =
-            let (hawkMax, doveMin) = payOff.[(Hawk, Dove)]
-            let (doveMax, _)       = payOff.[(Dove, Dove)]
-            let (hawkMin, _)       = payOff.[(Hawk, Hawk)]
+    // Helpers
+    // Composite strategy make it easier to test and read strategies
+    type CompositeStrategySetup =
+        {
+            NoHistoryStrategy: GameInformation -> Strategy;
+            SameColorStrategy: GameInformation -> Strategy;
+            DifferentColorStrategy: GameInformation -> Strategy
+        }
+    let compositeStrategy (setup: CompositeStrategySetup) (info: GameInformation) =
+        match (info.History.HasHistory, info.OpponentColor) with
+        | (false, _) ->
+            setup.NoHistoryStrategy info
+        | (true, opponentColor) when opponentColor = info.Agent.Color ->
+            setup.SameColorStrategy info
+        | _ ->
+            setup.DifferentColorStrategy info
+
+
+    /// Random Choice game is used in e.g. in stage 2 when euHawk = euDove
+    let randomChoiceGame (info: GameInformation): Strategy =
+        if info.RandomNumber < 0.5 then // Random number range [0.0, 1.0[
+            Dove
+        else
+            Hawk
+
+
+    let nashMixedStrategyEquilibriumGameFromPayoff (info: GameInformation) : Strategy =
+        let ``change of hawk`` =
+            let (hawkMax, doveMin) = info.PayoffMatrix.GetPayoffFor(Hawk, Dove)
+            let (doveMax, _)       = info.PayoffMatrix.GetPayoffFor(Dove, Dove)
+            let (hawkMin, _)       = info.PayoffMatrix.GetPayoffFor(Hawk, Hawk)
             match (hawkMin - doveMin) with
             | 0.0 -> 1.0
             | _ ->
@@ -25,132 +46,78 @@ module NashEquilibrium =
                 else
                     portionOfHawks
 
-    let calculateNashEquilibriumPortionOfHawksFromPayoffAndPortionOfHawks
-            (payOff: PayoffMatrix)
-            (probabilityOfHawk: float)
-            : float =
-            let expectedValueForPayingHawk =
-                match payOff.[(Hawk, Hawk)],  payOff.[(Hawk, Dove)] with
-                | (whenOtherPlayedHawk, _), (whenOtherPlayedDove, _) ->
-                    probabilityOfHawk * whenOtherPlayedHawk +
-                    (1.0 - probabilityOfHawk) * whenOtherPlayedDove
-
-            let expectedValueForPayingDove =
-                match payOff.[(Dove, Hawk)],  payOff.[(Dove, Dove)] with
-                | (whenOtherPlayedHawk, _), (whenOtherPlayedDove, _) ->
-                    probabilityOfHawk * whenOtherPlayedHawk +
-                    (1.0 - probabilityOfHawk)  * whenOtherPlayedDove
-
-            match expectedValueForPayingDove with
-            // If other is expected to play how I should play?
-            //
-            | 0.0 -> 1.0
-            | _ ->
-                // Peruming that everyone play alike in last round
-                let expectedRatioOfHawks = expectedValueForPayingHawk / expectedValueForPayingDove
-                let portionOfHawks = expectedRatioOfHawks / (1.0 + expectedRatioOfHawks)
-                if (portionOfHawks > 1.0) then
-                    1.0
-                else
-                    portionOfHawks
-
-
-module Stats =
-    let myPayoff (matrix: PayoffMatrix) pair =
-        let (myPayoff, _) = matrix.[pair]
-        myPayoff
-
-let rand = System.Random()
-module GameModes =
-    open Statistics.ModelExtensions
-    // let simpleGame (agent: Agent)
-    //                (opponentColor: Color)
-    //                (gameState: GameState)
-    //                : Strategy =
-    //    agent.Strategy
-
-    let randomChoiseGame (gameInformation: GameInformation): Strategy =
-        let rand = System.Random()
-        let change = rand.NextDouble() // Range [0.0, 1.0]
-        if change < 0.5 then
-            Dove
-        else
-            Hawk
-
-    let nashMixedStrategyEquilibriumGame (gameInformation: GameInformation) : Strategy =
-        let ``change of hawk`` =
-            NashEquilibrium.calculateNashEquilibriumPortionOfHawksFromPayoff gameInformation.PayoffMatrix
-
-        let chance = rand.NextDouble() // range [0.0, 1.0[
-        if (``change of hawk`` > chance) then
+        if (``change of hawk`` > info.RandomNumber) then // Random number range [0.0, 1.0[
             Hawk
         else
             Dove
 
 
-    let nashMixedStrategyEquilibriumPayoffAndHistory (gameInformation: GameInformation) =
-        let opposingColorStats = gameInformation.History.LastRoundChallenges.StrategyStatsFor (gameInformation.OpponentColor)
-        let hawkPortion = opposingColorStats.HawkPortion
+    // let nashMixedStrategyEquilibriumPayoffAndHistory (info: GameInformation) =
+    //     let ``change of hawk`` =
+    //         let payoff = info.PayoffMatrix
+    //         let stats = info.History.LastRoundChallenges.StrategyStatsFor (info.OpponentColor)
+    //         // Caclulate expected payoff for playinf hawk and for playing dove
+    //         let euHawk = stats.HawkPortion * payoff.GetMyPayoff (Hawk, Hawk) +
+    //                      stats.DovePortion * payoff.GetMyPayoff (Hawk, Dove)
+    //         let euDove = stats.HawkPortion * payoff.GetMyPayoff (Dove, Hawk) +
+    //                      stats.DovePortion * payoff.GetMyPayoff (Dove, Dove)
 
-        let ``change of hawk`` =
-            NashEquilibrium.calculateNashEquilibriumPortionOfHawksFromPayoffAndPortionOfHawks
-               gameInformation.PayoffMatrix
-               hawkPortion
-        let chance = rand.NextDouble() // range [0.0, 1.0[
-        printfn "hawkP %f change %f" ``change of hawk`` chance
-        if (``change of hawk`` > chance) then
-            Hawk
-        else
-            Dove
+    //         match euDove with
+    //         | 0.0 -> 1.0
+    //         | _ ->
+    //             // Presuming that everyone play alike in last round
+    //             let equilibirium = euHawk / euDove
+    //             let portionOfHawks = equilibirium / (1.0 + equilibirium)
+    //             if (portionOfHawks > 1.0) then
+    //                 1.0
+    //             else
+    //                 portionOfHawks
 
-    let onHawksOnLastRound (gameInformation: GameInformation) =
-        let lastRoundStats = gameInformation.History.LastRoundChallenges.StrategyStats ()
+    //     if (``change of hawk`` > info.RandomNumber) then // random number range [0.0, 1.0[
+    //         Hawk
+    //     else
+    //         Dove
+
+    let onHawksOnLastRound (info: GameInformation) =
+        let lastRoundStats = info.History.LastRoundChallenges.StrategyStats ()
         let hawkPortion = lastRoundStats.HawkPortion
-        let chance = rand.NextDouble() // range [0.0, 1.0[
-        let choise =
-            if (hawkPortion > chance) then
-                Hawk
-            else
-                Dove
+        if (hawkPortion > info.RandomNumber) then // random number range: [0.0, 1.0[
+            Hawk
+        else
+            Dove
 
-        choise
-
-
-    let highestEuOnDifferentColorGame (onSameColorStragy: GameInformation -> Strategy) (info: GameInformation): Strategy =
-
-        match (info.History.HasHistory, info.OpponentColor) with
-        | (false, _) ->
-            // if there are not stats play nashEquilibium game
-            nashMixedStrategyEquilibriumGame info
-        | (true, opponentColor) when opponentColor = info.Agent.Color ->
-            onSameColorStragy info
-        | (true, opponentColor) ->
-            let agent = info.Agent
-            let matrix = info.PayoffMatrix
-            let getPayoff = Stats.myPayoff matrix
+    let highestEuOnDifferentColorGame (info: GameInformation): Strategy =
+            let payoff = info.PayoffMatrix
             let lastRound = info.History.LastRoundChallenges
-            let opposingColorStats = lastRound.StrategyStatsFor (opponentColor)
-            let pHawk = opposingColorStats.HawkPortion
+            let opposingColorStats = lastRound.StrategyStatsFor(info.OpponentColor)
+            let pHawk = opposingColorStats.HawkPortion // = Hawk count / total actors within color segement
             let pDove = opposingColorStats.DovePortion
 
             // Caclulate expected payoff for playinf hawk and for playing dove
-            let euHawk = pHawk * getPayoff (Hawk, Hawk) +
-                         pDove * getPayoff (Hawk, Dove)
-            let euDove = pHawk * getPayoff (Dove, Hawk) +
-                         pDove * getPayoff (Dove, Dove)
+            // In payoff.GetMyPayoff the first param is my move, and the second is opponent move
+            // E.g. for V = 10, C = 20 payoff.GetMyPayoff (Hawk, Hawk) return -5 (= (V-C)/2) and payoff.GetMyPayoff(Dove, Hawk) returns 10 (0)
+            let euHawk = pHawk * payoff.GetMyPayoff (Hawk, Hawk) +
+                         pDove * payoff.GetMyPayoff (Hawk, Dove)
+            let euDove = pHawk * payoff.GetMyPayoff (Dove, Hawk) +
+                         pDove * payoff.GetMyPayoff (Dove, Dove)
 
             match (euHawk - euDove) with
             // When you have expected value for playing hawk and playing dove are equal
             // choose randomly
-            | 0.0 -> randomChoiseGame info
+            | 0.0 -> randomChoiceGame info
             // if expected payoff for playing hawk is better, play hawk
             // otherwise play dove
             | diff when diff > 0.0 -> Hawk
             | _  -> Dove
 
-    let stage2Game = highestEuOnDifferentColorGame nashMixedStrategyEquilibriumGame
+    let stage2Game = compositeStrategy {
+            NoHistoryStrategy = nashMixedStrategyEquilibriumGameFromPayoff
+            SameColorStrategy = nashMixedStrategyEquilibriumGameFromPayoff
+            DifferentColorStrategy = highestEuOnDifferentColorGame
+        }
 
     let stage3Game (gameInformation: GameInformation): Strategy =
         match gameInformation.Agent.Strategy with
-        | None -> nashMixedStrategyEquilibriumGame gameInformation
+        // TODO: Should this be randomm
+        | None -> nashMixedStrategyEquilibriumGameFromPayoff gameInformation
         | Some choice -> choice

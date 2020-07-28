@@ -66,7 +66,7 @@ module RoundSlider =
 module Tables =
     open Common
 
-    let renderPayoffMatrics (payoff: PayoffMatrix)  =
+    let renderPayoffMatrics (payoff: PayoffMatrixType)  =
         let format (player1, player2) =
             sprintf "%.0f / %.0f" player1 player2
         table [ClassName "payoff-summary"] [
@@ -80,13 +80,13 @@ module Tables =
             tbody [] [
                 row [
                         cellHeader "Hawk" "Hawk"
-                        cell (payoff.[Hawk, Hawk] |> format)
-                        cell (payoff.[Hawk, Dove] |> format)
+                        cell (payoff.GetPayoffFor(Hawk, Hawk) |> format)
+                        cell (payoff.GetPayoffFor(Hawk, Dove) |> format)
                     ]
                 row [
                         cellHeader "Dove" "Dove"
-                        cell (payoff.[Dove, Hawk] |> format)
-                        cell (payoff.[Dove, Dove] |> format)
+                        cell (payoff.GetPayoffFor(Dove, Hawk) |> format)
+                        cell (payoff.GetPayoffFor(Dove, Dove) |> format)
                     ]
             ]
         ]
@@ -277,7 +277,7 @@ module SettingsForm =
                                 {
                                     Disabled =  isDisabled
                                     Label =    "Reward (V)"
-                                    Value =    (int model.Setup.PayoffMatrixType.VictoryBenefit)
+                                    Value =    (int model.Setup.PayoffMatrix.VictoryBenefit)
                                     OnChange = (fun value -> (BenefitOnVictory value))
                                 }
 
@@ -285,10 +285,10 @@ module SettingsForm =
                                 {
                                     Disabled =  isDisabled
                                     Label =    "Cost (C)"
-                                    Value =    (int model.Setup.PayoffMatrixType.Cost)
+                                    Value =    (int model.Setup.PayoffMatrix.Cost)
                                     OnChange = (fun value -> (CostOfLoss value))
                                 }
-                            renderPayoffMatrics (model.Setup.PayoffMatrixType.ToMatrix())
+                            renderPayoffMatrics (model.Setup.PayoffMatrix)
                         ]
                 ]
         match model.ViewState with
@@ -312,7 +312,7 @@ module SettingsForm =
                     renderColotStats model.Setup RenderColotStatsOptions.WithTotalsAndPortions
                 ]
                 group "Payoff" [
-                        renderPayoffMatrics (model.Setup.PayoffMatrixType.ToMatrix())
+                        renderPayoffMatrics (model.Setup.PayoffMatrix)
                 ]
 
                 group "Simulation controls" [
@@ -345,21 +345,24 @@ module ResultTable =
       match rounds with
       | 0 -> 0.0
       | r -> model.Payoff / (float r)
-    div [ ClassName (sprintf "agent-box fade-in %A %A" model.Color model.Strategy)] [
-      div [ ClassName "strategy" ] [ str (sprintf "%A" model.Strategy) ]
-      div [ ClassName "payoff"]
-          [
-            div [] [
-                span [] [str "Total: "]
-                ofFloat model.Payoff
+    div [
+            Key (model.Id.ToString())
+            ClassName (sprintf "agent-box fade-in %A %A" model.Color model.Strategy.Value)
+        ] [
+          div [ ClassName "strategy" ] [ str (sprintf "%A" model.Strategy.Value) ]
+          div [ ClassName "payoff"]
+              [
+                div [] [
+                    span [] [str "Total: "]
+                    ofFloat model.Payoff
+                  ]
+                div [] [
+                    span [] [str "Avg: "]
+                    ofString (sprintf "%.3f" avg)
+                  ]
               ]
-            div [] [
-                span [] [str "Avg: "]
-                ofString (sprintf "%.3f" avg)
-              ]
-          ]
-      div [ ClassName "agent-id"] [ str "#"; ofInt model.Id ]
-    ]
+          div [ ClassName "agent-id"] [ str "#"; ofInt model.Id ]
+        ]
 
   let view (model: State) dispatch =
     let currentRound = model.CurrentRound
@@ -367,8 +370,18 @@ module ResultTable =
 
     let agents =
         currentRoundAgents
-        |> List.map (agentBox currentRound)
-    div [ ClassName "agent-listing" ] agents
+        |> List.groupBy (fun a -> a.LastRoundChallengeType)
+        |> List.map (fun (group, agents) ->
+                        group,
+                        agents |> List.map (agentBox currentRound))
+        |> Map.ofList
+
+    div [ ClassName "agent-group" ] [
+        h1 [] [str "Different color"]
+        div [ ClassName "agent-listing" ]  agents.[(Some DifferentColor)]
+        h1 [] [str "Same color"]
+        div [ ClassName "agent-listing" ]  agents.[(Some SameColor)]
+    ]
 
 // Main view
 let view (model: State) dispatch =
@@ -409,7 +422,7 @@ let view (model: State) dispatch =
               ]
               RoundSlider.slider model dispatch
               ResultTable.view (model: State) dispatch
-              pre [] [str (sprintf "%A" model.State.ResolvedRounds)]
+              pre [] [str (sprintf "%A" model.GameState.ResolvedRounds)]
             ]
 
   div [ Id "main-container"; ClassName "columns"; ] [
