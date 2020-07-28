@@ -78,6 +78,7 @@ type ResolvedChallenge =
         // Players after game was resolved
         Players: Agent * Agent
     }
+    static member Of(player1, player2) = { Players = player1, player2 }
     member this.ChalengeType
         with get() =
             match this.Players with
@@ -142,6 +143,13 @@ type GameRound =
             challenges
             |> List.collect (fun {Players = (p1, p2)} -> [p1; p2])
             |> List.sortBy (fun a -> a.Id)
+    // This is used in tests
+    static member Empty with get() = Round []
+    member this.AppendWith(player1, player2) =
+        match this with
+        | Round chalenges -> Round (List.append chalenges [ResolvedChallenge.Of(player1, player2)])
+
+
 
 type GameHistory =
     | Rounds of GameRound array
@@ -163,21 +171,37 @@ type GameHistory =
     member this.LastRoundChallenges
         with get() = this.Unwrap() |> Array.last
 
+let rand = Random()
 type GameInformation =
     {
         Agent: Agent
         // Should be option
         OpponentColor: Color
         PayoffMatrix: PayoffMatrixType
-        Agents: Agent list
+        // Agents: Agent list
         History: GameHistory
         // Random number is passed as a part of game information
         // so that strategies are easier to test
         RandomNumber: float
     }
+    static member InitGameInformationForAgents matrix history (agent1: Agent) (agent2: Agent) =
+        {
+            Agent = agent1
+            OpponentColor = agent2.Color
+            PayoffMatrix = matrix
+            History = history
+            RandomNumber = rand.NextDouble()
+        },
+        {
+            Agent = agent2
+            OpponentColor = agent1.Color
+            PayoffMatrix = matrix
+            History = history
+            RandomNumber = rand.NextDouble()
+        }
+
 
 type StrategyFn = GameInformation -> Strategy
-let rand = Random()
 type PlannedRound =
     {
         PayoffMatrix: PayoffMatrixType
@@ -192,23 +216,10 @@ type PlannedRound =
             |> ListHelpers.toPairs
 
         let play (agent1: Agent, agent2: Agent): ResolvedChallenge =
-            let gameInformationForAgent1: GameInformation =
-                {
-                    Agent = agent1
-                    OpponentColor = agent2.Color
-                    Agents = agents
-                    History = history
-                    PayoffMatrix = this.PayoffMatrix
-                    RandomNumber = rand.NextDouble()
-                }
-            let gameInformationForAgent2: GameInformation =
-                { gameInformationForAgent1 with
-                    Agent = agent2
-                    OpponentColor = agent1.Color
-                    RandomNumber = rand.NextDouble()
-                }
-            let agent1Choise = this.StrategyFn gameInformationForAgent1
-            let agent2Choise = this.StrategyFn gameInformationForAgent2
+            let (gameInfoForAgent1, gameInfoForAgent2) = GameInformation.InitGameInformationForAgents this.PayoffMatrix history agent1 agent2
+
+            let agent1Choise = this.StrategyFn gameInfoForAgent1
+            let agent2Choise = this.StrategyFn gameInfoForAgent2
             let challengeType = if agent1.Color = agent2.Color then SameColor else DifferentColor
             let (payoff1, payoff2) = this.PayoffMatrix.GetPayoffFor(agent1Choise, agent2Choise)
             {

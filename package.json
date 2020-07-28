@@ -8,7 +8,7 @@
   "description": "Amadae Hawk Dove Binary Model",
   "scripts": {
     "start": "webpack-dev-server",
-    "test": "fable-splitter -c splitter.config.js --config=jest.config.js --commonjs && jest",
+    "test": "fable-splitter -c splitter.config.js --config=jest.config.js --commonjs && jest --verbose",
     "watch-test:build": "fable-splitter -c splitter.config.js -w --commonjs",
     "watch-test:run": "jest --config=jest.config.js --watchAll",
     "watch-test": "npm-run-all --parallel watch-test:*"

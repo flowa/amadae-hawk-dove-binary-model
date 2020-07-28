@@ -24,10 +24,12 @@ module GameMode =
 
     /// Random Choice game is used in e.g. in stage 2 when euHawk = euDove
     let randomChoiceGame (info: GameInformation): Strategy =
-        if info.RandomNumber < 0.5 then // Random number range [0.0, 1.0[
-            Dove
-        else
+        let changeOfHawk = 0.5
+        if info.RandomNumber < changeOfHawk then // Random number range [0.0, 1.0[
             Hawk
+        else
+            Dove
+
 
     let nashMixedStrategyEquilibriumGameFromPayoffParameters (info: GameInformation) : Strategy =
         let ``change of hawk`` =
@@ -42,20 +44,25 @@ module GameMode =
                 else
                     portionOfHawks
 
-        if (``change of hawk`` > info.RandomNumber) then // Random number range [0.0, 1.0[
+        if (info.RandomNumber < ``change of hawk``) then // Random number range [0.0, 1.0[
             Hawk
         else
             Dove
+
     let keepSameStrategy (info: GameInformation): Strategy  =
         match info.Agent.Strategy with
         // TODO: Should this be randomm
         | None -> nashMixedStrategyEquilibriumGameFromPayoffParameters info
         | Some choice -> choice
 
-    let highestEuOnDifferentColorGame (info: GameInformation): Strategy =
+    let highestEuOnDifferentColorGameWithFilter (challengeTypeFilter: ChallengeType option) (info: GameInformation): Strategy =
             let payoff = info.PayoffMatrix
             let lastRound = info.History.LastRoundChallenges
-            let opposingColorStats = lastRound.StrategyStatsFor(info.OpponentColor)
+            let opposingColorStats =
+                match challengeTypeFilter with
+                | None -> lastRound.StrategyStatsFor(info.OpponentColor)
+                | Some challengeType -> lastRound.StrategyStatsFor(challengeType, info.OpponentColor)
+
             let pHawk = opposingColorStats.HawkPortion // = Hawk count / total actors within color segement
             let pDove = opposingColorStats.DovePortion
 
@@ -68,13 +75,17 @@ module GameMode =
                          pDove * payoff.GetMyPayoff (Dove, Dove)
 
             match (euHawk - euDove) with
-            // When you have expected value for playing hawk and playing dove are equal
+            // When you have expected value for playing
+            // hawk and playing dove are equal
             // choose randomly
             | 0.0 -> randomChoiceGame info
             // if expected payoff for playing hawk is better, play hawk
             // otherwise play dove
             | diff when diff > 0.0 -> Hawk
             | _  -> Dove
+
+    let highestEuOnDifferentColorGame = highestEuOnDifferentColorGameWithFilter None
+    let highestEuOnDifferentColorGameUsingOnlyDifferentColorStats = highestEuOnDifferentColorGameWithFilter (Some DifferentColor)
 
 // These modes are included in this file temporarily and are not used in the simulation
 module ExtraGameModes =
