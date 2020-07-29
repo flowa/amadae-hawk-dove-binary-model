@@ -149,8 +149,6 @@ type GameRound =
         match this with
         | Round chalenges -> Round (List.append chalenges [ResolvedChallenge.Of(player1, player2)])
 
-
-
 type GameHistory =
     | Rounds of GameRound array
     member this.Append(round: GameRound) =
@@ -268,6 +266,7 @@ type SimulationFrame =
         RoundCount: int
         StageName: string
         StrategyFn: StrategyFn
+        SetPayoffForStage: PayoffMatrixType -> PayoffMatrixType
         MayUseColor: bool
     }
 
@@ -314,7 +313,7 @@ type GameSetup =
                     (fun frame ->
                         let plannedRound: PlannedRound =
                             {
-                               PayoffMatrix = payoffMatrics
+                               PayoffMatrix = frame.SetPayoffForStage payoffMatrics
                                StrategyFn = frame.StrategyFn
                                StageName = frame.StageName
                                MayUseColor = frame.MayUseColor
@@ -367,6 +366,11 @@ type State =
             match this.ViewState with
             | ShowResults round -> this.GameState.PlannedRounds.[round - 1].MayUseColor
             | _ -> false
+    member this.CurrentStagePayoffMatrix
+        with get() =
+            match this.ViewState with
+            | ShowResults round -> this.GameState.PlannedRounds.[round - 1].PayoffMatrix
+            | _ -> this.Setup.PayoffMatrix
 
 type FieldValue =
     | RoundCountOfStage of stageName: string * roundCount: int

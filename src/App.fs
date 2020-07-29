@@ -30,14 +30,16 @@ let init () =
             SimulationFrames = [
                 {
                     SimulationFrame.RoundCount = 10
+                    SetPayoffForStage = id
                     StageName = "Stage 1"
                     StrategyFn = SimulationStages.stage1Game
                     MayUseColor = false
                 }
                 {
-                     SimulationFrame.RoundCount = 10
+                     SimulationFrame.RoundCount = 50
+                     SetPayoffForStage = id
                      StageName = "Stage 2"
-                     StrategyFn = SimulationStages.stage2Game
+                     StrategyFn = SimulationStages.stage2Game_v5_withFullIndividualHistory
                      MayUseColor = true
 
                 }
@@ -53,8 +55,9 @@ let init () =
                 // }
                 {
                     SimulationFrame.RoundCount = 10
+                    SetPayoffForStage = id
                     StageName = "Stage 3"
-                    StrategyFn = SimulationStages.stage3Game
+                    StrategyFn = GameMode.onBasedOfLastEncounterWithOpponentColor
                     MayUseColor = true
                 }
             ]

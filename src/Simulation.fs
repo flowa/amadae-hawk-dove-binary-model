@@ -55,6 +55,46 @@ module GameMode =
         | None -> nashMixedStrategyEquilibriumGameFromPayoffParameters info
         | Some choice -> choice
 
+    let onBasedOfLastEncounterWithOpponentColor(info: GameInformation): Strategy  =
+        let myColor = info.Agent.Color
+
+        let lastRound = info.History.LastRoundChallenges.StrategyStatsFor(DifferentColor, myColor)
+
+        match lastRound.DoveN, lastRound.HawkN  with
+        | (0, _) -> Hawk
+        | (_, 0) -> Dove
+        | _ -> nashMixedStrategyEquilibriumGameFromPayoffParameters info
+
+    let highestEuOnDifferentColorGameForInvidualAgent (challengeTypeFilter: ChallengeType option) (info: GameInformation): Strategy =
+            let payoff = info.PayoffMatrix
+            let history = info.History
+            let opposingColorStats =
+                match challengeTypeFilter with
+                | None -> history.StrategyStatsFor(info.Agent, info.OpponentColor)
+                | Some challengeType -> history.StrategyStatsFor(info.Agent, challengeType, info.OpponentColor)
+
+            let pHawk = opposingColorStats.HawkPortion // = Hawk count / total actors within color segement
+            let pDove = opposingColorStats.DovePortion
+
+            // Caclulate expected payoff for playinf hawk and for playing dove
+            // In payoff.GetMyPayoff the first param is my move, and the second is opponent move
+            // E.g. for V = 10, C = 20 payoff.GetMyPayoff (Hawk, Hawk) return -5 (= (V-C)/2) and payoff.GetMyPayoff(Dove, Hawk) returns 10 (0)
+            let evHawk = pHawk * payoff.GetMyPayoff (Hawk, Hawk) +
+                         pDove * payoff.GetMyPayoff (Hawk, Dove)
+            let evDove = pHawk * payoff.GetMyPayoff (Dove, Hawk) +
+                         pDove * payoff.GetMyPayoff (Dove, Dove)
+
+            match (evHawk - evDove) with
+            // When you have expected value for playing
+            // hawk and playing dove are equal
+            // choose randomly
+            | 0.0 -> randomChoiceGame info
+            // if expected payoff for playing hawk is better, play hawk
+            // otherwise play dove
+            | diff when diff > 0.0 -> Hawk
+            | _  -> Dove
+
+
     let highestEuOnDifferentColorGameWithFilter (challengeTypeFilter: ChallengeType option) (info: GameInformation): Strategy =
             let payoff = info.PayoffMatrix
             let lastRound = info.History.LastRoundChallenges
@@ -84,8 +124,8 @@ module GameMode =
             | diff when diff > 0.0 -> Hawk
             | _  -> Dove
 
-    let highestEuOnDifferentColorGame = highestEuOnDifferentColorGameWithFilter None
-    let highestEuOnDifferentColorGameUsingOnlyDifferentColorStats = highestEuOnDifferentColorGameWithFilter (Some DifferentColor)
+    let highestExpectedValueOnDifferentColorGame = highestEuOnDifferentColorGameWithFilter None
+    let highestExpectedValueOnDifferentColorGameUsingOnlyDifferentColorStats = highestEuOnDifferentColorGameWithFilter (Some DifferentColor)
 
 // These modes are included in this file temporarily and are not used in the simulation
 module ExtraGameModes =
@@ -134,27 +174,36 @@ module SimulationStages =
     let stage2Game = Composition.compositeStrategy {
             NoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
             SameColorStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
-            DifferentColorStrategy = GameMode.highestEuOnDifferentColorGameUsingOnlyDifferentColorStats
+            DifferentColorStrategy = GameMode.highestExpectedValueOnDifferentColorGameUsingOnlyDifferentColorStats
         }
-
 
     let stage2Game_v2_AllEncounter = Composition.compositeStrategy {
             NoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
             SameColorStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
-            DifferentColorStrategy = GameMode.highestEuOnDifferentColorGame
+            DifferentColorStrategy = GameMode.highestExpectedValueOnDifferentColorGame
         }
 
-    let stage2GameVersion2 = Composition.compositeStrategy {
+    let stage2Game_v3_keepSameAsSameColorStrategy = Composition.compositeStrategy {
             NoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
             SameColorStrategy = GameMode.keepSameStrategy
-            DifferentColorStrategy = GameMode.highestEuOnDifferentColorGame
+            DifferentColorStrategy = GameMode.highestExpectedValueOnDifferentColorGame
         }
 
-    let stage2GameVersion3 = Composition.compositeStrategy {
+    let stage2Game_v4_dependingHawksWithinColorSegmentAsSameColorStrategy = Composition.compositeStrategy {
             NoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
             SameColorStrategy = ExtraGameModes.dependingHawksWithinColorSegment
-            DifferentColorStrategy = GameMode.highestEuOnDifferentColorGame
+            DifferentColorStrategy = GameMode.highestExpectedValueOnDifferentColorGame
         }
 
 
-    let stage3Game  = GameMode.keepSameStrategy
+    let stage2Game_v5_withFullIndividualHistory = Composition.compositeStrategy {
+            NoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+            SameColorStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+            DifferentColorStrategy = GameMode.highestEuOnDifferentColorGameForInvidualAgent None
+        }
+
+    let stage3Game = Composition.compositeStrategy {
+            NoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+            SameColorStrategy = GameMode.keepSameStrategy
+            DifferentColorStrategy = GameMode.highestExpectedValueOnDifferentColorGame
+        }

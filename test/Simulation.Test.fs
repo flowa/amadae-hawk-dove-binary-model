@@ -336,7 +336,7 @@ Jest.describe(
                // evHawk = 0.25 * -5 + 0.75 * 10 = 6.25
                // evDove = 0.25 * 0  + 0.75 * 5  = 3.75
                Name = "It should return Hawk because evHawk > evDove: " + (generateExplainingText 1 3 Blue)
-               FunctionToTest = GameMode.highestEuOnDifferentColorGameUsingOnlyDifferentColorStats
+               FunctionToTest = GameMode.highestExpectedValueOnDifferentColorGameUsingOnlyDifferentColorStats
                Input = {
                    History = ``history Red 3H 1D, Blue 1H 3D with same color Blue 4H 0D``
                    Agent = redDove
@@ -352,7 +352,7 @@ Jest.describe(
                // evHawk = 0.75 * -5 + 0.25 * 10 = -1.25
                // evDove = 0.75 * 0  + 0.25 * 5  = 1.25
                Name = "It should return Dove because evHawk < evDove: " + (generateExplainingText 3 1 Red)
-               FunctionToTest = GameMode.highestEuOnDifferentColorGameUsingOnlyDifferentColorStats
+               FunctionToTest = GameMode.highestExpectedValueOnDifferentColorGameUsingOnlyDifferentColorStats
                Input = {
                    History = ``history Red 3H 1D, Blue 1H 3D with same color Blue 4H 0D``
                    Agent = blueHawk
@@ -368,7 +368,7 @@ Jest.describe(
                // evHawk = 0.625 * -5 + 0.375 * 10 = 0.625
                // evDove = 0.625 * 0  + 0.375 * 5  = 1.875
                Name = "It should return Dove because evHawk < evDove: " + (generateExplainingText 5 3 Blue)
-               FunctionToTest = GameMode.highestEuOnDifferentColorGame
+               FunctionToTest = GameMode.highestExpectedValueOnDifferentColorGame
                Input = {
                    History = ``history Red 3H 1D, Blue 1H 3D with same color Blue 4H 0D``
                    Agent = redDove
@@ -382,8 +382,8 @@ Jest.describe(
         ]
 
         List.concat [
-            testCasesForBothFunctions "All encounters" GameMode.highestEuOnDifferentColorGame
-            testCasesForBothFunctions "Different color encounter only" GameMode.highestEuOnDifferentColorGameUsingOnlyDifferentColorStats
+            testCasesForBothFunctions "All encounters" GameMode.highestExpectedValueOnDifferentColorGame
+            testCasesForBothFunctions "Different color encounter only" GameMode.highestExpectedValueOnDifferentColorGameUsingOnlyDifferentColorStats
             alsoSameColorEncountersTestCases
             testCasesForBothFunctions "Stage 2 Game" SimulationStages.stage2Game
         ]

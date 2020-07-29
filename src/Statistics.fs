@@ -31,6 +31,29 @@ module RoundStats =
         |> List.map (fun (key, items) -> (key, items.Length))
         |> Map.ofList
 
+    let calcRoundAggregatesForAgents(agent: Agent, history: GameHistory): Map<ChallengeType * Strategy * Color, int> =
+        let filterOnlyAgentOwnMoves (round: GameRound)  =
+            round.ToList()
+            |> List.filter (fun chalenge ->
+                match chalenge with
+                | { Players = (player1, player2) } -> agent.Id = player1.Id || agent.Id = player2.Id
+            )
+            |> List.head
+
+        let selectTheOtherAgentStatsTuple (challenge: ResolvedChallenge) =
+            let (a1, a2) = challenge.Players
+            let challengeType = challenge.ChalengeType
+            if (a1.Id = agent.Id) then
+                (challengeType, a2.Strategy.Value, a2.Color)
+            else
+                (challengeType, a1.Strategy.Value, a1.Color)
+
+        history.Unwrap()
+        |> Array.map (filterOnlyAgentOwnMoves >> selectTheOtherAgentStatsTuple)
+        |> Array.groupBy id
+        |> Array.map (fun (key, items) -> (key, items.Length))
+        |> Map.ofArray
+
     let aggregateBy<'a when 'a : equality and 'a : comparison>
         (keyFn: ChallengeType * Strategy * Color -> 'a)
         (aggs: Map<ChallengeType * Strategy * Color, int>): Map<'a, int> =
@@ -82,6 +105,12 @@ module Memoize =
 
 module ModelExtensions =
     open Model
+    type GameHistory with
+        member this.Aggregates (agent: Agent)  = RoundStats.calcRoundAggregatesForAgents(agent, this)
+        member this.StrategyStats (agent: Agent) = RoundStats.strategyStats (this.Aggregates agent)
+        member this.StrategyStatsFor (agent: Agent, color: Color) = RoundStats.strategyStatsForColor (this.Aggregates agent) color
+        member this.StrategyStatsFor (agent: Agent, challengeType: ChallengeType) = RoundStats.strategyStatsForChallengeType (this.Aggregates agent) challengeType
+        member this.StrategyStatsFor (agent: Agent, challengeType: ChallengeType, color: Color) = RoundStats.strategyStatsForChallengeTypeAndColor (this.Aggregates agent) challengeType color
     type GameRound with
         member this.Aggregates with get() = RoundStats.calcRoundAggregates(this)
         member this.StrategyStats () = RoundStats.strategyStats this.Aggregates

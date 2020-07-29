@@ -312,7 +312,7 @@ module SettingsForm =
                     renderColotStats model.Setup RenderColotStatsOptions.WithTotalsAndPortions
                 ]
                 group "Payoff" [
-                        renderPayoffMatrics (model.Setup.PayoffMatrix)
+                        renderPayoffMatrics (model.CurrentStagePayoffMatrix)
                 ]
 
                 group "Simulation controls" [
