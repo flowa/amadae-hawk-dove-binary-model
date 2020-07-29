@@ -422,7 +422,7 @@ let view (model: State) dispatch =
               ]
               RoundSlider.slider model dispatch
               ResultTable.view (model: State) dispatch
-              pre [] [str (sprintf "%A" model.GameState.ResolvedRounds)]
+              // pre [] [str (sprintf "%A" model.GameState.ResolvedRounds)]
             ]
 
   div [ Id "main-container"; ClassName "columns"; ] [

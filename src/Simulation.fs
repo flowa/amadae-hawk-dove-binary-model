@@ -69,12 +69,12 @@ module GameMode =
             // Caclulate expected payoff for playinf hawk and for playing dove
             // In payoff.GetMyPayoff the first param is my move, and the second is opponent move
             // E.g. for V = 10, C = 20 payoff.GetMyPayoff (Hawk, Hawk) return -5 (= (V-C)/2) and payoff.GetMyPayoff(Dove, Hawk) returns 10 (0)
-            let euHawk = pHawk * payoff.GetMyPayoff (Hawk, Hawk) +
+            let evHawk = pHawk * payoff.GetMyPayoff (Hawk, Hawk) +
                          pDove * payoff.GetMyPayoff (Hawk, Dove)
-            let euDove = pHawk * payoff.GetMyPayoff (Dove, Hawk) +
+            let evDove = pHawk * payoff.GetMyPayoff (Dove, Hawk) +
                          pDove * payoff.GetMyPayoff (Dove, Dove)
 
-            match (euHawk - euDove) with
+            match (evHawk - evDove) with
             // When you have expected value for playing
             // hawk and playing dove are equal
             // choose randomly
@@ -132,6 +132,13 @@ module SimulationStages =
     let stage1Game  = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
 
     let stage2Game = Composition.compositeStrategy {
+            NoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+            SameColorStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+            DifferentColorStrategy = GameMode.highestEuOnDifferentColorGameUsingOnlyDifferentColorStats
+        }
+
+
+    let stage2Game_v2_AllEncounter = Composition.compositeStrategy {
             NoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
             SameColorStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
             DifferentColorStrategy = GameMode.highestEuOnDifferentColorGame

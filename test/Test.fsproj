@@ -9,7 +9,6 @@
     <Compile Include="Helpers.Test.fs" />
     <Compile Include="Model.Test.fs" />
     <Compile Include="Simulation.Test.fs" />
-    <Compile Include="App.Test.fs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Elmish" Version="3.0.6" />
