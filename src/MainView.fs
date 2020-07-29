@@ -164,14 +164,15 @@ module Tables =
         static member None with get() = {WithTotal = false; WithPortions = false; }
         static member WithTotalsAndPortions with get()  = {WithTotal = true; WithPortions = true; }
 
-    let renderColotStats (setting: GameSetup) (opt: RenderColotStatsOptions) =
+    let renderColotStats (model: State) (opt: RenderColotStatsOptions) =
+        let setting = model.Setup
         table [ClassName "agent-summary"] [
             thead [] [
                 row [
                         emptyCellHeader
                         cellHeader "Red" "Red"
                         cellHeader "Blue" "Blue"
-                        if opt.WithTotal then cellHeader "AllTotal" "Total"
+                        if opt.WithTotal then cellHeader "AllTotal" "All"
                     ]
             ]
             tbody [] [
@@ -180,6 +181,25 @@ module Tables =
                         cell setting.CountOfRed
                         cell setting.CountOfBlue
                         if opt.WithTotal then cell setting.AgentCount
+                    ]
+
+                if opt.WithPortions then
+                    let redAvg, blueAvg, allAvg = model.CurrentRoundChallenges.PayoffAccumulativeAvgForRedAndBlue
+                    let rounds = model.CurrentRound
+                    let format = sprintf "%.1f"
+                    ofList [
+                        row [
+                            cellHeader "attribute" "Avg. total"
+                            cell (format redAvg)
+                            cell (format blueAvg)
+                            cell (format allAvg)
+                        ]
+                        row [
+                            cellHeader "attribute" "Avg. per round"
+                            cell (format (redAvg / (float rounds)))
+                            cell (format (blueAvg / (float rounds)))
+                            cell (format (allAvg / (float rounds)))
+                        ]
                     ]
             ]
         ]
@@ -269,7 +289,7 @@ module SettingsForm =
                                     Value =    model.Setup.PortionOfRed
                                     OnChange = (fun value -> (PortionOfRed value))
                                 }
-                            (renderColotStats model.Setup RenderColotStatsOptions.None)
+                            (renderColotStats model RenderColotStatsOptions.None)
                         ]
 
                     group "Payoff" [
@@ -303,14 +323,16 @@ module SettingsForm =
                 group "Round challenges" [
                     simulatioStatsTable model
                 ]
+
+                group "Color statistics" [
+                    renderColotStats model RenderColotStatsOptions.WithTotalsAndPortions
+                ]
+
                 h1  []
                     [
                         str "Setup"
                     ]
 
-                group "Color setup" [
-                    renderColotStats model.Setup RenderColotStatsOptions.WithTotalsAndPortions
-                ]
                 group "Payoff" [
                         renderPayoffMatrics (model.CurrentStagePayoffMatrix)
                 ]

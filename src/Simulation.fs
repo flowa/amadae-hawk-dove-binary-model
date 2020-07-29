@@ -11,7 +11,7 @@ module Composition =
         }
 
     let compositeStrategy (setup: CompositeStrategySetup) (info: GameInformation) =
-        match (info.History.HasHistory, info.OpponentColor) with
+        match (info.HistoryView.History.HasHistory, info.OpponentColor) with
         | (false, _) ->
             setup.NoHistoryStrategy info
         | (true, opponentColor) when opponentColor = info.Agent.Color ->
@@ -29,7 +29,6 @@ module GameMode =
             Hawk
         else
             Dove
-
 
     let nashMixedStrategyEquilibriumGameFromPayoffParameters (info: GameInformation) : Strategy =
         let ``change of hawk`` =
@@ -58,7 +57,7 @@ module GameMode =
     let onBasedOfLastEncounterWithOpponentColor(info: GameInformation): Strategy  =
         let myColor = info.Agent.Color
 
-        let lastRound = info.History.LastRoundChallenges.StrategyStatsFor(DifferentColor, myColor)
+        let lastRound = info.HistoryView.History.LastRoundChallenges.StrategyStatsFor(DifferentColor, myColor)
 
         match lastRound.DoveN, lastRound.HawkN  with
         | (0, _) -> Hawk
@@ -67,7 +66,7 @@ module GameMode =
 
     let highestEuOnDifferentColorGameForInvidualAgent (challengeTypeFilter: ChallengeType option) (info: GameInformation): Strategy =
             let payoff = info.PayoffMatrix
-            let history = info.History
+            let history = info.HistoryView
             let opposingColorStats =
                 match challengeTypeFilter with
                 | None -> history.StrategyStatsFor(info.Agent, info.OpponentColor)
@@ -94,10 +93,38 @@ module GameMode =
             | diff when diff > 0.0 -> Hawk
             | _  -> Dove
 
+    let highestEuOnDifferentColorGameForInvidualAgentNonCached (challengeTypeFilter: ChallengeType option) (info: GameInformation): Strategy =
+            let payoff = info.PayoffMatrix
+            let history = info.HistoryView.History
+            let opposingColorStats =
+                match challengeTypeFilter with
+                | None -> history.StrategyStatsFor(info.Agent, info.OpponentColor)
+                | Some challengeType -> history.StrategyStatsFor(info.Agent, challengeType, info.OpponentColor)
+
+            let pHawk = opposingColorStats.HawkPortion // = Hawk count / total actors within color segement
+            let pDove = opposingColorStats.DovePortion
+
+            // Caclulate expected payoff for playinf hawk and for playing dove
+            // In payoff.GetMyPayoff the first param is my move, and the second is opponent move
+            // E.g. for V = 10, C = 20 payoff.GetMyPayoff (Hawk, Hawk) return -5 (= (V-C)/2) and payoff.GetMyPayoff(Dove, Hawk) returns 10 (0)
+            let evHawk = pHawk * payoff.GetMyPayoff (Hawk, Hawk) +
+                         pDove * payoff.GetMyPayoff (Hawk, Dove)
+            let evDove = pHawk * payoff.GetMyPayoff (Dove, Hawk) +
+                         pDove * payoff.GetMyPayoff (Dove, Dove)
+
+            match (evHawk - evDove) with
+            // When you have expected value for playing
+            // hawk and playing dove are equal
+            // choose randomly
+            | 0.0 -> randomChoiceGame info
+            // if expected payoff for playing hawk is better, play hawk
+            // otherwise play dove
+            | diff when diff > 0.0 -> Hawk
+            | _  -> Dove
 
     let highestEuOnDifferentColorGameWithFilter (challengeTypeFilter: ChallengeType option) (info: GameInformation): Strategy =
             let payoff = info.PayoffMatrix
-            let lastRound = info.History.LastRoundChallenges
+            let lastRound = info.HistoryView.History.LastRoundChallenges
             let opposingColorStats =
                 match challengeTypeFilter with
                 | None -> lastRound.StrategyStatsFor(info.OpponentColor)
@@ -151,7 +178,7 @@ module ExtraGameModes =
             Dove
 
     let dependingHawksWithinColorSegment (info: GameInformation) =
-        let lastRoundStats = info.History.LastRoundChallenges.StrategyStatsFor (info.OpponentColor)
+        let lastRoundStats = info.HistoryView.History.LastRoundChallenges.StrategyStatsFor (info.OpponentColor)
         let hawkPortion = lastRoundStats.HawkPortion
         if (hawkPortion > info.RandomNumber) then // random number range: [0.0, 1.0[
             Hawk
@@ -159,7 +186,7 @@ module ExtraGameModes =
             Dove
 
     let onHawksOnLastRound (info: GameInformation) =
-        let lastRoundStats = info.History.LastRoundChallenges.StrategyStats ()
+        let lastRoundStats = info.HistoryView.History.LastRoundChallenges.StrategyStats ()
         let hawkPortion = lastRoundStats.HawkPortion
         if (hawkPortion > info.RandomNumber) then // random number range: [0.0, 1.0[
             Hawk
@@ -200,6 +227,12 @@ module SimulationStages =
             NoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
             SameColorStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
             DifferentColorStrategy = GameMode.highestEuOnDifferentColorGameForInvidualAgent None
+        }
+
+    let stage2Game_v5_withFullIndividualHistory_NonCached = Composition.compositeStrategy {
+            NoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+            SameColorStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+            DifferentColorStrategy = GameMode.highestEuOnDifferentColorGameForInvidualAgentNonCached None
         }
 
     let stage3Game = Composition.compositeStrategy {

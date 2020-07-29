@@ -41,3 +41,14 @@ module ListHelpers =
                 items.[pairIndex], items.[pairIndex + 1]
         }
         |> List.ofSeq
+
+
+module Memoize =
+    let memoize fn =
+      let cache = new System.Collections.Generic.Dictionary<_,_>()
+      (fun x ->
+        match cache.TryGetValue x with
+        | true, v -> v
+        | false, _ -> let v = fn (x)
+                      cache.Add(x,v)
+                      v)

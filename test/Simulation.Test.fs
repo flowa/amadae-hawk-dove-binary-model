@@ -15,6 +15,19 @@ module TestData  =
     module Challenges =
         let round1 =
             [||]
+    module GameInfo =
+        let getDefaultTestInfo () =
+            let cache = new AgentViewCache()
+            let matrix = FromRewardAndCost(10.0, 20.0)
+            let history = Rounds ([||])
+            let info, _ =
+                GameInformation.InitGameInformationForAgents
+                    cache
+                    matrix
+                    history
+                    Agents.Blue1
+                    Agents.Red1
+            info
 
 type SimpleTestCase<'input, 'output> =
     {
@@ -36,15 +49,8 @@ type WithInitizerTestCase<'input, 'fnInput, 'output> =
 
 
 Jest.describe("Test game modes: nashMixedStrategyEquilibriumGameFromPayoffParameters", fun () ->
-    let rand = System.Random()
-    let info: GameInformation =
-        {
-            Agent = TestData.Agents.Blue1
-            OpponentColor = Blue
-            History = Rounds ([||])
-            PayoffMatrix = FromRewardAndCost (10.0, 20.0)
-            RandomNumber = rand.NextDouble ()
-        }
+    let info: GameInformation = TestData.GameInfo.getDefaultTestInfo()
+
     [
        {
            Name = "It should return Hawk when RandomNumber = 0.0 and V/C < 0"
@@ -99,15 +105,8 @@ Jest.describe("Test game modes: nashMixedStrategyEquilibriumGameFromPayoffParame
 
 
 Jest.describe("Test game modes: randomChoiceGame", fun () ->
-    let rand = System.Random()
-    let info: GameInformation =
-        {
-            Agent = TestData.Agents.Blue1
-            OpponentColor = Blue
-            History = Rounds ([||])
-            PayoffMatrix = FromRewardAndCost (10.0, 20.0)
-            RandomNumber = rand.NextDouble ()
-        }
+    let info: GameInformation = TestData.GameInfo.getDefaultTestInfo()
+
     [
         {
            Name = "It should yield HAWK when RandomNumber = 0.0"
@@ -152,10 +151,12 @@ Jest.describe("Test game modes: keepSameStrategy", fun () ->
     let matrix = FromRewardAndCost (10.0, 40.0)
     let history = Rounds [| GameRound.Empty.AppendWith(agent1, agent2) |]
     let agent1Info, agent2Info =
-        GameInformation.InitGameInformationForAgents matrix history agent1 agent2
+        let cache = new AgentViewCache()
+        GameInformation.InitGameInformationForAgents cache matrix history agent1 agent2
 
     let agent3Info, agent4Info =
-        GameInformation.InitGameInformationForAgents matrix history agent3 agent4
+        let cache = new AgentViewCache()
+        GameInformation.InitGameInformationForAgents cache matrix history agent3 agent4
 
     [
         {
@@ -234,7 +235,8 @@ Jest.describe(
              |]
 
         let mapInput (testParams: HighestEuTestInput): GameInformation =
-            let (info, _) = GameInformation.InitGameInformationForAgents matrix testParams.History testParams.Agent testParams.Other
+            let cache = new AgentViewCache()
+            let (info, _) = GameInformation.InitGameInformationForAgents cache matrix testParams.History testParams.Agent testParams.Other
             { info with RandomNumber = testParams.RandomNumber }
 
         let generateExplainingText hawkN doveN opponentColor =

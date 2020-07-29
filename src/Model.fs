@@ -2,6 +2,7 @@ module Model
 open Fable
 open Helpers
 open System
+open System.Collections.Generic
 
 type Color =
     | Blue
@@ -120,17 +121,6 @@ type PayoffMatrixType =
         myPayoff
 
 
-// TODO: refactor
-// type ColorStatistics =
-//     {
-//         CountOfRedHawks: float
-//         CountOfBlueHawks: float
-//     }
-//     member this.HawkCountFor(c: Color) =
-//         match c with
-//         | Red  -> this.CountOfRedHawks
-//         | Blue -> this.CountOfRedHawks
-
 type GameRound =
     | Round of (ResolvedChallenge list)
     member this.ToList() =
@@ -169,6 +159,16 @@ type GameHistory =
     member this.LastRoundChallenges
         with get() = this.Unwrap() |> Array.last
 
+type AgentViewCache = Dictionary<int * int, Map<(ChallengeType * Strategy * Color), int>>
+
+type HistoryStatisticsView =
+    {
+       History: GameHistory
+       AgentViewCache: AgentViewCache
+    }
+    member this.UpdateHistory(history: GameHistory) = { this with History = history}
+
+
 let rand = Random()
 type GameInformation =
     {
@@ -177,24 +177,33 @@ type GameInformation =
         OpponentColor: Color
         PayoffMatrix: PayoffMatrixType
         // Agents: Agent list
-        History: GameHistory
+        HistoryView: HistoryStatisticsView
         // Random number is passed as a part of game information
         // so that strategies are easier to test
         RandomNumber: float
+        Cache: Dictionary<int * int, Map<ChallengeType * Strategy * Color, int>>
     }
-    static member InitGameInformationForAgents matrix history (agent1: Agent) (agent2: Agent) =
+    static member InitGameInformationForAgents cache matrix history (agent1: Agent) (agent2: Agent) =
         {
+            Cache = cache
             Agent = agent1
             OpponentColor = agent2.Color
             PayoffMatrix = matrix
-            History = history
+            HistoryView = {
+                History = history
+                AgentViewCache = cache
+            }
             RandomNumber = rand.NextDouble()
         },
         {
+            Cache = cache
             Agent = agent2
             OpponentColor = agent1.Color
             PayoffMatrix = matrix
-            History = history
+            HistoryView = {
+                History = history
+                AgentViewCache = cache
+            }
             RandomNumber = rand.NextDouble()
         }
 
@@ -207,14 +216,14 @@ type PlannedRound =
         StageName: string
         MayUseColor: bool
     }
-    member this.PlayRound (agents: Agent list) (history: GameHistory) =
+    member this.PlayRound cache (agents: Agent list) (history: GameHistory) =
         let gamePairs =
             agents
             |> ListHelpers.shuffle
             |> ListHelpers.toPairs
 
         let play (agent1: Agent, agent2: Agent): ResolvedChallenge =
-            let (gameInfoForAgent1, gameInfoForAgent2) = GameInformation.InitGameInformationForAgents this.PayoffMatrix history agent1 agent2
+            let (gameInfoForAgent1, gameInfoForAgent2) = GameInformation.InitGameInformationForAgents cache this.PayoffMatrix history agent1 agent2
 
             let agent1Choise = this.StrategyFn gameInfoForAgent1
             let agent2Choise = this.StrategyFn gameInfoForAgent2
@@ -237,8 +246,10 @@ type GameState =
         ResolvedRounds:GameHistory
     }
     member this.SimulateRoundsAsync (agents: Agent list) =
+        let cache = new AgentViewCache()
         promise {
             let initialValue = Promise.lift (agents, (Rounds [||]))
+            let start = DateTime.Now
             let! (_, playedRounds) =
                 this.PlannedRounds
                 |> List.fold
@@ -247,15 +258,20 @@ type GameState =
                                 (fun (agents: Agent list, history: GameHistory) ->
                                     promise {
                                             // This is needed here to make UI responsive during simulation
-                                            do! Promise.sleep 100
-                                            let roundResult = plannedRound.PlayRound agents history
+                                            do! Promise.sleep 5
+                                            let start = DateTime.Now
+                                            let roundResult = plannedRound.PlayRound cache agents history
                                             let updatedHistory = history.Append roundResult
                                             let agentsAfterRound = roundResult.Agents
+                                            let endTime = DateTime.Now
+                                            printfn "Round took %A ms" (endTime - start).TotalMilliseconds
                                             return (agentsAfterRound, updatedHistory)
                                     })
                                 accPromise
                     )
                     initialValue
+            let endTime = DateTime.Now
+            printfn "Full simulation took %A ms" (endTime - start).TotalMilliseconds
             return {
                 this with ResolvedRounds = playedRounds
             }

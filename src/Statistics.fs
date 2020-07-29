@@ -1,7 +1,9 @@
 module Statistics
+open System.Collections.Generic
 
 module RoundStats =
     open Model
+
     type StrategyStats =
         | HakwDoveStats of hawkN: int * doveN: int
         member this.HawkN with get() =
@@ -31,25 +33,61 @@ module RoundStats =
         |> List.map (fun (key, items) -> (key, items.Length))
         |> Map.ofList
 
+    let filterOnlyAgentOwnMoves (agent: Agent) (round: GameRound)  =
+        round.ToList()
+        |> List.filter (fun chalenge ->
+            match chalenge with
+            | { Players = (player1, player2) } -> agent.Id = player1.Id || agent.Id = player2.Id
+        )
+        |> List.head
+
+    let selectTheOtherAgentStatsTuple (agent: Agent) (challenge: ResolvedChallenge) =
+        let (a1, a2) = challenge.Players
+        let challengeType = challenge.ChalengeType
+        if (a1.Id = agent.Id) then
+            (challengeType, a2.Strategy.Value, a2.Color)
+        else
+            (challengeType, a1.Strategy.Value, a1.Color)
+
+    let rec calcRoundAggregatesForAgentsWithCacheRecursive
+        (cache: AgentViewCache)
+        (roundIndex: int, agent: Agent, history: GameHistory): Map<ChallengeType * Strategy * Color, int> =
+            let calcForRound (round: GameRound) =
+                let key = (filterOnlyAgentOwnMoves agent >> selectTheOtherAgentStatsTuple agent) round
+                Map.ofList [key, 1]
+            match cache.ContainsKey(roundIndex, agent.Id), roundIndex with
+            | true, _ ->
+                cache.[roundIndex, agent.Id]
+            | false, 0 ->
+                let firstRound = calcForRound (history.Unwrap().[roundIndex])
+                cache.Add((roundIndex, agent.Id), firstRound)
+                firstRound
+            | false, round ->
+                let previousRoundIndex = round - 1
+                // Get previous round stats recurivelu
+                // (tail recursion would be better, but there will never be milloins or round so its not needed)
+                let previousRound = calcRoundAggregatesForAgentsWithCacheRecursive cache (previousRoundIndex, agent, history)
+                let thisRound = calcForRound (history.Unwrap().[roundIndex])
+                let selectKey (key, _) = key
+                let selectValue (_, value) = value
+                let currentRoundStats =
+                    List.concat [
+                        (previousRound |> Map.toList)
+                        (thisRound |> Map.toList)
+                    ]
+                    |> List.groupBy selectKey
+                    |> List.map (fun (key, items) -> (key, items |> List.sumBy selectValue))
+                    |> Map.ofList
+                cache.Add((roundIndex, agent.Id), currentRoundStats)
+                currentRoundStats
+
+    let rec calcRoundAggregatesForAgentsWithCache cache (agent: Agent, history: GameHistory) =
+        let lastRountIndex = history.TotalRounds - 1
+        calcRoundAggregatesForAgentsWithCacheRecursive cache (lastRountIndex, agent, history)
+
     let calcRoundAggregatesForAgents(agent: Agent, history: GameHistory): Map<ChallengeType * Strategy * Color, int> =
-        let filterOnlyAgentOwnMoves (round: GameRound)  =
-            round.ToList()
-            |> List.filter (fun chalenge ->
-                match chalenge with
-                | { Players = (player1, player2) } -> agent.Id = player1.Id || agent.Id = player2.Id
-            )
-            |> List.head
-
-        let selectTheOtherAgentStatsTuple (challenge: ResolvedChallenge) =
-            let (a1, a2) = challenge.Players
-            let challengeType = challenge.ChalengeType
-            if (a1.Id = agent.Id) then
-                (challengeType, a2.Strategy.Value, a2.Color)
-            else
-                (challengeType, a1.Strategy.Value, a1.Color)
-
         history.Unwrap()
-        |> Array.map (filterOnlyAgentOwnMoves >> selectTheOtherAgentStatsTuple)
+        |> Array.map (filterOnlyAgentOwnMoves agent >> selectTheOtherAgentStatsTuple agent)
         |> Array.groupBy id
         |> Array.map (fun (key, items) -> (key, items.Length))
         |> Map.ofArray
@@ -64,10 +102,11 @@ module RoundStats =
         |> List.map (fun (key, subAggs) -> key, subAggs |> List.sumBy (fun (_, value) -> value))
         |> Map.ofList
 
-    let valueOrZero<'a when 'a : equality and 'a : comparison> (map: Map<'a, int>) (key: 'a) =
+    let valueOrZero<'key, 'value when 'key : equality and 'key : comparison> (map: Map<'key, 'value>) (key: 'key) =
         match map.TryFind(key) with
-        | None -> 0
+        | None -> Unchecked.defaultof<'value>
         | Some v -> v
+
 
     let strategyStatsForChallengeTypeAndColor roundAggs (challengeType: ChallengeType) (color: Color) =
         let hawkN = valueOrZero roundAggs (challengeType, Hawk, color)
@@ -92,19 +131,16 @@ module RoundStats =
         let doveN = valueOrZero subAgg Dove
         HakwDoveStats (hawkN, doveN)
 
-
-module Memoize =
-    let memoize fn =
-      let cache = new System.Collections.Generic.Dictionary<_,_>()
-      (fun x ->
-        match cache.TryGetValue x with
-        | true, v -> v
-        | false, _ -> let v = fn (x)
-                      cache.Add(x,v)
-                      v)
-
 module ModelExtensions =
     open Model
+    type HistoryStatisticsView with
+        member this.Aggregates (agent: Agent) =
+            RoundStats.calcRoundAggregatesForAgentsWithCache this.AgentViewCache (agent, this.History)
+        member this.StrategyStats (agent: Agent) = RoundStats.strategyStats (this.Aggregates agent)
+        member this.StrategyStatsFor (agent: Agent, color: Color) = RoundStats.strategyStatsForColor (this.Aggregates agent) color
+        member this.StrategyStatsFor (agent: Agent, challengeType: ChallengeType) = RoundStats.strategyStatsForChallengeType (this.Aggregates agent) challengeType
+        member this.StrategyStatsFor (agent: Agent, challengeType: ChallengeType, color: Color) = RoundStats.strategyStatsForChallengeTypeAndColor (this.Aggregates agent) challengeType color
+
     type GameHistory with
         member this.Aggregates (agent: Agent)  = RoundStats.calcRoundAggregatesForAgents(agent, this)
         member this.StrategyStats (agent: Agent) = RoundStats.strategyStats (this.Aggregates agent)
@@ -117,3 +153,16 @@ module ModelExtensions =
         member this.StrategyStatsFor (color: Color) = RoundStats.strategyStatsForColor this.Aggregates color
         member this.StrategyStatsFor (challengeType: ChallengeType) = RoundStats.strategyStatsForChallengeType this.Aggregates challengeType
         member this.StrategyStatsFor (challengeType: ChallengeType, color: Color) = RoundStats.strategyStatsForChallengeTypeAndColor this.Aggregates challengeType color
+        member this.PayoffAccumulativeAvgForRedAndBlue
+            with get() =
+                let breakdown =
+                    this.Agents
+                    |> List.groupBy (fun agent -> agent.Color)
+                    |> List.map (fun (color, agents) ->
+                        color, agents |> List.averageBy (fun a -> a.Payoff))
+                    |> Map.ofList
+                let avgAll =
+                    this.Agents
+                    |> List.averageBy (fun a -> a.Payoff)
+
+                (RoundStats.valueOrZero breakdown Red), (RoundStats.valueOrZero breakdown Blue), avgAll
