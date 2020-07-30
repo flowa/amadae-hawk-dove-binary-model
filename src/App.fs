@@ -7,16 +7,9 @@ open Simulation
 // MODEL
 let runSimulationAsync (setup: GameSetup) =
     promise {
-        printfn "0"
         let initialGameState = setup.ToInitialGameState()
-
-        printfn "f"
         let initialAgents = setup.GenerateAgents()
-        printfn "1"
-
         let! afterSimulation = initialGameState.SimulateRoundsAsync initialAgents
-        printfn "2"
-
         return afterSimulation
     }
 

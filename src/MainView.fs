@@ -311,6 +311,12 @@ module SettingsForm =
                             renderPayoffMatrics (model.Setup.PayoffMatrix)
                         ]
                 ]
+
+        let colorSeparation =
+            match model.GameState.ResolvedRounds.FirstSeparationOfColorsRound with
+            | None -> "None"
+            | Some i -> i.ToString()
+
         match model.ViewState with
         | InitGame -> renderSetupForm false
         | Loading -> renderSetupForm true
@@ -322,6 +328,9 @@ module SettingsForm =
                     ]
                 group "Round challenges" [
                     simulatioStatsTable model
+                    div [] [
+                        str (sprintf "1st round of color separation in Different color encounters: %s" colorSeparation)
+                    ]
                 ]
 
                 group "Color statistics" [

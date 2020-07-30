@@ -141,18 +141,18 @@ module ModelExtensions =
         member this.StrategyStatsFor (agent: Agent, challengeType: ChallengeType) = RoundStats.strategyStatsForChallengeType (this.Aggregates agent) challengeType
         member this.StrategyStatsFor (agent: Agent, challengeType: ChallengeType, color: Color) = RoundStats.strategyStatsForChallengeTypeAndColor (this.Aggregates agent) challengeType color
 
-    type GameHistory with
-        member this.Aggregates (agent: Agent)  = RoundStats.calcRoundAggregatesForAgents(agent, this)
-        member this.StrategyStats (agent: Agent) = RoundStats.strategyStats (this.Aggregates agent)
-        member this.StrategyStatsFor (agent: Agent, color: Color) = RoundStats.strategyStatsForColor (this.Aggregates agent) color
-        member this.StrategyStatsFor (agent: Agent, challengeType: ChallengeType) = RoundStats.strategyStatsForChallengeType (this.Aggregates agent) challengeType
-        member this.StrategyStatsFor (agent: Agent, challengeType: ChallengeType, color: Color) = RoundStats.strategyStatsForChallengeTypeAndColor (this.Aggregates agent) challengeType color
     type GameRound with
         member this.Aggregates with get() = RoundStats.calcRoundAggregates(this)
         member this.StrategyStats () = RoundStats.strategyStats this.Aggregates
         member this.StrategyStatsFor (color: Color) = RoundStats.strategyStatsForColor this.Aggregates color
         member this.StrategyStatsFor (challengeType: ChallengeType) = RoundStats.strategyStatsForChallengeType this.Aggregates challengeType
         member this.StrategyStatsFor (challengeType: ChallengeType, color: Color) = RoundStats.strategyStatsForChallengeTypeAndColor this.Aggregates challengeType color
+        member this.InDifferentColorEncountersColorsHaveSeparated
+            with get() =
+                let red = this.StrategyStatsFor(DifferentColor, Red)
+                let blue = this.StrategyStatsFor(DifferentColor, Blue)
+                (red.HawkN = 0 && blue.DoveN = 0 && red.DoveN = blue.HawkN && blue.HawkN > 0) ||
+                (red.DoveN = 0 && blue.HawkN = 0 && red.HawkN = blue.DoveN && blue.DoveN > 0)
         member this.PayoffAccumulativeAvgForRedAndBlue
             with get() =
                 let breakdown =
@@ -166,3 +166,17 @@ module ModelExtensions =
                     |> List.averageBy (fun a -> a.Payoff)
 
                 (RoundStats.valueOrZero breakdown Red), (RoundStats.valueOrZero breakdown Blue), avgAll
+
+    type GameHistory with
+        member this.Aggregates (agent: Agent)  = RoundStats.calcRoundAggregatesForAgents(agent, this)
+        member this.StrategyStats (agent: Agent) = RoundStats.strategyStats (this.Aggregates agent)
+        member this.StrategyStatsFor (agent: Agent, color: Color) = RoundStats.strategyStatsForColor (this.Aggregates agent) color
+        member this.StrategyStatsFor (agent: Agent, challengeType: ChallengeType) = RoundStats.strategyStatsForChallengeType (this.Aggregates agent) challengeType
+        member this.StrategyStatsFor (agent: Agent, challengeType: ChallengeType, color: Color) = RoundStats.strategyStatsForChallengeTypeAndColor (this.Aggregates agent) challengeType color
+        member this.FirstSeparationOfColorsRound
+            with get() =
+                this.Unwrap()
+                |> Array.mapi (fun index round -> (index + 1), round)
+                |> Array.filter (fun (_, round) -> round.InDifferentColorEncountersColorsHaveSeparated)
+                |> Array.map (fun (roundNumber, _) -> roundNumber)
+                |> Array.tryHead
