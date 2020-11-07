@@ -15,42 +15,34 @@ let runSimulationAsync (setup: GameSetup) =
 
 
 let init () =
+    
     let setup =
         {
-            GameSetup.AgentCount = 100
-            PortionOfRed = 50
-            PayoffMatrix = FromRewardAndCost (10.0, 20.0)
+            GameSetup.GameParameters = {
+                AgentCount = 100
+                PortionOfRed = 50
+                PayoffMatrix = FromRewardAndCost (10.0, 20.0)
+            }
             SimulationFrames = [
                 {
                     SimulationFrame.RoundCount = 10
                     SetPayoffForStage = id
                     StageName = "Stage 1"
-                    StrategyFn = SimulationStages.stage1Game
+                    StrategyInitFn = SimulationStages.stage1Game
                     MayUseColor = false
                 }
                 {
                      SimulationFrame.RoundCount = 50
                      SetPayoffForStage = id
                      StageName = "Stage 2"
-                     StrategyFn = SimulationStages.stage2Game_v5_withFullIndividualHistory
+                     StrategyInitFn = SimulationStages.stage2Game_v5_withFullIndividualHistory
                      MayUseColor = true
-
                 }
-                // {
-                //     SimulationFrame.RoundCount = 10
-                //     StageName = "Stage 2 v2"
-                //     StrategyFn = SimulationStages.stage2GameVersion2
-                // }
-                // {
-                //      SimulationFrame.RoundCount = 10
-                //      StageName = "Stage 2 v3"
-                //      StrategyFn = SimulationStages.stage2GameVersion3
-                // }
                 {
                     SimulationFrame.RoundCount = 10
                     SetPayoffForStage = id
                     StageName = "Stage 3"
-                    StrategyFn = GameMode.onBasedOfLastEncounterWithOpponentColor
+                    StrategyInitFn = SimulationStages.stage3Game_onBasedOfLastEncounterWithOpponentColor
                     MayUseColor = true
                 }
             ]
@@ -67,34 +59,35 @@ let init () =
 // UPDATE
 
 let update (msg:Msg) (state: State) =
-    let setGameSetup (updatedGameSetup: GameSetup) =
-        { state with Setup = updatedGameSetup}
+    let setGameSimulationFrames (simulationFrames: SimulationFrame list ) =
+        let updatedSetup = { state.Setup with SimulationFrames  = simulationFrames} 
+        { state with Setup = updatedSetup }
+
+    let setGameParams (updatedGameParams: GameParameters) =
+        let updatedSetup = { state.Setup with GameParameters = updatedGameParams } 
+        { state with Setup = updatedSetup }
     let setField (field: FieldValue) =
         match field with
         | RoundCountOfStage (stage, value) ->
-            (setGameSetup
-                {
-                    state.Setup with
-                        SimulationFrames =
-                            state.Setup.SimulationFrames
-                            |> List.map
-                                (fun frame ->
-                                    if frame.StageName = stage then
-                                        { frame with RoundCount = value}
-                                    else frame)
-                })
+            (setGameSimulationFrames
+                (state.Setup.SimulationFrames
+                |> List.map
+                    (fun frame ->
+                        if frame.StageName = stage then
+                            { frame with RoundCount = value }
+                        else frame)))
         | AgentCount value ->
-            (setGameSetup { state.Setup with AgentCount = value })
+            (setGameParams { state.Setup.GameParameters with AgentCount = value })
         | PortionOfRed value ->
-            (setGameSetup { state.Setup with PortionOfRed = value })
+            (setGameParams { state.Setup.GameParameters with PortionOfRed = value })
         | BenefitOnVictory value ->
-            (setGameSetup {
-                    state.Setup with
+            (setGameParams {
+                    state.Setup.GameParameters with
                         PayoffMatrix = (state.Setup.PayoffMatrix.SetV (float value))
                 })
         | CostOfLoss value ->
-            (setGameSetup {
-                    state.Setup with
+            (setGameParams {
+                    state.Setup.GameParameters with
                         PayoffMatrix = (state.Setup.PayoffMatrix.SetC (float value))
                 })
 

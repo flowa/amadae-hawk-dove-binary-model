@@ -16,6 +16,11 @@ type Color =
 type Strategy =
     | Dove
     | Hawk
+    static member GenerateList
+        (specs: (Strategy * int) list) : Strategy list =
+        specs
+        |> List.collect (fun (value, count) ->
+                List.init count (fun _ -> value))
 
 type ChallengeType =
     | DifferentColor
@@ -302,22 +307,31 @@ type GameState =
             }
         }
 
+type GameParameters =
+    {
+        AgentCount: int
+        PortionOfRed: int
+        PayoffMatrix: PayoffMatrixType
+    }
+
 type SimulationFrame =
     {
         RoundCount: int
         StageName: string
-        StrategyFn: StrategyFn
+        StrategyInitFn: GameParameters -> StrategyFn
         SetPayoffForStage: PayoffMatrixType -> PayoffMatrixType
         MayUseColor: bool
     }
 
 type GameSetup =
     {
-        AgentCount: int
-        PortionOfRed: int
+        GameParameters: GameParameters
         SimulationFrames: SimulationFrame list
-        PayoffMatrix: PayoffMatrixType
     }
+    member this.AgentCount = this.GameParameters.AgentCount
+    member this.PortionOfRed = this.GameParameters.PortionOfRed
+    member this.PayoffMatrix = this.GameParameters.PayoffMatrix
+    
     member this.RoundsToPlay
         with get() = this.SimulationFrames |> List.sumBy (fun f -> f.RoundCount)
     member this.CountOfRed
@@ -355,7 +369,7 @@ type GameSetup =
                         let plannedRound: PlannedRound =
                             {
                                PayoffMatrix = frame.SetPayoffForStage payoffMatrics
-                               StrategyFn = frame.StrategyFn
+                               StrategyFn = frame.StrategyInitFn this.GameParameters
                                StageName = frame.StageName
                                MayUseColor = frame.MayUseColor
                             }

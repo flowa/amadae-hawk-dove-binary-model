@@ -387,7 +387,7 @@ Jest.describe(
             testCasesForBothFunctions "All encounters" GameMode.highestExpectedValueOnDifferentColorGame
             testCasesForBothFunctions "Different color encounter only" GameMode.highestExpectedValueOnDifferentColorGameUsingOnlyDifferentColorStats
             alsoSameColorEncountersTestCases
-            testCasesForBothFunctions "Stage 2 Game" SimulationStages.stage2Game
+//            testCasesForBothFunctions "Stage 2 Game" SimulationStages.stage2Game { GameParameters.AgentCount = 4; PortionOfRed = 50; PayoffMatrix =   }
         ]
         |> List.iteri
             (fun index testData ->

@@ -1,5 +1,7 @@
 module Simulation
 
+open System
+open Helpers
 open Model
 
 module Composition =
@@ -29,6 +31,10 @@ module GameMode =
             Hawk
         else
             Dove
+
+    let cardDeckGame (deck: Strategy list) (info: GameInformation): Strategy =
+        let cardIndex = info.Agent.Id
+        deck.[cardIndex]
 
     let nashMixedStrategyEquilibriumGameFromPayoffParameters (info: GameInformation) : Strategy =
         let ``change of hawk`` =
@@ -196,47 +202,82 @@ module ExtraGameModes =
 
 module SimulationStages =
 
-    let stage1Game  = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+    let stage1Game (setup: GameParameters) = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
 
-    let stage2Game = Composition.compositeStrategy {
+    let stage2Game (setup: GameParameters) = Composition.compositeStrategy {
             NoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
             SameColorStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
             DifferentColorStrategy = GameMode.highestExpectedValueOnDifferentColorGameUsingOnlyDifferentColorStats
         }
 
-    let stage2Game_v2_AllEncounter = Composition.compositeStrategy {
+    let stage2Game_withNashAdjustedFirstRound (setup: GameParameters) =
+        let hawkCount =
+            let playerCount = (float) setup.AgentCount
+            match setup.PayoffMatrix.``Cost (C)`` with
+            | 0.0 -> setup.AgentCount
+            | _ ->
+                let hawkCountFloat = (setup.PayoffMatrix.``Revard (V)`` / setup.PayoffMatrix.``Cost (C)``) * playerCount
+                if (hawkCountFloat <> Math.Floor(hawkCountFloat)) then
+                    raise (new Exception("Cannot setup NSME for the first round accurately"))
+                else
+                    (int) hawkCountFloat
+        let doveCount =  setup.AgentCount - hawkCount
+        let deck =
+            Strategy.GenerateList [(Hawk, hawkCount); (Dove, doveCount)]
+            |> ListHelpers.shuffle
+            
+            
+        Composition.compositeStrategy {
+            NoHistoryStrategy = (GameMode.cardDeckGame deck)
+            SameColorStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+            DifferentColorStrategy = GameMode.highestExpectedValueOnDifferentColorGameUsingOnlyDifferentColorStats
+        }
+
+    
+    let stage2Game_v2_AllEncounter (setup: GameParameters) = Composition.compositeStrategy {
             NoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
             SameColorStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
             DifferentColorStrategy = GameMode.highestExpectedValueOnDifferentColorGame
         }
 
-    let stage2Game_v3_keepSameAsSameColorStrategy = Composition.compositeStrategy {
+    let stage2Game_v3_keepSameAsSameColorStrategy (setup: GameParameters) = Composition.compositeStrategy {
             NoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
             SameColorStrategy = GameMode.keepSameStrategy
             DifferentColorStrategy = GameMode.highestExpectedValueOnDifferentColorGame
         }
 
-    let stage2Game_v4_dependingHawksWithinColorSegmentAsSameColorStrategy = Composition.compositeStrategy {
-            NoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
-            SameColorStrategy = ExtraGameModes.dependingHawksWithinColorSegment
-            DifferentColorStrategy = GameMode.highestExpectedValueOnDifferentColorGame
-        }
+    let stage2Game_v4_dependingHawksWithinColorSegmentAsSameColorStrategy (setup: GameParameters) =
+            Composition.compositeStrategy {
+                NoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+                SameColorStrategy = ExtraGameModes.dependingHawksWithinColorSegment
+                DifferentColorStrategy = GameMode.highestExpectedValueOnDifferentColorGame
+            }
 
 
-    let stage2Game_v5_withFullIndividualHistory = Composition.compositeStrategy {
-            NoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
-            SameColorStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
-            DifferentColorStrategy = GameMode.highestEuOnDifferentColorGameForInvidualAgent None
-        }
+    let stage2Game_v5_withFullIndividualHistory (setup: GameParameters) =
+            Composition.compositeStrategy {
+                NoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+                SameColorStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+                DifferentColorStrategy = GameMode.highestEuOnDifferentColorGameForInvidualAgent None
+            }
 
-    let stage2Game_v5_withFullIndividualHistory_NonCached = Composition.compositeStrategy {
+    let stage2Game_v5_withFullIndividualHistory_NonCached (setup: GameParameters) =
+        Composition.compositeStrategy {
             NoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
             SameColorStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
             DifferentColorStrategy = GameMode.highestEuOnDifferentColorGameForInvidualAgentNonCached None
         }
-
-    let stage3Game = Composition.compositeStrategy {
+        
+    let stage3Game (setup: GameParameters) =
+        Composition.compositeStrategy {
             NoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
             SameColorStrategy = GameMode.keepSameStrategy
             DifferentColorStrategy = GameMode.highestExpectedValueOnDifferentColorGame
+        }
+    
+    let stage3Game_onBasedOfLastEncounterWithOpponentColor (setup: GameParameters) =
+        Composition.compositeStrategy {
+            NoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+            SameColorStrategy = GameMode.onBasedOfLastEncounterWithOpponentColor
+            DifferentColorStrategy = GameMode.onBasedOfLastEncounterWithOpponentColor
         }
