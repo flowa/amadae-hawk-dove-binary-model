@@ -1,15 +1,15 @@
 module Helpers
 
 // If there is just one module
-// moule information is omited from js
-// this sucks if you want to add new modelue without
+// module information is omitted from js
+// this sucks if you want to add new module without
 // restarting watchers hence we have here extra module
 module GenerateModules =
     let value = true
 
 module ArrayHelpers =
     let rand = System.Random()
-
+    
     let swap (a: _[]) x y =
         let tmp = a.[x]
         a.[x] <- a.[y]

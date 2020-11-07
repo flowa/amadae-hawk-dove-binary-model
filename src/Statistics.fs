@@ -35,8 +35,8 @@ module RoundStats =
 
     let filterOnlyAgentOwnMoves (agent: Agent) (round: GameRound)  =
         round.ToList()
-        |> List.filter (fun chalenge ->
-            match chalenge with
+        |> List.filter (fun challenge ->
+            match challenge with
             | { Players = (player1, player2) } -> agent.Id = player1.Id || agent.Id = player2.Id
         )
         |> List.head

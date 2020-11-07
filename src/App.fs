@@ -9,7 +9,7 @@ let runSimulationAsync (setup: GameSetup) =
     promise {
         let initialGameState = setup.ToInitialGameState()
         let initialAgents = setup.GenerateAgents()
-        let! afterSimulation = initialGameState.SimulateRoundsAsync initialAgents
+        let! afterSimulation = initialGameState.SimulateRoundsPromise initialAgents
         return afterSimulation
     }
 
@@ -117,12 +117,12 @@ let update (msg:Msg) (state: State) =
                     do! Promise.sleep 200
                     let! results = runSimulationAsync state.Setup
                     printfn "beforeDispatch"
-                    return (OnSimulationComplated results)
+                    return (OnSimulationCompleted results)
                 }
         {state with ViewState = Loading},
         Cmd.OfPromise.perform runSimulation () id
 
-    | OnSimulationComplated gameState ->
+    | OnSimulationCompleted gameState ->
         { state with
             ViewState = ShowResults state.Setup.RoundsToPlay
             GameState = gameState}, Cmd.none
