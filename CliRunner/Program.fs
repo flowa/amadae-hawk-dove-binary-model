@@ -43,27 +43,47 @@ let simulationStatsTable (model: State): StatsTableRow list =
         }
     ]
 
+let initializationRounds = 1
+let secondStageRounds = 150
+
+let generateSetup (agentCount: int) (portionOfRed: int) (expectedHawkPortion: float) =
+    let ``Reward (V)`` = 10.0 
+    let ``Cost (C)`` =
+        match expectedHawkPortion with
+        | p when p >= 1.0 || p <= 0.0 -> raise (new ArgumentException("expectedHawkPortion must be in range ]0,1["))
+        | _ -> ``Reward (V)`` / expectedHawkPortion
+    {        
+        GameParameters = {
+            AgentCount = agentCount
+            PortionOfRed = portionOfRed
+            PayoffMatrix = PayoffMatrixType.FromRewardAndCost (``Reward (V)``, ``Cost (C)``)
+        }
+        
+        SimulationFrames = [
+            {
+                SimulationFrame.RoundCount = initializationRounds
+                StageName = "Stage 1 - Ideal Nash Distribution"
+                StrategyInitFn = SimulationStages.stage1Game_withIdealNMSEDistribution
+                MayUseColor = true
+                SetPayoffForStage = id
+            }
+            {
+                SimulationFrame.RoundCount = secondStageRounds
+                StageName = "Stage 2"
+                StrategyInitFn = SimulationStages.stage2Game_v5_withFullIndividualHistory
+                MayUseColor = true
+                SetPayoffForStage = id
+            }
+        ]
+    }
 
 [<EntryPoint>]
 let main argv =
     printfn "Running simulations"
-    let runs = 200
-    let setup = {
-            GameParameters = {
-                AgentCount = 100
-                PortionOfRed = 50
-                PayoffMatrix = PayoffMatrixType.FromRewardAndCost (10.0, 20.0)
-            }
-            SimulationFrames = [
-                {
-                    SimulationFrame.RoundCount = 100
-                    StageName = "Stage 2"
-                    StrategyInitFn = SimulationStages.stage2Game_withNashAdjustedFirstRound
-                    MayUseColor = true
-                    SetPayoffForStage = id
-                }
-            ]
-    }
+    let runs = 50
+    let initializationRounds = 1
+    let setup = generateSetup 500 50 0.50
+    printfn "Setup = %O" setup
     let results = seq { for i in 1 .. runs do yield runSimulation setup }
     // printfn "result %O" results
     let states =
@@ -71,22 +91,40 @@ let main argv =
         |> Seq.map (fun r -> {
             State.Setup = setup
             GameState = r
-            ViewState = ShowResults 100
+            ViewState = ShowResults (initializationRounds + secondStageRounds)
             PlayAnimation = false
         })
         |> List.ofSeq
         
-    let stats = simulationStatsTable (Seq.last states)
-    let firstSeparations = states |> Seq.map (fun s -> s.GameState.ResolvedRounds.FirstSeparationOfColorsRound)
-    let avgSeparationWhenOccured = firstSeparations
-                                   |> Seq.filter (fun v -> v.IsSome)
-                                   |> Seq.map (fun v -> (float) v.Value)
-                                   |> Seq.average
-    let chanceOfSeparation =
+    let firstSeparations = states |> List.map (fun s -> s.GameState.ResolvedRounds.FirstSeparationOfColorsRound)
+    let dominance = states |> List.map (fun s -> s.GameState.ResolvedRounds.DominationColorAfterSeparation)
+    
+    let roundNumberOfSeparationWhenOccured =
         (firstSeparations
         |> Seq.filter (fun v -> v.IsSome)
-        |> Seq.length
-        |> float) / (float) runs
+        |> Seq.map (fun v -> (float) v.Value - (float) initializationRounds)
+        |> List.ofSeq)
+
+    let chanceOfSeparation =
+        (float) roundNumberOfSeparationWhenOccured.Length / (float) runs
         
-    printfn "stats %O \n firstSeparation %f (chance %f)" stats avgSeparationWhenOccured chanceOfSeparation
+    let avgSeparationWhenOccured =
+        roundNumberOfSeparationWhenOccured
+       |> Seq.average
+    
+    let distributionOfSeparation =
+        [
+            roundNumberOfSeparationWhenOccured |> Seq.min
+            roundNumberOfSeparationWhenOccured |> Seq.max
+        ]
+    let chanceOfRedDominanceChance =
+        let redDominated = dominance |> List.filter (fun d -> d = Some Red) |> List.length |> float
+        redDominated / (float) runs
+        
+        
+    printfn "firstSeparation %f %O (chance %f); chance of red dominance %f"
+        avgSeparationWhenOccured
+        distributionOfSeparation
+        chanceOfSeparation
+        chanceOfRedDominanceChance
     0 // return an integer exit code

@@ -147,12 +147,26 @@ module ModelExtensions =
         member this.StrategyStatsFor (color: Color) = RoundStats.strategyStatsForColor this.Aggregates color
         member this.StrategyStatsFor (challengeType: ChallengeType) = RoundStats.strategyStatsForChallengeType this.Aggregates challengeType
         member this.StrategyStatsFor (challengeType: ChallengeType, color: Color) = RoundStats.strategyStatsForChallengeTypeAndColor this.Aggregates challengeType color
-        member this.InDifferentColorEncountersColorsHaveSeparated
+       
+        member this.FullyDominatingColor
             with get() =
                 let red = this.StrategyStatsFor(DifferentColor, Red)
                 let blue = this.StrategyStatsFor(DifferentColor, Blue)
-                (red.HawkN = 0 && blue.DoveN = 0 && red.DoveN = blue.HawkN && blue.HawkN > 0) ||
-                (red.DoveN = 0 && blue.HawkN = 0 && red.HawkN = blue.DoveN && blue.DoveN > 0)
+                let both = this.StrategyStatsFor(DifferentColor)            
+                match (red.HawkN, blue.HawkN, both.HawkN) with
+                | 0, _, all when all > 0 -> Some Red
+                | _, 0, all when all > 0 -> Some Blue
+                | _ -> None
+         member this.InDifferentColorEncountersColorsHaveSeparated
+            with get() =
+//                let red = this.StrategyStatsFor(DifferentColor, Red)
+//                let blue = this.StrategyStatsFor(DifferentColor, Blue)
+//                (red.HawkN = 0 && blue.DoveN = 0 && red.DoveN = blue.HawkN && blue.HawkN > 0) ||
+//                (red.DoveN = 0 && blue.HawkN = 0 && red.HawkN = blue.DoveN && blue.DoveN > 0)
+                this.FullyDominatingColor.IsSome
+    
+            
+        
         member this.PayoffAccumulativeAvgForRedAndBlue
             with get() =
                 let breakdown =
@@ -180,3 +194,10 @@ module ModelExtensions =
                 |> Array.filter (fun (_, round) -> round.InDifferentColorEncountersColorsHaveSeparated)
                 |> Array.map (fun (roundNumber, _) -> roundNumber)
                 |> Array.tryHead
+        member this.DominationColorAfterSeparation
+            with get() =
+                match this.FirstSeparationOfColorsRound with
+                | Some round -> (this.GetRoundByRoundNumber round).FullyDominatingColor
+                | _ -> None
+                
+            

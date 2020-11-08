@@ -110,7 +110,7 @@ module GameMode =
             let pHawk = opposingColorStats.HawkPortion // = Hawk count / total actors within color segement
             let pDove = opposingColorStats.DovePortion
 
-            // Caclulate expected payoff for playinf hawk and for playing dove
+            // Calculate expected payoff for playing hawk and for playing dove
             // In payoff.GetMyPayoff the first param is my move, and the second is opponent move
             // E.g. for V = 10, C = 20 payoff.GetMyPayoff (Hawk, Hawk) return -5 (= (V-C)/2) and payoff.GetMyPayoff(Dove, Hawk) returns 10 (0)
             let evHawk = pHawk * payoff.GetMyPayoff (Hawk, Hawk) +
@@ -199,18 +199,11 @@ module ExtraGameModes =
         else
             Dove
 
-
-module SimulationStages =
-
-    let stage1Game (setup: GameParameters) = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
-
-    let stage2Game (setup: GameParameters) = Composition.compositeStrategy {
-            NoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
-            SameColorStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
-            DifferentColorStrategy = GameMode.highestExpectedValueOnDifferentColorGameUsingOnlyDifferentColorStats
-        }
-
-    let stage2Game_withNashAdjustedFirstRound (setup: GameParameters) =
+module IdealNashMixedDistribution =
+    
+    // Generates "deck" of Strategy Choice so that
+    // portion of Hawks is exactly V / C and Portion of Doves is 1 - (V / C)
+    let generate (setup: GameParameters) =
         let hawkCount =
             let playerCount = (float) setup.AgentCount
             match setup.PayoffMatrix.``Cost (C)`` with
@@ -222,31 +215,38 @@ module SimulationStages =
                 else
                     (int) hawkCountFloat
         let doveCount =  setup.AgentCount - hawkCount
-        let deck =
-            Strategy.GenerateList [(Hawk, hawkCount); (Dove, doveCount)]
-            |> ListHelpers.shuffle
-            
-            
-        Composition.compositeStrategy {
-            NoHistoryStrategy = (GameMode.cardDeckGame deck)
+    
+        Strategy.GenerateList [(Hawk, hawkCount); (Dove, doveCount)]
+        |> ListHelpers.shuffle
+
+
+module SimulationStages =
+
+    let stage1Game (_setup: GameParameters) = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+
+    let stage2Game (_setup: GameParameters) = Composition.compositeStrategy {
+            NoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
             SameColorStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
             DifferentColorStrategy = GameMode.highestExpectedValueOnDifferentColorGameUsingOnlyDifferentColorStats
         }
 
+    let stage1Game_withIdealNMSEDistribution (setup: GameParameters) =
+        let deck = IdealNashMixedDistribution.generate(setup)
+        (GameMode.cardDeckGame deck)
     
-    let stage2Game_v2_AllEncounter (setup: GameParameters) = Composition.compositeStrategy {
+    let stage2Game_v2_AllEncounter (_setup: GameParameters) = Composition.compositeStrategy {
             NoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
             SameColorStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
             DifferentColorStrategy = GameMode.highestExpectedValueOnDifferentColorGame
         }
 
-    let stage2Game_v3_keepSameAsSameColorStrategy (setup: GameParameters) = Composition.compositeStrategy {
+    let stage2Game_v3_keepSameAsSameColorStrategy (_setup: GameParameters) = Composition.compositeStrategy {
             NoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
             SameColorStrategy = GameMode.keepSameStrategy
             DifferentColorStrategy = GameMode.highestExpectedValueOnDifferentColorGame
         }
 
-    let stage2Game_v4_dependingHawksWithinColorSegmentAsSameColorStrategy (setup: GameParameters) =
+    let stage2Game_v4_dependingHawksWithinColorSegmentAsSameColorStrategy (_setup: GameParameters) =
             Composition.compositeStrategy {
                 NoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
                 SameColorStrategy = ExtraGameModes.dependingHawksWithinColorSegment
@@ -254,7 +254,7 @@ module SimulationStages =
             }
 
 
-    let stage2Game_v5_withFullIndividualHistory (setup: GameParameters) =
+    let stage2Game_v5_withFullIndividualHistory (_setup: GameParameters) =
             Composition.compositeStrategy {
                 NoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
                 SameColorStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
