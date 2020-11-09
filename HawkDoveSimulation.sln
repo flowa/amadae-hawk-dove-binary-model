@@ -6,6 +6,16 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Test", "test\Test.fsproj", 
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "CliRunner", "CliRunner\CliRunner.fsproj", "{6B085E7E-2A9D-48B4-9303-365AF18ECDE8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFiles", "SolutionFiles", "{790084C8-D5DC-4516-A993-0280AA8011EA}"
+ProjectSection(SolutionItems) = preProject
+	README.md = README.md
+	splitter.config.js = splitter.config.js
+	jest.config.js = jest.config.js
+	LICENSE = LICENSE
+	Nuget.Config = Nuget.Config
+	webpack.config.js = webpack.config.js
+EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

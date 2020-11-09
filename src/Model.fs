@@ -253,28 +253,21 @@ type GameState =
     member this.SimulateRounds (agents: Agent list) =
         let cache = new AgentViewCache()
         let initialValue = (agents, (Rounds [||]))
-        let start = DateTime.Now
         let (_, playedRounds) =
             this.PlannedRounds
             |> List.fold
                 (fun (agentsBefore, history) plannedRound ->
-                     let start = DateTime.Now
                      let roundResult = plannedRound.PlayRound cache agentsBefore history
                      let updatedHistory = history.Append roundResult
                      let agentsAfterRound = roundResult.Agents
-                     let endTime = DateTime.Now
-                     // printfn "Round took %A ms" (endTime - start).TotalMilliseconds
                      let updatedAcc = (agentsAfterRound, updatedHistory)
-                     
                      updatedAcc
                 )
                 initialValue
-        let endTime = DateTime.Now
-        printfn "Full simulation took %A ms" (endTime - start).TotalMilliseconds
         {
             this with ResolvedRounds = playedRounds
         }
-    // TODO: Remove dependency to Promise
+
     member this.SimulateRoundsPromise (agents: Agent list) =
         let cache = new AgentViewCache()
         promise {

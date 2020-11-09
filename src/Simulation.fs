@@ -78,7 +78,7 @@ module GameMode =
                 | None -> history.StrategyStatsFor(info.Agent, info.OpponentColor)
                 | Some challengeType -> history.StrategyStatsFor(info.Agent, challengeType, info.OpponentColor)
 
-            let pHawk = opposingColorStats.HawkPortion // = Hawk count / total actors within color segement
+            let pHawk = opposingColorStats.HawkPortion // = Hawk count / total actors within color segment
             let pDove = opposingColorStats.DovePortion
 
             // Caclulate expected payoff for playinf hawk and for playing dove
@@ -210,10 +210,11 @@ module IdealNashMixedDistribution =
             | 0.0 -> setup.AgentCount
             | _ ->
                 let hawkCountFloat = (setup.PayoffMatrix.``Revard (V)`` / setup.PayoffMatrix.``Cost (C)``) * playerCount
-                if (hawkCountFloat <> Math.Floor(hawkCountFloat)) then
-                    raise (new Exception("Cannot setup NSME for the first round accurately"))
-                else
-                    (int) hawkCountFloat
+                // Uncomment to get warning (Note: Some errors are false positive due to float operation inaccuracy)
+                // if (hawkCountFloat <> Math.Floor(hawkCountFloat)) then
+                //    printfn "WARNING: Could not setup NSME accurately for setup %O. Will use floor(%f)" setup hawkCountFloat
+                Math.Floor(hawkCountFloat) |> int
+                
         let doveCount =  setup.AgentCount - hawkCount
     
         Strategy.GenerateList [(Hawk, hawkCount); (Dove, doveCount)]

@@ -38,8 +38,14 @@ You need to have dotnet SDK and node.js Installed to your machine.
 
 * [Download and install .NET Core SDK](https://www.microsoft.com/net/download/core) 3.0 or higher
 * [Download and install node.js](https://nodejs.org)
+  * Needed if you want to run UI Client
+* Download and install PowerShell
+    * Windows 10+ (you should have it)
+    * [For Mac](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-macos?view=powershell-7)
+    * [For Linux](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-7)
+    * Needed only if you want to convert result JSON files into one csv
 
-## 2. Building and running the app
+## 2. Building and running the app UI client
 
 In the repository root folder in shell (bash, cmd, etc.):
 
@@ -48,6 +54,49 @@ In the repository root folder in shell (bash, cmd, etc.):
 * After the first compilation is finished, in your browser open: http://localhost:8080/
 
 Any modification you do to the F# code will be reflected in the web page after saving.
+
+## 2. Building and running the simulation runner client
+
+## 2.1 You can run simulation with multiple setups:
+
+Run this command `dotnet run <run> <agentCount> "<redAgantSetup>"`
+in ```CliRunner``` folder.
+
+where:
+
+* `runs` (integer) How many time simulation is run. Example 100
+* `agentCount` (integer) How many agents is used in each simulation". Example 200
+* `redAgentSetup` (integer list, delimiter = ';'). Example "10;30;50"
+
+Runner automatically runs simulation 9 different Nash Mixed Startegy Equilibrium (NMSE) values. 
+This specify distribution of Hawks and Doves in the first round and used Payoff.
+
+Values are from 0.1 to 0.9. I.e. in the first run Payoff matrics is setup so that there 
+is 10% Hawks when agents plays using Nash Mixed Startegy.
+
+For example:
+```
+dotnet run 100 200 "10;30;50"
+```
+
+This command will run simulation 100 times for 200 agents with 27 different 
+configuration (for each 3 red agent for each 9 NMSE setup)
+
+Each file will be saved to output folder. 
+
+### 2.2. Convert results into single CSV file
+
+In MaxOs and Linux, run (note you need to have PowerShell installed and in path):
+```
+pwsh -f output-to-csv.ps1
+```
+
+In Windows, open powerShell promp in CliRunner folder and run:
+```
+. .\output-to-csv.ps1
+```
+
+**NOTE: I YOU WANT TO RUN SETUP MULTIPLE TIMES WITH DIFFERENT SETUPS YUO MUST DELETE FOLDER MANUALLY**
 
 ## Optional tooling
 
