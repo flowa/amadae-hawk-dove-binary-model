@@ -187,17 +187,21 @@ module ModelExtensions =
         member this.StrategyStatsFor (agent: Agent, color: Color) = RoundStats.strategyStatsForColor (this.Aggregates agent) color
         member this.StrategyStatsFor (agent: Agent, challengeType: ChallengeType) = RoundStats.strategyStatsForChallengeType (this.Aggregates agent) challengeType
         member this.StrategyStatsFor (agent: Agent, challengeType: ChallengeType, color: Color) = RoundStats.strategyStatsForChallengeTypeAndColor (this.Aggregates agent) challengeType color
-        member this.FirstSeparationOfColorsRound
-            with get() =
+        member this.FirstRoundWithNConsecutiveRoundOfSeparatedColors (requiredRoundCount: int) =
                 this.Unwrap()
                 |> Array.mapi (fun index round -> (index + 1), round)
-                |> Array.filter (fun (_, round) -> round.InDifferentColorEncountersColorsHaveSeparated)
+                |> Array.windowed requiredRoundCount
+                |> Array.filter (fun window ->
+                    window
+                    |> Array.forall (fun (_, round) -> round.InDifferentColorEncountersColorsHaveSeparated))
+                |> Array.map (fun window -> window |> Array.last)
                 |> Array.map (fun (roundNumber, _) -> roundNumber)
                 |> Array.tryHead
-        member this.DominationColorAfterSeparation
-            with get() =
-                match this.FirstSeparationOfColorsRound with
-                | Some round -> (this.GetRoundByRoundNumber round).FullyDominatingColor
-                | _ -> None
+
+        member this.DominatingColorAfterSeparation (requiredConsecutiveSeparatedRounds: int) =
+            this.FirstRoundWithNConsecutiveRoundOfSeparatedColors requiredConsecutiveSeparatedRounds  
+            |> Option.map this.GetRoundByRoundNumber
+            |> Option.bind (fun round -> round.FullyDominatingColor)
+ 
                 
             

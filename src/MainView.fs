@@ -313,7 +313,7 @@ module SettingsForm =
                 ]
 
         let colorSeparation =
-            match model.GameState.ResolvedRounds.FirstSeparationOfColorsRound with
+            match model.GameState.ResolvedRounds.FirstRoundWithNConsecutiveRoundOfSeparatedColors 1 with
             | None -> "None"
             | Some i -> i.ToString()
 
