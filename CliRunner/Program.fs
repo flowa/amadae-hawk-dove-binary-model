@@ -196,18 +196,32 @@ module SimStats =
         (float) (noDominanceCount data) / (float) runs
         
     let firstRoundsWithNConsecutiveSeparatedRounds (n: int) (games: GameState list) =
-        games
-        |> List.map (fun r -> r.ResolvedRounds.FirstRoundWithNConsecutiveRoundOfSeparatedColors n)
-        |> List.filter (fun v -> v.IsSome)
-        |> List.map (fun v -> v.Value - initializationRounds)
+        let start = DateTime.Now 
+        let res =
+            games
+            |> List.map (fun r -> r.ResolvedRounds.FirstRoundWithNConsecutiveRoundOfSeparatedColors n)
+            |> List.filter (fun v -> v.IsSome)
+            |> List.map (fun v -> v.Value - initializationRounds)
+        printfn "📊\t firstRoundsWithNConsecutiveSeparatedRounds N=%i; Took=%O" n (DateTime.Now - start)
+        res
 
 let runSimulationsWithOneSetup (simulationRunSetup: SimulationSingleRunSetup)  =
     let start = DateTime.Now
-    printfn "Starting (R=%i; NMSE=%f) " simulationRunSetup.RedAgentPercentage simulationRunSetup.ExpectedHawkPortion
+    printfn "\n▶️\t Starting (R=%i; NMSE=%f) " simulationRunSetup.RedAgentPercentage simulationRunSetup.ExpectedHawkPortion
     let setup: GameSetup = generateGameSetup simulationRunSetup
-    let results = seq { for i in 1 ..  simulationRunSetup.Runs do yield runSimulation setup }  |> Seq.toList
+    let results = 
+        seq { 
+            for i in 1 ..  simulationRunSetup.Runs do 
+                if (i % 5) = 0 then printf "...%i" i
+                yield runSimulation setup
+        }  |> Seq.toList    
+    printfn "\n⏹️️\t Simulations run completed. Took=%O" (DateTime.Now - start)
     
+    let startCalc = DateTime.Now 
     let firstSeparations = SimStats.firstRoundsWithNConsecutiveSeparatedRounds 1 results        
+    
+    
+    let startCalc = DateTime.Now     
     let first2ConsecutiveSeparation = SimStats.firstRoundsWithNConsecutiveSeparatedRounds 2 results  
     let first4ConsecutiveSeparation = SimStats.firstRoundsWithNConsecutiveSeparatedRounds 4 results  
     let first8ConsecutiveSeparation = SimStats.firstRoundsWithNConsecutiveSeparatedRounds 8 results  
@@ -274,7 +288,7 @@ let runSimulationsWithOneSetup (simulationRunSetup: SimulationSingleRunSetup)  =
      }
     
     stats.saveToFile()
-    printfn "Completed (R=%i,NMSE=%f) took=%O" simulationRunSetup.RedAgentPercentage simulationRunSetup.ExpectedHawkPortion (DateTime.Now - start)
+    printfn "\n🏁\t Completed (R=%i,NMSE=%f) took=%O" simulationRunSetup.RedAgentPercentage simulationRunSetup.ExpectedHawkPortion (DateTime.Now - start)
     stats
     
 
