@@ -46,7 +46,7 @@ In the repository root folder in shell (bash, cmd, etc.):
 
 Any modification you do to the F# code will be reflected in the web page after saving.
 
-## 3. Building and running the simulation runner client
+## 3. Building and running the simulation with commandline client
 
 ### 3.1 You can run simulation with multiple setups:
 
@@ -72,7 +72,7 @@ dotnet run 100 200 250 "10;50;90" "10;30;50;70;90"
 This command will run simulation 100 times for 200 agents with 250 rounds with 15 different 
 configuration (for each 3 red agent for each 5 NMSE setup). 
 
-Each file will be saved to output folder. 
+The results are written to output folder in JSON-format.
 
 ### 3.2. Convert results into single CSV file
 
