@@ -4,25 +4,22 @@
 
 The repository contains simulation for Amadae Hawk Dove Binary Model by [S.M. Amadae](https://amadae.com/).
 
-* TODO: Explain the model shortly
+Try out simulation here: 
+* https://flowa.github.io/amadae-hawk-dove-binary-model/
 
 The simulation is related to the article(s):
 
 * TODO: Put proper reverence here
 
-The implementation of the simulation is funded by:
-
-* TODO: Add funder(s)
-
 ---
 
 ## Implementation & running simulation
 
-Simulation is implemented with F# using Fable and React. Bundling is done with Webpack.
+You can run simulation either usuing web client or command line runner:
 
-At the moment you can run simulation only on your own machine. Download this repo (or use `git clone`) and follow instructions below.
+If you want to run simulation on your own machinge: Download this repo (or use `git clone`) and follow instructions below.
 
-* TODO: Release as github pages.
+Use web client if you want play with the visualized version version of the model. Use commandline runner if you want to get a dataset with multiple runs with certain setups. Commandline runner is also a lot faster than web client.
 
 ## 1. Install prerequisites
 
@@ -38,6 +35,8 @@ You need to have dotnet SDK and node.js Installed to your machine.
     * Needed only if you want to convert result JSON files into one csv
 
 ## 2. Building and running the app UI client
+
+Simulation is implemented with F# using Fable and React. Bundling is done with Webpack.
 
 In the repository root folder in shell (bash, cmd, etc.):
 
