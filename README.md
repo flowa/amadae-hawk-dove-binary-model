@@ -9,7 +9,7 @@ Try out simulation here:
 
 The simulation is related to the article(s):
 
-* TODO: Put proper reverence here
+* TODO: Put relevatn references here
 
 ---
 
