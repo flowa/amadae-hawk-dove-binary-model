@@ -40,9 +40,6 @@ table .Blue {
 .cell-intent {
     width: 1em;
 }
-.subtitle-row td {
-
-}
 
 table th.Hawk,
 table th.Dove,
@@ -76,6 +73,7 @@ table th.AllTotal {
 }
 
 #settings fieldset {
+    margin-left: 0.5em;
     padding: 0.5em;
     border: solid 1pt #00000022;
 }
@@ -85,13 +83,17 @@ table th.AllTotal {
     color: #00000099;
 }
 
+#settings h1 {
+    margin-left: 0.5em;
+}
+
 #results {
     height: 100%;
-    padding: 1em;
     padding: 1em;
     padding-left: 1.5em;
     overflow: scroll;
 }
+
 
 h1 {
     font-size: 18pt;
