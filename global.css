@@ -1,0 +1,202 @@
+html, body {
+    height: 100%;
+  }
+
+#app,
+#main-container  {
+    height: 100%;
+}
+
+.subtitle-row th{
+    padding-top: 0.5em;
+}
+
+table .Red,
+table .Blue {
+    border: 0 !important;
+}
+
+.payoff-summary th,
+.payoff-summary td {
+    text-align: center !important;
+}
+
+.hawk-dove-stats {
+    font-size: 80%;
+}
+.hawk-dove-stats th {
+    width: 30%;
+}
+.hawk-dove-stats td {
+    /* o-text-align: center !important;*/
+    padding-left: 0.5em;
+}
+
+.hawk-dove-stats td.Sum {
+    /* o-text-align: center !important;*/
+    border-top: 1px solid #00000022 ;
+}
+
+.cell-intent {
+    width: 1em;
+}
+
+table th.Hawk,
+table th.Dove,
+table th.Blue,
+table th.Red,
+table th.AllTotal {
+    text-align: center !important;
+}
+
+.animation-buttons {
+    margin-top: 5px;
+}
+
+#settings {
+    background-color: linen;
+    height: 100%;
+    padding: 1em;
+    padding-left: 1.5em;
+    overflow-y: scroll;
+}
+
+.field-label {
+    flex-grow: 3;
+}
+
+.field-body input {
+    width: 100%;
+}
+#settings table {
+    width: 100%;
+}
+
+#settings fieldset {
+    margin-left: 0.5em;
+    padding: 0.5em;
+    border: solid 1pt #00000022;
+}
+
+#settings fieldset legend {
+    padding: 0 0.5em;
+    color: #00000099;
+}
+
+#settings h1 {
+    margin-left: 0.5em;
+}
+
+#results {
+    height: 100%;
+    padding: 1em;
+    padding-left: 1.5em;
+    overflow: scroll;
+}
+
+
+h1 {
+    font-size: 18pt;
+    font-weight: 800;
+    border-bottom: 1px solid black;
+}
+
+.agent-listing {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.agent-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    border: #00000099;
+    background-color: #d3d3d3;
+    box-shadow: 2px 4px #c4c3c3;
+}
+
+.strategy {
+    flex-shrink: initial;
+    text-align: center;
+    font-weight: 600;
+    color: white;
+}
+
+.agent {
+    flex-shrink: initial;
+    text-align: center;
+    font-weight: 600;
+    color: white;
+}
+
+.Red {
+    border: 2px solid red;
+    border-color: red;
+    background-color: pink;
+}
+
+.Blue {
+    border: 2px solid blue;
+    background-color: lightblue;
+}
+
+.agent-id {
+    text-align: right;
+    padding-right: 2px;
+}
+.payoff {
+    padding: 2px;
+
+}
+.payoff span {
+    font-size: 80%;
+    font-weight: 600;
+}
+
+th.Dove,
+.Dove .strategy {
+    color: black;
+    background-color: whitesmoke;
+    transition: background-color 0.2s ease-in-out;
+}
+
+th.Hawk,
+.Hawk .strategy {
+    color:  whitesmoke;
+    background-color:  black;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.Red .agent-id {
+    font-weight: 600;
+    color: white;
+    background-color: red;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.Blue .agent-id {
+    font-weight: 600;
+    color: white;
+    background-color: blue;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.Hawk.fade-in,
+.Dove.fade-in {
+    animation: fade-in 0.2s ease-in-out;
+
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.authors {
+    font-size: 80%;
+} 
