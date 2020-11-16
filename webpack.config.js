@@ -3,14 +3,24 @@
 // https://github.com/fable-compiler/webpack-config-template
 
 var path = require("path");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
     mode: "development",
     entry: "./src/App.fsproj",
     output: {
-        path: path.join(__dirname, "./public"),
+        path: path.join(__dirname, "dist"),
         filename: "bundle.js",
     },
+    plugins: [
+        new CopyPlugin({
+          patterns: [
+            { from: "public/global.css", to: "global.css" },
+            { from: "public/favicon.png", to: "favicon.png" },
+            { from: "public/gh-pages", to: "" }
+          ],
+        }),
+      ],
     devtool: 'source-map',
     devServer: {
         publicPath: "/",

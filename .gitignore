@@ -295,3 +295,6 @@ __pycache__/
 
 # MacOS customer file attributes
 .DS_Store
+
+# distributed files
+dist
