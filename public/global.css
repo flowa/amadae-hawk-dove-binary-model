@@ -194,3 +194,7 @@ th.Hawk,
     from { opacity: 0; }
     to   { opacity: 1; }
 }
+
+.authors {
+    font-size: 80%;
+} 
