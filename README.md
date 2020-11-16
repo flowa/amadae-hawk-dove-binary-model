@@ -41,7 +41,7 @@ Simulation is implemented with F# using Fable and React. Bundling is done with W
 In the repository root folder in shell (bash, cmd, etc.):
 
 * Install JS dependencies: `npm install`
-* Install F# dependencies: `npm start`
+* Start dev server: `npm start`
 * After the first compilation is finished, in your browser open: http://localhost:8080/
 
 Any modification you do to the F# code will be reflected in the web page after saving.
