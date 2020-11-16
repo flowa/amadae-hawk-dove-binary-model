@@ -1,13 +1,5 @@
 # Amadae Hawk Dove binary model simulation
 
-## TODO
-
-* Round average payoff
-* Performance optimization?
-* Stats from multiple simulations
-    Different color stats (whos submissive), when did it separate, avg payoff
-
-
 ## Synopsis
 
 The repository contains simulation for Amadae Hawk Dove Binary Model by [S.M. Amadae](https://amadae.com/).
