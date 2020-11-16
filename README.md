@@ -47,9 +47,9 @@ In the repository root folder in shell (bash, cmd, etc.):
 
 Any modification you do to the F# code will be reflected in the web page after saving.
 
-## 2. Building and running the simulation runner client
+## 3. Building and running the simulation runner client
 
-## 2.1 You can run simulation with multiple setups:
+### 3.1 You can run simulation with multiple setups:
 
 Run this command `dotnet run <runsCount: int> <agents: int> <stage2Rounds: int> <redAgentSetup: int list> <expectedHawkPercents: int list>`
 in ```CliRunner``` folder.
@@ -75,7 +75,7 @@ configuration (for each 3 red agent for each 5 NMSE setup).
 
 Each file will be saved to output folder. 
 
-### 2.2. Convert results into single CSV file
+### 3.2. Convert results into single CSV file
 
 In MaxOs and Linux, run (note you need to have PowerShell installed and in path):
 ```
@@ -111,9 +111,11 @@ JS dependencies are declared in `package.json`, while `package-lock.json` is a l
 
 ### F#
 
-The sample only contains two F# files: the project (.fsproj) and a source file (.fs) in the `src` folder.
+The sample contains three F# projects:
 
-The tests are located in `test` folder
+* UI client is located in `src`-folder
+* UI Tests are in `test`-folder
+* Commandline runner is in `CliRunner`-folder
 
 ### Web assets
 
