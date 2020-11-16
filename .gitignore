@@ -291,3 +291,7 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 .fable
+
+
+# MacOS customer file attributes
+.DS_Store

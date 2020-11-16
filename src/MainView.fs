@@ -204,7 +204,6 @@ module Tables =
             ]
         ]
 
-
 module Fields =
     type NumberFieldProps =
         {
@@ -243,6 +242,13 @@ module Fields =
                         ]
                     ]
             ]
+
+module Authors = 
+    let render () =
+        div [ ClassName "column authors" ] [
+            p [] [(str "Amadae Hawk-Dove Binary Model 1.0 by S.M. Amadae")]
+            p [] [(str "Programmed by Ari-Pekka Lappi (Flowa Oy)")]
+        ]
 
 module SettingsForm =
     open Common
@@ -310,6 +316,10 @@ module SettingsForm =
                                 }
                             renderPayoffMatrics (model.Setup.PayoffMatrix)
                         ]
+                    
+                    group "Authors" [
+                        Authors.render ()
+                    ]
                 ]
 
         let colorSeparation =
@@ -366,6 +376,7 @@ module SettingsForm =
                                 ]
                                 [str "Reset setup"]
                         ]
+
                     ]
                 ]
             ]

@@ -1,4 +1,8 @@
-dir output/*.json | 
+param (
+    $rootFolder = "output"
+)
+
+dir "$rootFolder/*.json" | 
     foreach { ((gc $_.FullName) -join "") } | 
     ConvertFrom-Json | 
-    ConvertTo-Csv > output.csv
+    ConvertTo-Csv > "$rootFolder.csv"

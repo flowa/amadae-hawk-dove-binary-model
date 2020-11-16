@@ -14,43 +14,13 @@ let runSimulation (setup: GameSetup) =
     let afterSimulation = initialGameState.SimulateRounds initialAgents
     afterSimulation
 
-type StatsTableRow = {
-    EncounterType: string
-    Red: StrategyStats
-    Blue: StrategyStats
-    All: StrategyStats
-}
-
-let simulationStatsTable (model: State): StatsTableRow list =
-    let challenges = model.CurrentRoundChallenges
-    [
-        {
-            StatsTableRow.EncounterType = "Different color"
-            Red = (challenges.StrategyStatsFor (DifferentColor, Red))
-            Blue = (challenges.StrategyStatsFor (DifferentColor, Blue))
-            All = (challenges.StrategyStatsFor DifferentColor)
-        }
-        {
-            StatsTableRow.EncounterType = "SameColor color"
-            Red = (challenges.StrategyStatsFor (SameColor, Red))
-            Blue = (challenges.StrategyStatsFor (SameColor, Blue))
-            All = (challenges.StrategyStatsFor SameColor)
-        }
-        {
-            StatsTableRow.EncounterType = "All"
-            Red = (challenges.StrategyStatsFor Red)
-            Blue = (challenges.StrategyStatsFor Blue)
-            All = (challenges.StrategyStats ())
-        }
-    ]
-
 let initializationRounds = 1
-let secondStageRounds = 150
 type SimulationSingleRunSetup = {
     Runs: int
     AgentCount: int
     RedAgentPercentage: int
     ExpectedHawkPortion: float
+    State2Rounds: int
 }
 
 
@@ -76,7 +46,7 @@ let generateGameSetup (simulationSetup: SimulationSingleRunSetup)  =
                 SetPayoffForStage = id
             }
             {
-                SimulationFrame.RoundCount = secondStageRounds
+                SimulationFrame.RoundCount = simulationSetup.State2Rounds
                 StageName = "Stage 2"
                 StrategyInitFn = SimulationStages.stage2Game_v5_withFullIndividualHistory
                 MayUseColor = true
@@ -93,6 +63,7 @@ type SimulationRunResultStats =
         HawkPortion: float
         PayoffReward: float
         PayoffCost: float
+        State2Rounds: int
         //
         FirstSeparationOfColors_Avg:   float option
         FirstSeparationOfColors_Min:   int option
@@ -146,7 +117,9 @@ type SimulationRunResultStats =
     }
     member this.saveToFile ()  =
         let json = Json.serialize this
-        let path = (sprintf "output/output.A%i.R%i.NMSE%f.json"
+        let path = (sprintf "output/runs_%i-s2rounds_%i-agents_%i-redPercent_%i.NMSE_%f.json"
+                         this.Runs
+                         this.State2Rounds
                          this.AgentCount
                          this.RedAgentPercentage
                          this.HawkPortion)
@@ -237,7 +210,8 @@ let runSimulationsWithOneSetup (simulationRunSetup: SimulationSingleRunSetup)  =
         AgentCount = simulationRunSetup.AgentCount
         PayoffReward = setup.PayoffMatrix.``Revard (V)``
         PayoffCost = setup.PayoffMatrix.``Cost (C)``
-        Runs = simulationRunSetup.Runs 
+        Runs = simulationRunSetup.Runs
+        State2Rounds = simulationRunSetup.State2Rounds
         FirstSeparationOfColors_Avg =   firstSeparations |> SimStats.safeAvg
         FirstSeparationOfColors_Min =   firstSeparations |> SimStats.safeMin
         FirstSeparationOfColors_Max =   firstSeparations |> SimStats.safeMax
@@ -292,14 +266,31 @@ let runSimulationsWithOneSetup (simulationRunSetup: SimulationSingleRunSetup)  =
     stats
     
 
-let runAllSimulationsForARedSetup runs agentCount redPercent =
+let runAllSimulationsForARedSetup runs agentCount stage2Rounds redPercent =
     let setups = seq {
         for hawkPortion in (0.1)..(0.1)..(0.9) do
             yield {
                 SimulationSingleRunSetup.Runs = runs
                 AgentCount = agentCount
                 RedAgentPercentage = redPercent
-                ExpectedHawkPortion = hawkPortion }
+                ExpectedHawkPortion = hawkPortion
+                State2Rounds = stage2Rounds }
+    }
+    
+    setups
+    |> Seq.map runSimulationsWithOneSetup
+    |> List.ofSeq
+
+let runAllSimulationsForARedSetupAndHaws runs agentCount stage2Rounds redPercents hawkPortions =
+    let setups = seq {
+        for redPercent in redPercents do
+            for hawkPortion in hawkPortions do
+                yield {
+                    SimulationSingleRunSetup.Runs = runs
+                    AgentCount = agentCount
+                    RedAgentPercentage = redPercent
+                    ExpectedHawkPortion = hawkPortion
+                    State2Rounds = stage2Rounds }
     }
     
     setups
@@ -315,35 +306,46 @@ let main argv =
     let isIntRe = System.Text.RegularExpressions.Regex("^[0-9]+$")
     let isIntListRe = System.Text.RegularExpressions.Regex("^[0-9;]+$")
     match argv with
-    | [|  "once"; runs; agents; redAgentPercent; hawkPercent |]
+    | [|  "once"; runs; agents; stage2Rounds; redAgentPercent; hawkPercent |]
         when isIntRe.IsMatch(runs) &&
              isIntRe.IsMatch(agents) &&
+             isIntRe.IsMatch(stage2Rounds) &&
              isIntRe.IsMatch(redAgentPercent) &&
              isIntRe.IsMatch(hawkPercent) ->
         let runsTyped = Int32.Parse(runs)
         let agentsTyped = Int32.Parse(agents)
         let redsTyped = Int32.Parse(redAgentPercent)
+        let stage2RoundsTyped = Int32.Parse(stage2Rounds)
         let redAgentPercentTyped = Double.Parse(hawkPercent) / 100.0
         let res = runSimulationsWithOneSetup {
             SimulationSingleRunSetup.Runs = runsTyped
             AgentCount = agentsTyped
             RedAgentPercentage = redsTyped
             ExpectedHawkPortion = redAgentPercentTyped
+            State2Rounds = stage2RoundsTyped
         }
         printfn "Result: %O" res
         0
     
-    | [|  runs; agents; redAgentSetup |]
+    | [|  runs; agents; stage2Rounds; redAgentSetup; expectedHawkPercents |]
 
         when isIntRe.IsMatch(runs) &&
              isIntRe.IsMatch(agents) &&
-             isIntListRe.IsMatch(redAgentSetup) ->
+             isIntRe.IsMatch(stage2Rounds) &&
+             isIntListRe.IsMatch(redAgentSetup) && 
+             isIntListRe.IsMatch(expectedHawkPercents) ->
         let runsTyped = Int32.Parse(runs)
         let agentsTyped = Int32.Parse(agents)
-        let redAgents = redAgentSetup.Split(";") |> Seq.map Int32.Parse |> List.ofSeq
+        let stage2Rounds = Int32.Parse(stage2Rounds)
+        let redAgents = redAgentSetup.Split(";")
+                        |> Seq.map Int32.Parse
+                        |> List.ofSeq
+        let expectedHawkPercents = expectedHawkPercents.Split(";")
+                                   |> Seq.map Int32.Parse
+                                   |> Seq.map (fun percents -> (float) percents / 100.0)
+                                   |> List.ofSeq
         printfn "Start simulation runs = %i; agents = %i; redAgentSetup = %O" runsTyped agentsTyped redAgents
-        redAgents
-        |> List.map (runAllSimulationsForARedSetup runsTyped agentsTyped)
+        runAllSimulationsForARedSetupAndHaws runsTyped agentsTyped stage2Rounds redAgents expectedHawkPercents  
         |> ignore
         printfn "Simulation completed. Took %O" (DateTime.Now - start)
         0
@@ -352,10 +354,10 @@ let main argv =
         
         Usage
         =====
-        dotnet run <runsCount: int> <agents: int> <redAgentSetup: int list>
+        dotnet run <runsCount: int> <agents: int> <stage2Round: int> <redAgentSetup: int list> <expectedHawkPercents: int list>
         
         Example
         =======
-        dotnet run 100 200 \"10;30;50\"
+        dotnet run 100 200 150 \"10;30;50\" \"10;50;90\"
         "
         1

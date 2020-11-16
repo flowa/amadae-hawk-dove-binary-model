@@ -59,28 +59,27 @@ Any modification you do to the F# code will be reflected in the web page after s
 
 ## 2.1 You can run simulation with multiple setups:
 
-Run this command `dotnet run <run> <agentCount> "<redAgantSetup>"`
+Run this command `dotnet run <runsCount: int> <agents: int> <stage2Rounds: int> <redAgentSetup: int list> <expectedHawkPercents: int list>`
 in ```CliRunner``` folder.
 
 where:
 
 * `runs` (integer) How many time simulation is run. Example 100
 * `agentCount` (integer) How many agents is used in each simulation". Example 200
+* `stage2Rounds` (integer) How many rounds of simulation is ran. Example 250
 * `redAgentSetup` (integer list, delimiter = ';'). Example "10;30;50"
+* `expectedHawkPercents` (integer list, delimeter = ';'). Example "10;30;50;70;90". 
 
-Runner automatically runs simulation 9 different Nash Mixed Startegy Equilibrium (NMSE) values. 
-This specify distribution of Hawks and Doves in the first round and used Payoff.
-
-Values are from 0.1 to 0.9. I.e. in the first run Payoff matrics is setup so that there 
-is 10% Hawks when agents plays using Nash Mixed Startegy.
+Simulation is run once for each redAgentSetup and for each expectedHawkPercents. E.g. if you have 9 values in both lists, simulation is run 81 times. 
+Each `expectedHawkPercents` is used to setup distribution of Hawks and Doves in the first round and it is used calculate Payoff.
 
 For example:
 ```
-dotnet run 100 200 "10;30;50"
+dotnet run 100 200 250 "10;50;90" "10;30;50;70;90"
 ```
 
-This command will run simulation 100 times for 200 agents with 27 different 
-configuration (for each 3 red agent for each 9 NMSE setup)
+This command will run simulation 100 times for 200 agents with 250 rounds with 15 different 
+configuration (for each 3 red agent for each 5 NMSE setup). 
 
 Each file will be saved to output folder. 
 
@@ -91,7 +90,7 @@ In MaxOs and Linux, run (note you need to have PowerShell installed and in path)
 pwsh -f output-to-csv.ps1
 ```
 
-In Windows, open powerShell promp in CliRunner folder and run:
+In Windows, open PowerShell promp in CliRunner folder and run:
 ```
 . .\output-to-csv.ps1
 ```
