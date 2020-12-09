@@ -10,21 +10,27 @@ In this agent-based HDB model, after the introduction of the binary tag througho
 
 ## Simple simulation operating instructions
 
-HDB is set up to run on default setting, which can be changed by the user. The payoff matrix is calculated according to the user’s input.  Either using the default settings, or entering new values, the user can then run the simulation. 
+HDB is set up to run on default setting, which can be changed by the user. The payoff matrix is calculated according to the user’s input.  Either using the default settings, or entering new values, the user can then run the simulation.
+
 The user can enter values for:
-Number of rounds for Stage 1
-Number of rounds for Stage 2
-Agent count
-Red agents (%)
-Reward V (greater than 0)
-Cost C (0 or higher)
+
+* Number of rounds for Stage 1
+* Number of rounds for Stage 2
+* Agent count
+* Red agents (%)
+* Reward V (greater than 0)
+* Cost C (0 or higher)
 
 ## Brief description of the model
 
 This computer simulation is of a multi-agent Hawk-Dove game played for a given number of rounds in which agents are randomly paired during each round.  The model has two stages, Stage 1 and Stage 2, each of a number of rounds R specified by the user.  In both stages the population number is input by the user, and a number of 100-150 is recommended for results given the need to have a sufficiently large population, but not to over-burden computational efficiency.  The Hawk-Dove payoff matrix is specified above with the variables V for reward and C for cost.  In the model V has a default value of 10, and C is variable according to user input with a default of 5.  The purpose of the model is to demonstrate the impact of introducing a binary marker, here Red and Blue, tagging every player, on the progression of play.  The proportion of Red and Blue players is input by the user.
+
 The variables running this model are:
+
 N:  Number of players, each labeled with a unique number ranging from 1 to N.
+
 I :  Every individual is each labeled I1, I2, I3…to IN.
+
 R’ and R’’:  Number of rounds, here designated as R’ for Stage 1 and R’’ for Stage 2.  Each round is numbered from R’1, R’2, R’3…to R’R’ in Stage 1, and R’’1, R’’2, R’’3,…to R’’R’’ in Stage 2. The total number of rounds for Stage 1 and Stage 2 is input by the user.  Each round is visible by manipulating the sliding bar on the top of the simulation data outcome panel.  
 V:  Reward, input by user, value must be greater than 0, default value is 10
 C:  Costs, specified by user, value must be 0 or greater, default is 20
@@ -56,18 +62,36 @@ Source code MIT
 ## References
 
 Axelrod, Robert (1984), The evolution of cooperation, New York:  Basic Books
+
 Aydinonat, N.E. (2008), “The invisible hand in economics: How economists explain unintended social consequences,” Abington:  Routledge
+
 Gallo, E. (2014), Communication networks in markets, Work. Pap. Econ. 1431, University of Cambridge
+
 Gintis, Herbert (2007), “The Evolution of Private Property.” Journal of Economic Behavior and Organization, Vol. 64, 1-16
+
 Hegselmann, Rainer (2017), “Thomas C. Schelling and James M. Sakoda: The intellectual, technical, and social history of a model,” Journal of artificial societies and social simulation 20(3), http://jasss.soc.surrey.ac.uk/20/3/15.html
+
 Maynard Smith, John (1982), Evolution and the theory of games, Cambridge:  Cambridge University Press
-Hargreaves Heap, Shaun and Yanis Varoufakis (2002),  "Some experimental evidence on the evolution of discrimination, co‐operation and perceptions of fairness," The economic Journal 112:481, 679-703
+
+Hargreaves Heap, Shaun and Yanis Varoufakis (2002),  "Some experimental evidence on the evolution of discrimination, co‐operation and perceptions of fairness," 
+
+The economic Journal 112:481, 679-703
+
 Maynard Smith, John (1974) “The Theory of Games and the Evolution of Animal Conflicts,” Journal of Theoretical Biology, 47:1, 209-211.
+
 O’Connor, Cailin (2019), The origins of unfairness: Social categories and cultural evolution, Oxford:  Oxford University Press
-Sakoda, James M. (1978), “CHEBO: The checkboard model of social interaction,” in D. E. Bailey, ed., Computer Science in Social and Behavioral Science Education Englewood Cliffs, NJ:  Educational Technologies Publications, chapter 28, 357-373
+
+Sakoda, James M. (1978), “CHEBO: The checkboard model of social interaction,” in D. E. Bailey, ed., Computer Science in Social and Behavioral Science Education 
+
+Englewood Cliffs, NJ:  Educational Technologies Publications, chapter 28, 357-373
+
 Schelling, Thomas C., (1969), “Models of Segregation,” American economic review, 59(2):499-493
+
 Schelling, Thomas C., (1971), “Dynamic models of segregation,” Journal of mathematical sociology, 1(2):143-186
+
 Sugden, Robert (2000), “Credible worlds: the status of theoretical models in economics,” Journal of economic methodology, 7:1, 1-31
+
 Ylikoski, Petri and N. Emrah Aydinonat (2014), “Understanding with theoretical models,” Journal of economic methodology, 21:1, 19-36
+
 Young, H. Peyton (2017), “The evolution of Norms,” Annual Review of Economics, 7:359-87]
 
