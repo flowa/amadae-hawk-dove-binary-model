@@ -7,15 +7,18 @@ open Model
 module Composition =
     type CompositeStrategySetup =
         {
-            NoHistoryStrategy: GameInformation -> Strategy;
+            SameColorNoHistoryStrategy: GameInformation -> Strategy;
+            DifferentColorNoHistoryStrategy: GameInformation -> Strategy;
             SameColorStrategy: GameInformation -> Strategy;
             DifferentColorStrategy: GameInformation -> Strategy
         }
 
     let compositeStrategy (setup: CompositeStrategySetup) (info: GameInformation) =
         match (info.HistoryView.History.HasHistory, info.OpponentColor) with
-        | (false, _) ->
-            setup.NoHistoryStrategy info
+        | (false, opponentColor) when opponentColor <> info.Agent.Color ->
+            setup.DifferentColorNoHistoryStrategy info
+        | (false, opponentColor) when opponentColor = info.Agent.Color ->
+            setup.SameColorNoHistoryStrategy info
         | (true, opponentColor) when opponentColor = info.Agent.Color ->
             setup.SameColorStrategy info
         | _ ->
@@ -225,8 +228,16 @@ module SimulationStages =
 
     let stage1Game (_setup: GameParameters) = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
 
+    let simulation_setup_random (_setup: GameParameters) = Composition.compositeStrategy {
+            SameColorNoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+            DifferentColorNoHistoryStrategy = GameMode.randomChoiceGame            
+            SameColorStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+            DifferentColorStrategy = GameMode.randomChoiceGame 
+        }
+
     let stage2Game (_setup: GameParameters) = Composition.compositeStrategy {
-            NoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+            SameColorNoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+            DifferentColorNoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
             SameColorStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
             DifferentColorStrategy = GameMode.highestExpectedValueOnDifferentColorGameUsingOnlyDifferentColorStats
         }
@@ -236,49 +247,57 @@ module SimulationStages =
         (GameMode.cardDeckGame deck)
     
     let stage2Game_v2_AllEncounter (_setup: GameParameters) = Composition.compositeStrategy {
-            NoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+            SameColorNoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+            DifferentColorNoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
             SameColorStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
             DifferentColorStrategy = GameMode.highestExpectedValueOnDifferentColorGame
         }
 
     let stage2Game_v3_keepSameAsSameColorStrategy (_setup: GameParameters) = Composition.compositeStrategy {
-            NoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+            SameColorNoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+            DifferentColorNoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
             SameColorStrategy = GameMode.keepSameStrategy
             DifferentColorStrategy = GameMode.highestExpectedValueOnDifferentColorGame
         }
 
     let stage2Game_v4_dependingHawksWithinColorSegmentAsSameColorStrategy (_setup: GameParameters) =
             Composition.compositeStrategy {
-                NoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+                SameColorNoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+                DifferentColorNoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
                 SameColorStrategy = ExtraGameModes.dependingHawksWithinColorSegment
                 DifferentColorStrategy = GameMode.highestExpectedValueOnDifferentColorGame
             }
 
-
     let stage2Game_v5_withFullIndividualHistory (_setup: GameParameters) =
             Composition.compositeStrategy {
-                NoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+                SameColorNoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+                DifferentColorNoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+                
                 SameColorStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
                 DifferentColorStrategy = GameMode.highestEuOnDifferentColorGameForInvidualAgent None
             }
 
     let stage2Game_v5_withFullIndividualHistory_NonCached (setup: GameParameters) =
         Composition.compositeStrategy {
-            NoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+            SameColorNoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+            DifferentColorNoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
             SameColorStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
             DifferentColorStrategy = GameMode.highestEuOnDifferentColorGameForInvidualAgentNonCached None
         }
         
     let stage3Game (setup: GameParameters) =
         Composition.compositeStrategy {
-            NoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+            SameColorNoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+            DifferentColorNoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
             SameColorStrategy = GameMode.keepSameStrategy
             DifferentColorStrategy = GameMode.highestExpectedValueOnDifferentColorGame
         }
     
     let stage3Game_onBasedOfLastEncounterWithOpponentColor (setup: GameParameters) =
         Composition.compositeStrategy {
-            NoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+            SameColorNoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+            DifferentColorNoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+            
             SameColorStrategy = GameMode.onBasedOfLastEncounterWithOpponentColor
             DifferentColorStrategy = GameMode.onBasedOfLastEncounterWithOpponentColor
         }

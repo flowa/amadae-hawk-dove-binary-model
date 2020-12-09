@@ -41,7 +41,8 @@ let generateGameSetup (simulationSetup: SimulationSingleRunSetup)  =
             {
                 SimulationFrame.RoundCount = initializationRounds
                 StageName = "Stage 1 - Ideal Nash Distribution"
-                StrategyInitFn = SimulationStages.stage1Game_withIdealNMSEDistribution
+                // StrategyInitFn = SimulationStages.stage1Game_withIdealNMSEDistribution
+                StrategyInitFn = SimulationStages.simulation_setup_random
                 MayUseColor = true
                 SetPayoffForStage = id
             }
