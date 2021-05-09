@@ -30,7 +30,7 @@ let init () =
                 {
                     SimulationFrame.RoundCount = 15
                     SetPayoffForStage = id
-                    StageName = "Stage 1 - Random"
+                    StageName = "Stage 1"
                     StrategyInitFnName = SimulationStageNames.Random
                     MayUseColor = true
                 }

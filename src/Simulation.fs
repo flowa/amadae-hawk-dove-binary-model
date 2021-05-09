@@ -348,7 +348,7 @@ module SimulationStageOptions =
             }
             {
                 StageStrategyFnOptions.Name = SimulationStageNames.Random
-                DisplayName = "Random 50/50"
+                DisplayName = "Random (Hawk probability = 0.5)"
                 // (50% change to play Hawk for each agent)
                 StrategyInitFn = SimulationStages.simulation_setup_random
             }
@@ -356,7 +356,7 @@ module SimulationStageOptions =
                 StageStrategyFnOptions.Name = SimulationStageNames.GuaranteedFiftyFifty
                 DisplayName = "Ideal 50%/50% distribution"
                 // (50% will play Hawk and rest Dove)"
-                StrategyInitFn = SimulationStages.simulation_setup_random
+                StrategyInitFn = SimulationStages.stage1Game_withIdealFiftyFiftyDistribution
             }
             {
                 StageStrategyFnOptions.Name = SimulationStageNames.ProbabilisticNSME
@@ -367,12 +367,12 @@ module SimulationStageOptions =
             {
                 StageStrategyFnOptions.Name = SimulationStageNames.GuaranteedNSME
                 DisplayName = "Ideal NMSE distribution"
-                StrategyInitFn = SimulationStages.stage1Game
+                StrategyInitFn = SimulationStages.stage1Game_withIdealNMSEDistribution
             }
             {
                 StageStrategyFnOptions.Name = SimulationStageNames.HighestExpectedValueOnBasedOfHistory
-                DisplayName = "Highest expected value"
-                StrategyInitFn = SimulationStages.stage1Game
+                DisplayName = "Highest expected value (individual history)"
+                StrategyInitFn = SimulationStages.stage2Game_v5_withFullIndividualHistory
             }
         ]
 

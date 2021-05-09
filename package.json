@@ -9,6 +9,7 @@
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack",
+    "build:ghPages": "webpack --env ghPages --env prod",
     "deploy": "gh-pages -d dist",
     "test": "fable-splitter -c splitter.config.js --config=jest.config.js --commonjs && jest --verbose",
     "watch-test:build": "fable-splitter -c splitter.config.js -w --commonjs",

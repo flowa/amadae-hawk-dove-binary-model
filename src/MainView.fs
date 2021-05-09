@@ -342,7 +342,7 @@ module SettingsForm =
                 ]
                 [
                     h1 [] [
-                        str "Settings A"
+                        str "Settings"
                     ]
 
                     group "Duration" (renderStageRoundCountFields isDisabled)
