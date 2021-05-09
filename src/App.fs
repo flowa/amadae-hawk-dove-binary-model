@@ -25,11 +25,11 @@ let init () =
             }
             SimulationFrames = [
                 {
-                    SimulationFrame.RoundCount = 10
+                    SimulationFrame.RoundCount = 15
                     SetPayoffForStage = id
-                    StageName = "Stage 1"
-                    StrategyInitFn = SimulationStages.stage1Game
-                    MayUseColor = false
+                    StageName = "Stage 1 - Random"
+                    StrategyInitFn = SimulationStages.simulation_setup_random
+                    MayUseColor = true
                 }
                 {
                      SimulationFrame.RoundCount = 50
@@ -38,13 +38,13 @@ let init () =
                      StrategyInitFn = SimulationStages.stage2Game_v5_withFullIndividualHistory
                      MayUseColor = true
                 }
-//                {
-//                    SimulationFrame.RoundCount = 10
-//                    SetPayoffForStage = id
-//                    StageName = "Stage 3"
-//                    StrategyInitFn = SimulationStages.stage3Game_onBasedOfLastEncounterWithOpponentColor
-//                    MayUseColor = true
-//                }
+                {
+                   SimulationFrame.RoundCount = 10
+                   SetPayoffForStage = id
+                   StageName = "Stage 3"
+                   StrategyInitFn = SimulationStages.stage3Game_onBasedOfLastEncounterWithOpponentColor
+                   MayUseColor = true
+                }
             ]    
              
         }

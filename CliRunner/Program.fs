@@ -40,9 +40,14 @@ let generateGameSetup (simulationSetup: SimulationSingleRunSetup)  =
         SimulationFrames = [
             {
                 SimulationFrame.RoundCount = initializationRounds
-                StageName = "Stage 1 - Ideal Nash Distribution"
+                StageName = "Stage 1"
                 // StrategyInitFn = SimulationStages.stage1Game_withIdealNMSEDistribution
-                StrategyInitFn = SimulationStages.simulation_setup_random
+                StrategyInitFn =
+                    SimulationStages.stage1Game_withIdealFiftyFiftyDistribution
+                    // SimulationStages.simulation_setup_random
+                    // SimulationStages.stage1Game_withIdealNMSEDistribution
+                    // SimulationStages.simulation_setup_random
+                    // (SimulationStages.allPlay Strategy.Hawk)
                 MayUseColor = true
                 SetPayoffForStage = id
             }
@@ -65,6 +70,8 @@ type SimulationRunResultStats =
         PayoffReward: float
         PayoffCost: float
         State2Rounds: int
+        FirstRoundHawkCountAvg: float
+        FirstRoundDoveCountAvg: float
         //
         FirstSeparationOfColors_Avg:   float option
         FirstSeparationOfColors_Min:   int option
@@ -126,7 +133,7 @@ type SimulationRunResultStats =
                          this.HawkPortion)
         if (not (System.IO.Directory.Exists("output"))) then
              System.IO.Directory.CreateDirectory("output")
-             |> ignore        
+             |> (fun d -> printfn $"created folder %s{d.FullName}")
         System.IO.File.WriteAllText(path, json)
 
 module SimStats =
@@ -188,23 +195,42 @@ let runSimulationsWithOneSetup (simulationRunSetup: SimulationSingleRunSetup)  =
             for i in 1 ..  simulationRunSetup.Runs do 
                 if (i % 5) = 0 then printf "...%i" i
                 yield runSimulation setup
-        }  |> Seq.toList    
+        }  |> Seq.toList
     printfn "\n⏹️️\t Simulations run completed. Took=%O" (DateTime.Now - start)
-    
+//    printfn "\nPayoff: %O" setup.PayoffMatrix
+//    printfn "\nLast round: %O"
+//        (results
+//         |> List.last
+//         |> (fun (r: GameState) -> r.ResolvedRounds)
+//         |> (fun (Rounds c) -> Array.last c))
+
+    let firstRoundDoveCountAvg =
+            results
+            |> List.map (fun game ->
+                let stat = game.ResolvedRounds.FirstRoundChallenges.StrategyStats ()
+                (float) stat.DoveN)
+            |> List.average
+    let firstRoundHawkCountAvg =
+        results
+        |> List.map (fun game ->
+            let stat = game.ResolvedRounds.FirstRoundChallenges.StrategyStats ()
+            (float) stat.HawkN)
+        |> List.average
+
     let startCalc = DateTime.Now 
     let firstSeparations = SimStats.firstRoundsWithNConsecutiveSeparatedRounds 1 results        
-    
-    
-    let startCalc = DateTime.Now     
-    let first2ConsecutiveSeparation = SimStats.firstRoundsWithNConsecutiveSeparatedRounds 2 results  
+    let first2ConsecutiveSeparation = SimStats.firstRoundsWithNConsecutiveSeparatedRounds 2 results
     let first4ConsecutiveSeparation = SimStats.firstRoundsWithNConsecutiveSeparatedRounds 4 results  
     let first8ConsecutiveSeparation = SimStats.firstRoundsWithNConsecutiveSeparatedRounds 8 results  
+    printfn "\n⏹️️\t Separation calculated completed. Took=%O" (DateTime.Now - startCalc)
 
+    let startCalc = DateTime.Now
     let dominance1Con = results |> List.map (fun r -> r.ResolvedRounds.DominatingColorAfterSeparation 1)
     let dominance2Con = results |> List.map (fun r -> r.ResolvedRounds.DominatingColorAfterSeparation 2)
     let dominance4Con = results |> List.map (fun r -> r.ResolvedRounds.DominatingColorAfterSeparation 4)
     let dominance8Con = results |> List.map (fun r -> r.ResolvedRounds.DominatingColorAfterSeparation 8)
-                    
+    printfn "\n⏹️️\t Dominance calculated. Took=%O" (DateTime.Now - startCalc)
+
     let stats: SimulationRunResultStats = {
         SimulationRunResultStats.HawkPortion = simulationRunSetup.ExpectedHawkPortion
         RedAgentPercentage = simulationRunSetup.RedAgentPercentage
@@ -213,6 +239,9 @@ let runSimulationsWithOneSetup (simulationRunSetup: SimulationSingleRunSetup)  =
         PayoffCost = setup.PayoffMatrix.``Cost (C)``
         Runs = simulationRunSetup.Runs
         State2Rounds = simulationRunSetup.State2Rounds
+
+        FirstRoundDoveCountAvg = firstRoundDoveCountAvg
+        FirstRoundHawkCountAvg = firstRoundHawkCountAvg
         FirstSeparationOfColors_Avg =   firstSeparations |> SimStats.safeAvg
         FirstSeparationOfColors_Min =   firstSeparations |> SimStats.safeMin
         FirstSeparationOfColors_Max =   firstSeparations |> SimStats.safeMax

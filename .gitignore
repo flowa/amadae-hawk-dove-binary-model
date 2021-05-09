@@ -298,3 +298,7 @@ __pycache__/
 
 # distributed files
 dist
+
+# output
+output/
+output.csv

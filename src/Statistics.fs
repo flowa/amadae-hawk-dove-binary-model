@@ -154,15 +154,11 @@ module ModelExtensions =
                 let blue = this.StrategyStatsFor(DifferentColor, Blue)
                 let both = this.StrategyStatsFor(DifferentColor)            
                 match (red.HawkN, blue.HawkN, both.HawkN) with
-                | 0, _, all when all > 0 -> Some Red
-                | _, 0, all when all > 0 -> Some Blue
+                | 0, _, all when all > 0 -> Some Blue
+                | _, 0, all when all > 0 -> Some Red
                 | _ -> None
          member this.InDifferentColorEncountersColorsHaveSeparated
             with get() =
-//                let red = this.StrategyStatsFor(DifferentColor, Red)
-//                let blue = this.StrategyStatsFor(DifferentColor, Blue)
-//                (red.HawkN = 0 && blue.DoveN = 0 && red.DoveN = blue.HawkN && blue.HawkN > 0) ||
-//                (red.DoveN = 0 && blue.HawkN = 0 && red.HawkN = blue.DoveN && blue.DoveN > 0)
                 this.FullyDominatingColor.IsSome
     
             
@@ -202,6 +198,3 @@ module ModelExtensions =
             this.FirstRoundWithNConsecutiveRoundOfSeparatedColors requiredConsecutiveSeparatedRounds  
             |> Option.map this.GetRoundByRoundNumber
             |> Option.bind (fun round -> round.FullyDominatingColor)
- 
-                
-            

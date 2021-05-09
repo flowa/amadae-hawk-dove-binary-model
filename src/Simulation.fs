@@ -35,6 +35,8 @@ module GameMode =
         else
             Dove
 
+    let fixedGame (fixedStrategy: Strategy) (info: GameInformation): Strategy = fixedStrategy
+
     let cardDeckGame (deck: Strategy list) (info: GameInformation): Strategy =
         let cardIndex = info.Agent.Id
         deck.[cardIndex]
@@ -166,6 +168,7 @@ module GameMode =
 // These modes are included in this file temporarily and are not used in the simulation
 module ExtraGameModes =
     open Statistics.ModelExtensions
+
     let nashMixedStrategyEquilibriumGameFromPayoffMatrix (info: GameInformation) : Strategy =
         let ``change of hawk`` =
             let (hawkMax, doveMin) = info.PayoffMatrix.GetPayoffFor(Hawk, Dove)
@@ -223,8 +226,19 @@ module IdealNashMixedDistribution =
         Strategy.GenerateList [(Hawk, hawkCount); (Dove, doveCount)]
         |> ListHelpers.shuffle
 
+module IdealFiftyFiftyDistribution =
+
+    // Generates "deck" of Strategy Choice so that
+    // portion of Hawks is exactly V / C and Portion of Doves is 1 - (V / C)
+    let generate (setup: GameParameters) =
+        let doveCount = setup.AgentCount / 2
+        let hawkCount = setup.AgentCount - doveCount
+        Strategy.GenerateList [(Hawk, hawkCount); (Dove, doveCount)]
+        |> ListHelpers.shuffle
 
 module SimulationStages =
+
+    let allPlay (fixedStrategy: Strategy) (_setup: GameParameters)  = GameMode.fixedGame fixedStrategy
 
     let stage1Game (_setup: GameParameters) = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
 
@@ -245,7 +259,11 @@ module SimulationStages =
     let stage1Game_withIdealNMSEDistribution (setup: GameParameters) =
         let deck = IdealNashMixedDistribution.generate(setup)
         (GameMode.cardDeckGame deck)
-    
+
+    let stage1Game_withIdealFiftyFiftyDistribution (setup: GameParameters) =
+        let deck = IdealFiftyFiftyDistribution.generate(setup)
+        (GameMode.cardDeckGame deck)
+
     let stage2Game_v2_AllEncounter (_setup: GameParameters) = Composition.compositeStrategy {
             SameColorNoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
             DifferentColorNoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters

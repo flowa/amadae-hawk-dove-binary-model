@@ -163,6 +163,8 @@ type GameHistory =
         with get() = this.Unwrap() |> Array.isEmpty |> not
     member this.LastRoundChallenges
         with get() = this.Unwrap() |> Array.last
+    member this.FirstRoundChallenges
+        with get() = this.Unwrap() |> Array.head
 
 type AgentViewCache = Dictionary<int * int, Map<(ChallengeType * Strategy * Color), int>>
 
