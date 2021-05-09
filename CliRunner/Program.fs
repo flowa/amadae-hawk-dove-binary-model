@@ -36,7 +36,6 @@ let generateGameSetup (simulationSetup: SimulationSingleRunSetup)  =
             PortionOfRed = simulationSetup.RedAgentPercentage
             PayoffMatrix = PayoffMatrixType.FromRewardAndCost (``Reward (V)``, ``Cost (C)``)
         }
-        
         SimulationFrames = [
             {
                 SimulationFrame.RoundCount = initializationRounds
