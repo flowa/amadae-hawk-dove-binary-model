@@ -1,6 +1,8 @@
 module MainView
 
+open Fulma
 open Model
+open Simulation
 open Statistics
 open Statistics.ModelExtensions
 open Elmish
@@ -8,7 +10,7 @@ open Elmish.React
 open Fable.React
 open Fable.React.Props
 open Fulma
-
+open Fable.FontAwesome
 module Common =
     let group title items  =
         fieldset []
@@ -212,6 +214,15 @@ module Fields =
             Value: int
             OnChange: (int -> FieldValue)
         }
+    type DropdownFieldProps =
+        {
+            Disabled:bool
+            Label: string
+            SelectedValue: string
+            Options: (string * string) list
+            OnChange: (string -> FieldValue)
+        }
+
     let numberField
         (dispatch: Msg -> unit)
         (props: NumberFieldProps) =
@@ -242,6 +253,50 @@ module Fields =
                         ]
                     ]
             ]
+    let dropdownField
+        (dispatch: Msg -> unit)
+        (props: DropdownFieldProps) =
+        let selectedDisplayName =
+            props.Options
+            |> List.filter (fun (name, displayName) -> name = props.SelectedValue)
+            |> List.map (fun (name, displayName) -> displayName)
+            |> List.head
+
+        let isActive (name) = name = props.SelectedValue
+        Field.div
+            []
+            [
+                div [ClassName "field-label is-small left"]
+                    [
+                        Label.label [Label.CustomClass "is-expanded"; Label.Props [Style [TextAlign TextAlignOptions.Left ]]] [ str props.Label ]
+                    ]
+                div [ClassName "field-body is-expanded" ]
+                    [
+                        Dropdown.dropdown [ Dropdown.IsHoverable; Dropdown.Props [Style [Width "100%"]]]
+                            [
+                              Dropdown.trigger [ Props [Style [Width "100%"]]]
+                                [
+                                  Button.button [ Button.Size IsSmall; Button.Props [Style [Width "100%"] ]]
+                                      [
+                                          span [ ClassName "is-small"] [ str selectedDisplayName ]
+                                          Icon.icon [ Icon.Size IsSmall ] [ Fa.i [ Fa.Solid.AngleDown ] [] ]
+                                      ]
+                                ]
+                              Dropdown.menu []
+                                  [
+                                      Dropdown.content []
+                                         (props.Options
+                                         |> List.map (fun (name, displayName) ->
+                                             Dropdown.Item.a [
+                                                 Dropdown.Item.IsActive (isActive name);
+                                                 Dropdown.Item.Props [
+                                                    OnClick (fun _ -> dispatch (SetValue (props.OnChange name)))
+                                                 ]
+                                             ] [ str displayName ]))
+                                  ]
+                            ]
+                    ]
+            ]
 
 module Authors = 
     let render () =
@@ -255,17 +310,30 @@ module SettingsForm =
     open Tables
     let view (model: State) (dispatch: Msg -> unit) =
         let numberField = Fields.numberField dispatch
+        let dropdownField = Fields.dropdownField dispatch
         let renderStageRoundCountFields (isDisabled: bool) =
             model.Setup.SimulationFrames
             |> List.map<SimulationFrame, ReactElement>
                 (fun f ->
-                    numberField
-                        {
-                            Disabled = isDisabled
-                            Label =    f.StageName
-                            Value =    f.RoundCount
-                            OnChange = (fun value -> (RoundCountOfStage (f.StageName, value)))
-                        })
+                    div []
+                        [
+                            h3 [] [str f.StageName]
+                            dropdownField
+                                {
+                                   Disabled = isDisabled
+                                   Label = "Mode"
+                                   SelectedValue = f.StrategyInitFnName
+                                   Options = SimulationStageOptions.AllOptions |> List.map (fun o -> (o.Name, o.DisplayName))
+                                   OnChange = (fun value -> (ModeOfStage (f.StageName, value)))
+                                }
+                            numberField
+                                {
+                                    Disabled = isDisabled
+                                    Label =    "Rounds"
+                                    Value =    f.RoundCount
+                                    OnChange = (fun value -> (RoundCountOfStage (f.StageName, value)))
+                                }
+                        ])
 
         let renderSetupForm (isDisabled: bool) =
             div [
@@ -274,7 +342,7 @@ module SettingsForm =
                 ]
                 [
                     h1 [] [
-                        str "Setting"
+                        str "Settings A"
                     ]
 
                     group "Duration" (renderStageRoundCountFields isDisabled)

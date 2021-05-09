@@ -7,6 +7,7 @@ open Model
 open Simulation
 open Statistics.ModelExtensions
 open Statistics.RoundStats
+open ModelExtensions
 
 let runSimulation (setup: GameSetup) =
     let initialGameState = setup.ToInitialGameState()
@@ -23,14 +24,13 @@ type SimulationSingleRunSetup = {
     State2Rounds: int
 }
 
-
 let generateGameSetup (simulationSetup: SimulationSingleRunSetup)  =
     let ``Reward (V)`` = 10.0 
     let ``Cost (C)`` =
         match simulationSetup.ExpectedHawkPortion with
         | p when p >= 1.0 || p <= 0.0 -> raise (ArgumentException("expectedHawkPortion must be in range ]0,1["))
         | _ -> ``Reward (V)`` / simulationSetup.ExpectedHawkPortion
-    {        
+    {
         GameParameters = {
             AgentCount = simulationSetup.AgentCount
             PortionOfRed = simulationSetup.RedAgentPercentage
@@ -40,20 +40,14 @@ let generateGameSetup (simulationSetup: SimulationSingleRunSetup)  =
             {
                 SimulationFrame.RoundCount = initializationRounds
                 StageName = "Stage 1"
-                // StrategyInitFn = SimulationStages.stage1Game_withIdealNMSEDistribution
-                StrategyInitFn =
-                    SimulationStages.stage1Game_withIdealFiftyFiftyDistribution
-                    // SimulationStages.simulation_setup_random
-                    // SimulationStages.stage1Game_withIdealNMSEDistribution
-                    // SimulationStages.simulation_setup_random
-                    // (SimulationStages.allPlay Strategy.Hawk)
+                StrategyInitFnName = SimulationStageNames.GuaranteedFiftyFifty
                 MayUseColor = true
                 SetPayoffForStage = id
             }
             {
                 SimulationFrame.RoundCount = simulationSetup.State2Rounds
                 StageName = "Stage 2"
-                StrategyInitFn = SimulationStages.stage2Game_v5_withFullIndividualHistory
+                StrategyInitFnName = SimulationStageNames.HighestExpectedValueOnBasedOfHistory
                 MayUseColor = true
                 SetPayoffForStage = id
             }

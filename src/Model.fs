@@ -313,10 +313,20 @@ type SimulationFrame =
     {
         RoundCount: int
         StageName: string
-        StrategyInitFn: GameParameters -> StrategyFn
+        StrategyInitFnName: string // GameParameters -> StrategyFn
         SetPayoffForStage: PayoffMatrixType -> PayoffMatrixType
         MayUseColor: bool
     }
+
+type StageStrategyFnOptions =
+    {
+        DisplayName: string
+        Name: string
+        StrategyInitFn: GameParameters -> StrategyFn
+    }
+type UISetupState = {
+    Stage1Options: StageStrategyFnOptions list
+}
 
 type GameSetup =
     {
@@ -326,7 +336,7 @@ type GameSetup =
     member this.AgentCount = this.GameParameters.AgentCount
     member this.PortionOfRed = this.GameParameters.PortionOfRed
     member this.PayoffMatrix = this.GameParameters.PayoffMatrix
-    
+
     member this.RoundsToPlay
         with get() = this.SimulationFrames |> List.sumBy (fun f -> f.RoundCount)
     member this.CountOfRed
@@ -353,28 +363,6 @@ type GameSetup =
                     AgentIdentity.Id = agentId
                     Color = color
                 }) colors agentIds
-
-    member this.ToInitialGameState () =
-        let payoffMatrics = this.PayoffMatrix
-        let plannedRounds =
-                this.SimulationFrames
-                |> List.filter (fun f -> f.RoundCount > 0)
-                |> List.collect
-                    (fun frame ->
-                        let plannedRound: PlannedRound =
-                            {
-                               PayoffMatrix = frame.SetPayoffForStage payoffMatrics
-                               StrategyFn = frame.StrategyInitFn this.GameParameters
-                               StageName = frame.StageName
-                               MayUseColor = frame.MayUseColor
-                            }
-                        List.replicate frame.RoundCount plannedRound
-                    )
-        {
-            PayoffMatrix   = payoffMatrics
-            PlannedRounds  = plannedRounds
-            ResolvedRounds = Rounds [||]
-        }
 
 type ShowResultsViewState =
     {
@@ -424,6 +412,7 @@ type State =
 
 type FieldValue =
     | RoundCountOfStage of stageName: string * roundCount: int
+    | ModeOfStage of stageName: string * name: string
     | AgentCount of agentCount: int
     | PortionOfRed of percentsOfRed: int
     | BenefitOnVictory of v: int

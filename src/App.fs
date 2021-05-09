@@ -4,6 +4,10 @@ open Model
 open Elmish
 open Browser
 open Simulation
+open ModelExtensions
+// module Model =
+
+
 // MODEL
 let runSimulationAsync (setup: GameSetup) =
     promise {
@@ -15,10 +19,9 @@ let runSimulationAsync (setup: GameSetup) =
 
 
 let init () =
-    
     let setup =
         {
-            GameSetup.GameParameters = {
+            GameParameters = {
                 AgentCount = 100
                 PortionOfRed = 50
                 PayoffMatrix = FromRewardAndCost (10.0, 20.0)
@@ -28,25 +31,24 @@ let init () =
                     SimulationFrame.RoundCount = 15
                     SetPayoffForStage = id
                     StageName = "Stage 1 - Random"
-                    StrategyInitFn = SimulationStages.simulation_setup_random
+                    StrategyInitFnName = SimulationStageNames.Random
                     MayUseColor = true
                 }
                 {
                      SimulationFrame.RoundCount = 50
                      SetPayoffForStage = id
                      StageName = "Stage 2"
-                     StrategyInitFn = SimulationStages.stage2Game_v5_withFullIndividualHistory
+                     StrategyInitFnName = SimulationStageNames.HighestExpectedValueOnBasedOfHistory // SimulationStages.stage2Game_v5_withFullIndividualHistory
                      MayUseColor = true
                 }
-                {
-                   SimulationFrame.RoundCount = 10
-                   SetPayoffForStage = id
-                   StageName = "Stage 3"
-                   StrategyInitFn = SimulationStages.stage3Game_onBasedOfLastEncounterWithOpponentColor
-                   MayUseColor = true
-                }
+//                {
+//                   SimulationFrame.RoundCount = 10
+//                   SetPayoffForStage = id
+//                   StageName = "Stage 3"
+//                   StrategyInitFn = SimulationStages.stage3Game_onBasedOfLastEncounterWithOpponentColor
+//                   MayUseColor = true
+//                }
             ]    
-             
         }
     let initialGameState = setup.ToInitialGameState()
     {
@@ -75,6 +77,14 @@ let update (msg:Msg) (state: State) =
                     (fun frame ->
                         if frame.StageName = stage then
                             { frame with RoundCount = value }
+                        else frame)))
+        | ModeOfStage (stage, value) ->
+            (setGameSimulationFrames
+                (state.Setup.SimulationFrames
+                |> List.map
+                    (fun frame ->
+                        if frame.StageName = stage then
+                            { frame with StrategyInitFnName = value }
                         else frame)))
         | AgentCount value ->
             (setGameParams { state.Setup.GameParameters with AgentCount = value })

@@ -3,6 +3,7 @@ module Simulation
 open System
 open Helpers
 open Model
+open Statistics
 
 module Composition =
     type CompositeStrategySetup =
@@ -238,7 +239,7 @@ module IdealFiftyFiftyDistribution =
 
 module SimulationStages =
 
-    let allPlay (fixedStrategy: Strategy) (_setup: GameParameters)  = GameMode.fixedGame fixedStrategy
+    let allPlay (fixedStrategy: Strategy) (_setup: GameParameters) = GameMode.fixedGame fixedStrategy
 
     let stage1Game (_setup: GameParameters) = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
 
@@ -319,3 +320,92 @@ module SimulationStages =
             SameColorStrategy = GameMode.onBasedOfLastEncounterWithOpponentColor
             DifferentColorStrategy = GameMode.onBasedOfLastEncounterWithOpponentColor
         }
+
+module SimulationStageNames =
+    let AllPlayDove = "AllPlayDove"
+    let AllPlayHawk = "AllPlayHawk"
+    let Random = "RandomFiftyFifty"
+    let GuaranteedFiftyFifty = "IdealFiftyFifty"
+    let ProbabilisticNSME = "ProbabilisticNSME"
+    let GuaranteedNSME = "GuaranteedNSME"
+    let HighestExpectedValueOnBasedOfHistory = "HighestExpectedValueOnBaseOfHistory"
+
+    // let GuaranteedNSME = "HighestExpectedValueOnBaseOfHistory"
+
+
+module SimulationStageOptions =
+    let AllOptions =
+        [
+            {
+                StageStrategyFnOptions.Name = SimulationStageNames.AllPlayDove
+                DisplayName = "All play Dove"
+                StrategyInitFn = SimulationStages.allPlay Strategy.Dove
+            }
+            {
+                StageStrategyFnOptions.Name = SimulationStageNames.AllPlayHawk
+                DisplayName = "All play Hawk"
+                StrategyInitFn = SimulationStages.allPlay Strategy.Hawk
+            }
+            {
+                StageStrategyFnOptions.Name = SimulationStageNames.Random
+                DisplayName = "Random 50/50"
+                // (50% change to play Hawk for each agent)
+                StrategyInitFn = SimulationStages.simulation_setup_random
+            }
+            {
+                StageStrategyFnOptions.Name = SimulationStageNames.GuaranteedFiftyFifty
+                DisplayName = "Ideal 50%/50% distribution"
+                // (50% will play Hawk and rest Dove)"
+                StrategyInitFn = SimulationStages.simulation_setup_random
+            }
+            {
+                StageStrategyFnOptions.Name = SimulationStageNames.ProbabilisticNSME
+                DisplayName = "NMSE strategy"
+                // (Reward / Cost change to play Hawk for each agent)"
+                StrategyInitFn = SimulationStages.stage1Game
+            }
+            {
+                StageStrategyFnOptions.Name = SimulationStageNames.GuaranteedNSME
+                DisplayName = "Ideal NMSE distribution"
+                StrategyInitFn = SimulationStages.stage1Game
+            }
+            {
+                StageStrategyFnOptions.Name = SimulationStageNames.HighestExpectedValueOnBasedOfHistory
+                DisplayName = "Highest expected value"
+                StrategyInitFn = SimulationStages.stage1Game
+            }
+        ]
+
+    let getFn (name: string) =
+        (AllOptions
+        |> List.find (fun o -> o.Name = name)).StrategyInitFn
+
+module ModelExtensions =
+    open Model
+    type SimulationFrame with
+        member this.StrategyInitFn
+            with get() = SimulationStageOptions.getFn this.StrategyInitFnName
+
+    type GameSetup with
+
+        member this.ToInitialGameState () =
+            let payoffMatrix = this.PayoffMatrix
+            let plannedRounds =
+                    this.SimulationFrames
+                    |> List.filter (fun f -> f.RoundCount > 0)
+                    |> List.collect
+                        (fun frame ->
+                            let plannedRound: PlannedRound =
+                                {
+                                   PayoffMatrix = frame.SetPayoffForStage payoffMatrix
+                                   StrategyFn = frame.StrategyInitFn this.GameParameters
+                                   StageName = frame.StageName
+                                   MayUseColor = frame.MayUseColor
+                                }
+                            List.replicate frame.RoundCount plannedRound
+                        )
+            {
+                PayoffMatrix   = payoffMatrix
+                PlannedRounds  = plannedRounds
+                ResolvedRounds = Rounds [||]
+            }

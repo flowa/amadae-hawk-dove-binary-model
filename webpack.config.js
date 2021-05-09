@@ -17,7 +17,7 @@ module.exports = {
           patterns: [
             { from: "public/global.css", to: "global.css" },
             { from: "public/favicon.png", to: "favicon.png" },
-            { from: "public/gh-pages", to: "" }
+            //{ from: "public/gh-pages", to: "" }
           ],
         }),
       ],
