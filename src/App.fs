@@ -28,14 +28,14 @@ let init () =
             }
             SimulationFrames = [
                 {
-                    SimulationFrame.RoundCount = 15
+                    SimulationFrame.RoundCount = 1
                     SetPayoffForStage = id
                     StageName = "Stage 1"
                     StrategyInitFnName = SimulationStageNames.Random
                     MayUseColor = true
                 }
                 {
-                     SimulationFrame.RoundCount = 50
+                     SimulationFrame.RoundCount = 100
                      SetPayoffForStage = id
                      StageName = "Stage 2"
                      StrategyInitFnName = SimulationStageNames.HighestExpectedValueOnBasedOfHistory // SimulationStages.stage2Game_v5_withFullIndividualHistory
