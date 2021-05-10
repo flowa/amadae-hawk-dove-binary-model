@@ -861,6 +861,384 @@ function Program$$$withReactHydrate(placeholderId$$7, program$$10) {
 
 /***/ }),
 
+/***/ "./.fable/Fable.FontAwesome.2.0.0/FontAwesome.fs":
+/*!*******************************************************!*\
+  !*** ./.fable/Fable.FontAwesome.2.0.0/FontAwesome.fs ***!
+  \*******************************************************/
+/*! exports provided: Helpers$$$classes, Fa$002EISize, Fa$002EISize$reflection, Fa$002EIconOption, Fa$002EIconOption$reflection, Fa$$$ofSize, Fa$002EIconOptions, Fa$002EIconOptions$reflection, Fa$002EIconOptions$$$get_Empty, Fa$$$toIconOptions, Fa$$$displayIcon, Fa$$$ul, Fa$$$ol, Fa$$$i, Fa$$$span, Fa$002EStack$002EOption, Fa$002EStack$002EOption$reflection, Fa$002EStack$002EOptions, Fa$002EStack$002EOptions$reflection, Fa$002EStack$002EOptions$$$get_Empty, Fa$$$stack */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Helpers$$$classes", function() { return Helpers$$$classes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Fa$002EISize", function() { return Fa$002EISize; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Fa$002EISize$reflection", function() { return Fa$002EISize$reflection; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Fa$002EIconOption", function() { return Fa$002EIconOption; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Fa$002EIconOption$reflection", function() { return Fa$002EIconOption$reflection; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Fa$$$ofSize", function() { return Fa$$$ofSize; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Fa$002EIconOptions", function() { return Fa$002EIconOptions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Fa$002EIconOptions$reflection", function() { return Fa$002EIconOptions$reflection; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Fa$002EIconOptions$$$get_Empty", function() { return Fa$002EIconOptions$$$get_Empty; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Fa$$$toIconOptions", function() { return Fa$$$toIconOptions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Fa$$$displayIcon", function() { return Fa$$$displayIcon; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Fa$$$ul", function() { return Fa$$$ul; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Fa$$$ol", function() { return Fa$$$ol; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Fa$$$i", function() { return Fa$$$i; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Fa$$$span", function() { return Fa$$$span; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Fa$002EStack$002EOption", function() { return Fa$002EStack$002EOption; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Fa$002EStack$002EOption$reflection", function() { return Fa$002EStack$002EOption$reflection; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Fa$002EStack$002EOptions", function() { return Fa$002EStack$002EOptions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Fa$002EStack$002EOptions$reflection", function() { return Fa$002EStack$002EOptions$reflection; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Fa$002EStack$002EOptions$$$get_Empty", function() { return Fa$002EStack$002EOptions$$$get_Empty; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Fa$$$stack", function() { return Fa$$$stack; });
+/* harmony import */ var _fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../fable-library.2.4.15/List.js */ "./.fable/fable-library.2.4.15/List.js");
+/* harmony import */ var _Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Fable.React.6.0.0/Fable.React.Props.fs */ "./.fable/Fable.React.6.0.0/Fable.React.Props.fs");
+/* harmony import */ var _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../fable-library.2.4.15/Types.js */ "./.fable/fable-library.2.4.15/Types.js");
+/* harmony import */ var _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../fable-library.2.4.15/Reflection.js */ "./.fable/fable-library.2.4.15/Reflection.js");
+/* harmony import */ var _fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../fable-library.2.4.15/Util.js */ "./.fable/fable-library.2.4.15/Util.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
+
+
+
+
+
+
+function Helpers$$$classes(std, options, booleans) {
+  var arg0, state$$1, list$$1;
+  let std$$1;
+  const state = std;
+  const list = options;
+  std$$1 = Object(_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_0__["fold"])(function folder(complete, opt) {
+    if (opt == null) {
+      return complete;
+    } else {
+      const name = opt;
+      return complete + " " + name;
+    }
+  }, state, list);
+  return arg0 = (state$$1 = std$$1, list$$1 = booleans, (Object(_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_0__["fold"])(function folder$$1(complete$$1, tupledArg) {
+    const name$$1 = tupledArg[0];
+    const flag = tupledArg[1];
+
+    if (flag) {
+      return complete$$1 + " " + name$$1;
+    } else {
+      return complete$$1;
+    }
+  }, state$$1, list$$1))), (new _Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_1__["HTMLAttr"](64, "ClassName", arg0));
+}
+const Fa$002EISize = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["declare"])(function Fable_FontAwesome_Fa_ISize(tag, name, ...fields) {
+  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["Union"].call(this, tag, name, ...fields);
+}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["Union"]);
+function Fa$002EISize$reflection() {
+  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["union"])("Fable.FontAwesome.Fa.ISize", [], Fa$002EISize, () => ["FaExtraSmall", "FaSmall", "FaLarge", "Fa2x", "Fa3x", "Fa4x", "Fa5x", "Fa6x", "Fa7x", "Fa8x", "Fa9x", "Fa10"]);
+}
+const Fa$002EIconOption = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["declare"])(function Fable_FontAwesome_Fa_IconOption(tag, name, ...fields) {
+  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["Union"].call(this, tag, name, ...fields);
+}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["Union"]);
+function Fa$002EIconOption$reflection() {
+  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["union"])("Fable.FontAwesome.Fa.IconOption", [], Fa$002EIconOption, () => [["Size", [Fa$002EISize$reflection()]], "Border", "PullLeft", "PullRight", "Inverse", "Rotate90", "Rotate180", "Rotate270", "FlipHorizontal", "FlipVertical", "IsLi", ["Icon", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string"]]], "Spin", "Pulse", ["Props", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["list"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["type"])("Fable.React.Props.IHTMLProp"))]], ["CustomClass", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string"]]], "FixedWidth", "Stack1x", "Stack2x"]);
+}
+function Fa$$$ofSize(size) {
+  switch (size.tag) {
+    case 1:
+      {
+        return "fa-sm";
+      }
+
+    case 2:
+      {
+        return "fa-lg";
+      }
+
+    case 3:
+      {
+        return "fa-2x";
+      }
+
+    case 4:
+      {
+        return "fa-3x";
+      }
+
+    case 5:
+      {
+        return "fa-4x";
+      }
+
+    case 6:
+      {
+        return "fa-5x";
+      }
+
+    case 7:
+      {
+        return "fa-6x";
+      }
+
+    case 8:
+      {
+        return "fa-7x";
+      }
+
+    case 9:
+      {
+        return "fa-8x";
+      }
+
+    case 10:
+      {
+        return "fa-9x";
+      }
+
+    case 11:
+      {
+        return "fa-10x";
+      }
+
+    default:
+      {
+        return "fa-xs";
+      }
+  }
+}
+const Fa$002EIconOptions = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["declare"])(function Fable_FontAwesome_Fa_IconOptions(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14) {
+  this.Icon = arg1;
+  this.Size = arg2;
+  this.Border = arg3;
+  this.Pull = arg4;
+  this.HaveSpin = arg5;
+  this.HavePulse = arg6;
+  this.Rotation = arg7;
+  this.Flip = arg8;
+  this.IsInverse = arg9;
+  this.Props = arg10;
+  this.FixedWidth = arg11;
+  this.IsLi = arg12;
+  this.StackSize = arg13;
+  this.CustomClass = arg14;
+}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["Record"]);
+function Fa$002EIconOptions$reflection() {
+  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["record"])("Fable.FontAwesome.Fa.IconOptions", [], Fa$002EIconOptions, () => [["Icon", Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["option"])(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string"])], ["Size", Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["option"])(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string"])], ["Border", Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["option"])(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string"])], ["Pull", Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["option"])(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string"])], ["HaveSpin", _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["bool"]], ["HavePulse", _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["bool"]], ["Rotation", Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["option"])(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string"])], ["Flip", Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["option"])(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string"])], ["IsInverse", _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["bool"]], ["Props", Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["list"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["type"])("Fable.React.Props.IHTMLProp"))], ["FixedWidth", _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["bool"]], ["IsLi", _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["bool"]], ["StackSize", Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["option"])(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string"])], ["CustomClass", Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["option"])(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string"])]]);
+}
+function Fa$002EIconOptions$$$get_Empty() {
+  return new Fa$002EIconOptions(null, null, null, null, false, false, null, null, false, new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](), false, false, null, null);
+}
+function Fa$$$toIconOptions(faOptions) {
+  const parseOptions = function parseOptions(result, option) {
+    var arg0$$2;
+
+    switch (option.tag) {
+      case 1:
+        {
+          const Border = "fa-border";
+          return new Fa$002EIconOptions(result.Icon, result.Size, Border, result.Pull, result.HaveSpin, result.HavePulse, result.Rotation, result.Flip, result.IsInverse, result.Props, result.FixedWidth, result.IsLi, result.StackSize, result.CustomClass);
+        }
+
+      case 2:
+        {
+          const Pull = "fa-pull-left";
+          return new Fa$002EIconOptions(result.Icon, result.Size, result.Border, Pull, result.HaveSpin, result.HavePulse, result.Rotation, result.Flip, result.IsInverse, result.Props, result.FixedWidth, result.IsLi, result.StackSize, result.CustomClass);
+        }
+
+      case 3:
+        {
+          const Pull$$1 = "fa-pull-right";
+          return new Fa$002EIconOptions(result.Icon, result.Size, result.Border, Pull$$1, result.HaveSpin, result.HavePulse, result.Rotation, result.Flip, result.IsInverse, result.Props, result.FixedWidth, result.IsLi, result.StackSize, result.CustomClass);
+        }
+
+      case 4:
+        {
+          return new Fa$002EIconOptions(result.Icon, result.Size, result.Border, result.Pull, result.HaveSpin, result.HavePulse, result.Rotation, result.Flip, true, result.Props, result.FixedWidth, result.IsLi, result.StackSize, result.CustomClass);
+        }
+
+      case 11:
+        {
+          const faIcon = option.fields[0];
+          return new Fa$002EIconOptions((arg0$$2 = faIcon, (arg0$$2)), result.Size, result.Border, result.Pull, result.HaveSpin, result.HavePulse, result.Rotation, result.Flip, result.IsInverse, result.Props, result.FixedWidth, result.IsLi, result.StackSize, result.CustomClass);
+        }
+
+      case 5:
+        {
+          let Rotation;
+          const arg0$$3 = "fa-rotate-90";
+          Rotation = arg0$$3;
+          return new Fa$002EIconOptions(result.Icon, result.Size, result.Border, result.Pull, result.HaveSpin, result.HavePulse, Rotation, result.Flip, result.IsInverse, result.Props, result.FixedWidth, result.IsLi, result.StackSize, result.CustomClass);
+        }
+
+      case 6:
+        {
+          let Rotation$$1;
+          const arg0$$4 = "fa-rotate-180";
+          Rotation$$1 = arg0$$4;
+          return new Fa$002EIconOptions(result.Icon, result.Size, result.Border, result.Pull, result.HaveSpin, result.HavePulse, Rotation$$1, result.Flip, result.IsInverse, result.Props, result.FixedWidth, result.IsLi, result.StackSize, result.CustomClass);
+        }
+
+      case 7:
+        {
+          let Rotation$$2;
+          const arg0$$5 = "fa-rotate-270";
+          Rotation$$2 = arg0$$5;
+          return new Fa$002EIconOptions(result.Icon, result.Size, result.Border, result.Pull, result.HaveSpin, result.HavePulse, Rotation$$2, result.Flip, result.IsInverse, result.Props, result.FixedWidth, result.IsLi, result.StackSize, result.CustomClass);
+        }
+
+      case 8:
+        {
+          let Rotation$$3;
+          const arg0$$6 = "fa-flip-horizontal";
+          Rotation$$3 = arg0$$6;
+          return new Fa$002EIconOptions(result.Icon, result.Size, result.Border, result.Pull, result.HaveSpin, result.HavePulse, Rotation$$3, result.Flip, result.IsInverse, result.Props, result.FixedWidth, result.IsLi, result.StackSize, result.CustomClass);
+        }
+
+      case 9:
+        {
+          let Rotation$$4;
+          const arg0$$7 = "fa-flip-vertical";
+          Rotation$$4 = arg0$$7;
+          return new Fa$002EIconOptions(result.Icon, result.Size, result.Border, result.Pull, result.HaveSpin, result.HavePulse, Rotation$$4, result.Flip, result.IsInverse, result.Props, result.FixedWidth, result.IsLi, result.StackSize, result.CustomClass);
+        }
+
+      case 12:
+        {
+          return new Fa$002EIconOptions(result.Icon, result.Size, result.Border, result.Pull, true, result.HavePulse, result.Rotation, result.Flip, result.IsInverse, result.Props, result.FixedWidth, result.IsLi, result.StackSize, result.CustomClass);
+        }
+
+      case 13:
+        {
+          return new Fa$002EIconOptions(result.Icon, result.Size, result.Border, result.Pull, result.HaveSpin, true, result.Rotation, result.Flip, result.IsInverse, result.Props, result.FixedWidth, result.IsLi, result.StackSize, result.CustomClass);
+        }
+
+      case 14:
+        {
+          const props = option.fields[0];
+          return new Fa$002EIconOptions(result.Icon, result.Size, result.Border, result.Pull, result.HaveSpin, result.HavePulse, result.Rotation, result.Flip, result.IsInverse, props, result.FixedWidth, result.IsLi, result.StackSize, result.CustomClass);
+        }
+
+      case 16:
+        {
+          return new Fa$002EIconOptions(result.Icon, result.Size, result.Border, result.Pull, result.HaveSpin, result.HavePulse, result.Rotation, result.Flip, result.IsInverse, result.Props, true, result.IsLi, result.StackSize, result.CustomClass);
+        }
+
+      case 10:
+        {
+          return new Fa$002EIconOptions(result.Icon, result.Size, result.Border, result.Pull, result.HaveSpin, result.HavePulse, result.Rotation, result.Flip, result.IsInverse, result.Props, result.FixedWidth, true, result.StackSize, result.CustomClass);
+        }
+
+      case 15:
+        {
+          const customClass = option.fields[0];
+          const CustomClass = customClass;
+          return new Fa$002EIconOptions(result.Icon, result.Size, result.Border, result.Pull, result.HaveSpin, result.HavePulse, result.Rotation, result.Flip, result.IsInverse, result.Props, result.FixedWidth, result.IsLi, result.StackSize, CustomClass);
+        }
+
+      case 17:
+        {
+          const StackSize = "fa-stack-1x";
+          return new Fa$002EIconOptions(result.Icon, result.Size, result.Border, result.Pull, result.HaveSpin, result.HavePulse, result.Rotation, result.Flip, result.IsInverse, result.Props, result.FixedWidth, result.IsLi, StackSize, result.CustomClass);
+        }
+
+      case 18:
+        {
+          const StackSize$$1 = "fa-stack-2x";
+          return new Fa$002EIconOptions(result.Icon, result.Size, result.Border, result.Pull, result.HaveSpin, result.HavePulse, result.Rotation, result.Flip, result.IsInverse, result.Props, result.FixedWidth, result.IsLi, StackSize$$1, result.CustomClass);
+        }
+
+      default:
+        {
+          const s = option.fields[0];
+          let Size;
+          const arg0$$1 = Fa$$$ofSize(s);
+          Size = arg0$$1;
+          return new Fa$002EIconOptions(result.Icon, Size, result.Border, result.Pull, result.HaveSpin, result.HavePulse, result.Rotation, result.Flip, result.IsInverse, result.Props, result.FixedWidth, result.IsLi, result.StackSize, result.CustomClass);
+        }
+    }
+  };
+
+  const list$$2 = faOptions;
+  const state$$2 = Fa$002EIconOptions$$$get_Empty();
+  return Object(_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_0__["fold"])(parseOptions, state$$2, list$$2);
+}
+function Fa$$$displayIcon(baseElement, baseClass, opts, children) {
+  const classes = Helpers$$$classes(baseClass, Object(_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_0__["ofArray"])([opts.Icon, opts.Size, opts.Border, opts.Pull, opts.Rotation, opts.Flip, opts.CustomClass, opts.StackSize]), Object(_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_0__["ofArray"])([["fa-fw", opts.FixedWidth], ["fa-li", opts.IsLi], ["fa-pulse", opts.HavePulse], ["fa-spin", opts.HaveSpin], ["fa-inverse", opts.IsInverse]]));
+  return baseElement(new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](classes, opts.Props), children);
+}
+function Fa$$$ul(props$$1, children$$1) {
+  const props$$2 = [new _Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_1__["HTMLAttr"](64, "ClassName", "fa-ul")];
+  return react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("ul", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["createObj"])(props$$2, 1), ...children$$1);
+}
+function Fa$$$ol(props$$4, children$$4) {
+  const props$$5 = [new _Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_1__["HTMLAttr"](64, "ClassName", "fa-ul")];
+  return react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("ol", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["createObj"])(props$$5, 1), ...children$$4);
+}
+function Fa$$$i(faOptions$$1, children$$7) {
+  const opts$$1 = Fa$$$toIconOptions(faOptions$$1);
+  return Fa$$$displayIcon(function (props$$7, children$$8) {
+    const props$$8 = props$$7;
+    return react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("i", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["createObj"])(props$$8, 1), ...children$$8);
+  }, "", opts$$1, children$$7);
+}
+function Fa$$$span(faOptions$$2, children$$11) {
+  const opts$$2 = Fa$$$toIconOptions(faOptions$$2);
+  return Fa$$$displayIcon(function (props$$10, children$$12) {
+    const props$$11 = props$$10;
+    return react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("span", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["createObj"])(props$$11, 1), ...children$$12);
+  }, "", opts$$2, children$$11);
+}
+const Fa$002EStack$002EOption = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["declare"])(function Fable_FontAwesome_Fa_Stack_Option(tag, name, ...fields) {
+  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["Union"].call(this, tag, name, ...fields);
+}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["Union"]);
+function Fa$002EStack$002EOption$reflection() {
+  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["union"])("Fable.FontAwesome.Fa.Stack.Option", [], Fa$002EStack$002EOption, () => [["Size", [Fa$002EISize$reflection()]], ["CustomClass", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string"]]], ["Props", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["list"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["type"])("Fable.React.Props.IHTMLProp"))]]]);
+}
+const Fa$002EStack$002EOptions = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["declare"])(function Fable_FontAwesome_Fa_Stack_Options(arg1, arg2, arg3) {
+  this.Size = arg1;
+  this.Props = arg2;
+  this.CustomClass = arg3;
+}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["Record"]);
+function Fa$002EStack$002EOptions$reflection() {
+  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["record"])("Fable.FontAwesome.Fa.Stack.Options", [], Fa$002EStack$002EOptions, () => [["Size", Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["option"])(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string"])], ["Props", Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["list"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["type"])("Fable.React.Props.IHTMLProp"))], ["CustomClass", Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["option"])(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string"])]]);
+}
+function Fa$002EStack$002EOptions$$$get_Empty() {
+  return new Fa$002EStack$002EOptions(null, new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](), null);
+}
+function Fa$$$stack(options$$1, children$$15) {
+  const parseOption = function parseOption(result$$1, opt$$1) {
+    var arg0$$8;
+
+    switch (opt$$1.tag) {
+      case 1:
+        {
+          const customClass$$1 = opt$$1.fields[0];
+          const CustomClass$$1 = customClass$$1;
+          return new Fa$002EStack$002EOptions(result$$1.Size, result$$1.Props, CustomClass$$1);
+        }
+
+      case 2:
+        {
+          const props$$13 = opt$$1.fields[0];
+          return new Fa$002EStack$002EOptions(result$$1.Size, props$$13, result$$1.CustomClass);
+        }
+
+      default:
+        {
+          const size$$1 = opt$$1.fields[0];
+          return new Fa$002EStack$002EOptions((arg0$$8 = Fa$$$ofSize(size$$1), (arg0$$8)), result$$1.Props, result$$1.CustomClass);
+        }
+    }
+  };
+
+  let opts$$3;
+  const list$$3 = options$$1;
+  const state$$3 = Fa$002EStack$002EOptions$$$get_Empty();
+  opts$$3 = Object(_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_0__["fold"])(parseOption, state$$3, list$$3);
+  const classes$$1 = Helpers$$$classes("fa-stack", Object(_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_0__["ofArray"])([opts$$3.Size, opts$$3.CustomClass]), new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]());
+  const props$$14 = new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](classes$$1, opts$$3.Props);
+  return react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("span", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["createObj"])(props$$14, 1), ...children$$15);
+}
+
+/***/ }),
+
 /***/ "./.fable/Fable.Promise.2.1.0/Promise.fs":
 /*!***********************************************!*\
   !*** ./.fable/Fable.Promise.2.1.0/Promise.fs ***!
@@ -1794,6 +2172,193 @@ function Text$$$span(options$$6, children$$10) {
 
 /***/ }),
 
+/***/ "./.fable/Fulma.2.9.0/Components/Dropdown.fs":
+/*!***************************************************!*\
+  !*** ./.fable/Fulma.2.9.0/Components/Dropdown.fs ***!
+  \***************************************************/
+/*! exports provided: Option, Option$reflection, dropdown, menu, content, divider, trigger, Item$002EOption, Item$002EOption$reflection, Item$$$item, Item$$$div, Item$$$a, Item$$$button */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Option", function() { return Option; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Option$reflection", function() { return Option$reflection; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "dropdown", function() { return dropdown; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "menu", function() { return menu; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "content", function() { return content; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "divider", function() { return divider; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "trigger", function() { return trigger; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Item$002EOption", function() { return Item$002EOption; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Item$002EOption$reflection", function() { return Item$002EOption$reflection; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Item$$$item", function() { return Item$$$item; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Item$$$div", function() { return Item$$$div; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Item$$$a", function() { return Item$$$a; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Item$$$button", function() { return Item$$$button; });
+/* harmony import */ var _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../fable-library.2.4.15/Types.js */ "./.fable/fable-library.2.4.15/Types.js");
+/* harmony import */ var _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../fable-library.2.4.15/Reflection.js */ "./.fable/fable-library.2.4.15/Reflection.js");
+/* harmony import */ var _Common_fs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Common.fs */ "./.fable/Fulma.2.9.0/Common.fs");
+/* harmony import */ var _fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../fable-library.2.4.15/Util.js */ "./.fable/fable-library.2.4.15/Util.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
+
+
+const Option = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fulma_Dropdown_Option(tag, name, ...fields) {
+  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
+}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
+function Option$reflection() {
+  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union"])("Fulma.Dropdown.Option", [], Option, () => [["is-active", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], "is-hoverable", "is-right", "is-up", ["Props", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Fable.React.Props.IHTMLProp"))]], ["CustomClass", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Modifiers", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Modifier$002EIModifier$reflection"])())]]]);
+}
+function dropdown(options, children) {
+  const parseOptions = function parseOptions(result, option) {
+    switch (option.tag) {
+      case 2:
+        {
+          return Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$AddCaseName$$1505"])(result, option);
+        }
+
+      case 1:
+        {
+          return Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$AddCaseName$$1505"])(result, option);
+        }
+
+      case 3:
+        {
+          return Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$AddCaseName$$1505"])(result, option);
+        }
+
+      case 4:
+        {
+          const props = option.fields[0];
+          return Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$AddProps$$416C4D0B"])(result, props);
+        }
+
+      case 5:
+        {
+          const customClass = option.fields[0];
+          return Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$AddClass$$Z721C83C5"])(result, customClass);
+        }
+
+      case 6:
+        {
+          const modifiers = option.fields[0];
+          return Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$AddModifiers$$5BB435D5"])(result, modifiers);
+        }
+
+      default:
+        {
+          const state = option.fields[0];
+
+          if (state) {
+            return Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$AddCaseName$$1505"])(result, option);
+          } else {
+            return result;
+          }
+        }
+    }
+  };
+
+  return Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$ToReactElement$$Z6D3CD4B7"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$$Parse$$9AE2F7C"])(options, parseOptions, "dropdown"), function (props$$1, children$$1) {
+    const props$$2 = props$$1;
+    const children$$2 = children$$1;
+    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("div", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$2, 1), ...children$$2);
+  }, children);
+}
+function menu(options$$1, children$$4) {
+  return Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$ToReactElement$$Z6D3CD4B7"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$$Parse$$9AE2F7C"])(options$$1, _Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$$$parseOptions"], "dropdown-menu"), function (props$$4, children$$5) {
+    const props$$5 = props$$4;
+    const children$$6 = children$$5;
+    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("div", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$5, 1), ...children$$6);
+  }, children$$4);
+}
+function content(options$$2, children$$8) {
+  return Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$ToReactElement$$Z6D3CD4B7"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$$Parse$$9AE2F7C"])(options$$2, _Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$$$parseOptions"], "dropdown-content"), function (props$$7, children$$9) {
+    const props$$8 = props$$7;
+    const children$$10 = children$$9;
+    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("div", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$8, 1), ...children$$10);
+  }, children$$8);
+}
+function divider(options$$3) {
+  return Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$ToReactElement$$Z46A53D36"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$$Parse$$9AE2F7C"])(options$$3, _Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$$$parseOptions"], "dropdown-divider"), function (props$$10) {
+    const props$$11 = props$$10;
+    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("hr", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$11, 1), ...[]);
+  });
+}
+function trigger(options$$4, children$$12) {
+  return Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$ToReactElement$$Z6D3CD4B7"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$$Parse$$9AE2F7C"])(options$$4, _Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$$$parseOptions"], "dropdown-trigger"), function (props$$13, children$$13) {
+    const props$$14 = props$$13;
+    const children$$14 = children$$13;
+    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("div", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$14, 1), ...children$$14);
+  }, children$$12);
+}
+const Item$002EOption = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fulma_Dropdown_Item_Option(tag, name, ...fields) {
+  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
+}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
+function Item$002EOption$reflection() {
+  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union"])("Fulma.Dropdown.Item.Option", [], Item$002EOption, () => [["is-active", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["Props", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Fable.React.Props.IHTMLProp"))]], ["CustomClass", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Modifiers", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Modifier$002EIModifier$reflection"])())]]]);
+}
+function Item$$$item(element, options$$5, children$$16) {
+  const parseOptions$$1 = function parseOptions$$1(result$$5, option$$5) {
+    switch (option$$5.tag) {
+      case 1:
+        {
+          const props$$16 = option$$5.fields[0];
+          return Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$AddProps$$416C4D0B"])(result$$5, props$$16);
+        }
+
+      case 2:
+        {
+          const customClass$$1 = option$$5.fields[0];
+          return Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$AddClass$$Z721C83C5"])(result$$5, customClass$$1);
+        }
+
+      case 3:
+        {
+          const modifiers$$1 = option$$5.fields[0];
+          return Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$AddModifiers$$5BB435D5"])(result$$5, modifiers$$1);
+        }
+
+      default:
+        {
+          const state$$1 = option$$5.fields[0];
+
+          if (state$$1) {
+            return Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$AddCaseName$$1505"])(result$$5, option$$5);
+          } else {
+            return result$$5;
+          }
+        }
+    }
+  };
+
+  return Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$ToReactElement$$Z6D3CD4B7"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$$Parse$$9AE2F7C"])(options$$5, parseOptions$$1, "dropdown-item"), element, children$$16);
+}
+function Item$$$div(x, y) {
+  return Item$$$item(function (props$$17, children$$17) {
+    const props$$18 = props$$17;
+    const children$$18 = children$$17;
+    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("div", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$18, 1), ...children$$18);
+  }, x, y);
+}
+function Item$$$a(x$$1, y$$1) {
+  return Item$$$item(function (props$$20, children$$20) {
+    const props$$21 = props$$20;
+    const children$$21 = children$$20;
+    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("a", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$21, 1), ...children$$21);
+  }, x$$1, y$$1);
+}
+function Item$$$button(x$$2, y$$2) {
+  return Item$$$item(function (props$$23, children$$23) {
+    const props$$24 = props$$23;
+    const children$$24 = children$$23;
+    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("button", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$24, 1), ...children$$24);
+  }, x$$2, y$$2);
+}
+
+/***/ }),
+
 /***/ "./.fable/Fulma.2.9.0/Elements/Button.fs":
 /*!***********************************************!*\
   !*** ./.fable/Fulma.2.9.0/Elements/Button.fs ***!
@@ -2676,6 +3241,80 @@ function label(options, children) {
     const props$$2 = props$$1;
     const children$$2 = children$$1;
     return react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("label", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["createObj"])(props$$2, 1), ...children$$2);
+  }, children);
+}
+
+/***/ }),
+
+/***/ "./.fable/Fulma.2.9.0/Elements/Icon.fs":
+/*!*********************************************!*\
+  !*** ./.fable/Fulma.2.9.0/Elements/Icon.fs ***!
+  \*********************************************/
+/*! exports provided: Option, Option$reflection, icon */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Option", function() { return Option; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Option$reflection", function() { return Option$reflection; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "icon", function() { return icon; });
+/* harmony import */ var _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../fable-library.2.4.15/Types.js */ "./.fable/fable-library.2.4.15/Types.js");
+/* harmony import */ var _Common_fs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Common.fs */ "./.fable/Fulma.2.9.0/Common.fs");
+/* harmony import */ var _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../fable-library.2.4.15/Reflection.js */ "./.fable/fable-library.2.4.15/Reflection.js");
+/* harmony import */ var _fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../fable-library.2.4.15/Util.js */ "./.fable/fable-library.2.4.15/Util.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
+
+
+const Option = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fulma_Icon_Option(tag, name, ...fields) {
+  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
+}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
+function Option$reflection() {
+  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["union"])("Fulma.Icon.Option", [], Option, () => [["Size", [Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Size$002EISize$reflection"])()]], "is-left", "is-right", ["CustomClass", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["string"]]], ["Props", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["list"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["type"])("Fable.React.Props.IHTMLProp"))]], ["Modifiers", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["list"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Modifier$002EIModifier$reflection"])())]]]);
+}
+function icon(options, children) {
+  const parseOptions = function parseOptions(result, option) {
+    switch (option.tag) {
+      case 1:
+      case 2:
+        {
+          return Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Common$002EGenericOptions$$AddCaseName$$1505"])(result, option);
+        }
+
+      case 4:
+        {
+          const props = option.fields[0];
+          return Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Common$002EGenericOptions$$AddProps$$416C4D0B"])(result, props);
+        }
+
+      case 3:
+        {
+          const customClass = option.fields[0];
+          return Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Common$002EGenericOptions$$AddClass$$Z721C83C5"])(result, customClass);
+        }
+
+      case 5:
+        {
+          const modifiers = option.fields[0];
+          return Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Common$002EGenericOptions$$AddModifiers$$5BB435D5"])(result, modifiers);
+        }
+
+      default:
+        {
+          const size = option.fields[0];
+          const arg00 = Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Reflection$$$getCaseName"])(size);
+          return Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Common$002EGenericOptions$$AddClass$$Z721C83C5"])(result, arg00);
+        }
+    }
+  };
+
+  return Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Common$002EGenericOptions$$ToReactElement$$Z6D3CD4B7"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Common$002EGenericOptions$$$Parse$$9AE2F7C"])(options, parseOptions, "icon"), function (props$$1, children$$1) {
+    const props$$2 = props$$1;
+    const children$$2 = children$$1;
+    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("span", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$2, 1), ...children$$2);
   }, children);
 }
 
@@ -45155,18 +45794,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "update", function() { return update; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "timer", function() { return timer; });
 /* harmony import */ var _fable_Fable_Promise_2_1_0_PromiseImpl_fs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../.fable/Fable.Promise.2.1.0/PromiseImpl.fs */ "./.fable/Fable.Promise.2.1.0/PromiseImpl.fs");
-/* harmony import */ var _Model_fs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Model.fs */ "./src/Model.fs");
-/* harmony import */ var _fable_Fable_Promise_2_1_0_Promise_fs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../.fable/Fable.Promise.2.1.0/Promise.fs */ "./.fable/Fable.Promise.2.1.0/Promise.fs");
-/* harmony import */ var _Simulation_fs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Simulation.fs */ "./src/Simulation.fs");
-/* harmony import */ var _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/Util.js */ "./.fable/fable-library.2.4.15/Util.js");
-/* harmony import */ var _fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/List.js */ "./.fable/fable-library.2.4.15/List.js");
-/* harmony import */ var _fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../.fable/Fable.Elmish.3.0.0/cmd.fs */ "./.fable/Fable.Elmish.3.0.0/cmd.fs");
-/* harmony import */ var _fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/String.js */ "./.fable/fable-library.2.4.15/String.js");
-/* harmony import */ var _fable_fable_library_2_4_15_Date_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/Date.js */ "./.fable/fable-library.2.4.15/Date.js");
-/* harmony import */ var _MainView_fs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./MainView.fs */ "./src/MainView.fs");
-/* harmony import */ var _fable_Fable_Elmish_3_0_0_program_fs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../.fable/Fable.Elmish.3.0.0/program.fs */ "./.fable/Fable.Elmish.3.0.0/program.fs");
-/* harmony import */ var _fable_Fable_Elmish_React_3_0_1_react_fs__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../.fable/Fable.Elmish.React.3.0.1/react.fs */ "./.fable/Fable.Elmish.React.3.0.1/react.fs");
-
+/* harmony import */ var _Simulation_fs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Simulation.fs */ "./src/Simulation.fs");
+/* harmony import */ var _Model_fs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Model.fs */ "./src/Model.fs");
+/* harmony import */ var _fable_Fable_Promise_2_1_0_Promise_fs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../.fable/Fable.Promise.2.1.0/Promise.fs */ "./.fable/Fable.Promise.2.1.0/Promise.fs");
+/* harmony import */ var _fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/List.js */ "./.fable/fable-library.2.4.15/List.js");
+/* harmony import */ var _fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../.fable/Fable.Elmish.3.0.0/cmd.fs */ "./.fable/Fable.Elmish.3.0.0/cmd.fs");
+/* harmony import */ var _fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/String.js */ "./.fable/fable-library.2.4.15/String.js");
+/* harmony import */ var _fable_fable_library_2_4_15_Date_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/Date.js */ "./.fable/fable-library.2.4.15/Date.js");
+/* harmony import */ var _MainView_fs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./MainView.fs */ "./src/MainView.fs");
+/* harmony import */ var _fable_Fable_Elmish_3_0_0_program_fs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../.fable/Fable.Elmish.3.0.0/program.fs */ "./.fable/Fable.Elmish.3.0.0/program.fs");
+/* harmony import */ var _fable_Fable_Elmish_React_3_0_1_react_fs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../.fable/Fable.Elmish.React.3.0.1/react.fs */ "./.fable/Fable.Elmish.React.3.0.1/react.fs");
 
 
 
@@ -45180,72 +45817,85 @@ __webpack_require__.r(__webpack_exports__);
 
 function runSimulationAsync(setup) {
   const builder$0040 = _fable_Fable_Promise_2_1_0_PromiseImpl_fs__WEBPACK_IMPORTED_MODULE_0__["promise"];
-  return Object(_fable_Fable_Promise_2_1_0_Promise_fs__WEBPACK_IMPORTED_MODULE_2__["PromiseBuilder$$Run$$212F1D4B"])(builder$0040, Object(_fable_Fable_Promise_2_1_0_Promise_fs__WEBPACK_IMPORTED_MODULE_2__["PromiseBuilder$$Delay$$62FBFDE1"])(builder$0040, function () {
-    const initialGameState = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameSetup$$ToInitialGameState"])(setup);
-    const initialAgents = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameSetup$$GenerateAgents"])(setup);
-    return Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameState$$SimulateRoundsPromise$$6166C877"])(initialGameState, initialAgents).then(function (_arg1) {
+  return Object(_fable_Fable_Promise_2_1_0_Promise_fs__WEBPACK_IMPORTED_MODULE_3__["PromiseBuilder$$Run$$212F1D4B"])(builder$0040, Object(_fable_Fable_Promise_2_1_0_Promise_fs__WEBPACK_IMPORTED_MODULE_3__["PromiseBuilder$$Delay$$62FBFDE1"])(builder$0040, function () {
+    const initialGameState = Object(_Simulation_fs__WEBPACK_IMPORTED_MODULE_1__["Model$002EGameSetup$$GameSetup$002EToInitialGameState"])(setup);
+    const initialAgents = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameSetup$$GenerateAgents"])(setup);
+    return Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameState$$SimulateRoundsPromise$$6166C877"])(initialGameState, initialAgents).then(function (_arg1) {
       const afterSimulation = _arg1;
       return Promise.resolve(afterSimulation);
     });
   }));
 }
 function init() {
-  const setup$$1 = new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameSetup"](new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameParameters"](100, 50, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType"](0, "FromRewardAndCost", 10, 20)), Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_5__["ofArray"])([new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["SimulationFrame"](10, "Stage 1", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["uncurry"])(2, _Simulation_fs__WEBPACK_IMPORTED_MODULE_3__["SimulationStages$$$stage1Game"]), function SetPayoffForStage(x) {
+  const setup$$1 = new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameSetup"](new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameParameters"](100, 50, new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["PayoffMatrixType"](0, "FromRewardAndCost", 10, 20)), Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_4__["ofArray"])([new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["SimulationFrame"](1, "Stage 1", _Simulation_fs__WEBPACK_IMPORTED_MODULE_1__["SimulationStageNames$$$Random"], function SetPayoffForStage(x) {
     return x;
-  }, false), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["SimulationFrame"](50, "Stage 2", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["uncurry"])(2, _Simulation_fs__WEBPACK_IMPORTED_MODULE_3__["SimulationStages$$$stage2Game_v5_withFullIndividualHistory"]), function SetPayoffForStage$$1(x$$1) {
+  }, true), new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["SimulationFrame"](100, "Stage 2", _Simulation_fs__WEBPACK_IMPORTED_MODULE_1__["SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory"], function SetPayoffForStage$$1(x$$1) {
     return x$$1;
   }, true)]));
-  const initialGameState$$1 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameSetup$$ToInitialGameState"])(setup$$1);
-  return [new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["State"](setup$$1, initialGameState$$1, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["ResultViewState"](0, "InitGame"), false), Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_6__["Cmd$$$none"])()];
+  const initialGameState$$1 = Object(_Simulation_fs__WEBPACK_IMPORTED_MODULE_1__["Model$002EGameSetup$$GameSetup$002EToInitialGameState"])(setup$$1);
+  return [new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["State"](setup$$1, initialGameState$$1, new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["ResultViewState"](0, "InitGame"), false), Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_5__["Cmd$$$none"])()];
 }
 function update(msg, state) {
   var ViewState, ViewState$$1, ViewState$$2, ViewState$$3, round$$1, ViewState$$5;
 
   const setGameSimulationFrames = function setGameSimulationFrames(simulationFrames) {
-    const updatedSetup = new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameSetup"](state.Setup.GameParameters, simulationFrames);
-    return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["State"](updatedSetup, state.GameState, state.ViewState, state.PlayAnimation);
+    const updatedSetup = new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameSetup"](state.Setup.GameParameters, simulationFrames);
+    return new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["State"](updatedSetup, state.GameState, state.ViewState, state.PlayAnimation);
   };
 
   const setGameParams = function setGameParams(updatedGameParams) {
-    const updatedSetup$$1 = new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameSetup"](updatedGameParams, state.Setup.SimulationFrames);
-    return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["State"](updatedSetup$$1, state.GameState, state.ViewState, state.PlayAnimation);
+    const updatedSetup$$1 = new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameSetup"](updatedGameParams, state.Setup.SimulationFrames);
+    return new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["State"](updatedSetup$$1, state.GameState, state.ViewState, state.PlayAnimation);
   };
 
   const setField = function setField(field) {
-    var PayoffMatrix, PayoffMatrix$$1, list;
+    var list$$1, PayoffMatrix, PayoffMatrix$$1, list;
 
     switch (field.tag) {
       case 1:
         {
-          const value$$1 = field.fields[0] | 0;
-          return setGameParams(new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameParameters"](value$$1, state.Setup.GameParameters.PortionOfRed, state.Setup.GameParameters.PayoffMatrix));
+          const value$$1 = field.fields[1];
+          const stage$$1 = field.fields[0];
+          return setGameSimulationFrames((list$$1 = state.Setup.SimulationFrames, (Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_4__["map"])(function mapping$$1(frame$$1) {
+            if (frame$$1.StageName === stage$$1) {
+              return new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["SimulationFrame"](frame$$1.RoundCount, frame$$1.StageName, value$$1, frame$$1.SetPayoffForStage, frame$$1.MayUseColor);
+            } else {
+              return frame$$1;
+            }
+          }, list$$1))));
         }
 
       case 2:
         {
           const value$$2 = field.fields[0] | 0;
-          return setGameParams(new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameParameters"](state.Setup.GameParameters.AgentCount, value$$2, state.Setup.GameParameters.PayoffMatrix));
+          return setGameParams(new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameParameters"](value$$2, state.Setup.GameParameters.PortionOfRed, state.Setup.GameParameters.PayoffMatrix));
         }
 
       case 3:
         {
           const value$$3 = field.fields[0] | 0;
-          return setGameParams((PayoffMatrix = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$SetV$$5E38073B"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameSetup$$get_PayoffMatrix"])(state.Setup), value$$3), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameParameters"](state.Setup.GameParameters.AgentCount, state.Setup.GameParameters.PortionOfRed, PayoffMatrix)));
+          return setGameParams(new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameParameters"](state.Setup.GameParameters.AgentCount, value$$3, state.Setup.GameParameters.PayoffMatrix));
         }
 
       case 4:
         {
           const value$$4 = field.fields[0] | 0;
-          return setGameParams((PayoffMatrix$$1 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$SetC$$5E38073B"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameSetup$$get_PayoffMatrix"])(state.Setup), value$$4), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameParameters"](state.Setup.GameParameters.AgentCount, state.Setup.GameParameters.PortionOfRed, PayoffMatrix$$1)));
+          return setGameParams((PayoffMatrix = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["PayoffMatrixType$$SetV$$5E38073B"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameSetup$$get_PayoffMatrix"])(state.Setup), value$$4), new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameParameters"](state.Setup.GameParameters.AgentCount, state.Setup.GameParameters.PortionOfRed, PayoffMatrix)));
+        }
+
+      case 5:
+        {
+          const value$$5 = field.fields[0] | 0;
+          return setGameParams((PayoffMatrix$$1 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["PayoffMatrixType$$SetC$$5E38073B"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameSetup$$get_PayoffMatrix"])(state.Setup), value$$5), new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameParameters"](state.Setup.GameParameters.AgentCount, state.Setup.GameParameters.PortionOfRed, PayoffMatrix$$1)));
         }
 
       default:
         {
           const value = field.fields[1] | 0;
           const stage = field.fields[0];
-          return setGameSimulationFrames((list = state.Setup.SimulationFrames, (Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_5__["map"])(function mapping(frame) {
+          return setGameSimulationFrames((list = state.Setup.SimulationFrames, (Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_4__["map"])(function mapping(frame) {
             if (frame.StageName === stage) {
-              return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["SimulationFrame"](value, frame.StageName, frame.StrategyInitFn, frame.SetPayoffForStage, frame.MayUseColor);
+              return new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["SimulationFrame"](value, frame.StageName, frame.StrategyInitFnName, frame.SetPayoffForStage, frame.MayUseColor);
             } else {
               return frame;
             }
@@ -45258,31 +45908,31 @@ function update(msg, state) {
     case 1:
       {
         const round = msg.fields[0] | 0;
-        return [(ViewState = new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["ResultViewState"](2, "ShowResults", round), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["State"](state.Setup, state.GameState, ViewState, state.PlayAnimation)), Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_6__["Cmd$$$none"])()];
+        return [(ViewState = new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["ResultViewState"](2, "ShowResults", round), new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["State"](state.Setup, state.GameState, ViewState, state.PlayAnimation)), Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_5__["Cmd$$$none"])()];
       }
 
     case 4:
       {
-        return [(ViewState$$1 = new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["ResultViewState"](0, "InitGame"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["State"](state.Setup, state.GameState, ViewState$$1, false)), Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_6__["Cmd$$$none"])()];
+        return [(ViewState$$1 = new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["ResultViewState"](0, "InitGame"), new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["State"](state.Setup, state.GameState, ViewState$$1, false)), Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_5__["Cmd$$$none"])()];
       }
 
     case 2:
       {
         const runSimulation = function runSimulation() {
           const builder$0040$$1 = _fable_Fable_Promise_2_1_0_PromiseImpl_fs__WEBPACK_IMPORTED_MODULE_0__["promise"];
-          return Object(_fable_Fable_Promise_2_1_0_Promise_fs__WEBPACK_IMPORTED_MODULE_2__["PromiseBuilder$$Run$$212F1D4B"])(builder$0040$$1, Object(_fable_Fable_Promise_2_1_0_Promise_fs__WEBPACK_IMPORTED_MODULE_2__["PromiseBuilder$$Delay$$62FBFDE1"])(builder$0040$$1, function () {
-            Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_7__["toConsole"])(Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_7__["printf"])("starting"));
+          return Object(_fable_Fable_Promise_2_1_0_Promise_fs__WEBPACK_IMPORTED_MODULE_3__["PromiseBuilder$$Run$$212F1D4B"])(builder$0040$$1, Object(_fable_Fable_Promise_2_1_0_Promise_fs__WEBPACK_IMPORTED_MODULE_3__["PromiseBuilder$$Delay$$62FBFDE1"])(builder$0040$$1, function () {
+            Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_6__["toConsole"])(Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_6__["printf"])("starting"));
             return new Promise(resolve => setTimeout(resolve, 200)).then(function () {
               return runSimulationAsync(state.Setup).then(function (_arg2) {
                 const results = _arg2;
-                Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_7__["toConsole"])(Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_7__["printf"])("beforeDispatch"));
-                return Promise.resolve(new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Msg"](3, "OnSimulationCompleted", results));
+                Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_6__["toConsole"])(Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_6__["printf"])("beforeDispatch"));
+                return Promise.resolve(new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["Msg"](3, "OnSimulationCompleted", results));
               });
             });
           }));
         };
 
-        return [(ViewState$$2 = new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["ResultViewState"](1, "Loading"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["State"](state.Setup, state.GameState, ViewState$$2, state.PlayAnimation)), Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_6__["Cmd$002EOfPromise$$$perform"])(runSimulation, null, function (x$$2) {
+        return [(ViewState$$2 = new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["ResultViewState"](1, "Loading"), new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["State"](state.Setup, state.GameState, ViewState$$2, state.PlayAnimation)), Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_5__["Cmd$002EOfPromise$$$perform"])(runSimulation, null, function (x$$2) {
           return x$$2;
         })];
       }
@@ -45290,61 +45940,61 @@ function update(msg, state) {
     case 3:
       {
         const gameState = msg.fields[0];
-        return [(ViewState$$3 = new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["ResultViewState"](2, "ShowResults", Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameSetup$$get_RoundsToPlay"])(state.Setup)), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["State"](state.Setup, gameState, ViewState$$3, state.PlayAnimation)), Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_6__["Cmd$$$none"])()];
+        return [(ViewState$$3 = new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["ResultViewState"](2, "ShowResults", Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameSetup$$get_RoundsToPlay"])(state.Setup)), new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["State"](state.Setup, gameState, ViewState$$3, state.PlayAnimation)), Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_5__["Cmd$$$none"])()];
       }
 
     case 5:
       {
-        const maxRound = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameSetup$$get_RoundsToPlay"])(state.Setup) | 0;
-        const currentRound = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["State$$get_CurrentRound"])(state) | 0;
+        const maxRound = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameSetup$$get_RoundsToPlay"])(state.Setup) | 0;
+        const currentRound = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["State$$get_CurrentRound"])(state) | 0;
         let updatedState;
-        var $target$$10, round$$2;
+        var $target$$11, round$$2;
 
         if (state.PlayAnimation) {
           if (state.ViewState.tag === 2) {
             if (round$$1 = state.ViewState.fields[0] | 0, maxRound > currentRound) {
-              $target$$10 = 0;
+              $target$$11 = 0;
               round$$2 = state.ViewState.fields[0];
             } else {
-              $target$$10 = 1;
+              $target$$11 = 1;
             }
           } else {
-            $target$$10 = 1;
+            $target$$11 = 1;
           }
         } else {
-          $target$$10 = 1;
+          $target$$11 = 1;
         }
 
-        switch ($target$$10) {
+        switch ($target$$11) {
           case 0:
             {
-              const ViewState$$4 = new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["ResultViewState"](2, "ShowResults", round$$2 + 1);
-              updatedState = new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["State"](state.Setup, state.GameState, ViewState$$4, state.PlayAnimation);
+              const ViewState$$4 = new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["ResultViewState"](2, "ShowResults", round$$2 + 1);
+              updatedState = new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["State"](state.Setup, state.GameState, ViewState$$4, state.PlayAnimation);
               break;
             }
 
           case 1:
             {
-              var $target$$11;
+              var $target$$12;
 
               if (state.PlayAnimation) {
                 if (state.ViewState.tag === 2) {
                   if (maxRound === currentRound) {
-                    $target$$11 = 0;
+                    $target$$12 = 0;
                   } else {
-                    $target$$11 = 1;
+                    $target$$12 = 1;
                   }
                 } else {
-                  $target$$11 = 1;
+                  $target$$12 = 1;
                 }
               } else {
-                $target$$11 = 1;
+                $target$$12 = 1;
               }
 
-              switch ($target$$11) {
+              switch ($target$$12) {
                 case 0:
                   {
-                    updatedState = new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["State"](state.Setup, state.GameState, state.ViewState, false);
+                    updatedState = new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["State"](state.Setup, state.GameState, state.ViewState, false);
                     break;
                   }
 
@@ -45359,46 +46009,46 @@ function update(msg, state) {
             }
         }
 
-        return [updatedState, Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_6__["Cmd$$$none"])()];
+        return [updatedState, Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_5__["Cmd$$$none"])()];
       }
 
     case 6:
       {
-        return [(ViewState$$5 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["State$$get_CurrentRound"])(state) === Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameSetup$$get_RoundsToPlay"])(state.Setup) ? new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["ResultViewState"](2, "ShowResults", 1) : state.ViewState, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["State"](state.Setup, state.GameState, ViewState$$5, true)), Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_6__["Cmd$$$none"])()];
+        return [(ViewState$$5 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["State$$get_CurrentRound"])(state) === Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameSetup$$get_RoundsToPlay"])(state.Setup) ? new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["ResultViewState"](2, "ShowResults", 1) : state.ViewState, new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["State"](state.Setup, state.GameState, ViewState$$5, true)), Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_5__["Cmd$$$none"])()];
       }
 
     case 7:
       {
-        return [new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["State"](state.Setup, state.GameState, state.ViewState, false), Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_6__["Cmd$$$none"])()];
+        return [new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["State"](state.Setup, state.GameState, state.ViewState, false), Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_5__["Cmd$$$none"])()];
       }
 
     default:
       {
         const field$$1 = msg.fields[0];
-        return [setField(field$$1), Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_6__["Cmd$$$none"])()];
+        return [setField(field$$1), Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_5__["Cmd$$$none"])()];
       }
   }
 }
 function timer(initial) {
   const sub = function sub(dispatch) {
-    const value$$5 = window.setInterval(function (_arg1$$2) {
-      return dispatch(new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Msg"](5, "Tick", Object(_fable_fable_library_2_4_15_Date_js__WEBPACK_IMPORTED_MODULE_8__["now"])()));
+    const value$$6 = window.setInterval(function (_arg1$$2) {
+      return dispatch(new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["Msg"](5, "Tick", Object(_fable_fable_library_2_4_15_Date_js__WEBPACK_IMPORTED_MODULE_7__["now"])()));
     }, 500);
-    void value$$5;
+    void value$$6;
   };
 
-  return Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_6__["Cmd$$$ofSub"])(sub);
+  return Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_5__["Cmd$$$ofSub"])(sub);
 }
 
 (function () {
   let program$$2;
   let program$$1;
-  const program = Object(_fable_Fable_Elmish_3_0_0_program_fs__WEBPACK_IMPORTED_MODULE_10__["ProgramModule$$$mkProgram"])(function () {
+  const program = Object(_fable_Fable_Elmish_3_0_0_program_fs__WEBPACK_IMPORTED_MODULE_9__["ProgramModule$$$mkProgram"])(function () {
     return init();
-  }, update, _MainView_fs__WEBPACK_IMPORTED_MODULE_9__["view"]);
-  program$$1 = Object(_fable_Fable_Elmish_React_3_0_1_react_fs__WEBPACK_IMPORTED_MODULE_11__["Program$$$withReactBatched"])("app", program);
-  program$$2 = Object(_fable_Fable_Elmish_3_0_0_program_fs__WEBPACK_IMPORTED_MODULE_10__["ProgramModule$$$withSubscription"])(timer, program$$1);
-  Object(_fable_Fable_Elmish_3_0_0_program_fs__WEBPACK_IMPORTED_MODULE_10__["ProgramModule$$$run"])(program$$2);
+  }, update, _MainView_fs__WEBPACK_IMPORTED_MODULE_8__["view"]);
+  program$$1 = Object(_fable_Fable_Elmish_React_3_0_1_react_fs__WEBPACK_IMPORTED_MODULE_10__["Program$$$withReactBatched"])("app", program);
+  program$$2 = Object(_fable_Fable_Elmish_3_0_0_program_fs__WEBPACK_IMPORTED_MODULE_9__["ProgramModule$$$withSubscription"])(timer, program$$1);
+  Object(_fable_Fable_Elmish_3_0_0_program_fs__WEBPACK_IMPORTED_MODULE_9__["ProgramModule$$$run"])(program$$2);
 })();
 
 /***/ }),
@@ -45515,7 +46165,7 @@ function Memoize$$$memoize(fn) {
 /*!*************************!*\
   !*** ./src/MainView.fs ***!
   \*************************/
-/*! exports provided: Common$$$group, Common$$$row, Common$$$cell, Common$$$cellHtml, Common$$$cellHeader, Common$$$emptyCellHeader, RoundSlider$$$playOrStopButton, RoundSlider$$$slider, Tables$$$renderPayoffMatrics, Tables$$$hawkDoveStatsHeader, Tables$$$hawkDoveStats, Tables$$$simulatioStatsTable, Tables$002ERenderColotStatsOptions, Tables$002ERenderColotStatsOptions$reflection, Tables$002ERenderColotStatsOptions$$$get_None, Tables$002ERenderColotStatsOptions$$$get_WithTotalsAndPortions, Tables$$$renderColotStats, Fields$002ENumberFieldProps, Fields$002ENumberFieldProps$reflection, Fields$$$numberField, Authors$$$render, SettingsForm$$$view, ResultTable$$$agentBox, ResultTable$$$view, view */
+/*! exports provided: Common$$$group, Common$$$row, Common$$$cell, Common$$$cellHtml, Common$$$cellHeader, Common$$$emptyCellHeader, RoundSlider$$$playOrStopButton, RoundSlider$$$slider, Tables$$$renderPayoffMatrics, Tables$$$hawkDoveStatsHeader, Tables$$$hawkDoveStats, Tables$$$simulatioStatsTable, Tables$002ERenderColotStatsOptions, Tables$002ERenderColotStatsOptions$reflection, Tables$002ERenderColotStatsOptions$$$get_None, Tables$002ERenderColotStatsOptions$$$get_WithTotalsAndPortions, Tables$$$renderColotStats, Fields$002ENumberFieldProps, Fields$002ENumberFieldProps$reflection, Fields$002EDropdownFieldProps, Fields$002EDropdownFieldProps$reflection, Fields$$$numberField, Fields$$$dropdownField, Authors$$$render, SettingsForm$$$view, ResultTable$$$agentBox, ResultTable$$$view, view */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -45539,7 +46189,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Tables$$$renderColotStats", function() { return Tables$$$renderColotStats; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Fields$002ENumberFieldProps", function() { return Fields$002ENumberFieldProps; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Fields$002ENumberFieldProps$reflection", function() { return Fields$002ENumberFieldProps$reflection; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Fields$002EDropdownFieldProps", function() { return Fields$002EDropdownFieldProps; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Fields$002EDropdownFieldProps$reflection", function() { return Fields$002EDropdownFieldProps$reflection; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Fields$$$numberField", function() { return Fields$$$numberField; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Fields$$$dropdownField", function() { return Fields$$$dropdownField; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Authors$$$render", function() { return Authors$$$render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SettingsForm$$$view", function() { return SettingsForm$$$view; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResultTable$$$agentBox", function() { return ResultTable$$$agentBox; });
@@ -45564,10 +46217,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fable_Fulma_2_9_0_Elements_Form_Label_fs__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../.fable/Fulma.2.9.0/Elements/Form/Label.fs */ "./.fable/Fulma.2.9.0/Elements/Form/Label.fs");
 /* harmony import */ var _fable_Fulma_2_9_0_Elements_Form_Input_fs__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../.fable/Fulma.2.9.0/Elements/Form/Input.fs */ "./.fable/Fulma.2.9.0/Elements/Form/Input.fs");
 /* harmony import */ var _fable_Fulma_2_9_0_Elements_Form_Control_fs__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../.fable/Fulma.2.9.0/Elements/Form/Control.fs */ "./.fable/Fulma.2.9.0/Elements/Form/Control.fs");
-/* harmony import */ var _fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../.fable/Fulma.2.9.0/Elements/Button.fs */ "./.fable/Fulma.2.9.0/Elements/Button.fs");
+/* harmony import */ var _fable_Fulma_2_9_0_Components_Dropdown_fs__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../.fable/Fulma.2.9.0/Components/Dropdown.fs */ "./.fable/Fulma.2.9.0/Components/Dropdown.fs");
 /* harmony import */ var _fable_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../.fable/Fulma.2.9.0/Common.fs */ "./.fable/Fulma.2.9.0/Common.fs");
-/* harmony import */ var _fable_fable_library_2_4_15_Map_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/Map.js */ "./.fable/fable-library.2.4.15/Map.js");
-/* harmony import */ var _fable_Fulma_2_9_0_Elements_Progress_fs__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../.fable/Fulma.2.9.0/Elements/Progress.fs */ "./.fable/Fulma.2.9.0/Elements/Progress.fs");
+/* harmony import */ var _fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../.fable/Fulma.2.9.0/Elements/Button.fs */ "./.fable/Fulma.2.9.0/Elements/Button.fs");
+/* harmony import */ var _fable_Fulma_2_9_0_Elements_Icon_fs__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../.fable/Fulma.2.9.0/Elements/Icon.fs */ "./.fable/Fulma.2.9.0/Elements/Icon.fs");
+/* harmony import */ var _fable_Fable_FontAwesome_2_0_0_FontAwesome_fs__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../.fable/Fable.FontAwesome.2.0.0/FontAwesome.fs */ "./.fable/Fable.FontAwesome.2.0.0/FontAwesome.fs");
+/* harmony import */ var _Simulation_fs__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./Simulation.fs */ "./src/Simulation.fs");
+/* harmony import */ var _fable_fable_library_2_4_15_Map_js__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/Map.js */ "./.fable/fable-library.2.4.15/Map.js");
+/* harmony import */ var _fable_Fulma_2_9_0_Elements_Progress_fs__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../.fable/Fulma.2.9.0/Elements/Progress.fs */ "./.fable/Fulma.2.9.0/Elements/Progress.fs");
+
+
+
+
 
 
 
@@ -45777,6 +46438,16 @@ const Fields$002ENumberFieldProps = Object(_fable_fable_library_2_4_15_Types_js_
 function Fields$002ENumberFieldProps$reflection() {
   return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_12__["record"])("MainView.Fields.NumberFieldProps", [], Fields$002ENumberFieldProps, () => [["Disabled", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_12__["bool"]], ["Label", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_12__["string"]], ["Value", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_12__["int32"]], ["OnChange", Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_12__["lambda"])(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_12__["int32"], Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["FieldValue$reflection"])())]]);
 }
+const Fields$002EDropdownFieldProps = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["declare"])(function MainView_Fields_DropdownFieldProps(arg1, arg2, arg3, arg4, arg5) {
+  this.Disabled = arg1;
+  this.Label = arg2;
+  this.SelectedValue = arg3;
+  this.Options = arg4;
+  this.OnChange = arg5;
+}, _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["Record"]);
+function Fields$002EDropdownFieldProps$reflection() {
+  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_12__["record"])("MainView.Fields.DropdownFieldProps", [], Fields$002EDropdownFieldProps, () => [["Disabled", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_12__["bool"]], ["Label", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_12__["string"]], ["SelectedValue", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_12__["string"]], ["Options", Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_12__["list"])(Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_12__["tuple"])(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_12__["string"], _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_12__["string"]))], ["OnChange", Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_12__["lambda"])(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_12__["string"], Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["FieldValue$reflection"])())]]);
+}
 function Fields$$$numberField(dispatch$$2, props$$67) {
   var props$$68, children$$67, props$$70, children$$69, options;
 
@@ -45793,41 +46464,82 @@ function Fields$$$numberField(dispatch$$2, props$$67) {
     dispatch$$2(new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Msg"](0, "SetValue", props$$67.OnChange(strToInt(Object(_fable_Fable_React_6_0_0_Fable_React_Extensions_fs__WEBPACK_IMPORTED_MODULE_8__["Browser$002ETypes$002EEvent$$Event$002Eget_Value"])(e$$3)))));
   }), new _fable_Fulma_2_9_0_Elements_Form_Input_fs__WEBPACK_IMPORTED_MODULE_16__["Option"](8, "Value", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["int32ToString"])(props$$67.Value))]), Object(_fable_Fulma_2_9_0_Elements_Form_Input_fs__WEBPACK_IMPORTED_MODULE_16__["input"])(new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fulma_2_9_0_Elements_Form_Input_fs__WEBPACK_IMPORTED_MODULE_16__["Option"](1, "Type", new _fable_Fulma_2_9_0_Elements_Form_Input_fs__WEBPACK_IMPORTED_MODULE_16__["IInputType"](7, "Number")), options))), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]())), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$70, 1), ...children$$69)))]));
 }
-function Authors$$$render() {
-  var props$$72, children$$71, props$$74, children$$73;
-  const props$$76 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "column authors")];
-  const children$$75 = [(props$$72 = [], (children$$71 = ["Amadae Hawk-Dove Binary Model 1.0 by S.M. Amadae"], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("p", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$72, 1), ...children$$71))), (props$$74 = [], (children$$73 = ["Programmed by Ari-Pekka Lappi (Flowa Oy)"], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("p", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$74, 1), ...children$$73)))];
-  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$76, 1), ...children$$75);
-}
-function SettingsForm$$$view(model$$4, dispatch$$3) {
-  var props$$83, children$$81, props$$85, children$$83, s$$11, arg10$$4, clo1$$4, props$$87, children$$85, props$$93, children$$91, props$$89, children$$87, props$$91, children$$89;
+function Fields$$$dropdownField(dispatch$$3, props$$72) {
+  var props$$73, children$$71, css, props$$77, children$$75, css$$1, css$$2, css$$3, props$$75, children$$73, list$$3;
+  let selectedDisplayName;
+  let list$$2;
+  let list$$1;
+  const list = props$$72.Options;
+  list$$1 = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["filter"])(function predicate(tupledArg$$2) {
+    const name = tupledArg$$2[0];
+    const displayName = tupledArg$$2[1];
+    return name === props$$72.SelectedValue;
+  }, list);
+  list$$2 = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["map"])(function mapping(tupledArg$$3) {
+    const name$$1 = tupledArg$$3[0];
+    const displayName$$1 = tupledArg$$3[1];
+    return displayName$$1;
+  }, list$$1);
+  selectedDisplayName = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["head"])(list$$2);
 
-  const numberField = function numberField(props$$78) {
-    return Fields$$$numberField(dispatch$$3, props$$78);
+  const isActive = function isActive(name$$2) {
+    return name$$2 === props$$72.SelectedValue;
+  };
+
+  return Object(_fable_Fulma_2_9_0_Elements_Form_Field_fs__WEBPACK_IMPORTED_MODULE_14__["div"])(new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](), Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([(props$$73 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "field-label is-small left")], (children$$71 = [Object(_fable_Fulma_2_9_0_Elements_Form_Label_fs__WEBPACK_IMPORTED_MODULE_15__["label"])(Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([new _fable_Fulma_2_9_0_Elements_Form_Label_fs__WEBPACK_IMPORTED_MODULE_15__["Option"](2, "CustomClass", "is-expanded"), new _fable_Fulma_2_9_0_Elements_Form_Label_fs__WEBPACK_IMPORTED_MODULE_15__["Option"](3, "Props", new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]((css = new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["CSSProp"](325, "TextAlign", "left"), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()), ["style", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(css, 1)]), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))]), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](props$$72.Label, new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$73, 1), ...children$$71))), (props$$77 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "field-body is-expanded")], (children$$75 = [Object(_fable_Fulma_2_9_0_Components_Dropdown_fs__WEBPACK_IMPORTED_MODULE_18__["dropdown"])(Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([new _fable_Fulma_2_9_0_Components_Dropdown_fs__WEBPACK_IMPORTED_MODULE_18__["Option"](1, "is-hoverable"), new _fable_Fulma_2_9_0_Components_Dropdown_fs__WEBPACK_IMPORTED_MODULE_18__["Option"](4, "Props", new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]((css$$1 = new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["CSSProp"](395, "Width", "100%"), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()), ["style", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(css$$1, 1)]), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))]), Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([Object(_fable_Fulma_2_9_0_Components_Dropdown_fs__WEBPACK_IMPORTED_MODULE_18__["trigger"])(new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_19__["Common$002EGenericOption"](1, "Props", new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]((css$$2 = new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["CSSProp"](395, "Width", "100%"), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()), ["style", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(css$$2, 1)]), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]())), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](Object(_fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_20__["button"])(Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([new _fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_20__["Option"](1, "Size", new _fable_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_19__["Size$002EISize"](0, "is-small")), new _fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_20__["Option"](16, "Props", new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]((css$$3 = new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["CSSProp"](395, "Width", "100%"), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()), ["style", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(css$$3, 1)]), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))]), Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([(props$$75 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "is-small")], (children$$73 = [selectedDisplayName], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("span", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$75, 1), ...children$$73))), Object(_fable_Fulma_2_9_0_Elements_Icon_fs__WEBPACK_IMPORTED_MODULE_21__["icon"])(new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fulma_2_9_0_Elements_Icon_fs__WEBPACK_IMPORTED_MODULE_21__["Option"](0, "Size", new _fable_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_19__["Size$002EISize"](0, "is-small")), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](Object(_fable_Fable_FontAwesome_2_0_0_FontAwesome_fs__WEBPACK_IMPORTED_MODULE_22__["Fa$$$i"])(new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fable_FontAwesome_2_0_0_FontAwesome_fs__WEBPACK_IMPORTED_MODULE_22__["Fa$002EIconOption"](11, "Icon", "fas fa-angle-down"), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()), []), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))])), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]())), Object(_fable_Fulma_2_9_0_Components_Dropdown_fs__WEBPACK_IMPORTED_MODULE_18__["menu"])(new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](Object(_fable_Fulma_2_9_0_Components_Dropdown_fs__WEBPACK_IMPORTED_MODULE_18__["content"])(new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](), (list$$3 = props$$72.Options, (Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["map"])(function mapping$$1(tupledArg$$4) {
+    const name$$3 = tupledArg$$4[0];
+    const displayName$$2 = tupledArg$$4[1];
+    return Object(_fable_Fulma_2_9_0_Components_Dropdown_fs__WEBPACK_IMPORTED_MODULE_18__["Item$$$a"])(Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([new _fable_Fulma_2_9_0_Components_Dropdown_fs__WEBPACK_IMPORTED_MODULE_18__["Item$002EOption"](0, "is-active", isActive(name$$3)), new _fable_Fulma_2_9_0_Components_Dropdown_fs__WEBPACK_IMPORTED_MODULE_18__["Item$002EOption"](1, "Props", new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["DOMAttr"](40, "OnClick", function (_arg1) {
+      dispatch$$3(new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Msg"](0, "SetValue", props$$72.OnChange(name$$3)));
+    }), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))]), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](displayName$$2, new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()));
+  }, list$$3)))), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))]))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$77, 1), ...children$$75)))]));
+}
+function Authors$$$render() {
+  var props$$79, children$$77, props$$81, children$$79;
+  const props$$83 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "column authors")];
+  const children$$81 = [(props$$79 = [], (children$$77 = ["Amadae Hawk-Dove Binary Model 1.0 by S.M. Amadae"], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("p", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$79, 1), ...children$$77))), (props$$81 = [], (children$$79 = ["Programmed by Ari-Pekka Lappi (Flowa Oy)"], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("p", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$81, 1), ...children$$79)))];
+  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$83, 1), ...children$$81);
+}
+function SettingsForm$$$view(model$$4, dispatch$$4) {
+  var props$$95, children$$91, props$$97, children$$93, s$$15, arg10$$4, clo1$$4, props$$99, children$$95, props$$105, children$$101, props$$101, children$$97, props$$103, children$$99;
+
+  const numberField = function numberField(props$$85) {
+    return Fields$$$numberField(dispatch$$4, props$$85);
+  };
+
+  const dropdownField = function dropdownField(props$$86) {
+    return Fields$$$dropdownField(dispatch$$4, props$$86);
   };
 
   const renderStageRoundCountFields = function renderStageRoundCountFields(isDisabled) {
-    const list = model$$4.Setup.SimulationFrames;
-    return Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["map"])(function mapping(f) {
-      return numberField(new Fields$002ENumberFieldProps(isDisabled, f.StageName, f.RoundCount, function (value$$2) {
-        return new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["FieldValue"](0, "RoundCountOfStage", f.StageName, value$$2);
-      }));
-    }, list);
+    const list$$5 = model$$4.Setup.SimulationFrames;
+    return Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["map"])(function mapping$$3(f) {
+      var props$$87, children$$83, list$$4;
+      const props$$89 = [];
+      const children$$85 = [(props$$87 = [], (children$$83 = [f.StageName], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("h3", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$87, 1), ...children$$83))), dropdownField(new Fields$002EDropdownFieldProps(isDisabled, "Mode", f.StrategyInitFnName, (list$$4 = _Simulation_fs__WEBPACK_IMPORTED_MODULE_23__["SimulationStageOptions$$$AllOptions"], (Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["map"])(function mapping$$2(o) {
+        return [o.Name, o.DisplayName];
+      }, list$$4))), function (value$$2) {
+        return new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["FieldValue"](1, "ModeOfStage", f.StageName, value$$2);
+      })), numberField(new Fields$002ENumberFieldProps(isDisabled, "Rounds", f.RoundCount, function (value$$3) {
+        return new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["FieldValue"](0, "RoundCountOfStage", f.StageName, value$$3);
+      }))];
+      return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$89, 1), ...children$$85);
+    }, list$$5);
   };
 
   const renderSetupForm = function renderSetupForm(isDisabled$$1) {
-    var props$$79, children$$77;
-    const props$$81 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "column is-one-quarter"), new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](99, "Id", "settings")];
-    const children$$79 = [(props$$79 = [], (children$$77 = ["Setting"], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("h1", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$79, 1), ...children$$77))), Common$$$group("Duration", renderStageRoundCountFields(isDisabled$$1)), Common$$$group("Agents", [numberField(new Fields$002ENumberFieldProps(isDisabled$$1, "Agent count", Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["GameSetup$$get_AgentCount"])(model$$4.Setup), function (value$$3) {
-      return new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["FieldValue"](1, "AgentCount", value$$3);
-    })), numberField(new Fields$002ENumberFieldProps(isDisabled$$1, "Red agents (%)", Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["GameSetup$$get_PortionOfRed"])(model$$4.Setup), function (value$$4) {
-      return new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["FieldValue"](2, "PortionOfRed", value$$4);
-    })), Tables$$$renderColotStats(model$$4, Tables$002ERenderColotStatsOptions$$$get_None())]), Common$$$group("Payoff", [numberField(new Fields$002ENumberFieldProps(isDisabled$$1, "Reward (V)", ~~Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["PayoffMatrixType$$get_VictoryBenefit"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["GameSetup$$get_PayoffMatrix"])(model$$4.Setup)), function (value$$5) {
-      return new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["FieldValue"](3, "BenefitOnVictory", value$$5);
-    })), numberField(new Fields$002ENumberFieldProps(isDisabled$$1, "Cost (C)", ~~Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["PayoffMatrixType$$get_Cost"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["GameSetup$$get_PayoffMatrix"])(model$$4.Setup)), function (value$$6) {
-      return new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["FieldValue"](4, "CostOfLoss", value$$6);
+    var props$$91, children$$87;
+    const props$$93 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "column is-one-quarter"), new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](99, "Id", "settings")];
+    const children$$89 = [(props$$91 = [], (children$$87 = ["Settings"], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("h1", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$91, 1), ...children$$87))), Common$$$group("Duration", renderStageRoundCountFields(isDisabled$$1)), Common$$$group("Agents", [numberField(new Fields$002ENumberFieldProps(isDisabled$$1, "Agent count", Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["GameSetup$$get_AgentCount"])(model$$4.Setup), function (value$$4) {
+      return new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["FieldValue"](2, "AgentCount", value$$4);
+    })), numberField(new Fields$002ENumberFieldProps(isDisabled$$1, "Red agents (%)", Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["GameSetup$$get_PortionOfRed"])(model$$4.Setup), function (value$$5) {
+      return new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["FieldValue"](3, "PortionOfRed", value$$5);
+    })), Tables$$$renderColotStats(model$$4, Tables$002ERenderColotStatsOptions$$$get_None())]), Common$$$group("Payoff", [numberField(new Fields$002ENumberFieldProps(isDisabled$$1, "Reward (V)", ~~Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["PayoffMatrixType$$get_VictoryBenefit"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["GameSetup$$get_PayoffMatrix"])(model$$4.Setup)), function (value$$6) {
+      return new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["FieldValue"](4, "BenefitOnVictory", value$$6);
+    })), numberField(new Fields$002ENumberFieldProps(isDisabled$$1, "Cost (C)", ~~Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["PayoffMatrixType$$get_Cost"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["GameSetup$$get_PayoffMatrix"])(model$$4.Setup)), function (value$$7) {
+      return new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["FieldValue"](5, "CostOfLoss", value$$7);
     })), Tables$$$renderPayoffMatrics(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["GameSetup$$get_PayoffMatrix"])(model$$4.Setup))]), Common$$$group("Authors", [Authors$$$render()])];
-    return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$81, 1), ...children$$79);
+    return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$93, 1), ...children$$89);
   };
 
   let colorSeparation;
@@ -45844,19 +46556,19 @@ function SettingsForm$$$view(model$$4, dispatch$$3) {
     return renderSetupForm(true);
   } else if (model$$4.ViewState.tag === 2) {
     const viewState = model$$4.ViewState.fields[0] | 0;
-    const props$$95 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "column is-one-quarter"), new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](99, "Id", "settings")];
-    const children$$93 = [(props$$83 = [], (children$$81 = ["Simulation statistics"], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("h1", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$83, 1), ...children$$81))), Common$$$group("Round challenges", [Tables$$$simulatioStatsTable(model$$4), (props$$85 = [], (children$$83 = [(s$$11 = (arg10$$4 = colorSeparation, (clo1$$4 = Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["toText"])(Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("1st round of color separation in Different color encounters: %s")), clo1$$4(arg10$$4))), s$$11)], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$85, 1), ...children$$83)))]), Common$$$group("Color statistics", [Tables$$$renderColotStats(model$$4, Tables$002ERenderColotStatsOptions$$$get_WithTotalsAndPortions())]), (props$$87 = [], (children$$85 = ["Setup"], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("h1", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$87, 1), ...children$$85))), Common$$$group("Payoff", [Tables$$$renderPayoffMatrics(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["State$$get_CurrentStagePayoffMatrix"])(model$$4))]), Common$$$group("Simulation controls", [(props$$93 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "columns")], (children$$91 = [(props$$89 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "column")], (children$$87 = [Object(_fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_18__["button"])(new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_18__["Option"](17, "OnClick", function (_arg1) {
-      dispatch$$3(new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Msg"](2, "RunSimulation"));
-    }), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]("Re-run simulation", new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$89, 1), ...children$$87))), (props$$91 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "column")], (children$$89 = [Object(_fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_18__["button"])(Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([new _fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_18__["Option"](0, "Color", new _fable_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_19__["Color$002EIColor"](8, "is-danger")), new _fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_18__["Option"](17, "OnClick", function (_arg2) {
-      dispatch$$3(new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Msg"](4, "ToInitialization"));
-    })]), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]("Reset setup", new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$91, 1), ...children$$89)))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$93, 1), ...children$$91)))])];
-    return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$95, 1), ...children$$93);
+    const props$$107 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "column is-one-quarter"), new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](99, "Id", "settings")];
+    const children$$103 = [(props$$95 = [], (children$$91 = ["Simulation statistics"], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("h1", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$95, 1), ...children$$91))), Common$$$group("Round challenges", [Tables$$$simulatioStatsTable(model$$4), (props$$97 = [], (children$$93 = [(s$$15 = (arg10$$4 = colorSeparation, (clo1$$4 = Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["toText"])(Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("1st round of color separation in Different color encounters: %s")), clo1$$4(arg10$$4))), s$$15)], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$97, 1), ...children$$93)))]), Common$$$group("Color statistics", [Tables$$$renderColotStats(model$$4, Tables$002ERenderColotStatsOptions$$$get_WithTotalsAndPortions())]), (props$$99 = [], (children$$95 = ["Setup"], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("h1", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$99, 1), ...children$$95))), Common$$$group("Payoff", [Tables$$$renderPayoffMatrics(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["State$$get_CurrentStagePayoffMatrix"])(model$$4))]), Common$$$group("Simulation controls", [(props$$105 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "columns")], (children$$101 = [(props$$101 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "column")], (children$$97 = [Object(_fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_20__["button"])(new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_20__["Option"](17, "OnClick", function (_arg1$$1) {
+      dispatch$$4(new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Msg"](2, "RunSimulation"));
+    }), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]("Re-run simulation", new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$101, 1), ...children$$97))), (props$$103 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "column")], (children$$99 = [Object(_fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_20__["button"])(Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([new _fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_20__["Option"](0, "Color", new _fable_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_19__["Color$002EIColor"](8, "is-danger")), new _fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_20__["Option"](17, "OnClick", function (_arg2) {
+      dispatch$$4(new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Msg"](4, "ToInitialization"));
+    })]), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]("Reset setup", new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$103, 1), ...children$$99)))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$105, 1), ...children$$101)))])];
+    return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$107, 1), ...children$$103);
   } else {
     return renderSetupForm(false);
   }
 }
 function ResultTable$$$agentBox(usedColor, rounds$$1, model$$5) {
-  var copyOfStruct, arg10$$5, arg20$$2, clo1$$5, clo2$$2, props$$97, children$$95, s$$15, arg10$$6, clo1$$6, props$$107, children$$105, props$$101, children$$99, props$$99, children$$97, f$$1, props$$105, children$$103, props$$103, children$$101, s$$18, arg10$$7, clo1$$7, props$$109, children$$107, i$$2;
+  var copyOfStruct, arg10$$5, arg20$$2, clo1$$5, clo2$$2, props$$109, children$$105, s$$19, arg10$$6, clo1$$6, props$$119, children$$115, props$$113, children$$109, props$$111, children$$107, f$$1, props$$117, children$$113, props$$115, children$$111, s$$22, arg10$$7, clo1$$7, props$$121, children$$117, i$$2;
   const colorTypeColor = usedColor ? String(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["Agent$$get_Color"])(model$$5)) : "UnknownColor";
   let avg;
 
@@ -45867,64 +46579,64 @@ function ResultTable$$$agentBox(usedColor, rounds$$1, model$$5) {
     avg = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["Agent$$get_Payoff"])(model$$5) / r;
   }
 
-  const props$$111 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["Prop"](0, "Key", (copyOfStruct = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["Agent$$get_Id"])(model$$5) | 0, Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["int32ToString"])(copyOfStruct))), new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", (arg10$$5 = colorTypeColor, arg20$$2 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["Agent$$get_Strategy"])(model$$5), (clo1$$5 = Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["toText"])(Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("agent-box fade-in %s %A")), clo2$$2 = clo1$$5(arg10$$5), clo2$$2(arg20$$2))))];
-  const children$$109 = [(props$$97 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "strategy")], (children$$95 = [(s$$15 = (arg10$$6 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["Agent$$get_Strategy"])(model$$5), (clo1$$6 = Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["toText"])(Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("%A")), clo1$$6(arg10$$6))), s$$15)], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$97, 1), ...children$$95))), (props$$107 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "payoff")], (children$$105 = [(props$$101 = [], (children$$99 = [(props$$99 = [], (children$$97 = ["Total: "], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("span", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$99, 1), ...children$$97))), (f$$1 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["Agent$$get_Payoff"])(model$$5), f$$1)], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$101, 1), ...children$$99))), (props$$105 = [], (children$$103 = [(props$$103 = [], (children$$101 = ["Avg: "], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("span", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$103, 1), ...children$$101))), (s$$18 = (arg10$$7 = avg, (clo1$$7 = Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["toText"])(Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("%.3f")), clo1$$7(arg10$$7))), s$$18)], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$105, 1), ...children$$103)))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$107, 1), ...children$$105))), (props$$109 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "agent-id")], (children$$107 = ["#", (i$$2 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["Agent$$get_Id"])(model$$5) | 0, i$$2)], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$109, 1), ...children$$107)))];
-  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$111, 1), ...children$$109);
+  const props$$123 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["Prop"](0, "Key", (copyOfStruct = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["Agent$$get_Id"])(model$$5) | 0, Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["int32ToString"])(copyOfStruct))), new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", (arg10$$5 = colorTypeColor, arg20$$2 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["Agent$$get_Strategy"])(model$$5), (clo1$$5 = Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["toText"])(Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("agent-box fade-in %s %A")), clo2$$2 = clo1$$5(arg10$$5), clo2$$2(arg20$$2))))];
+  const children$$119 = [(props$$109 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "strategy")], (children$$105 = [(s$$19 = (arg10$$6 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["Agent$$get_Strategy"])(model$$5), (clo1$$6 = Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["toText"])(Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("%A")), clo1$$6(arg10$$6))), s$$19)], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$109, 1), ...children$$105))), (props$$119 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "payoff")], (children$$115 = [(props$$113 = [], (children$$109 = [(props$$111 = [], (children$$107 = ["Total: "], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("span", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$111, 1), ...children$$107))), (f$$1 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["Agent$$get_Payoff"])(model$$5), f$$1)], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$113, 1), ...children$$109))), (props$$117 = [], (children$$113 = [(props$$115 = [], (children$$111 = ["Avg: "], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("span", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$115, 1), ...children$$111))), (s$$22 = (arg10$$7 = avg, (clo1$$7 = Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["toText"])(Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("%.3f")), clo1$$7(arg10$$7))), s$$22)], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$117, 1), ...children$$113)))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$119, 1), ...children$$115))), (props$$121 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "agent-id")], (children$$117 = ["#", (i$$2 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["Agent$$get_Id"])(model$$5) | 0, i$$2)], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$121, 1), ...children$$117)))];
+  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$123, 1), ...children$$119);
 }
-function ResultTable$$$view(model$$6, dispatch$$4) {
-  var props$$113, children$$111, props$$115, children$$113, props$$117, children$$115, props$$119, children$$117;
+function ResultTable$$$view(model$$6, dispatch$$5) {
+  var props$$125, children$$121, props$$127, children$$123, props$$129, children$$125, props$$131, children$$127;
   const currentRound = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["State$$get_CurrentRound"])(model$$6) | 0;
   const currentRoundAgents = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["State$$get_CurrentRoundAgents"])(model$$6);
   const mayUseColor = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["State$$get_CurrentStageMayUseColor"])(model$$6);
   let agents$$1;
   let elements;
-  let list$$3;
-  const list$$1 = currentRoundAgents;
-  list$$3 = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["groupBy"])(function projection(a) {
+  let list$$8;
+  const list$$6 = currentRoundAgents;
+  list$$8 = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["groupBy"])(function projection(a) {
     return Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["Agent$$get_LastRoundChallengeType"])(a);
-  }, list$$1, {
+  }, list$$6, {
     Equals: _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["equals"],
     GetHashCode: _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["structuralHash"]
   });
-  elements = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["map"])(function mapping$$2(tupledArg$$2) {
-    var list$$2;
-    const group = tupledArg$$2[0];
-    const agents = tupledArg$$2[1];
-    return [group, (list$$2 = agents, (Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["map"])(function mapping$$1(model$$7) {
+  elements = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["map"])(function mapping$$5(tupledArg$$5) {
+    var list$$7;
+    const group = tupledArg$$5[0];
+    const agents = tupledArg$$5[1];
+    return [group, (list$$7 = agents, (Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["map"])(function mapping$$4(model$$7) {
       return ResultTable$$$agentBox(mayUseColor, currentRound, model$$7);
-    }, list$$2)))];
-  }, list$$3);
-  agents$$1 = Object(_fable_fable_library_2_4_15_Map_js__WEBPACK_IMPORTED_MODULE_20__["ofList"])(elements, {
+    }, list$$7)))];
+  }, list$$8);
+  agents$$1 = Object(_fable_fable_library_2_4_15_Map_js__WEBPACK_IMPORTED_MODULE_24__["ofList"])(elements, {
     Compare: _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["compare"]
   });
-  const props$$121 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "agent-group")];
-  const children$$119 = [(props$$113 = [], (children$$111 = ["Different color"], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("h1", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$113, 1), ...children$$111))), (props$$115 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "agent-listing")], (children$$113 = Object(_fable_fable_library_2_4_15_Map_js__WEBPACK_IMPORTED_MODULE_20__["FSharpMap$$get_Item$$2B595"])(agents$$1, new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["ChallengeType"](0, "DifferentColor")), react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$115, 1), ...children$$113))), (props$$117 = [], (children$$115 = ["Same color"], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("h1", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$117, 1), ...children$$115))), (props$$119 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "agent-listing")], (children$$117 = Object(_fable_fable_library_2_4_15_Map_js__WEBPACK_IMPORTED_MODULE_20__["FSharpMap$$get_Item$$2B595"])(agents$$1, new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["ChallengeType"](1, "SameColor")), react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$119, 1), ...children$$117)))];
-  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$121, 1), ...children$$119);
+  const props$$133 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "agent-group")];
+  const children$$129 = [(props$$125 = [], (children$$121 = ["Different color"], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("h1", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$125, 1), ...children$$121))), (props$$127 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "agent-listing")], (children$$123 = Object(_fable_fable_library_2_4_15_Map_js__WEBPACK_IMPORTED_MODULE_24__["FSharpMap$$get_Item$$2B595"])(agents$$1, new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["ChallengeType"](0, "DifferentColor")), react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$127, 1), ...children$$123))), (props$$129 = [], (children$$125 = ["Same color"], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("h1", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$129, 1), ...children$$125))), (props$$131 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "agent-listing")], (children$$127 = Object(_fable_fable_library_2_4_15_Map_js__WEBPACK_IMPORTED_MODULE_24__["FSharpMap$$get_Item$$2B595"])(agents$$1, new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["ChallengeType"](1, "SameColor")), react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$131, 1), ...children$$127)))];
+  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$133, 1), ...children$$129);
 }
-function view(model$$8, dispatch$$5) {
-  var props$$129, children$$125, s$$25, props$$131, props$$135, children$$129, s$$27, arg10$$8, arg20$$3, arg30, clo1$$8, clo2$$3, clo3, props$$123, children$$121, s$$23, props$$125, props$$139, children$$133;
+function view(model$$8, dispatch$$6) {
+  var props$$141, children$$135, s$$29, props$$143, props$$147, children$$139, s$$31, arg10$$8, arg20$$3, arg30, clo1$$8, clo2$$3, clo3, props$$135, children$$131, s$$27, props$$137, props$$151, children$$143;
   let resultPanel;
 
   if (model$$8.ViewState.tag === 1) {
-    const props$$133 = [];
-    const children$$127 = [(props$$129 = [], (children$$125 = [(s$$25 = Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["toText"])(Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("Results")), s$$25)], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("h1", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$129, 1), ...children$$125))), (props$$131 = [], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("br", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$131, 1), ...[])), Object(_fable_Fulma_2_9_0_Elements_Progress_fs__WEBPACK_IMPORTED_MODULE_21__["progress"])(new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fulma_2_9_0_Elements_Progress_fs__WEBPACK_IMPORTED_MODULE_21__["Option"](0, "Size", new _fable_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_19__["Size$002EISize"](2, "is-large")), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()), "Running simulation..."];
-    resultPanel = react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$133, 1), ...children$$127);
+    const props$$145 = [];
+    const children$$137 = [(props$$141 = [], (children$$135 = [(s$$29 = Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["toText"])(Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("Results")), s$$29)], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("h1", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$141, 1), ...children$$135))), (props$$143 = [], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("br", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$143, 1), ...[])), Object(_fable_Fulma_2_9_0_Elements_Progress_fs__WEBPACK_IMPORTED_MODULE_25__["progress"])(new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fulma_2_9_0_Elements_Progress_fs__WEBPACK_IMPORTED_MODULE_25__["Option"](0, "Size", new _fable_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_19__["Size$002EISize"](2, "is-large")), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()), "Running simulation..."];
+    resultPanel = react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$145, 1), ...children$$137);
   } else if (model$$8.ViewState.tag === 2) {
     const round = model$$8.ViewState.fields[0] | 0;
-    const props$$137 = [];
-    const children$$131 = [(props$$135 = [], (children$$129 = [(s$$27 = (arg10$$8 = round | 0, arg20$$3 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["GameSetup$$get_RoundsToPlay"])(model$$8.Setup) | 0, arg30 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["State$$get_CurrentStageName"])(model$$8), (clo1$$8 = Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["toText"])(Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("Results (Round %i/%i - %s)")), clo2$$3 = clo1$$8(arg10$$8), clo3 = clo2$$3(arg20$$3), clo3(arg30))), s$$27)], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("h1", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$135, 1), ...children$$129))), RoundSlider$$$slider(model$$8, dispatch$$5), ResultTable$$$view(model$$8, dispatch$$5)];
-    resultPanel = react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$137, 1), ...children$$131);
+    const props$$149 = [];
+    const children$$141 = [(props$$147 = [], (children$$139 = [(s$$31 = (arg10$$8 = round | 0, arg20$$3 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["GameSetup$$get_RoundsToPlay"])(model$$8.Setup) | 0, arg30 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["State$$get_CurrentStageName"])(model$$8), (clo1$$8 = Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["toText"])(Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("Results (Round %i/%i - %s)")), clo2$$3 = clo1$$8(arg10$$8), clo3 = clo2$$3(arg20$$3), clo3(arg30))), s$$31)], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("h1", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$147, 1), ...children$$139))), RoundSlider$$$slider(model$$8, dispatch$$6), ResultTable$$$view(model$$8, dispatch$$6)];
+    resultPanel = react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$149, 1), ...children$$141);
   } else {
-    const props$$127 = [];
-    const children$$123 = [(props$$123 = [], (children$$121 = [(s$$23 = Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["toText"])(Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("Results")), s$$23)], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("h1", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$123, 1), ...children$$121))), (props$$125 = [], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("br", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$125, 1), ...[])), Object(_fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_18__["button"])(Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([new _fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_18__["Option"](0, "Color", new _fable_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_19__["Color$002EIColor"](4, "is-primary")), new _fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_18__["Option"](1, "Size", new _fable_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_19__["Size$002EISize"](2, "is-large")), new _fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_18__["Option"](17, "OnClick", function (_arg1$$1) {
-      dispatch$$5(new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Msg"](2, "RunSimulation"));
+    const props$$139 = [];
+    const children$$133 = [(props$$135 = [], (children$$131 = [(s$$27 = Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["toText"])(Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("Results")), s$$27)], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("h1", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$135, 1), ...children$$131))), (props$$137 = [], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("br", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$137, 1), ...[])), Object(_fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_20__["button"])(Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([new _fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_20__["Option"](0, "Color", new _fable_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_19__["Color$002EIColor"](4, "is-primary")), new _fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_20__["Option"](1, "Size", new _fable_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_19__["Size$002EISize"](2, "is-large")), new _fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_20__["Option"](17, "OnClick", function (_arg1$$2) {
+      dispatch$$6(new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Msg"](2, "RunSimulation"));
     })]), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]("Run simulation", new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))];
-    resultPanel = react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$127, 1), ...children$$123);
+    resultPanel = react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$139, 1), ...children$$133);
   }
 
-  const props$$141 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](99, "Id", "main-container"), new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "columns")];
-  const children$$135 = [SettingsForm$$$view(model$$8, dispatch$$5), (props$$139 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](99, "Id", "results"), new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "column")], (children$$133 = [resultPanel], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$139, 1), ...children$$133)))];
-  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$141, 1), ...children$$135);
+  const props$$153 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](99, "Id", "main-container"), new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "columns")];
+  const children$$145 = [SettingsForm$$$view(model$$8, dispatch$$6), (props$$151 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](99, "Id", "results"), new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "column")], (children$$143 = [resultPanel], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$151, 1), ...children$$143)))];
+  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$153, 1), ...children$$145);
 }
 
 /***/ }),
@@ -45933,7 +46645,7 @@ function view(model$$8, dispatch$$5) {
 /*!**********************!*\
   !*** ./src/Model.fs ***!
   \**********************/
-/*! exports provided: Color, Color$reflection, Color$$$GenerateList$$Z4242E780, Strategy, Strategy$reflection, Strategy$$$GenerateList$$Z1725983A, ChallengeType, ChallengeType$reflection, AgentIdentity, AgentIdentity$reflection, GameInfo, GameInfo$reflection, Agent, Agent$reflection, Agent$$get_Id, Agent$$get_Color, Agent$$get_Payoff, Agent$$get_Strategy, Agent$$get_StrategyName, Agent$$get_LastRoundChallengeType, Agent$$UpdateGameInfo$$3454EE1B, ResolvedChallenge, ResolvedChallenge$reflection, ResolvedChallenge$$$Of$$Z37EB4020, ResolvedChallenge$$get_ChalengeType, PayoffMatrixType, PayoffMatrixType$reflection, PayoffMatrixType$$get_Cost, PayoffMatrixType$$get_VictoryBenefit, PayoffMatrixType$$SetV$$5E38073B, PayoffMatrixType$$SetC$$5E38073B, PayoffMatrixType$$get_Revard$0020$0028V$0029, PayoffMatrixType$$get_Cost$0020$0028C$0029, PayoffMatrixType$$ToMatrix, PayoffMatrixType$$GetPayoffFor$$Z5F957E0, PayoffMatrixType$$GetMyPayoff$$Z5F957E0, GameRound, GameRound$reflection, GameRound$$ToList, GameRound$$get_Agents, GameRound$$$get_Empty, GameRound$$AppendWith$$Z37EB4020, GameHistory, GameHistory$reflection, GameHistory$$Append$$ZD480438, GameHistory$$ToList, GameHistory$$Unwrap, GameHistory$$get_TotalRounds, GameHistory$$GetRoundByRoundNumber$$Z524259A4, GameHistory$$GetRoundCount, GameHistory$$get_HasHistory, GameHistory$$get_LastRoundChallenges, HistoryStatisticsView, HistoryStatisticsView$reflection, HistoryStatisticsView$$UpdateHistory$$30741D88, rand, GameInformation, GameInformation$reflection, GameInformation$$$InitGameInformationForAgents, PlannedRound, PlannedRound$reflection, PlannedRound$$PlayRound, GameState, GameState$reflection, GameState$$SimulateRounds$$6166C877, GameState$$SimulateRoundsPromise$$6166C877, GameParameters, GameParameters$reflection, SimulationFrame, SimulationFrame$reflection, GameSetup, GameSetup$reflection, GameSetup$$get_AgentCount, GameSetup$$get_PortionOfRed, GameSetup$$get_PayoffMatrix, GameSetup$$get_RoundsToPlay, GameSetup$$get_CountOfRed, GameSetup$$get_CountOfBlue, GameSetup$$get_ColorSpecs, GameSetup$$GenerateAgents, GameSetup$$ToInitialGameState, ShowResultsViewState, ShowResultsViewState$reflection, ResultViewState, ResultViewState$reflection, State, State$reflection, State$$get_CurrentRound, State$$get_CurrentRoundChallenges, State$$get_CurrentRoundAgents, State$$get_CurrentStageName, State$$get_CurrentStageMayUseColor, State$$get_CurrentStagePayoffMatrix, FieldValue, FieldValue$reflection, Msg, Msg$reflection */
+/*! exports provided: Color, Color$reflection, Color$$$GenerateList$$Z4242E780, Strategy, Strategy$reflection, Strategy$$$GenerateList$$Z1725983A, ChallengeType, ChallengeType$reflection, AgentIdentity, AgentIdentity$reflection, GameInfo, GameInfo$reflection, Agent, Agent$reflection, Agent$$get_Id, Agent$$get_Color, Agent$$get_Payoff, Agent$$get_Strategy, Agent$$get_StrategyName, Agent$$get_LastRoundChallengeType, Agent$$UpdateGameInfo$$3454EE1B, ResolvedChallenge, ResolvedChallenge$reflection, ResolvedChallenge$$$Of$$Z37EB4020, ResolvedChallenge$$get_ChalengeType, PayoffMatrixType, PayoffMatrixType$reflection, PayoffMatrixType$$get_Cost, PayoffMatrixType$$get_VictoryBenefit, PayoffMatrixType$$SetV$$5E38073B, PayoffMatrixType$$SetC$$5E38073B, PayoffMatrixType$$get_Revard$0020$0028V$0029, PayoffMatrixType$$get_Cost$0020$0028C$0029, PayoffMatrixType$$ToMatrix, PayoffMatrixType$$GetPayoffFor$$Z5F957E0, PayoffMatrixType$$GetMyPayoff$$Z5F957E0, GameRound, GameRound$reflection, GameRound$$ToList, GameRound$$get_Agents, GameRound$$$get_Empty, GameRound$$AppendWith$$Z37EB4020, GameHistory, GameHistory$reflection, GameHistory$$Append$$ZD480438, GameHistory$$ToList, GameHistory$$Unwrap, GameHistory$$get_TotalRounds, GameHistory$$GetRoundByRoundNumber$$Z524259A4, GameHistory$$GetRoundCount, GameHistory$$get_HasHistory, GameHistory$$get_LastRoundChallenges, GameHistory$$get_FirstRoundChallenges, HistoryStatisticsView, HistoryStatisticsView$reflection, HistoryStatisticsView$$UpdateHistory$$30741D88, rand, GameInformation, GameInformation$reflection, GameInformation$$$InitGameInformationForAgents, PlannedRound, PlannedRound$reflection, PlannedRound$$PlayRound, GameState, GameState$reflection, GameState$$SimulateRounds$$6166C877, GameState$$SimulateRoundsPromise$$6166C877, GameParameters, GameParameters$reflection, SimulationFrame, SimulationFrame$reflection, StageStrategyFnOptions, StageStrategyFnOptions$reflection, UISetupState, UISetupState$reflection, GameSetup, GameSetup$reflection, GameSetup$$get_AgentCount, GameSetup$$get_PortionOfRed, GameSetup$$get_PayoffMatrix, GameSetup$$get_RoundsToPlay, GameSetup$$get_CountOfRed, GameSetup$$get_CountOfBlue, GameSetup$$get_ColorSpecs, GameSetup$$GenerateAgents, ShowResultsViewState, ShowResultsViewState$reflection, ResultViewState, ResultViewState$reflection, State, State$reflection, State$$get_CurrentRound, State$$get_CurrentRoundChallenges, State$$get_CurrentRoundAgents, State$$get_CurrentStageName, State$$get_CurrentStageMayUseColor, State$$get_CurrentStagePayoffMatrix, FieldValue, FieldValue$reflection, Msg, Msg$reflection */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -45990,6 +46702,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameHistory$$GetRoundCount", function() { return GameHistory$$GetRoundCount; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameHistory$$get_HasHistory", function() { return GameHistory$$get_HasHistory; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameHistory$$get_LastRoundChallenges", function() { return GameHistory$$get_LastRoundChallenges; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameHistory$$get_FirstRoundChallenges", function() { return GameHistory$$get_FirstRoundChallenges; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HistoryStatisticsView", function() { return HistoryStatisticsView; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HistoryStatisticsView$reflection", function() { return HistoryStatisticsView$reflection; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HistoryStatisticsView$$UpdateHistory$$30741D88", function() { return HistoryStatisticsView$$UpdateHistory$$30741D88; });
@@ -46008,6 +46721,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameParameters$reflection", function() { return GameParameters$reflection; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationFrame", function() { return SimulationFrame; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationFrame$reflection", function() { return SimulationFrame$reflection; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StageStrategyFnOptions", function() { return StageStrategyFnOptions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StageStrategyFnOptions$reflection", function() { return StageStrategyFnOptions$reflection; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UISetupState", function() { return UISetupState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UISetupState$reflection", function() { return UISetupState$reflection; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameSetup", function() { return GameSetup; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameSetup$reflection", function() { return GameSetup$reflection; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameSetup$$get_AgentCount", function() { return GameSetup$$get_AgentCount; });
@@ -46018,7 +46735,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameSetup$$get_CountOfBlue", function() { return GameSetup$$get_CountOfBlue; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameSetup$$get_ColorSpecs", function() { return GameSetup$$get_ColorSpecs; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameSetup$$GenerateAgents", function() { return GameSetup$$GenerateAgents; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameSetup$$ToInitialGameState", function() { return GameSetup$$ToInitialGameState; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShowResultsViewState", function() { return ShowResultsViewState; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShowResultsViewState$reflection", function() { return ShowResultsViewState$reflection; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResultViewState", function() { return ResultViewState; });
@@ -46318,6 +47034,10 @@ function GameHistory$$get_LastRoundChallenges(this$$$27) {
   const array$$2 = GameHistory$$Unwrap(this$$$27);
   return Object(_fable_fable_library_2_4_15_Array_js__WEBPACK_IMPORTED_MODULE_6__["last"])(array$$2);
 }
+function GameHistory$$get_FirstRoundChallenges(this$$$28) {
+  const array$$3 = GameHistory$$Unwrap(this$$$28);
+  return Object(_fable_fable_library_2_4_15_Array_js__WEBPACK_IMPORTED_MODULE_6__["head"])(array$$3);
+}
 const HistoryStatisticsView = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_HistoryStatisticsView(arg1, arg2) {
   this.History = arg1;
   this.AgentViewCache = arg2;
@@ -46325,8 +47045,8 @@ const HistoryStatisticsView = Object(_fable_fable_library_2_4_15_Types_js__WEBPA
 function HistoryStatisticsView$reflection() {
   return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record"])("Model.HistoryStatisticsView", [], HistoryStatisticsView, () => [["History", GameHistory$reflection()], ["AgentViewCache", Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("System.Collections.Generic.Dictionary`2", [Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["tuple"])(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"], _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]), Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Microsoft.FSharp.Collections.FSharpMap`2", [Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["tuple"])(ChallengeType$reflection(), Strategy$reflection(), Color$reflection()), _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]])])]]);
 }
-function HistoryStatisticsView$$UpdateHistory$$30741D88(this$$$28, history) {
-  return new HistoryStatisticsView(history, this$$$28.AgentViewCache);
+function HistoryStatisticsView$$UpdateHistory$$30741D88(this$$$29, history) {
+  return new HistoryStatisticsView(history, this$$$29.AgentViewCache);
 }
 const rand = {};
 const GameInformation = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_GameInformation(arg1, arg2, arg3, arg4, arg5, arg6) {
@@ -46352,7 +47072,7 @@ const PlannedRound = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORT
 function PlannedRound$reflection() {
   return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record"])("Model.PlannedRound", [], PlannedRound, () => [["PayoffMatrix", PayoffMatrixType$reflection()], ["StrategyFn", Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(GameInformation$reflection(), Strategy$reflection())], ["StageName", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]], ["MayUseColor", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]]);
 }
-function PlannedRound$$PlayRound(this$$$29, cache$$1, agents, history$$2) {
+function PlannedRound$$PlayRound(this$$$30, cache$$1, agents, history$$2) {
   let gamePairs;
   let items;
   const l = agents;
@@ -46364,17 +47084,17 @@ function PlannedRound$$PlayRound(this$$$29, cache$$1, agents, history$$2) {
     const agent2$$1 = tupledArg$$2[1];
     let patternInput$$1;
     const arg00 = cache$$1;
-    const arg10$$1 = this$$$29.PayoffMatrix;
+    const arg10$$1 = this$$$30.PayoffMatrix;
     const arg20 = history$$2;
     const arg30 = agent1$$1;
     const arg40 = agent2$$1;
     patternInput$$1 = GameInformation$$$InitGameInformationForAgents(arg00, arg10$$1, arg20, arg30, arg40);
     const gameInfoForAgent2 = patternInput$$1[1];
     const gameInfoForAgent1 = patternInput$$1[0];
-    const agent1Choise = this$$$29.StrategyFn(gameInfoForAgent1);
-    const agent2Choise = this$$$29.StrategyFn(gameInfoForAgent2);
+    const agent1Choise = this$$$30.StrategyFn(gameInfoForAgent1);
+    const agent2Choise = this$$$30.StrategyFn(gameInfoForAgent2);
     const challengeType$$1 = Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["equals"])(Agent$$get_Color(agent1$$1), Agent$$get_Color(agent2$$1)) ? new ChallengeType(1, "SameColor") : new ChallengeType(0, "DifferentColor");
-    const patternInput$$2 = PayoffMatrixType$$GetPayoffFor$$Z5F957E0(this$$$29.PayoffMatrix, agent1Choise, agent2Choise);
+    const patternInput$$2 = PayoffMatrixType$$GetPayoffFor$$Z5F957E0(this$$$30.PayoffMatrix, agent1Choise, agent2Choise);
     const payoff2 = patternInput$$2[1];
     const payoff1 = patternInput$$2[0];
     return new ResolvedChallenge([Agent$$UpdateGameInfo$$3454EE1B(agent1$$1, payoff1, agent1Choise, challengeType$$1), Agent$$UpdateGameInfo$$3454EE1B(agent2$$1, payoff2, agent2Choise, challengeType$$1)]);
@@ -46393,14 +47113,14 @@ const GameState = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_
 function GameState$reflection() {
   return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record"])("Model.GameState", [], GameState, () => [["PayoffMatrix", PayoffMatrixType$reflection()], ["PlannedRounds", Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list"])(PlannedRound$reflection())], ["ResolvedRounds", GameHistory$reflection()]]);
 }
-function GameState$$SimulateRounds$$6166C877(this$$$30, agents$$1) {
+function GameState$$SimulateRounds$$6166C877(this$$$31, agents$$1) {
   const cache$$2 = Object(_fable_fable_library_2_4_15_Map_js__WEBPACK_IMPORTED_MODULE_5__["createMutable"])([], {
     Equals: _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["equalArrays"],
     GetHashCode: _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["structuralHash"]
   });
   const initialValue = [agents$$1, new GameHistory(0, "Rounds", [])];
   let patternInput$$3;
-  const list$$5 = this$$$30.PlannedRounds;
+  const list$$5 = this$$$31.PlannedRounds;
   patternInput$$3 = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_2__["fold"])(Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["uncurry"])(2, function folder(tupledArg$$3) {
     const agentsBefore = tupledArg$$3[0];
     const history$$3 = tupledArg$$3[1];
@@ -46417,9 +47137,9 @@ function GameState$$SimulateRounds$$6166C877(this$$$30, agents$$1) {
     };
   }), initialValue, list$$5);
   const playedRounds = patternInput$$3[1];
-  return new GameState(this$$$30.PayoffMatrix, this$$$30.PlannedRounds, playedRounds);
+  return new GameState(this$$$31.PayoffMatrix, this$$$31.PlannedRounds, playedRounds);
 }
-function GameState$$SimulateRoundsPromise$$6166C877(this$$$31, agents$$2) {
+function GameState$$SimulateRoundsPromise$$6166C877(this$$$32, agents$$2) {
   const cache$$3 = Object(_fable_fable_library_2_4_15_Map_js__WEBPACK_IMPORTED_MODULE_5__["createMutable"])([], {
     Equals: _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["equalArrays"],
     GetHashCode: _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["structuralHash"]
@@ -46429,7 +47149,7 @@ function GameState$$SimulateRoundsPromise$$6166C877(this$$$31, agents$$2) {
     var list$$6;
     const initialValue$$1 = Promise.resolve([agents$$2, new GameHistory(0, "Rounds", [])]);
     const start = Object(_fable_fable_library_2_4_15_Date_js__WEBPACK_IMPORTED_MODULE_9__["now"])();
-    return (list$$6 = this$$$31.PlannedRounds, (Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_2__["fold"])(function folder$$1(accPromise, plannedRound$$1) {
+    return (list$$6 = this$$$32.PlannedRounds, (Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_2__["fold"])(function folder$$1(accPromise, plannedRound$$1) {
       return accPromise.then(function (tupledArg$$4) {
         const agents$$3 = tupledArg$$4[0];
         const history$$4 = tupledArg$$4[1];
@@ -46462,7 +47182,7 @@ function GameState$$SimulateRoundsPromise$$6166C877(this$$$31, agents$$2) {
       arg10$$5 = copyOfStruct$$1;
       const clo1$$2 = Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["toConsole"])(Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("Full simulation took %A ms"));
       clo1$$2(arg10$$5);
-      return Promise.resolve(new GameState(this$$$31.PayoffMatrix, this$$$31.PlannedRounds, playedRounds$$1));
+      return Promise.resolve(new GameState(this$$$32.PayoffMatrix, this$$$32.PlannedRounds, playedRounds$$1));
     });
   }));
 }
@@ -46477,12 +47197,26 @@ function GameParameters$reflection() {
 const SimulationFrame = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_SimulationFrame(arg1, arg2, arg3, arg4, arg5) {
   this.RoundCount = arg1 | 0;
   this.StageName = arg2;
-  this.StrategyInitFn = arg3;
+  this.StrategyInitFnName = arg3;
   this.SetPayoffForStage = arg4;
   this.MayUseColor = arg5;
 }, _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
 function SimulationFrame$reflection() {
-  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record"])("Model.SimulationFrame", [], SimulationFrame, () => [["RoundCount", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]], ["StageName", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]], ["StrategyInitFn", Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(GameParameters$reflection(), Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(GameInformation$reflection(), Strategy$reflection()))], ["SetPayoffForStage", Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(PayoffMatrixType$reflection(), PayoffMatrixType$reflection())], ["MayUseColor", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]]);
+  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record"])("Model.SimulationFrame", [], SimulationFrame, () => [["RoundCount", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]], ["StageName", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]], ["StrategyInitFnName", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]], ["SetPayoffForStage", Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(PayoffMatrixType$reflection(), PayoffMatrixType$reflection())], ["MayUseColor", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]]);
+}
+const StageStrategyFnOptions = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_StageStrategyFnOptions(arg1, arg2, arg3) {
+  this.DisplayName = arg1;
+  this.Name = arg2;
+  this.StrategyInitFn = arg3;
+}, _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
+function StageStrategyFnOptions$reflection() {
+  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record"])("Model.StageStrategyFnOptions", [], StageStrategyFnOptions, () => [["DisplayName", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]], ["Name", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]], ["StrategyInitFn", Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(GameParameters$reflection(), Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(GameInformation$reflection(), Strategy$reflection()))]]);
+}
+const UISetupState = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_UISetupState(arg1) {
+  this.Stage1Options = arg1;
+}, _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
+function UISetupState$reflection() {
+  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record"])("Model.UISetupState", [], UISetupState, () => [["Stage1Options", Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list"])(StageStrategyFnOptions$reflection())]]);
 }
 const GameSetup = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_GameSetup(arg1, arg2) {
   this.GameParameters = arg1;
@@ -46491,17 +47225,17 @@ const GameSetup = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_
 function GameSetup$reflection() {
   return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record"])("Model.GameSetup", [], GameSetup, () => [["GameParameters", GameParameters$reflection()], ["SimulationFrames", Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list"])(SimulationFrame$reflection())]]);
 }
-function GameSetup$$get_AgentCount(this$$$32) {
-  return this$$$32.GameParameters.AgentCount;
+function GameSetup$$get_AgentCount(this$$$33) {
+  return this$$$33.GameParameters.AgentCount;
 }
-function GameSetup$$get_PortionOfRed(this$$$33) {
-  return this$$$33.GameParameters.PortionOfRed;
+function GameSetup$$get_PortionOfRed(this$$$34) {
+  return this$$$34.GameParameters.PortionOfRed;
 }
-function GameSetup$$get_PayoffMatrix(this$$$34) {
-  return this$$$34.GameParameters.PayoffMatrix;
+function GameSetup$$get_PayoffMatrix(this$$$35) {
+  return this$$$35.GameParameters.PayoffMatrix;
 }
-function GameSetup$$get_RoundsToPlay(this$$$35) {
-  const list$$7 = this$$$35.SimulationFrames;
+function GameSetup$$get_RoundsToPlay(this$$$36) {
+  const list$$7 = this$$$36.SimulationFrames;
   return Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_2__["sumBy"])(function projection$$1(f) {
     return f.RoundCount;
   }, list$$7, {
@@ -46515,21 +47249,21 @@ function GameSetup$$get_RoundsToPlay(this$$$35) {
 
   }) | 0;
 }
-function GameSetup$$get_CountOfRed(this$$$36) {
+function GameSetup$$get_CountOfRed(this$$$37) {
   let value$$4;
-  const value$$3 = GameSetup$$get_AgentCount(this$$$36) * (GameSetup$$get_PortionOfRed(this$$$36) / 100);
+  const value$$3 = GameSetup$$get_AgentCount(this$$$37) * (GameSetup$$get_PortionOfRed(this$$$37) / 100);
   value$$4 = Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["round"])(value$$3);
   return ~~value$$4 | 0;
 }
-function GameSetup$$get_CountOfBlue(this$$$37) {
-  return GameSetup$$get_AgentCount(this$$$37) - GameSetup$$get_CountOfRed(this$$$37);
+function GameSetup$$get_CountOfBlue(this$$$38) {
+  return GameSetup$$get_AgentCount(this$$$38) - GameSetup$$get_CountOfRed(this$$$38);
 }
-function GameSetup$$get_ColorSpecs(this$$$38) {
-  return Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_2__["ofArray"])([[new Color(1, "Red"), GameSetup$$get_CountOfRed(this$$$38)], [new Color(0, "Blue"), GameSetup$$get_CountOfBlue(this$$$38)]]);
+function GameSetup$$get_ColorSpecs(this$$$39) {
+  return Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_2__["ofArray"])([[new Color(1, "Red"), GameSetup$$get_CountOfRed(this$$$39)], [new Color(0, "Blue"), GameSetup$$get_CountOfBlue(this$$$39)]]);
 }
-function GameSetup$$GenerateAgents(this$$$39) {
+function GameSetup$$GenerateAgents(this$$$40) {
   let colors;
-  const l$$1 = Color$$$GenerateList$$Z4242E780(GameSetup$$get_ColorSpecs(this$$$39));
+  const l$$1 = Color$$$GenerateList$$Z4242E780(GameSetup$$get_ColorSpecs(this$$$40));
   colors = Object(_Helpers_fs__WEBPACK_IMPORTED_MODULE_7__["ListHelpers$$$shuffle"])(l$$1);
   const agentIds = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_2__["initialize"])(Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_2__["length"])(colors), function (x) {
     return x;
@@ -46537,20 +47271,6 @@ function GameSetup$$GenerateAgents(this$$$39) {
   return Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_2__["map2"])(function (color, agentId) {
     return new Agent(0, "AgentWithNoGames", new AgentIdentity(agentId, color));
   }, colors, agentIds);
-}
-function GameSetup$$ToInitialGameState(this$$$40) {
-  const payoffMatrics = GameSetup$$get_PayoffMatrix(this$$$40);
-  let plannedRounds;
-  let list$$9;
-  const list$$8 = this$$$40.SimulationFrames;
-  list$$9 = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_2__["filter"])(function predicate(f$$1) {
-    return f$$1.RoundCount > 0;
-  }, list$$8);
-  plannedRounds = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_2__["collect"])(function mapping$$3(frame) {
-    const plannedRound$$2 = new PlannedRound(frame.SetPayoffForStage(payoffMatrics), Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["partialApply"])(1, frame.StrategyInitFn, [this$$$40.GameParameters]), frame.StageName, frame.MayUseColor);
-    return Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_2__["replicate"])(frame.RoundCount, plannedRound$$2);
-  }, list$$9);
-  return new GameState(payoffMatrics, plannedRounds, new GameHistory(0, "Rounds", []));
 }
 const ShowResultsViewState = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_ShowResultsViewState(arg1) {
   this.ShowRound = arg1 | 0;
@@ -46620,7 +47340,7 @@ const FieldValue = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED
   _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
 }, _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
 function FieldValue$reflection() {
-  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union"])("Model.FieldValue", [], FieldValue, () => [["RoundCountOfStage", [_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"], _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]]], ["AgentCount", [_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]]], ["PortionOfRed", [_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]]], ["BenefitOnVictory", [_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]]], ["CostOfLoss", [_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]]]]);
+  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union"])("Model.FieldValue", [], FieldValue, () => [["RoundCountOfStage", [_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"], _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]]], ["ModeOfStage", [_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"], _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["AgentCount", [_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]]], ["PortionOfRed", [_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]]], ["BenefitOnVictory", [_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]]], ["CostOfLoss", [_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]]]]);
 }
 const Msg = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_Msg(tag, name, ...fields) {
   _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
@@ -46635,7 +47355,7 @@ function Msg$reflection() {
 /*!***************************!*\
   !*** ./src/Simulation.fs ***!
   \***************************/
-/*! exports provided: Composition$002ECompositeStrategySetup, Composition$002ECompositeStrategySetup$reflection, Composition$$$compositeStrategy, GameMode$$$randomChoiceGame, GameMode$$$cardDeckGame, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$keepSameStrategy, GameMode$$$onBasedOfLastEncounterWithOpponentColor, GameMode$$$highestEuOnDifferentColorGameForInvidualAgent, GameMode$$$highestEuOnDifferentColorGameForInvidualAgentNonCached, GameMode$$$highestEuOnDifferentColorGameWithFilter, GameMode$$$highestExpectedValueOnDifferentColorGame, GameMode$$$highestExpectedValueOnDifferentColorGameUsingOnlyDifferentColorStats, ExtraGameModes$$$nashMixedStrategyEquilibriumGameFromPayoffMatrix, ExtraGameModes$$$dependingHawksWithinColorSegment, ExtraGameModes$$$onHawksOnLastRound, IdealNashMixedDistribution$$$generate, SimulationStages$$$stage1Game, SimulationStages$$$stage2Game, SimulationStages$$$stage1Game_withIdealNMSEDistribution, SimulationStages$$$stage2Game_v2_AllEncounter, SimulationStages$$$stage2Game_v3_keepSameAsSameColorStrategy, SimulationStages$$$stage2Game_v4_dependingHawksWithinColorSegmentAsSameColorStrategy, SimulationStages$$$stage2Game_v5_withFullIndividualHistory, SimulationStages$$$stage2Game_v5_withFullIndividualHistory_NonCached, SimulationStages$$$stage3Game, SimulationStages$$$stage3Game_onBasedOfLastEncounterWithOpponentColor */
+/*! exports provided: Composition$002ECompositeStrategySetup, Composition$002ECompositeStrategySetup$reflection, Composition$$$compositeStrategy, GameMode$$$randomChoiceGame, GameMode$$$fixedGame, GameMode$$$cardDeckGame, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$keepSameStrategy, GameMode$$$onBasedOfLastEncounterWithOpponentColor, GameMode$$$highestEuOnDifferentColorGameForInvidualAgent, GameMode$$$highestEuOnDifferentColorGameForInvidualAgentNonCached, GameMode$$$highestEuOnDifferentColorGameWithFilter, GameMode$$$highestExpectedValueOnDifferentColorGame, GameMode$$$highestExpectedValueOnDifferentColorGameUsingOnlyDifferentColorStats, ExtraGameModes$$$nashMixedStrategyEquilibriumGameFromPayoffMatrix, ExtraGameModes$$$dependingHawksWithinColorSegment, ExtraGameModes$$$onHawksOnLastRound, IdealNashMixedDistribution$$$generate, IdealFiftyFiftyDistribution$$$generate, SimulationStages$$$allPlay, SimulationStages$$$stage1Game, SimulationStages$$$simulation_setup_random, SimulationStages$$$stage2Game, SimulationStages$$$stage1Game_withIdealNMSEDistribution, SimulationStages$$$stage1Game_withIdealFiftyFiftyDistribution, SimulationStages$$$stage2Game_v2_AllEncounter, SimulationStages$$$stage2Game_v3_keepSameAsSameColorStrategy, SimulationStages$$$stage2Game_v4_dependingHawksWithinColorSegmentAsSameColorStrategy, SimulationStages$$$stage2Game_v5_withFullIndividualHistory, SimulationStages$$$stage2Game_v5_withFullIndividualHistory_NonCached, SimulationStages$$$stage3Game, SimulationStages$$$stage3Game_onBasedOfLastEncounterWithOpponentColor, SimulationStageNames$$$AllPlayDove, SimulationStageNames$$$AllPlayHawk, SimulationStageNames$$$Random, SimulationStageNames$$$GuaranteedFiftyFifty, SimulationStageNames$$$ProbabilisticNSME, SimulationStageNames$$$GuaranteedNSME, SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory, SimulationStageOptions$$$AllOptions, SimulationStageOptions$$$getFn, Model$002ESimulationFrame$$SimulationFrame$002Eget_StrategyInitFn, Model$002EGameSetup$$GameSetup$002EToInitialGameState */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -46644,6 +47364,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Composition$002ECompositeStrategySetup$reflection", function() { return Composition$002ECompositeStrategySetup$reflection; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Composition$$$compositeStrategy", function() { return Composition$$$compositeStrategy; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameMode$$$randomChoiceGame", function() { return GameMode$$$randomChoiceGame; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameMode$$$fixedGame", function() { return GameMode$$$fixedGame; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameMode$$$cardDeckGame", function() { return GameMode$$$cardDeckGame; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters", function() { return GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameMode$$$keepSameStrategy", function() { return GameMode$$$keepSameStrategy; });
@@ -46657,9 +47378,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ExtraGameModes$$$dependingHawksWithinColorSegment", function() { return ExtraGameModes$$$dependingHawksWithinColorSegment; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ExtraGameModes$$$onHawksOnLastRound", function() { return ExtraGameModes$$$onHawksOnLastRound; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IdealNashMixedDistribution$$$generate", function() { return IdealNashMixedDistribution$$$generate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IdealFiftyFiftyDistribution$$$generate", function() { return IdealFiftyFiftyDistribution$$$generate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStages$$$allPlay", function() { return SimulationStages$$$allPlay; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStages$$$stage1Game", function() { return SimulationStages$$$stage1Game; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStages$$$simulation_setup_random", function() { return SimulationStages$$$simulation_setup_random; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStages$$$stage2Game", function() { return SimulationStages$$$stage2Game; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStages$$$stage1Game_withIdealNMSEDistribution", function() { return SimulationStages$$$stage1Game_withIdealNMSEDistribution; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStages$$$stage1Game_withIdealFiftyFiftyDistribution", function() { return SimulationStages$$$stage1Game_withIdealFiftyFiftyDistribution; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStages$$$stage2Game_v2_AllEncounter", function() { return SimulationStages$$$stage2Game_v2_AllEncounter; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStages$$$stage2Game_v3_keepSameAsSameColorStrategy", function() { return SimulationStages$$$stage2Game_v3_keepSameAsSameColorStrategy; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStages$$$stage2Game_v4_dependingHawksWithinColorSegmentAsSameColorStrategy", function() { return SimulationStages$$$stage2Game_v4_dependingHawksWithinColorSegmentAsSameColorStrategy; });
@@ -46667,6 +47392,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStages$$$stage2Game_v5_withFullIndividualHistory_NonCached", function() { return SimulationStages$$$stage2Game_v5_withFullIndividualHistory_NonCached; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStages$$$stage3Game", function() { return SimulationStages$$$stage3Game; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStages$$$stage3Game_onBasedOfLastEncounterWithOpponentColor", function() { return SimulationStages$$$stage3Game_onBasedOfLastEncounterWithOpponentColor; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStageNames$$$AllPlayDove", function() { return SimulationStageNames$$$AllPlayDove; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStageNames$$$AllPlayHawk", function() { return SimulationStageNames$$$AllPlayHawk; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStageNames$$$Random", function() { return SimulationStageNames$$$Random; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStageNames$$$GuaranteedFiftyFifty", function() { return SimulationStageNames$$$GuaranteedFiftyFifty; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStageNames$$$ProbabilisticNSME", function() { return SimulationStageNames$$$ProbabilisticNSME; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStageNames$$$GuaranteedNSME", function() { return SimulationStageNames$$$GuaranteedNSME; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory", function() { return SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStageOptions$$$AllOptions", function() { return SimulationStageOptions$$$AllOptions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStageOptions$$$getFn", function() { return SimulationStageOptions$$$getFn; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Model$002ESimulationFrame$$SimulationFrame$002Eget_StrategyInitFn", function() { return Model$002ESimulationFrame$$SimulationFrame$002Eget_StrategyInitFn; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Model$002EGameSetup$$GameSetup$002EToInitialGameState", function() { return Model$002EGameSetup$$GameSetup$002EToInitialGameState; });
 /* harmony import */ var _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/Types.js */ "./.fable/fable-library.2.4.15/Types.js");
 /* harmony import */ var _Model_fs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Model.fs */ "./src/Model.fs");
 /* harmony import */ var _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/Reflection.js */ "./.fable/fable-library.2.4.15/Reflection.js");
@@ -46681,27 +47417,83 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const Composition$002ECompositeStrategySetup = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Simulation_Composition_CompositeStrategySetup(arg1, arg2, arg3) {
-  this.NoHistoryStrategy = arg1;
-  this.SameColorStrategy = arg2;
-  this.DifferentColorStrategy = arg3;
+const Composition$002ECompositeStrategySetup = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Simulation_Composition_CompositeStrategySetup(arg1, arg2, arg3, arg4) {
+  this.SameColorNoHistoryStrategy = arg1;
+  this.DifferentColorNoHistoryStrategy = arg2;
+  this.SameColorStrategy = arg3;
+  this.DifferentColorStrategy = arg4;
 }, _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
 function Composition$002ECompositeStrategySetup$reflection() {
-  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["record"])("Simulation.Composition.CompositeStrategySetup", [], Composition$002ECompositeStrategySetup, () => [["NoHistoryStrategy", Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["lambda"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameInformation$reflection"])(), Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy$reflection"])())], ["SameColorStrategy", Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["lambda"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameInformation$reflection"])(), Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy$reflection"])())], ["DifferentColorStrategy", Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["lambda"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameInformation$reflection"])(), Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy$reflection"])())]]);
+  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["record"])("Simulation.Composition.CompositeStrategySetup", [], Composition$002ECompositeStrategySetup, () => [["SameColorNoHistoryStrategy", Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["lambda"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameInformation$reflection"])(), Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy$reflection"])())], ["DifferentColorNoHistoryStrategy", Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["lambda"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameInformation$reflection"])(), Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy$reflection"])())], ["SameColorStrategy", Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["lambda"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameInformation$reflection"])(), Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy$reflection"])())], ["DifferentColorStrategy", Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["lambda"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameInformation$reflection"])(), Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy$reflection"])())]]);
 }
 function Composition$$$compositeStrategy(setup, info) {
-  var opponentColor;
+  var opponentColor$$4, opponentColor$$2, opponentColor;
   const matchValue = [Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameHistory$$get_HasHistory"])(info.HistoryView.History), info.OpponentColor];
+  var $target$$3;
 
   if (matchValue[0]) {
-    if (opponentColor = matchValue[1], Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["equals"])(opponentColor, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Agent$$get_Color"])(info.Agent))) {
-      const opponentColor$$1 = matchValue[1];
-      return setup.SameColorStrategy(info);
-    } else {
-      return setup.DifferentColorStrategy(info);
-    }
+    $target$$3 = 1;
+  } else if (opponentColor = matchValue[1], !Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["equals"])(opponentColor, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Agent$$get_Color"])(info.Agent))) {
+    $target$$3 = 0;
   } else {
-    return setup.NoHistoryStrategy(info);
+    $target$$3 = 1;
+  }
+
+  switch ($target$$3) {
+    case 0:
+      {
+        const opponentColor$$1 = matchValue[1];
+        return setup.DifferentColorNoHistoryStrategy(info);
+      }
+
+    case 1:
+      {
+        var $target$$4;
+
+        if (matchValue[0]) {
+          $target$$4 = 1;
+        } else if (opponentColor$$2 = matchValue[1], Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["equals"])(opponentColor$$2, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Agent$$get_Color"])(info.Agent))) {
+          $target$$4 = 0;
+        } else {
+          $target$$4 = 1;
+        }
+
+        switch ($target$$4) {
+          case 0:
+            {
+              const opponentColor$$3 = matchValue[1];
+              return setup.SameColorNoHistoryStrategy(info);
+            }
+
+          case 1:
+            {
+              var $target$$5;
+
+              if (matchValue[0]) {
+                if (opponentColor$$4 = matchValue[1], Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["equals"])(opponentColor$$4, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Agent$$get_Color"])(info.Agent))) {
+                  $target$$5 = 0;
+                } else {
+                  $target$$5 = 1;
+                }
+              } else {
+                $target$$5 = 1;
+              }
+
+              switch ($target$$5) {
+                case 0:
+                  {
+                    const opponentColor$$5 = matchValue[1];
+                    return setup.SameColorStrategy(info);
+                  }
+
+                case 1:
+                  {
+                    return setup.DifferentColorStrategy(info);
+                  }
+              }
+            }
+        }
+      }
   }
 }
 function GameMode$$$randomChoiceGame(info$$1) {
@@ -46713,14 +47505,17 @@ function GameMode$$$randomChoiceGame(info$$1) {
     return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove");
   }
 }
-function GameMode$$$cardDeckGame(deck, info$$2) {
-  const cardIndex = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Agent$$get_Id"])(info$$2.Agent) | 0;
+function GameMode$$$fixedGame(fixedStrategy, info$$2) {
+  return fixedStrategy;
+}
+function GameMode$$$cardDeckGame(deck, info$$3) {
+  const cardIndex = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Agent$$get_Id"])(info$$3.Agent) | 0;
   return Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_4__["item"])(cardIndex, deck);
 }
-function GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters(info$$3) {
+function GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters(info$$4) {
   let change$0020of$0020hawk;
-  const C = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$get_Cost$0020$0028C$0029"])(info$$3.PayoffMatrix);
-  const V = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$get_Revard$0020$0028V$0029"])(info$$3.PayoffMatrix);
+  const C = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$get_Cost$0020$0028C$0029"])(info$$4.PayoffMatrix);
+  const V = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$get_Revard$0020$0028V$0029"])(info$$4.PayoffMatrix);
 
   if (C === 0) {
     change$0020of$0020hawk = 1;
@@ -46729,25 +47524,25 @@ function GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters(info$$3
     change$0020of$0020hawk = portionOfHawks > 1 ? 1 : portionOfHawks;
   }
 
-  if (info$$3.RandomNumber < change$0020of$0020hawk) {
+  if (info$$4.RandomNumber < change$0020of$0020hawk) {
     return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk");
   } else {
     return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove");
   }
 }
-function GameMode$$$keepSameStrategy(info$$4) {
-  const matchValue$$1 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Agent$$get_Strategy"])(info$$4.Agent);
+function GameMode$$$keepSameStrategy(info$$5) {
+  const matchValue$$1 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Agent$$get_Strategy"])(info$$5.Agent);
 
   if (matchValue$$1 != null) {
     const choice = matchValue$$1;
     return choice;
   } else {
-    return GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters(info$$4);
+    return GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters(info$$5);
   }
 }
-function GameMode$$$onBasedOfLastEncounterWithOpponentColor(info$$5) {
-  const myColor = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Agent$$get_Color"])(info$$5.Agent);
-  const lastRound = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["Model$002EGameRound$$GameRound$002EStrategyStatsFor$$4A800086"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameHistory$$get_LastRoundChallenges"])(info$$5.HistoryView.History), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["ChallengeType"](0, "DifferentColor"), myColor);
+function GameMode$$$onBasedOfLastEncounterWithOpponentColor(info$$6) {
+  const myColor = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Agent$$get_Color"])(info$$6.Agent);
+  const lastRound = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["Model$002EGameRound$$GameRound$002EStrategyStatsFor$$4A800086"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameHistory$$get_LastRoundChallenges"])(info$$6.HistoryView.History), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["ChallengeType"](0, "DifferentColor"), myColor);
   const matchValue$$2 = [Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["RoundStats$002EStrategyStats$$get_DoveN"])(lastRound), Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["RoundStats$002EStrategyStats$$get_HawkN"])(lastRound)];
 
   if (matchValue$$2[0] === 0) {
@@ -46755,20 +47550,20 @@ function GameMode$$$onBasedOfLastEncounterWithOpponentColor(info$$5) {
   } else if (matchValue$$2[1] === 0) {
     return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove");
   } else {
-    return GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters(info$$5);
+    return GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters(info$$6);
   }
 }
-function GameMode$$$highestEuOnDifferentColorGameForInvidualAgent(challengeTypeFilter, info$$6) {
+function GameMode$$$highestEuOnDifferentColorGameForInvidualAgent(challengeTypeFilter, info$$7) {
   var diff;
-  const payoff = info$$6.PayoffMatrix;
-  const history = info$$6.HistoryView;
+  const payoff = info$$7.PayoffMatrix;
+  const history = info$$7.HistoryView;
   let opposingColorStats;
 
   if (challengeTypeFilter != null) {
     const challengeType = challengeTypeFilter;
-    opposingColorStats = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["Model$002EHistoryStatisticsView$$HistoryStatisticsView$002EStrategyStatsFor$$69D1B7BB"])(history, info$$6.Agent, challengeType, info$$6.OpponentColor);
+    opposingColorStats = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["Model$002EHistoryStatisticsView$$HistoryStatisticsView$002EStrategyStatsFor$$69D1B7BB"])(history, info$$7.Agent, challengeType, info$$7.OpponentColor);
   } else {
-    opposingColorStats = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["Model$002EHistoryStatisticsView$$HistoryStatisticsView$002EStrategyStatsFor$$Z378B7C3C"])(history, info$$6.Agent, info$$6.OpponentColor);
+    opposingColorStats = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["Model$002EHistoryStatisticsView$$HistoryStatisticsView$002EStrategyStatsFor$$Z378B7C3C"])(history, info$$7.Agent, info$$7.OpponentColor);
   }
 
   const pHawk = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["RoundStats$002EStrategyStats$$get_HawkPortion"])(opposingColorStats);
@@ -46778,7 +47573,7 @@ function GameMode$$$highestEuOnDifferentColorGameForInvidualAgent(challengeTypeF
   const matchValue$$3 = evHawk - evDove;
 
   if (matchValue$$3 === 0) {
-    return GameMode$$$randomChoiceGame(info$$6);
+    return GameMode$$$randomChoiceGame(info$$7);
   } else if (diff = matchValue$$3, diff > 0) {
     const diff$$1 = matchValue$$3;
     return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk");
@@ -46786,17 +47581,17 @@ function GameMode$$$highestEuOnDifferentColorGameForInvidualAgent(challengeTypeF
     return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove");
   }
 }
-function GameMode$$$highestEuOnDifferentColorGameForInvidualAgentNonCached(challengeTypeFilter$$1, info$$7) {
+function GameMode$$$highestEuOnDifferentColorGameForInvidualAgentNonCached(challengeTypeFilter$$1, info$$8) {
   var diff$$2;
-  const payoff$$1 = info$$7.PayoffMatrix;
-  const history$$1 = info$$7.HistoryView.History;
+  const payoff$$1 = info$$8.PayoffMatrix;
+  const history$$1 = info$$8.HistoryView.History;
   let opposingColorStats$$1;
 
   if (challengeTypeFilter$$1 != null) {
     const challengeType$$1 = challengeTypeFilter$$1;
-    opposingColorStats$$1 = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["Model$002EGameHistory$$GameHistory$002EStrategyStatsFor$$69D1B7BB"])(history$$1, info$$7.Agent, challengeType$$1, info$$7.OpponentColor);
+    opposingColorStats$$1 = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["Model$002EGameHistory$$GameHistory$002EStrategyStatsFor$$69D1B7BB"])(history$$1, info$$8.Agent, challengeType$$1, info$$8.OpponentColor);
   } else {
-    opposingColorStats$$1 = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["Model$002EGameHistory$$GameHistory$002EStrategyStatsFor$$Z378B7C3C"])(history$$1, info$$7.Agent, info$$7.OpponentColor);
+    opposingColorStats$$1 = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["Model$002EGameHistory$$GameHistory$002EStrategyStatsFor$$Z378B7C3C"])(history$$1, info$$8.Agent, info$$8.OpponentColor);
   }
 
   const pHawk$$1 = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["RoundStats$002EStrategyStats$$get_HawkPortion"])(opposingColorStats$$1);
@@ -46806,7 +47601,7 @@ function GameMode$$$highestEuOnDifferentColorGameForInvidualAgentNonCached(chall
   const matchValue$$4 = evHawk$$1 - evDove$$1;
 
   if (matchValue$$4 === 0) {
-    return GameMode$$$randomChoiceGame(info$$7);
+    return GameMode$$$randomChoiceGame(info$$8);
   } else if (diff$$2 = matchValue$$4, diff$$2 > 0) {
     const diff$$3 = matchValue$$4;
     return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk");
@@ -46814,17 +47609,17 @@ function GameMode$$$highestEuOnDifferentColorGameForInvidualAgentNonCached(chall
     return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove");
   }
 }
-function GameMode$$$highestEuOnDifferentColorGameWithFilter(challengeTypeFilter$$2, info$$8) {
+function GameMode$$$highestEuOnDifferentColorGameWithFilter(challengeTypeFilter$$2, info$$9) {
   var diff$$4;
-  const payoff$$2 = info$$8.PayoffMatrix;
-  const lastRound$$1 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameHistory$$get_LastRoundChallenges"])(info$$8.HistoryView.History);
+  const payoff$$2 = info$$9.PayoffMatrix;
+  const lastRound$$1 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameHistory$$get_LastRoundChallenges"])(info$$9.HistoryView.History);
   let opposingColorStats$$2;
 
   if (challengeTypeFilter$$2 != null) {
     const challengeType$$2 = challengeTypeFilter$$2;
-    opposingColorStats$$2 = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["Model$002EGameRound$$GameRound$002EStrategyStatsFor$$4A800086"])(lastRound$$1, challengeType$$2, info$$8.OpponentColor);
+    opposingColorStats$$2 = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["Model$002EGameRound$$GameRound$002EStrategyStatsFor$$4A800086"])(lastRound$$1, challengeType$$2, info$$9.OpponentColor);
   } else {
-    opposingColorStats$$2 = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["Model$002EGameRound$$GameRound$002EStrategyStatsFor$$2DA0A019"])(lastRound$$1, info$$8.OpponentColor);
+    opposingColorStats$$2 = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["Model$002EGameRound$$GameRound$002EStrategyStatsFor$$2DA0A019"])(lastRound$$1, info$$9.OpponentColor);
   }
 
   const pHawk$$2 = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["RoundStats$002EStrategyStats$$get_HawkPortion"])(opposingColorStats$$2);
@@ -46834,7 +47629,7 @@ function GameMode$$$highestEuOnDifferentColorGameWithFilter(challengeTypeFilter$
   const matchValue$$5 = evHawk$$2 - evDove$$2;
 
   if (matchValue$$5 === 0) {
-    return GameMode$$$randomChoiceGame(info$$8);
+    return GameMode$$$randomChoiceGame(info$$9);
   } else if (diff$$4 = matchValue$$5, diff$$4 > 0) {
     const diff$$5 = matchValue$$5;
     return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk");
@@ -46844,24 +47639,24 @@ function GameMode$$$highestEuOnDifferentColorGameWithFilter(challengeTypeFilter$
 }
 const GameMode$$$highestExpectedValueOnDifferentColorGame = (() => {
   const challengeTypeFilter$$3 = null;
-  return function (info$$9) {
-    return GameMode$$$highestEuOnDifferentColorGameWithFilter(challengeTypeFilter$$3, info$$9);
+  return function (info$$10) {
+    return GameMode$$$highestEuOnDifferentColorGameWithFilter(challengeTypeFilter$$3, info$$10);
   };
 })();
 const GameMode$$$highestExpectedValueOnDifferentColorGameUsingOnlyDifferentColorStats = (() => {
   const challengeTypeFilter$$4 = new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["ChallengeType"](0, "DifferentColor");
-  return function (info$$10) {
-    return GameMode$$$highestEuOnDifferentColorGameWithFilter(challengeTypeFilter$$4, info$$10);
+  return function (info$$11) {
+    return GameMode$$$highestEuOnDifferentColorGameWithFilter(challengeTypeFilter$$4, info$$11);
   };
 })();
-function ExtraGameModes$$$nashMixedStrategyEquilibriumGameFromPayoffMatrix(info$$11) {
+function ExtraGameModes$$$nashMixedStrategyEquilibriumGameFromPayoffMatrix(info$$12) {
   let change$0020of$0020hawk$$1;
-  const patternInput = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetPayoffFor$$Z5F957E0"])(info$$11.PayoffMatrix, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"));
+  const patternInput = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetPayoffFor$$Z5F957E0"])(info$$12.PayoffMatrix, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"));
   const hawkMax = patternInput[0];
   const doveMin = patternInput[1];
-  const patternInput$$1 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetPayoffFor$$Z5F957E0"])(info$$11.PayoffMatrix, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"));
+  const patternInput$$1 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetPayoffFor$$Z5F957E0"])(info$$12.PayoffMatrix, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"));
   const doveMax = patternInput$$1[0];
-  const patternInput$$2 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetPayoffFor$$Z5F957E0"])(info$$11.PayoffMatrix, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"));
+  const patternInput$$2 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetPayoffFor$$Z5F957E0"])(info$$12.PayoffMatrix, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"));
   const hawkMin = patternInput$$2[0];
   const matchValue$$6 = hawkMin - doveMin;
 
@@ -46873,27 +47668,27 @@ function ExtraGameModes$$$nashMixedStrategyEquilibriumGameFromPayoffMatrix(info$
     change$0020of$0020hawk$$1 = portionOfHawks$$1 > 1 ? 1 : portionOfHawks$$1;
   }
 
-  if (change$0020of$0020hawk$$1 > info$$11.RandomNumber) {
+  if (change$0020of$0020hawk$$1 > info$$12.RandomNumber) {
     return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk");
   } else {
     return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove");
   }
 }
-function ExtraGameModes$$$dependingHawksWithinColorSegment(info$$12) {
-  const lastRoundStats = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["Model$002EGameRound$$GameRound$002EStrategyStatsFor$$2DA0A019"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameHistory$$get_LastRoundChallenges"])(info$$12.HistoryView.History), info$$12.OpponentColor);
+function ExtraGameModes$$$dependingHawksWithinColorSegment(info$$13) {
+  const lastRoundStats = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["Model$002EGameRound$$GameRound$002EStrategyStatsFor$$2DA0A019"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameHistory$$get_LastRoundChallenges"])(info$$13.HistoryView.History), info$$13.OpponentColor);
   const hawkPortion = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["RoundStats$002EStrategyStats$$get_HawkPortion"])(lastRoundStats);
 
-  if (hawkPortion > info$$12.RandomNumber) {
+  if (hawkPortion > info$$13.RandomNumber) {
     return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk");
   } else {
     return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove");
   }
 }
-function ExtraGameModes$$$onHawksOnLastRound(info$$13) {
-  const lastRoundStats$$1 = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["Model$002EGameRound$$GameRound$002EStrategyStats"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameHistory$$get_LastRoundChallenges"])(info$$13.HistoryView.History));
+function ExtraGameModes$$$onHawksOnLastRound(info$$14) {
+  const lastRoundStats$$1 = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["Model$002EGameRound$$GameRound$002EStrategyStats"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameHistory$$get_LastRoundChallenges"])(info$$14.HistoryView.History));
   const hawkPortion$$1 = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["RoundStats$002EStrategyStats$$get_HawkPortion"])(lastRoundStats$$1);
 
-  if (hawkPortion$$1 > info$$13.RandomNumber) {
+  if (hawkPortion$$1 > info$$14.RandomNumber) {
     return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk");
   } else {
     return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove");
@@ -46916,68 +47711,132 @@ function IdealNashMixedDistribution$$$generate(setup$$1) {
   const l = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy$$$GenerateList$$Z1725983A"])(Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_4__["ofArray"])([[new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"), hawkCount], [new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"), doveCount]]));
   return Object(_Helpers_fs__WEBPACK_IMPORTED_MODULE_6__["ListHelpers$$$shuffle"])(l);
 }
-function SimulationStages$$$stage1Game(_setup) {
+function IdealFiftyFiftyDistribution$$$generate(setup$$2) {
+  const doveCount$$1 = ~~(setup$$2.AgentCount / 2) | 0;
+  const hawkCount$$1 = setup$$2.AgentCount - doveCount$$1 | 0;
+  const l$$1 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy$$$GenerateList$$Z1725983A"])(Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_4__["ofArray"])([[new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"), hawkCount$$1], [new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"), doveCount$$1]]));
+  return Object(_Helpers_fs__WEBPACK_IMPORTED_MODULE_6__["ListHelpers$$$shuffle"])(l$$1);
+}
+function SimulationStages$$$allPlay(fixedStrategy$$1, _setup) {
+  return function (info$$15) {
+    return GameMode$$$fixedGame(fixedStrategy$$1, info$$15);
+  };
+}
+function SimulationStages$$$stage1Game(_setup$$1) {
   return GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters;
 }
-function SimulationStages$$$stage2Game(_setup$$1) {
-  const setup$$2 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$highestExpectedValueOnDifferentColorGameUsingOnlyDifferentColorStats);
-  return function (info$$17) {
-    return Composition$$$compositeStrategy(setup$$2, info$$17);
-  };
-}
-function SimulationStages$$$stage1Game_withIdealNMSEDistribution(setup$$3) {
-  const deck$$1 = IdealNashMixedDistribution$$$generate(setup$$3);
-  return function (info$$18) {
-    return GameMode$$$cardDeckGame(deck$$1, info$$18);
-  };
-}
-function SimulationStages$$$stage2Game_v2_AllEncounter(_setup$$2) {
-  const setup$$4 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$highestExpectedValueOnDifferentColorGame);
+function SimulationStages$$$simulation_setup_random(_setup$$2) {
+  const setup$$3 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$randomChoiceGame, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$randomChoiceGame);
   return function (info$$21) {
-    return Composition$$$compositeStrategy(setup$$4, info$$21);
+    return Composition$$$compositeStrategy(setup$$3, info$$21);
   };
 }
-function SimulationStages$$$stage2Game_v3_keepSameAsSameColorStrategy(_setup$$3) {
-  const setup$$5 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$keepSameStrategy, GameMode$$$highestExpectedValueOnDifferentColorGame);
-  return function (info$$24) {
-    return Composition$$$compositeStrategy(setup$$5, info$$24);
+function SimulationStages$$$stage2Game(_setup$$3) {
+  const setup$$4 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$highestExpectedValueOnDifferentColorGameUsingOnlyDifferentColorStats);
+  return function (info$$25) {
+    return Composition$$$compositeStrategy(setup$$4, info$$25);
   };
 }
-function SimulationStages$$$stage2Game_v4_dependingHawksWithinColorSegmentAsSameColorStrategy(_setup$$4) {
-  const setup$$6 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, ExtraGameModes$$$dependingHawksWithinColorSegment, GameMode$$$highestExpectedValueOnDifferentColorGame);
+function SimulationStages$$$stage1Game_withIdealNMSEDistribution(setup$$5) {
+  const deck$$1 = IdealNashMixedDistribution$$$generate(setup$$5);
+  return function (info$$26) {
+    return GameMode$$$cardDeckGame(deck$$1, info$$26);
+  };
+}
+function SimulationStages$$$stage1Game_withIdealFiftyFiftyDistribution(setup$$6) {
+  const deck$$2 = IdealFiftyFiftyDistribution$$$generate(setup$$6);
   return function (info$$27) {
-    return Composition$$$compositeStrategy(setup$$6, info$$27);
+    return GameMode$$$cardDeckGame(deck$$2, info$$27);
   };
 }
-function SimulationStages$$$stage2Game_v5_withFullIndividualHistory(_setup$$5) {
-  var challengeTypeFilter$$5;
-  const setup$$7 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, (challengeTypeFilter$$5 = null, function (info$$30) {
-    return GameMode$$$highestEuOnDifferentColorGameForInvidualAgent(challengeTypeFilter$$5, info$$30);
-  }));
+function SimulationStages$$$stage2Game_v2_AllEncounter(_setup$$4) {
+  const setup$$7 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$highestExpectedValueOnDifferentColorGame);
   return function (info$$31) {
     return Composition$$$compositeStrategy(setup$$7, info$$31);
   };
 }
-function SimulationStages$$$stage2Game_v5_withFullIndividualHistory_NonCached(setup$$8) {
-  var challengeTypeFilter$$6;
-  const setup$$9 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, (challengeTypeFilter$$6 = null, function (info$$34) {
-    return GameMode$$$highestEuOnDifferentColorGameForInvidualAgentNonCached(challengeTypeFilter$$6, info$$34);
-  }));
+function SimulationStages$$$stage2Game_v3_keepSameAsSameColorStrategy(_setup$$5) {
+  const setup$$8 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$keepSameStrategy, GameMode$$$highestExpectedValueOnDifferentColorGame);
   return function (info$$35) {
-    return Composition$$$compositeStrategy(setup$$9, info$$35);
+    return Composition$$$compositeStrategy(setup$$8, info$$35);
   };
 }
-function SimulationStages$$$stage3Game(setup$$10) {
-  const setup$$11 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$keepSameStrategy, GameMode$$$highestExpectedValueOnDifferentColorGame);
-  return function (info$$38) {
-    return Composition$$$compositeStrategy(setup$$11, info$$38);
+function SimulationStages$$$stage2Game_v4_dependingHawksWithinColorSegmentAsSameColorStrategy(_setup$$6) {
+  const setup$$9 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, ExtraGameModes$$$dependingHawksWithinColorSegment, GameMode$$$highestExpectedValueOnDifferentColorGame);
+  return function (info$$39) {
+    return Composition$$$compositeStrategy(setup$$9, info$$39);
   };
 }
-function SimulationStages$$$stage3Game_onBasedOfLastEncounterWithOpponentColor(setup$$12) {
-  const setup$$13 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$onBasedOfLastEncounterWithOpponentColor, GameMode$$$onBasedOfLastEncounterWithOpponentColor);
-  return function (info$$42) {
-    return Composition$$$compositeStrategy(setup$$13, info$$42);
+function SimulationStages$$$stage2Game_v5_withFullIndividualHistory(_setup$$7) {
+  var challengeTypeFilter$$5;
+  const setup$$10 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, (challengeTypeFilter$$5 = null, function (info$$43) {
+    return GameMode$$$highestEuOnDifferentColorGameForInvidualAgent(challengeTypeFilter$$5, info$$43);
+  }));
+  return function (info$$44) {
+    return Composition$$$compositeStrategy(setup$$10, info$$44);
   };
+}
+function SimulationStages$$$stage2Game_v5_withFullIndividualHistory_NonCached(setup$$11) {
+  var challengeTypeFilter$$6;
+  const setup$$12 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, (challengeTypeFilter$$6 = null, function (info$$48) {
+    return GameMode$$$highestEuOnDifferentColorGameForInvidualAgentNonCached(challengeTypeFilter$$6, info$$48);
+  }));
+  return function (info$$49) {
+    return Composition$$$compositeStrategy(setup$$12, info$$49);
+  };
+}
+function SimulationStages$$$stage3Game(setup$$13) {
+  const setup$$14 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$keepSameStrategy, GameMode$$$highestExpectedValueOnDifferentColorGame);
+  return function (info$$53) {
+    return Composition$$$compositeStrategy(setup$$14, info$$53);
+  };
+}
+function SimulationStages$$$stage3Game_onBasedOfLastEncounterWithOpponentColor(setup$$15) {
+  const setup$$16 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$onBasedOfLastEncounterWithOpponentColor, GameMode$$$onBasedOfLastEncounterWithOpponentColor);
+  return function (info$$58) {
+    return Composition$$$compositeStrategy(setup$$16, info$$58);
+  };
+}
+const SimulationStageNames$$$AllPlayDove = "AllPlayDove";
+const SimulationStageNames$$$AllPlayHawk = "AllPlayHawk";
+const SimulationStageNames$$$Random = "RandomFiftyFifty";
+const SimulationStageNames$$$GuaranteedFiftyFifty = "IdealFiftyFifty";
+const SimulationStageNames$$$ProbabilisticNSME = "ProbabilisticNSME";
+const SimulationStageNames$$$GuaranteedNSME = "GuaranteedNSME";
+const SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory = "HighestExpectedValueOnBaseOfHistory";
+const SimulationStageOptions$$$AllOptions = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_4__["ofArray"])([new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["StageStrategyFnOptions"]("All play Dove", SimulationStageNames$$$AllPlayDove, Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["uncurry"])(2, (() => {
+  const fixedStrategy$$2 = new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove");
+  return function (_setup$$8) {
+    return SimulationStages$$$allPlay(fixedStrategy$$2, _setup$$8);
+  };
+})())), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["StageStrategyFnOptions"]("All play Hawk", SimulationStageNames$$$AllPlayHawk, Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["uncurry"])(2, (() => {
+  const fixedStrategy$$3 = new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk");
+  return function (_setup$$9) {
+    return SimulationStages$$$allPlay(fixedStrategy$$3, _setup$$9);
+  };
+})())), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["StageStrategyFnOptions"]("Random (Hawk probability = 0.5)", SimulationStageNames$$$Random, Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["uncurry"])(2, SimulationStages$$$simulation_setup_random)), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["StageStrategyFnOptions"]("Ideal 50%/50% distribution", SimulationStageNames$$$GuaranteedFiftyFifty, Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["uncurry"])(2, SimulationStages$$$stage1Game_withIdealFiftyFiftyDistribution)), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["StageStrategyFnOptions"]("NMSE strategy", SimulationStageNames$$$ProbabilisticNSME, Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["uncurry"])(2, SimulationStages$$$stage1Game)), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["StageStrategyFnOptions"]("Ideal NMSE distribution", SimulationStageNames$$$GuaranteedNSME, Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["uncurry"])(2, SimulationStages$$$stage1Game_withIdealNMSEDistribution)), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["StageStrategyFnOptions"]("Highest expected value (individual history)", SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory, Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["uncurry"])(2, SimulationStages$$$stage2Game_v5_withFullIndividualHistory))]);
+function SimulationStageOptions$$$getFn(name) {
+  var list;
+  return Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["curry"])(2, (list = SimulationStageOptions$$$AllOptions, (Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_4__["find"])(function predicate(o) {
+    return o.Name === name;
+  }, list))).StrategyInitFn);
+}
+function Model$002ESimulationFrame$$SimulationFrame$002Eget_StrategyInitFn(this$) {
+  return SimulationStageOptions$$$getFn(this$.StrategyInitFnName);
+}
+function Model$002EGameSetup$$GameSetup$002EToInitialGameState(this$$$1) {
+  const payoffMatrix = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameSetup$$get_PayoffMatrix"])(this$$$1);
+  let plannedRounds;
+  let list$$2;
+  const list$$1 = this$$$1.SimulationFrames;
+  list$$2 = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_4__["filter"])(function predicate$$1(f) {
+    return f.RoundCount > 0;
+  }, list$$1);
+  plannedRounds = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_4__["collect"])(function mapping(frame) {
+    const plannedRound = new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["PlannedRound"](frame.SetPayoffForStage(payoffMatrix), Model$002ESimulationFrame$$SimulationFrame$002Eget_StrategyInitFn(frame)(this$$$1.GameParameters), frame.StageName, frame.MayUseColor);
+    return Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_4__["replicate"])(frame.RoundCount, plannedRound);
+  }, list$$2);
+  return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameState"](payoffMatrix, plannedRounds, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameHistory"](0, "Rounds", []));
 }
 
 /***/ }),
@@ -47366,7 +48225,7 @@ function Model$002EGameRound$$GameRound$002Eget_FullyDominatingColor(this$$$15) 
     case 0:
       {
         const all$$1 = matchValue$$2[2] | 0;
-        return new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["Color"](1, "Red");
+        return new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["Color"](0, "Blue");
       }
 
     case 1:
@@ -47387,7 +48246,7 @@ function Model$002EGameRound$$GameRound$002Eget_FullyDominatingColor(this$$$15) 
           case 0:
             {
               const all$$3 = matchValue$$2[2] | 0;
-              return new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["Color"](0, "Blue");
+              return new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["Color"](1, "Red");
             }
 
           case 1:
