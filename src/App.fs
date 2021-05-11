@@ -27,13 +27,13 @@ let init () =
                 PayoffMatrix = FromRewardAndCost (10.0, 20.0)
             }
             SimulationFrames = [
-                {
-                    SimulationFrame.RoundCount = 1
-                    SetPayoffForStage = id
-                    StageName = "Stage 1"
-                    StrategyInitFnName = SimulationStageNames.Random
-                    MayUseColor = true
-                }
+//                {
+//                    SimulationFrame.RoundCount = 1
+//                    SetPayoffForStage = id
+//                    StageName = "Stage 1"
+//                    StrategyInitFnName = SimulationStageNames.Random
+//                    MayUseColor = true
+//                }
                 {
                      SimulationFrame.RoundCount = 100
                      SetPayoffForStage = id

@@ -14,6 +14,7 @@ module Composition =
             DifferentColorStrategy: GameInformation -> Strategy
         }
 
+
     let compositeStrategy (setup: CompositeStrategySetup) (info: GameInformation) =
         match (info.HistoryView.History.HasHistory, info.OpponentColor) with
         | (false, opponentColor) when opponentColor <> info.Agent.Color ->
@@ -76,7 +77,7 @@ module GameMode =
         | (_, 0) -> Dove
         | _ -> nashMixedStrategyEquilibriumGameFromPayoffParameters info
 
-    let highestEuOnDifferentColorGameForInvidualAgent (challengeTypeFilter: ChallengeType option) (info: GameInformation): Strategy =
+    let highestEvOnDifferentColorGameForIndividualAgent (challengeTypeFilter: ChallengeType option) (info: GameInformation): Strategy =
             let payoff = info.PayoffMatrix
             let history = info.HistoryView
             let opposingColorStats =
@@ -105,7 +106,39 @@ module GameMode =
             | diff when diff > 0.0 -> Hawk
             | _  -> Dove
 
-    let highestEuOnDifferentColorGameForInvidualAgentNonCached (challengeTypeFilter: ChallengeType option) (info: GameInformation): Strategy =
+    let highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics (externalStatsHawkPortion: float) (info: GameInformation): Strategy =
+        let payoff = info.PayoffMatrix
+        let history = info.HistoryView
+        let pHawk =
+            if info.HistoryView.History.HasHistory then
+                let opposingColor = history.StrategyStatsFor(info.Agent, info.OpponentColor)
+                match opposingColor.TotalN with
+                | 0 -> externalStatsHawkPortion
+                | _ -> opposingColor.HawkPortion
+            else externalStatsHawkPortion
+
+        let pDove = 1.0 - pHawk;
+
+        // Calculate expected payoff for playing hawk and for playing dove
+        // In payoff.GetMyPayoff the first param is my move, and the second is opponent move
+        // E.g. for V = 10, C = 20 payoff.GetMyPayoff (Hawk, Hawk) return -5 (= (V-C)/2) and payoff.GetMyPayoff(Dove, Hawk) returns 10 (0)
+        let evHawk = pHawk * payoff.GetMyPayoff (Hawk, Hawk) +
+                     pDove * payoff.GetMyPayoff (Hawk, Dove)
+        let evDove = pHawk * payoff.GetMyPayoff (Dove, Hawk) +
+                     pDove * payoff.GetMyPayoff (Dove, Dove)
+
+        match (evHawk - evDove) with
+        // When you have expected value for playing
+        // hawk and playing dove are equal
+        // choose randomly
+        | 0.0 -> randomChoiceGame info
+        // if expected payoff for playing hawk is better, play hawk
+        // otherwise play dove
+        | diff when diff > 0.0 -> Hawk
+        | _  -> Dove
+
+
+    let highestEvOnDifferentColorGameForIndividualAgent_NonCached (challengeTypeFilter: ChallengeType option) (info: GameInformation): Strategy =
             let payoff = info.PayoffMatrix
             let history = info.HistoryView.History
             let opposingColorStats =
@@ -113,7 +146,7 @@ module GameMode =
                 | None -> history.StrategyStatsFor(info.Agent, info.OpponentColor)
                 | Some challengeType -> history.StrategyStatsFor(info.Agent, challengeType, info.OpponentColor)
 
-            let pHawk = opposingColorStats.HawkPortion // = Hawk count / total actors within color segement
+            let pHawk = opposingColorStats.HawkPortion // = Hawk count / total actors within color segment
             let pDove = opposingColorStats.DovePortion
 
             // Calculate expected payoff for playing hawk and for playing dove
@@ -243,11 +276,31 @@ module SimulationStages =
 
     let stage1Game (_setup: GameParameters) = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
 
+    // let highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStats (hawkPortion: float) (_setup: GameParameters) =
+    //    GameMode.highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics hawkPortion
+
+    let highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStats (hawkPortion: float) (_setup: GameParameters) =
+        Composition.compositeStrategy {
+            SameColorNoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+            SameColorStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+            DifferentColorNoHistoryStrategy = GameMode.highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics hawkPortion
+            DifferentColorStrategy = GameMode.highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics hawkPortion
+        }
+
+    let highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStatsIsNMSE (setup: GameParameters) =
+        Composition.compositeStrategy {
+            SameColorNoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+            SameColorStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
+            DifferentColorNoHistoryStrategy = GameMode.highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics setup.PayoffMatrix.``Change of hawk (NMSE)``
+            DifferentColorStrategy = GameMode.highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics setup.PayoffMatrix.``Change of hawk (NMSE)``
+        }
+
+        //GameMode.highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics hawkPortion
     let simulation_setup_random (_setup: GameParameters) = Composition.compositeStrategy {
             SameColorNoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
-            DifferentColorNoHistoryStrategy = GameMode.randomChoiceGame            
             SameColorStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
-            DifferentColorStrategy = GameMode.randomChoiceGame 
+            DifferentColorNoHistoryStrategy = GameMode.randomChoiceGame
+            DifferentColorStrategy = GameMode.randomChoiceGame
         }
 
     let stage2Game (_setup: GameParameters) = Composition.compositeStrategy {
@@ -293,7 +346,7 @@ module SimulationStages =
                 DifferentColorNoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
                 
                 SameColorStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
-                DifferentColorStrategy = GameMode.highestEuOnDifferentColorGameForInvidualAgent None
+                DifferentColorStrategy = GameMode.highestEvOnDifferentColorGameForIndividualAgent None
             }
 
     let stage2Game_v5_withFullIndividualHistory_NonCached (setup: GameParameters) =
@@ -301,7 +354,7 @@ module SimulationStages =
             SameColorNoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
             DifferentColorNoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
             SameColorStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
-            DifferentColorStrategy = GameMode.highestEuOnDifferentColorGameForInvidualAgentNonCached None
+            DifferentColorStrategy = GameMode.highestEvOnDifferentColorGameForIndividualAgent_NonCached None
         }
         
     let stage3Game (setup: GameParameters) =
@@ -329,28 +382,51 @@ module SimulationStageNames =
     let ProbabilisticNSME = "ProbabilisticNSME"
     let GuaranteedNSME = "GuaranteedNSME"
     let HighestExpectedValueOnBasedOfHistory = "HighestExpectedValueOnBaseOfHistory"
-
+    let HighestExpectedValueOnBasedOfHistory_AllDove = "HighestExpectedValueOnBaseOfHistory_AllDoves"
+    let HighestExpectedValueOnBasedOfHistory_AllHawk = "HighestExpectedValueOnBaseOfHistory_AllHawks"
+    let HighestExpectedValueOnBasedOfHistory_50PercentHawk = "HighestExpectedValueOnBaseOfHistory_50%Hawks"
+    let HighestExpectedValueOnBasedOfHistory_NsmeHawk = "HighestExpectedValueOnBaseOfHistory_NmseHawks"
     // let GuaranteedNSME = "HighestExpectedValueOnBaseOfHistory"
 
 
 module SimulationStageOptions =
     let AllOptions =
         [
+//            {
+//                StageStrategyFnOptions.Name = SimulationStageNames.AllPlayDove
+//                DisplayName = "All play Dove"
+//                StrategyInitFn = SimulationStages.allPlay Strategy.Dove
+//            }
+//            {
+//                StageStrategyFnOptions.Name = SimulationStageNames.AllPlayHawk
+//                DisplayName = "All play Hawk"
+//                StrategyInitFn = SimulationStages.allPlay Strategy.Hawk
+//            }
+//            {
+//                StageStrategyFnOptions.Name = SimulationStageNames.Random
+//                DisplayName = "Random (Hawk probability = 0.5)"
+//                // (50% change to play Hawk for each agent)
+//                StrategyInitFn = SimulationStages.simulation_setup_random
+//            }
             {
-                StageStrategyFnOptions.Name = SimulationStageNames.AllPlayDove
-                DisplayName = "All play Dove"
-                StrategyInitFn = SimulationStages.allPlay Strategy.Dove
+                StageStrategyFnOptions.Name = SimulationStageNames.HighestExpectedValueOnBasedOfHistory_AllDove
+                DisplayName = "Hightest EV - External stats all play Dove"
+                StrategyInitFn = SimulationStages.highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStats 0.0
             }
             {
-                StageStrategyFnOptions.Name = SimulationStageNames.AllPlayHawk
-                DisplayName = "All play Hawk"
-                StrategyInitFn = SimulationStages.allPlay Strategy.Hawk
+                StageStrategyFnOptions.Name = SimulationStageNames.HighestExpectedValueOnBasedOfHistory_AllHawk
+                DisplayName = "Hightest EV - External stats all play Hawk"
+                StrategyInitFn = SimulationStages.highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStats 1.0
             }
             {
-                StageStrategyFnOptions.Name = SimulationStageNames.Random
-                DisplayName = "Random (Hawk probability = 0.5)"
-                // (50% change to play Hawk for each agent)
-                StrategyInitFn = SimulationStages.simulation_setup_random
+                StageStrategyFnOptions.Name = SimulationStageNames.HighestExpectedValueOnBasedOfHistory_50PercentHawk
+                DisplayName = "Hightest EV - External stats 50% play Hawk"
+                StrategyInitFn = SimulationStages.highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStats 0.5
+            }
+            {
+                StageStrategyFnOptions.Name = SimulationStageNames.HighestExpectedValueOnBasedOfHistory_NsmeHawk
+                DisplayName = "Hightest EV - External stats (V / C) play Hawk"
+                StrategyInitFn = SimulationStages.highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStatsIsNMSE
             }
             {
                 StageStrategyFnOptions.Name = SimulationStageNames.GuaranteedFiftyFifty

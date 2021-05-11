@@ -110,6 +110,17 @@ type PayoffMatrixType =
         with get() = match this with | FromRewardAndCost (reward, _) -> reward
     member this.``Cost (C)``
         with get() = match this with | FromRewardAndCost (_, cost) -> cost
+    member this.``Change of hawk (NMSE)`` =
+            let C = this.``Cost (C)``
+            let V = this.``Revard (V)``
+            match C with
+            | 0.0 -> 1.0
+            | _ ->
+                let portionOfHawks = V / C
+                if (portionOfHawks > 1.0) then
+                    1.0
+                else
+                    portionOfHawks
     member this.ToMatrix ()  =
         match this with
         | FromRewardAndCost (revard, cost) ->
