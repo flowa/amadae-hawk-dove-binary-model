@@ -1,6 +1,8 @@
 ﻿// Learn more about F# at http://fsharp.org
 
 open System
+open System.IO
+open System.Text.Json.Serialization
 open FSharp.Control
 open FSharp.Json
 open Model
@@ -8,21 +10,39 @@ open Simulation
 open Statistics.ModelExtensions
 open Statistics.RoundStats
 open ModelExtensions
-
+open Thoth.Json
+open System.IO.Compression
 let runSimulation (setup: GameSetup) =
     let initialGameState = setup.ToInitialGameState()
     let initialAgents = setup.GenerateAgents()
     let afterSimulation = initialGameState.SimulateRounds initialAgents
     afterSimulation
 
-let initializationRounds = 1
-type SimulationSingleRunSetup = {
-    Runs: int
-    AgentCount: int
-    RedAgentPercentage: int
-    ExpectedHawkPortion: float
-    State2Rounds: int
-}
+type SimulationSingleRunSetup =
+    {
+        Id : string
+        Runs: int
+        AgentCount: int
+        RedAgentPercentage: int
+        ExpectedHawkPortion: float
+        Stage1: (int*string) option
+        Stage2: int*string
+    }
+    member this.Stage1Rounds =
+        match this.Stage1 with
+        | Some (round, _) -> round
+        | None -> 0
+    member this.Stage1Mode =
+        match this.Stage1 with
+        | Some (_, mode) -> mode
+        | None -> "None"
+
+    member this.Stage2Rounds =
+        match this.Stage2 with
+        | (round, _) -> round
+    member this.Stage2Mode =
+        match this.Stage2 with
+        | (_, mode) -> mode
 
 let generateGameSetup (simulationSetup: SimulationSingleRunSetup)  =
     let ``Reward (V)`` = 10.0 
@@ -30,39 +50,48 @@ let generateGameSetup (simulationSetup: SimulationSingleRunSetup)  =
         match simulationSetup.ExpectedHawkPortion with
         | p when p >= 1.0 || p <= 0.0 -> raise (ArgumentException("expectedHawkPortion must be in range ]0,1["))
         | _ -> ``Reward (V)`` / simulationSetup.ExpectedHawkPortion
+    let modeMapper stageName (roundCount: int, strategyMode: string): SimulationFrame =
+        {
+            SimulationFrame.RoundCount = roundCount
+            StageName = stageName // "Simulation - Stage 2"
+            StrategyInitFnName = strategyMode
+            MayUseColor = true
+            SetPayoffForStage = id
+        }
+
     {
         GameParameters = {
             AgentCount = simulationSetup.AgentCount
             PortionOfRed = simulationSetup.RedAgentPercentage
             PayoffMatrix = PayoffMatrixType.FromRewardAndCost (``Reward (V)``, ``Cost (C)``)
         }
-        SimulationFrames = [
-            {
-                SimulationFrame.RoundCount = initializationRounds
-                StageName = "Stage 1"
-                StrategyInitFnName = SimulationStageNames.GuaranteedFiftyFifty
-                MayUseColor = true
-                SetPayoffForStage = id
-            }
-            {
-                SimulationFrame.RoundCount = simulationSetup.State2Rounds
-                StageName = "Stage 2"
-                StrategyInitFnName = SimulationStageNames.HighestExpectedValueOnBasedOfHistory
-                MayUseColor = true
-                SetPayoffForStage = id
-            }
-        ]
+        SimulationFrames =
+            match simulationSetup.Stage1 with
+            | None ->
+                [
+                    modeMapper "Stage 2" simulationSetup.Stage2
+                ]
+            | Some stage1 ->
+                [
+                    modeMapper "Stage 1" stage1
+                    modeMapper "Stage 2" simulationSetup.Stage2
+                ]
     }
-    
+
 type SimulationRunResultStats =
     {
+        Id: string
         Runs: int
         AgentCount: int
         RedAgentPercentage: int
+        Stage1Rounds: int
+        Stage1Mode: string
+        Stage2Rounds: int
+        Stage2Mode: string
         HawkPortion: float
         PayoffReward: float
         PayoffCost: float
-        State2Rounds: int
+
         FirstRoundHawkCountAvg: float
         FirstRoundDoveCountAvg: float
         //
@@ -114,20 +143,35 @@ type SimulationRunResultStats =
         First8ConsecutiveSeparationOfColors_DominatedByBlue_P: float
         First8ConsecutiveSeparationOfColors_DominatedByNone_Count: int
         First8ConsecutiveSeparationOfColors_DominatedByNone_P: float
-    
     }
-    member this.saveToFile ()  =
+    member this.saveToFile (simulationHistories: string list list)  =
+
         let json = Json.serialize this
-        let path = (sprintf "output/runs_%i-s2rounds_%i-agents_%i-redPercent_%i.NMSE_%f.json"
-                         this.Runs
-                         this.State2Rounds
-                         this.AgentCount
-                         this.RedAgentPercentage
-                         this.HawkPortion)
+        let hawks = (int) (this.HawkPortion * 100.0)
+        let fileBase = $"%s{this.Id}_RN%i{this.Runs}.%s{this.Stage2Mode}.s2N%i{this.Stage2Rounds}.agent%i{this.AgentCount}.R%i{this.RedAgentPercentage}.H%i{hawks}"
+        let path = $"output/%s{fileBase}.json"
+        let historyEntryPath (simulationIndex: int) = $"%s{fileBase}.%i{simulationIndex}.history.csv"
+        let historyZipPAth = $"output/%s{fileBase}.history.zip"
+
         if (not (System.IO.Directory.Exists("output"))) then
              System.IO.Directory.CreateDirectory("output")
              |> (fun d -> printfn $"created folder %s{d.FullName}")
+        if (not (System.IO.Directory.Exists("output/data"))) then
+             System.IO.Directory.CreateDirectory("output/data")
+             |> (fun d -> printfn $"created folder %s{d.FullName}")
         System.IO.File.WriteAllText(path, json)
+
+
+        use zipToOpen = new FileStream(historyZipPAth, FileMode.Create)
+        use archive = new ZipArchive(zipToOpen, ZipArchiveMode.Create)
+
+        let saveHistoryFile (gameIndex: int) (dataRows: string list) =
+            let simulationZip = archive.CreateEntry(historyEntryPath gameIndex)
+            use writer = new StreamWriter(simulationZip.Open())
+            writer.WriteLine "Round index,Me color+id,Other color+id,Choices"
+            dataRows |> List.iter writer.WriteLine
+
+        simulationHistories |> List.iteri saveHistoryFile
 
 module SimStats =
     let safeAvg (data: int list) =
@@ -169,19 +213,43 @@ module SimStats =
     let noDominanceP (runs: int) (data: Color option list)  =
         (float) (noDominanceCount data) / (float) runs
         
-    let firstRoundsWithNConsecutiveSeparatedRounds (n: int) (games: GameState list) =
+    let firstRoundsWithNConsecutiveSeparatedRounds (initializationRounds) (n: int) (games: GameState list) =
         let start = DateTime.Now 
         let res =
             games
             |> List.map (fun r -> r.ResolvedRounds.FirstRoundWithNConsecutiveRoundOfSeparatedColors n)
             |> List.filter (fun v -> v.IsSome)
             |> List.map (fun v -> v.Value - initializationRounds)
-        printfn "📊\t firstRoundsWithNConsecutiveSeparatedRounds N=%i; Took=%O" n (DateTime.Now - start)
+        printfn $"📊\t firstRoundsWithNConsecutiveSeparatedRounds N=%i{n}; Took={DateTime.Now - start}"
         res
+    let compressHistory (games: GameState) : string list =
+        let compressResolvedChallenge (roundIndex: int)  (challenge: ResolvedChallenge) : string list =
+            let (p1, p2) = challenge.Players
+            let compStrategy (s : Strategy option) =
+                match s with
+                | Some Hawk -> "H"
+                | Some Dove -> "D"
+                | None -> "N"
+            let compColor (c : Color) =
+                match c with
+                | Blue -> "B"
+                | Red -> "R"
+
+            let compEncounter (me: Agent) (other: Agent) = $"{roundIndex},{compColor me.Color}%x{me.Id},{compColor other.Color}%x{other.Id},{compStrategy me.Strategy}{compStrategy other.Strategy}"
+            [ (compEncounter p1 p2)
+              (compEncounter p2 p1) ]
+        let compressRound (roundIndex: int) (round: GameRound) : string list =
+            round.ToList()
+            |> List.map (compressResolvedChallenge roundIndex)
+            |> List.concat
+
+        games.ResolvedRounds.Unwrap()
+        |> Seq.mapi compressRound
+        |> List.concat
 
 let runSimulationsWithOneSetup (simulationRunSetup: SimulationSingleRunSetup)  =
     let start = DateTime.Now
-    printfn "\n▶️\t Starting (R=%i; NMSE=%f) " simulationRunSetup.RedAgentPercentage simulationRunSetup.ExpectedHawkPortion
+    printfn $"\n▶️\t Starting (R=%i{simulationRunSetup.RedAgentPercentage}; NMSE=%f{simulationRunSetup.ExpectedHawkPortion}) "
     let setup: GameSetup = generateGameSetup simulationRunSetup
     let results = 
         seq { 
@@ -189,13 +257,7 @@ let runSimulationsWithOneSetup (simulationRunSetup: SimulationSingleRunSetup)  =
                 if (i % 5) = 0 then printf "...%i" i
                 yield runSimulation setup
         }  |> Seq.toList
-    printfn "\n⏹️️\t Simulations run completed. Took=%O" (DateTime.Now - start)
-//    printfn "\nPayoff: %O" setup.PayoffMatrix
-//    printfn "\nLast round: %O"
-//        (results
-//         |> List.last
-//         |> (fun (r: GameState) -> r.ResolvedRounds)
-//         |> (fun (Rounds c) -> Array.last c))
+    printfn $"\n⏹️️\t Simulations run completed. Took={DateTime.Now - start}"
 
     let firstRoundDoveCountAvg =
             results
@@ -203,6 +265,7 @@ let runSimulationsWithOneSetup (simulationRunSetup: SimulationSingleRunSetup)  =
                 let stat = game.ResolvedRounds.FirstRoundChallenges.StrategyStats ()
                 (float) stat.DoveN)
             |> List.average
+
     let firstRoundHawkCountAvg =
         results
         |> List.map (fun game ->
@@ -211,27 +274,34 @@ let runSimulationsWithOneSetup (simulationRunSetup: SimulationSingleRunSetup)  =
         |> List.average
 
     let startCalc = DateTime.Now 
-    let firstSeparations = SimStats.firstRoundsWithNConsecutiveSeparatedRounds 1 results        
-    let first2ConsecutiveSeparation = SimStats.firstRoundsWithNConsecutiveSeparatedRounds 2 results
-    let first4ConsecutiveSeparation = SimStats.firstRoundsWithNConsecutiveSeparatedRounds 4 results  
-    let first8ConsecutiveSeparation = SimStats.firstRoundsWithNConsecutiveSeparatedRounds 8 results  
-    printfn "\n⏹️️\t Separation calculated completed. Took=%O" (DateTime.Now - startCalc)
+    let firstSeparations = SimStats.firstRoundsWithNConsecutiveSeparatedRounds simulationRunSetup.Stage1Rounds 1 results
+    let first2ConsecutiveSeparation = SimStats.firstRoundsWithNConsecutiveSeparatedRounds simulationRunSetup.Stage1Rounds 2 results
+    let first4ConsecutiveSeparation = SimStats.firstRoundsWithNConsecutiveSeparatedRounds simulationRunSetup.Stage1Rounds 4 results
+    let first8ConsecutiveSeparation = SimStats.firstRoundsWithNConsecutiveSeparatedRounds simulationRunSetup.Stage1Rounds 8 results
+    printfn $"\n⏹️️\t Separation calculated completed. Took={DateTime.Now - startCalc}"
 
     let startCalc = DateTime.Now
     let dominance1Con = results |> List.map (fun r -> r.ResolvedRounds.DominatingColorAfterSeparation 1)
     let dominance2Con = results |> List.map (fun r -> r.ResolvedRounds.DominatingColorAfterSeparation 2)
     let dominance4Con = results |> List.map (fun r -> r.ResolvedRounds.DominatingColorAfterSeparation 4)
     let dominance8Con = results |> List.map (fun r -> r.ResolvedRounds.DominatingColorAfterSeparation 8)
-    printfn "\n⏹️️\t Dominance calculated. Took=%O" (DateTime.Now - startCalc)
+    let simHistories = results |> List.map SimStats.compressHistory
+
+    printfn $"\n⏹️️\t Dominance calculated. Took={DateTime.Now - startCalc}"
 
     let stats: SimulationRunResultStats = {
-        SimulationRunResultStats.HawkPortion = simulationRunSetup.ExpectedHawkPortion
+        SimulationRunResultStats.Id = simulationRunSetup.Id
+        HawkPortion = simulationRunSetup.ExpectedHawkPortion
         RedAgentPercentage = simulationRunSetup.RedAgentPercentage
         AgentCount = simulationRunSetup.AgentCount
+        Stage1Rounds = simulationRunSetup.Stage1Rounds
+        Stage1Mode = simulationRunSetup.Stage1Mode
+        Stage2Rounds = simulationRunSetup.Stage2Rounds
+        Stage2Mode = simulationRunSetup.Stage2Mode
+
         PayoffReward = setup.PayoffMatrix.``Revard (V)``
         PayoffCost = setup.PayoffMatrix.``Cost (C)``
         Runs = simulationRunSetup.Runs
-        State2Rounds = simulationRunSetup.State2Rounds
 
         FirstRoundDoveCountAvg = firstRoundDoveCountAvg
         FirstRoundHawkCountAvg = firstRoundHawkCountAvg
@@ -283,104 +353,116 @@ let runSimulationsWithOneSetup (simulationRunSetup: SimulationSingleRunSetup)  =
         First8ConsecutiveSeparationOfColors_DominatedByNone_Count = dominance8Con |> (SimStats.noDominanceCount)
         First8ConsecutiveSeparationOfColors_DominatedByNone_P =     dominance8Con |> (SimStats.noDominanceP simulationRunSetup.Runs)
      }
-    
-    stats.saveToFile()
-    printfn "\n🏁\t Completed (R=%i,NMSE=%f) took=%O" simulationRunSetup.RedAgentPercentage simulationRunSetup.ExpectedHawkPortion (DateTime.Now - start)
+
+    let startSave = DateTime.Now
+    stats.saveToFile(simHistories)
+    printfn $"\n⏹️️\t Data persisted. Took={DateTime.Now - startSave}"
+    printfn $"\n🏁\t Completed (R=%i{simulationRunSetup.RedAgentPercentage},NMSE=%f{simulationRunSetup.ExpectedHawkPortion}) took={DateTime.Now - start}"
     stats
-    
 
-let runAllSimulationsForARedSetup runs agentCount stage2Rounds redPercent =
-    let setups = seq {
-        for hawkPortion in (0.1)..(0.1)..(0.9) do
-            yield {
-                SimulationSingleRunSetup.Runs = runs
-                AgentCount = agentCount
-                RedAgentPercentage = redPercent
-                ExpectedHawkPortion = hawkPortion
-                State2Rounds = stage2Rounds }
-    }
-    
-    setups
-    |> Seq.map runSimulationsWithOneSetup
-    |> List.ofSeq
 
-let runAllSimulationsForARedSetupAndHaws runs agentCount stage2Rounds redPercents hawkPortions =
+
+
+let runAllSimulationsForARedSetupAndHaws runId runs agentCount stage1 stage2 redPercents hawkPortions =
     let setups = seq {
         for redPercent in redPercents do
             for hawkPortion in hawkPortions do
                 yield {
-                    SimulationSingleRunSetup.Runs = runs
+                    SimulationSingleRunSetup.Id = runId
+                    Runs = runs
                     AgentCount = agentCount
                     RedAgentPercentage = redPercent
                     ExpectedHawkPortion = hawkPortion
-                    State2Rounds = stage2Rounds }
+                    Stage1 = stage1
+                    Stage2 = stage2
+                }
     }
-    
     setups
     |> Seq.map runSimulationsWithOneSetup
     |> List.ofSeq
-    
+
+type CliParams =
+    {
+        RunId: string
+        Runs: int option
+        AgentCount: int option
+        Stage1: (int * string) option
+        Stage2: (int * string) option
+        RedSetup: int list option
+        HawkSetup: float list option
+    }
+    static member Empty =
+        {
+            RunId = Guid.NewGuid().ToString()
+            Runs = None
+            AgentCount = None
+            Stage1 = None
+            Stage2 = None
+            RedSetup = None
+            HawkSetup = None
+        }
+    member this.Call() =
+        match this with
+        | {
+            RunId = runId
+            Runs = Some runsTyped
+            AgentCount = Some agentsTyped
+            Stage1 = maybeStage1
+            Stage2 = Some stage2
+            RedSetup = Some redSetup
+            HawkSetup = Some hawkSetup
+           } -> printfn "Run simulation with setup: \n\n %O \n\n" this
+                let start = DateTime.Now
+                runAllSimulationsForARedSetupAndHaws runId runsTyped agentsTyped maybeStage1 stage2 redSetup hawkSetup
+                |> ignore
+                printfn "Simulation completed. Took %O" (DateTime.Now - start)
+                0
+        | _ -> printfn "Invalid or missing params"
+               printfn $"Parsed: \n\n {this} \n\n
+                    Usage
+                    =====
+                    dotnet run id=<id:string> runs=<runsCount: int> agents=<agents: int> stage1=<stage1Round: int>*<mode:string> stage2=<stage2Round: int>*<mode:string> reds=<redAgentSetup: int list> hawks=<expectedHawkPercents: int list>
+
+                    id and stage1 are optional. Other parameters are mandatory
+
+                    Example
+                    =======
+                    dotnet run id=test runs=100 agents=200 stage2=250*stage2_nmse red=10;50;90 hawk=10;30;50;70;90
+                    "
+               1
+
 [<EntryPoint>]
 let main argv =
     let start = DateTime.Now
     printfn "Hawk-Dove simulation runner"
     printfn "==========================="
-    
-    let isIntRe = System.Text.RegularExpressions.Regex("^[0-9]+$")
-    let isIntListRe = System.Text.RegularExpressions.Regex("^[0-9;]+$")
-    match argv with
-    | [|  "once"; runs; agents; stage2Rounds; redAgentPercent; hawkPercent |]
-        when isIntRe.IsMatch(runs) &&
-             isIntRe.IsMatch(agents) &&
-             isIntRe.IsMatch(stage2Rounds) &&
-             isIntRe.IsMatch(redAgentPercent) &&
-             isIntRe.IsMatch(hawkPercent) ->
-        let runsTyped = Int32.Parse(runs)
-        let agentsTyped = Int32.Parse(agents)
-        let redsTyped = Int32.Parse(redAgentPercent)
-        let stage2RoundsTyped = Int32.Parse(stage2Rounds)
-        let redAgentPercentTyped = Double.Parse(hawkPercent) / 100.0
-        let res = runSimulationsWithOneSetup {
-            SimulationSingleRunSetup.Runs = runsTyped
-            AgentCount = agentsTyped
-            RedAgentPercentage = redsTyped
-            ExpectedHawkPortion = redAgentPercentTyped
-            State2Rounds = stage2RoundsTyped
-        }
-        printfn "Result: %O" res
-        0
-    
-    | [|  runs; agents; stage2Rounds; redAgentSetup; expectedHawkPercents |]
+    let accParse (this: CliParams) (str: string): CliParams =
+        let parseIntList (listStr: string) =
+            listStr.Split(",")
+            |> Seq.map Int32.Parse
+            |> List.ofSeq
+        let parseHawkSetup (listStr: string)=
+            listStr.Split(",")
+            |> Seq.map Int32.Parse
+            |> Seq.map (fun percents -> (float) percents / 100.0)
+            |> List.ofSeq
+        let parseMode (str: string) =
+            (SimulationStageOptions.AllOptions
+            |> List.tryFind (fun (o: StageStrategyFnOptions) -> o.Name = str)
+            |> Option.map (fun o -> o.Name)
+            )
 
-        when isIntRe.IsMatch(runs) &&
-             isIntRe.IsMatch(agents) &&
-             isIntRe.IsMatch(stage2Rounds) &&
-             isIntListRe.IsMatch(redAgentSetup) && 
-             isIntListRe.IsMatch(expectedHawkPercents) ->
-        let runsTyped = Int32.Parse(runs)
-        let agentsTyped = Int32.Parse(agents)
-        let stage2Rounds = Int32.Parse(stage2Rounds)
-        let redAgents = redAgentSetup.Split(";")
-                        |> Seq.map Int32.Parse
-                        |> List.ofSeq
-        let expectedHawkPercents = expectedHawkPercents.Split(";")
-                                   |> Seq.map Int32.Parse
-                                   |> Seq.map (fun percents -> (float) percents / 100.0)
-                                   |> List.ofSeq
-        printfn "Start simulation runs = %i; agents = %i; redAgentSetup = %O" runsTyped agentsTyped redAgents
-        runAllSimulationsForARedSetupAndHaws runsTyped agentsTyped stage2Rounds redAgents expectedHawkPercents  
-        |> ignore
-        printfn "Simulation completed. Took %O" (DateTime.Now - start)
-        0
-    | _ ->
-        printfn "Invalid command parameters.
-        
-        Usage
-        =====
-        dotnet run <runsCount: int> <agents: int> <stage2Round: int> <redAgentSetup: int list> <expectedHawkPercents: int list>
-        
-        Example
-        =======
-        dotnet run 100 200 250 \"10;50;90\" \"10;30;50;70;90\"
-        "
-        1
+        match str.Split('=','-') with
+        | [|"id"; id |] -> { this with RunId = id}
+        | [|"runs"; runCount |] -> { this with Runs = Some (Int32.Parse runCount) }
+        | [|"agents"; agentCount |] -> { this with AgentCount = Some (Int32.Parse agentCount) }
+        | [|"stage1"; roundCount; mode |] when (parseMode mode) <> None ->
+            { this with Stage1 = Some ((Int32.Parse roundCount), (parseMode mode).Value) }
+        | [|"stage2"; roundCount; mode |] when (parseMode mode) <> None
+         -> { this with Stage2 = Some ((Int32.Parse roundCount), (parseMode mode).Value) }
+        | [|"red"; setup |] -> { this with RedSetup = Some (parseIntList setup) }
+        | [|"hawk"; setup |] -> { this with HawkSetup = Some (parseHawkSetup setup) }
+        | _ -> failwith $"Unexpected cli parameter: %s{str}"
+
+    let setup = argv |> Array.fold accParse CliParams.Empty
+    setup.Call()

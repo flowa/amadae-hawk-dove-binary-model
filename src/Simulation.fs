@@ -421,41 +421,21 @@ module SimulationStages =
         }
 
 module SimulationStageNames =
-    let AllPlayDove = "AllPlayDove"
-    let AllPlayHawk = "AllPlayHawk"
-    let Random = "RandomFiftyFifty"
-    let GuaranteedFiftyFifty = "IdealFiftyFifty"
-    let ProbabilisticNSME = "ProbabilisticNSME"
-    let GuaranteedNSME = "GuaranteedNSME"
-    let HighestExpectedValueOnBasedOfHistory = "HighestExpectedValueOnBaseOfHistory"
-    let HighestExpectedValueOnBasedOfHistory_AllDove = "HighestExpectedValueOnBaseOfHistory_AllDoves"
-    let HighestExpectedValueOnBasedOfHistory_AllHawk = "HighestExpectedValueOnBaseOfHistory_AllHawks"
-    let HighestExpectedValueOnBasedOfHistory_50PercentHawk = "HighestExpectedValueOnBaseOfHistory_50%Hawks"
-    let HighestExpectedValueOnBasedOfHistory_NsmeHawk = "HighestExpectedValueOnBaseOfHistory_NmseHawks"
-    let HighestExpectedValueOnBasedOfHistory_NsmeHawk_UseNashOnExpectedValueTieWhenNoHistory = "HighestExpectedValueOnBaseOfHistory_NmseHawks_UseNashOnExpectedValueTieWhenNoHistory"
-
-    // let GuaranteedNSME = "HighestExpectedValueOnBaseOfHistory"
-
+//    let AllPlayDove = "all_dove"
+//    let AllPlayHawk = "all_hawk"
+//    let GuaranteedNSME = "GuaranteedNSME"
+    let Random = "random"
+    let ProbabilisticNSME = "stage1"
+    let HighestExpectedValueOnBasedOfHistory = "stage2"
+    let HighestExpectedValueOnBasedOfHistory_AllDove = "stage2_dove"
+    let HighestExpectedValueOnBasedOfHistory_AllHawk = "stage2_hawks"
+    let HighestExpectedValueOnBasedOfHistory_50PercentHawk = "stage2_half"
+    let HighestExpectedValueOnBasedOfHistory_NsmeHawk = "stage2_random"
+    let HighestExpectedValueOnBasedOfHistory_NsmeHawk_UseNashOnExpectedValueTieWhenNoHistory = "stage2_nmse"
 
 module SimulationStageOptions =
     let AllOptions =
         [
-//            {
-//                StageStrategyFnOptions.Name = SimulationStageNames.AllPlayDove
-//                DisplayName = "All play Dove"
-//                StrategyInitFn = SimulationStages.allPlay Strategy.Dove
-//            }
-//            {
-//                StageStrategyFnOptions.Name = SimulationStageNames.AllPlayHawk
-//                DisplayName = "All play Hawk"
-//                StrategyInitFn = SimulationStages.allPlay Strategy.Hawk
-//            }
-//            {
-//                StageStrategyFnOptions.Name = SimulationStageNames.Random
-//                DisplayName = "Random (Hawk probability = 0.5)"
-//                // (50% change to play Hawk for each agent)
-//                StrategyInitFn = SimulationStages.simulation_setup_random
-//            }
             {
                 StageStrategyFnOptions.Name = SimulationStageNames.HighestExpectedValueOnBasedOfHistory_AllDove
                 DisplayName = "Hightest EV - External stats all play Dove"
@@ -484,21 +464,9 @@ module SimulationStageOptions =
                 StrategyInitFn = SimulationStages.highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStatsIsNMSE_UseNashOnExpectedValueTieWhenNoHistory
             }
             {
-                StageStrategyFnOptions.Name = SimulationStageNames.GuaranteedFiftyFifty
-                DisplayName = "Ideal 50%/50% distribution"
-                // (50% will play Hawk and rest Dove)"
-                StrategyInitFn = SimulationStages.stage1Game_withIdealFiftyFiftyDistribution
-            }
-            {
                 StageStrategyFnOptions.Name = SimulationStageNames.ProbabilisticNSME
                 DisplayName = "NMSE strategy"
-                // (Reward / Cost change to play Hawk for each agent)"
                 StrategyInitFn = SimulationStages.stage1Game
-            }
-            {
-                StageStrategyFnOptions.Name = SimulationStageNames.GuaranteedNSME
-                DisplayName = "Ideal NMSE distribution"
-                StrategyInitFn = SimulationStages.stage1Game_withIdealNMSEDistribution
             }
             {
                 StageStrategyFnOptions.Name = SimulationStageNames.HighestExpectedValueOnBasedOfHistory
