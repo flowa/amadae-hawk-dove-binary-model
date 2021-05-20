@@ -106,43 +106,50 @@ type SimulationRunResultStats =
         FirstSeparationOfColors_DominatedByBlue_P: float
         FirstSeparationOfColors_DominatedByNone_Count: int
         FirstSeparationOfColors_DominatedByNone_P: float
-        
-        // 
-        First2ConsecutiveSeparationOfColors_Avg: float option
-        First2ConsecutiveSeparationOfColors_Min: int option
-        First2ConsecutiveSeparationOfColors_Max: int option
-        First2ConsecutiveSeparationOfColors_Count: int option
-        First2ConsecutiveSeparationOfColors_P: float option
-        First2ConsecutiveSeparationOfColors_DominatedByRed_Count: int
-        First2ConsecutiveSeparationOfColors_DominatedByRed_P: float
-        First2ConsecutiveSeparationOfColors_DominatedByBlue_Count: int
-        First2ConsecutiveSeparationOfColors_DominatedByBlue_P: float
-        First2ConsecutiveSeparationOfColors_DominatedByNone_Count: int
-        First2ConsecutiveSeparationOfColors_DominatedByNone_P: float
-        // 4 consecutive 
-        First4ConsecutiveSeparationOfColors_Avg: float option
-        First4ConsecutiveSeparationOfColors_Min: int option
-        First4ConsecutiveSeparationOfColors_Max: int option
-        First4ConsecutiveSeparationOfColors_Count: int option
-        First4ConsecutiveSeparationOfColors_P: float option
-        First4ConsecutiveSeparationOfColors_DominatedByRed_Count: int
-        First4ConsecutiveSeparationOfColors_DominatedByRed_P: float
-        First4ConsecutiveSeparationOfColors_DominatedByBlue_Count: int
-        First4ConsecutiveSeparationOfColors_DominatedByBlue_P: float
-        First4ConsecutiveSeparationOfColors_DominatedByNone_Count: int
-        First4ConsecutiveSeparationOfColors_DominatedByNone_P: float
-        // 8 consecutive 
-        First8ConsecutiveSeparationOfColors_Avg: float option
-        First8ConsecutiveSeparationOfColors_Min: int option
-        First8ConsecutiveSeparationOfColors_Max: int option
-        First8ConsecutiveSeparationOfColors_Count: int option
-        First8ConsecutiveSeparationOfColors_P: float option
-        First8ConsecutiveSeparationOfColors_DominatedByRed_Count: int
-        First8ConsecutiveSeparationOfColors_DominatedByRed_P: float
-        First8ConsecutiveSeparationOfColors_DominatedByBlue_Count: int
-        First8ConsecutiveSeparationOfColors_DominatedByBlue_P: float
-        First8ConsecutiveSeparationOfColors_DominatedByNone_Count: int
-        First8ConsecutiveSeparationOfColors_DominatedByNone_P: float
+
+        LastRoundSeparationOfColors_DominatedByRed_Count: int
+        LastRoundSeparationOfColors_DominatedByRed_P: float
+        LastRoundSeparationOfColors_DominatedByBlue_Count: int
+        LastRoundSeparationOfColors_DominatedByBlue_P: float
+        LastRoundSeparationOfColors_DominatedByNone_Count: int
+        LastRoundSeparationOfColors_DominatedByNone_P: float
+
+//        //
+//        First2ConsecutiveSeparationOfColors_Avg: float option
+//        First2ConsecutiveSeparationOfColors_Min: int option
+//        First2ConsecutiveSeparationOfColors_Max: int option
+//        First2ConsecutiveSeparationOfColors_Count: int option
+//        First2ConsecutiveSeparationOfColors_P: float option
+//        First2ConsecutiveSeparationOfColors_DominatedByRed_Count: int
+//        First2ConsecutiveSeparationOfColors_DominatedByRed_P: float
+//        First2ConsecutiveSeparationOfColors_DominatedByBlue_Count: int
+//        First2ConsecutiveSeparationOfColors_DominatedByBlue_P: float
+//        First2ConsecutiveSeparationOfColors_DominatedByNone_Count: int
+//        First2ConsecutiveSeparationOfColors_DominatedByNone_P: float
+//        // 4 consecutive
+//        First4ConsecutiveSeparationOfColors_Avg: float option
+//        First4ConsecutiveSeparationOfColors_Min: int option
+//        First4ConsecutiveSeparationOfColors_Max: int option
+//        First4ConsecutiveSeparationOfColors_Count: int option
+//        First4ConsecutiveSeparationOfColors_P: float option
+//        First4ConsecutiveSeparationOfColors_DominatedByRed_Count: int
+//        First4ConsecutiveSeparationOfColors_DominatedByRed_P: float
+//        First4ConsecutiveSeparationOfColors_DominatedByBlue_Count: int
+//        First4ConsecutiveSeparationOfColors_DominatedByBlue_P: float
+//        First4ConsecutiveSeparationOfColors_DominatedByNone_Count: int
+//        First4ConsecutiveSeparationOfColors_DominatedByNone_P: float
+//        // 8 consecutive
+//        First8ConsecutiveSeparationOfColors_Avg: float option
+//        First8ConsecutiveSeparationOfColors_Min: int option
+//        First8ConsecutiveSeparationOfColors_Max: int option
+//        First8ConsecutiveSeparationOfColors_Count: int option
+//        First8ConsecutiveSeparationOfColors_P: float option
+//        First8ConsecutiveSeparationOfColors_DominatedByRed_Count: int
+//        First8ConsecutiveSeparationOfColors_DominatedByRed_P: float
+//        First8ConsecutiveSeparationOfColors_DominatedByBlue_Count: int
+//        First8ConsecutiveSeparationOfColors_DominatedByBlue_P: float
+//        First8ConsecutiveSeparationOfColors_DominatedByNone_Count: int
+//        First8ConsecutiveSeparationOfColors_DominatedByNone_P: float
     }
     member this.saveToFile (simulationHistories: string list list)  =
 
@@ -171,7 +178,7 @@ type SimulationRunResultStats =
             writer.WriteLine "Round index,Me color+id,Other color+id,Choices"
             dataRows |> List.iter writer.WriteLine
 
-        simulationHistories |> List.iteri saveHistoryFile
+        simulationHistories |> List.take 5 |> List.iteri saveHistoryFile
 
 module SimStats =
     let safeAvg (data: int list) =
@@ -275,16 +282,22 @@ let runSimulationsWithOneSetup (simulationRunSetup: SimulationSingleRunSetup)  =
 
     let startCalc = DateTime.Now 
     let firstSeparations = SimStats.firstRoundsWithNConsecutiveSeparatedRounds simulationRunSetup.Stage1Rounds 1 results
-    let first2ConsecutiveSeparation = SimStats.firstRoundsWithNConsecutiveSeparatedRounds simulationRunSetup.Stage1Rounds 2 results
-    let first4ConsecutiveSeparation = SimStats.firstRoundsWithNConsecutiveSeparatedRounds simulationRunSetup.Stage1Rounds 4 results
-    let first8ConsecutiveSeparation = SimStats.firstRoundsWithNConsecutiveSeparatedRounds simulationRunSetup.Stage1Rounds 8 results
+//    let first2ConsecutiveSeparation = SimStats.firstRoundsWithNConsecutiveSeparatedRounds simulationRunSetup.Stage1Rounds 2 results
+//    let first4ConsecutiveSeparation = SimStats.firstRoundsWithNConsecutiveSeparatedRounds simulationRunSetup.Stage1Rounds 4 results
+//    let first8ConsecutiveSeparation = SimStats.firstRoundsWithNConsecutiveSeparatedRounds simulationRunSetup.Stage1Rounds 8 results
     printfn $"\n⏹️️\t Separation calculated completed. Took={DateTime.Now - startCalc}"
 
     let startCalc = DateTime.Now
     let dominance1Con = results |> List.map (fun r -> r.ResolvedRounds.DominatingColorAfterSeparation 1)
-    let dominance2Con = results |> List.map (fun r -> r.ResolvedRounds.DominatingColorAfterSeparation 2)
-    let dominance4Con = results |> List.map (fun r -> r.ResolvedRounds.DominatingColorAfterSeparation 4)
-    let dominance8Con = results |> List.map (fun r -> r.ResolvedRounds.DominatingColorAfterSeparation 8)
+    let dominanceLastRound =
+        results
+        |> List.map (fun r ->
+             r.ResolvedRounds.Unwrap()
+             |> Array.last
+             |> (fun (round: GameRound) -> round.FullyDominatingColor))
+//    let dominance2Con = results |> List.map (fun r -> r.ResolvedRounds.DominatingColorAfterSeparation 2)
+//    let dominance4Con = results |> List.map (fun r -> r.ResolvedRounds.DominatingColorAfterSeparation 4)
+//    let dominance8Con = results |> List.map (fun r -> r.ResolvedRounds.DominatingColorAfterSeparation 8)
     let simHistories = results |> List.map SimStats.compressHistory
 
     printfn $"\n⏹️️\t Dominance calculated. Took={DateTime.Now - startCalc}"
@@ -316,42 +329,49 @@ let runSimulationsWithOneSetup (simulationRunSetup: SimulationSingleRunSetup)  =
         FirstSeparationOfColors_DominatedByBlue_P =     dominance1Con |> (SimStats.colorDominanceP Blue simulationRunSetup.Runs)
         FirstSeparationOfColors_DominatedByNone_Count = dominance1Con |> SimStats.noDominanceCount
         FirstSeparationOfColors_DominatedByNone_P =     dominance1Con |> (SimStats.noDominanceP simulationRunSetup.Runs)
-        
-        First2ConsecutiveSeparationOfColors_Avg =   first2ConsecutiveSeparation |> SimStats.safeAvg 
-        First2ConsecutiveSeparationOfColors_Min =   first2ConsecutiveSeparation |> SimStats.safeMin
-        First2ConsecutiveSeparationOfColors_Max =   first2ConsecutiveSeparation |> SimStats.safeMax        
-        First2ConsecutiveSeparationOfColors_Count = first2ConsecutiveSeparation |> SimStats.safeCount
-        First2ConsecutiveSeparationOfColors_P =     first2ConsecutiveSeparation |> (SimStats.safeP simulationRunSetup.Runs)
-        First2ConsecutiveSeparationOfColors_DominatedByRed_Count = dominance2Con |> (SimStats.colorDominanceCount Red)
-        First2ConsecutiveSeparationOfColors_DominatedByRed_P =     dominance2Con |> (SimStats.colorDominanceP Red simulationRunSetup.Runs)
-        First2ConsecutiveSeparationOfColors_DominatedByBlue_Count = dominance2Con |> (SimStats.colorDominanceCount Blue)
-        First2ConsecutiveSeparationOfColors_DominatedByBlue_P =     dominance2Con |> (SimStats.colorDominanceP Blue simulationRunSetup.Runs)
-        First2ConsecutiveSeparationOfColors_DominatedByNone_Count = dominance2Con |> (SimStats.noDominanceCount)
-        First2ConsecutiveSeparationOfColors_DominatedByNone_P =     dominance2Con |> (SimStats.noDominanceP simulationRunSetup.Runs)
-        
-        First4ConsecutiveSeparationOfColors_Avg =   first4ConsecutiveSeparation |> SimStats.safeAvg 
-        First4ConsecutiveSeparationOfColors_Min =   first4ConsecutiveSeparation |> SimStats.safeMin
-        First4ConsecutiveSeparationOfColors_Max =   first4ConsecutiveSeparation |> SimStats.safeMax        
-        First4ConsecutiveSeparationOfColors_Count = first4ConsecutiveSeparation |> SimStats.safeCount
-        First4ConsecutiveSeparationOfColors_P =     first4ConsecutiveSeparation |> (SimStats.safeP simulationRunSetup.Runs)
-        First4ConsecutiveSeparationOfColors_DominatedByRed_Count = dominance4Con |> (SimStats.colorDominanceCount Red)
-        First4ConsecutiveSeparationOfColors_DominatedByRed_P =     dominance4Con |> (SimStats.colorDominanceP Red simulationRunSetup.Runs)
-        First4ConsecutiveSeparationOfColors_DominatedByBlue_Count = dominance4Con |> (SimStats.colorDominanceCount Blue)
-        First4ConsecutiveSeparationOfColors_DominatedByBlue_P =     dominance4Con |> (SimStats.colorDominanceP Blue simulationRunSetup.Runs)
-        First4ConsecutiveSeparationOfColors_DominatedByNone_Count = dominance4Con |> (SimStats.noDominanceCount)
-        First4ConsecutiveSeparationOfColors_DominatedByNone_P =     dominance4Con |> (SimStats.noDominanceP simulationRunSetup.Runs)
-        
-        First8ConsecutiveSeparationOfColors_Avg =   first8ConsecutiveSeparation |> SimStats.safeAvg 
-        First8ConsecutiveSeparationOfColors_Min =   first8ConsecutiveSeparation |> SimStats.safeMin
-        First8ConsecutiveSeparationOfColors_Max =   first8ConsecutiveSeparation |> SimStats.safeMax        
-        First8ConsecutiveSeparationOfColors_Count = first8ConsecutiveSeparation |> SimStats.safeCount
-        First8ConsecutiveSeparationOfColors_P =     first8ConsecutiveSeparation |> (SimStats.safeP simulationRunSetup.Runs)
-        First8ConsecutiveSeparationOfColors_DominatedByRed_Count = dominance8Con |> (SimStats.colorDominanceCount Red)
-        First8ConsecutiveSeparationOfColors_DominatedByRed_P =     dominance8Con |> (SimStats.colorDominanceP Red simulationRunSetup.Runs)
-        First8ConsecutiveSeparationOfColors_DominatedByBlue_Count = dominance8Con |> (SimStats.colorDominanceCount Blue)
-        First8ConsecutiveSeparationOfColors_DominatedByBlue_P =     dominance8Con |> (SimStats.colorDominanceP Blue simulationRunSetup.Runs)
-        First8ConsecutiveSeparationOfColors_DominatedByNone_Count = dominance8Con |> (SimStats.noDominanceCount)
-        First8ConsecutiveSeparationOfColors_DominatedByNone_P =     dominance8Con |> (SimStats.noDominanceP simulationRunSetup.Runs)
+
+        LastRoundSeparationOfColors_DominatedByRed_Count  = dominanceLastRound |> (SimStats.colorDominanceCount Red)
+        LastRoundSeparationOfColors_DominatedByRed_P      = dominanceLastRound |> (SimStats.colorDominanceP Red simulationRunSetup.Runs)
+        LastRoundSeparationOfColors_DominatedByBlue_Count = dominanceLastRound |> (SimStats.colorDominanceCount Blue)
+        LastRoundSeparationOfColors_DominatedByBlue_P     = dominanceLastRound |> (SimStats.colorDominanceP Blue simulationRunSetup.Runs)
+        LastRoundSeparationOfColors_DominatedByNone_Count = dominanceLastRound |> SimStats.noDominanceCount
+        LastRoundSeparationOfColors_DominatedByNone_P     = dominanceLastRound |> (SimStats.noDominanceP simulationRunSetup.Runs)
+
+//        First2ConsecutiveSeparationOfColors_Avg =   first2ConsecutiveSeparation |> SimStats.safeAvg
+//        First2ConsecutiveSeparationOfColors_Min =   first2ConsecutiveSeparation |> SimStats.safeMin
+//        First2ConsecutiveSeparationOfColors_Max =   first2ConsecutiveSeparation |> SimStats.safeMax
+//        First2ConsecutiveSeparationOfColors_Count = first2ConsecutiveSeparation |> SimStats.safeCount
+//        First2ConsecutiveSeparationOfColors_P =     first2ConsecutiveSeparation |> (SimStats.safeP simulationRunSetup.Runs)
+//        First2ConsecutiveSeparationOfColors_DominatedByRed_Count = dominance2Con |> (SimStats.colorDominanceCount Red)
+//        First2ConsecutiveSeparationOfColors_DominatedByRed_P =     dominance2Con |> (SimStats.colorDominanceP Red simulationRunSetup.Runs)
+//        First2ConsecutiveSeparationOfColors_DominatedByBlue_Count = dominance2Con |> (SimStats.colorDominanceCount Blue)
+//        First2ConsecutiveSeparationOfColors_DominatedByBlue_P =     dominance2Con |> (SimStats.colorDominanceP Blue simulationRunSetup.Runs)
+//        First2ConsecutiveSeparationOfColors_DominatedByNone_Count = dominance2Con |> (SimStats.noDominanceCount)
+//        First2ConsecutiveSeparationOfColors_DominatedByNone_P =     dominance2Con |> (SimStats.noDominanceP simulationRunSetup.Runs)
+//
+//        First4ConsecutiveSeparationOfColors_Avg =   first4ConsecutiveSeparation |> SimStats.safeAvg
+//        First4ConsecutiveSeparationOfColors_Min =   first4ConsecutiveSeparation |> SimStats.safeMin
+//        First4ConsecutiveSeparationOfColors_Max =   first4ConsecutiveSeparation |> SimStats.safeMax
+//        First4ConsecutiveSeparationOfColors_Count = first4ConsecutiveSeparation |> SimStats.safeCount
+//        First4ConsecutiveSeparationOfColors_P =     first4ConsecutiveSeparation |> (SimStats.safeP simulationRunSetup.Runs)
+//        First4ConsecutiveSeparationOfColors_DominatedByRed_Count = dominance4Con |> (SimStats.colorDominanceCount Red)
+//        First4ConsecutiveSeparationOfColors_DominatedByRed_P =     dominance4Con |> (SimStats.colorDominanceP Red simulationRunSetup.Runs)
+//        First4ConsecutiveSeparationOfColors_DominatedByBlue_Count = dominance4Con |> (SimStats.colorDominanceCount Blue)
+//        First4ConsecutiveSeparationOfColors_DominatedByBlue_P =     dominance4Con |> (SimStats.colorDominanceP Blue simulationRunSetup.Runs)
+//        First4ConsecutiveSeparationOfColors_DominatedByNone_Count = dominance4Con |> (SimStats.noDominanceCount)
+//        First4ConsecutiveSeparationOfColors_DominatedByNone_P =     dominance4Con |> (SimStats.noDominanceP simulationRunSetup.Runs)
+//
+//        First8ConsecutiveSeparationOfColors_Avg =   first8ConsecutiveSeparation |> SimStats.safeAvg
+//        First8ConsecutiveSeparationOfColors_Min =   first8ConsecutiveSeparation |> SimStats.safeMin
+//        First8ConsecutiveSeparationOfColors_Max =   first8ConsecutiveSeparation |> SimStats.safeMax
+//        First8ConsecutiveSeparationOfColors_Count = first8ConsecutiveSeparation |> SimStats.safeCount
+//        First8ConsecutiveSeparationOfColors_P =     first8ConsecutiveSeparation |> (SimStats.safeP simulationRunSetup.Runs)
+//        First8ConsecutiveSeparationOfColors_DominatedByRed_Count = dominance8Con |> (SimStats.colorDominanceCount Red)
+//        First8ConsecutiveSeparationOfColors_DominatedByRed_P =     dominance8Con |> (SimStats.colorDominanceP Red simulationRunSetup.Runs)
+//        First8ConsecutiveSeparationOfColors_DominatedByBlue_Count = dominance8Con |> (SimStats.colorDominanceCount Blue)
+//        First8ConsecutiveSeparationOfColors_DominatedByBlue_P =     dominance8Con |> (SimStats.colorDominanceP Blue simulationRunSetup.Runs)
+//        First8ConsecutiveSeparationOfColors_DominatedByNone_Count = dominance8Con |> (SimStats.noDominanceCount)
+//        First8ConsecutiveSeparationOfColors_DominatedByNone_P =     dominance8Con |> (SimStats.noDominanceP simulationRunSetup.Runs)
      }
 
     let startSave = DateTime.Now
