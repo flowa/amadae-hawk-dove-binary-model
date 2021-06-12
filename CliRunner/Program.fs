@@ -1,17 +1,12 @@
-﻿// Learn more about F# at http://fsharp.org
-
-open System
+﻿open System
 open System.IO
-open System.Text.Json.Serialization
-open FSharp.Control
 open FSharp.Json
 open Model
 open Simulation
 open Statistics.ModelExtensions
-open Statistics.RoundStats
 open ModelExtensions
-open Thoth.Json
 open System.IO.Compression
+
 let runSimulation (setup: GameSetup) =
     let initialGameState = setup.ToInitialGameState()
     let initialAgents = setup.GenerateAgents()
@@ -447,7 +442,7 @@ type CliParams =
 
                     Example
                     =======
-                    dotnet run id=test runs=100 agents=200 stage2=250*stage2_nmse red=10;50;90 hawk=10;30;50;70;90
+                    dotnet run id=test runs=100 agents=200 stage2=250-stage2_nmse red=10,50,90 hawk=10,30,50,70,90
                     "
                1
 

@@ -50,7 +50,11 @@ Any modification you do to the F# code will be reflected in the web page after s
 
 ### 3.1 You can run simulation with multiple setups:
 
-Run this command `dotnet run <runsCount: int> <agents: int> <stage2Rounds: int> <redAgentSetup: int list> <expectedHawkPercents: int list>`
+Run command 
+```
+dotnet run id=<id:string> runs=<runsCount: int> agents=<agents: int> stage1=<stage1Round: int>*<mode:string> stage2=<stage2Round: int>*<mode:string> reds=<redAgentSetup: int list> hawks=<expectedHawkPercents: int list>
+```
+
 in ```CliRunner``` folder.
 
 where:
@@ -66,7 +70,7 @@ Each `expectedHawkPercents` is used to setup distribution of Hawks and Doves in 
 
 For example:
 ```
-dotnet run 100 200 250 "10;50;90" "10;30;50;70;90"
+dotnet run id=test runs=10 agents=200 stage2=250*stage2_nmse red=10;50;90 hawk=10;30;50;70;90
 ```
 
 This command will run simulation 100 times for 200 agents with 250 rounds with 15 different 

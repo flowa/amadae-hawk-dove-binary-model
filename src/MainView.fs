@@ -1,5 +1,6 @@
 module MainView
 
+open Feliz
 open Fulma
 open Model
 open Simulation
@@ -158,7 +159,7 @@ module Tables =
             ]
         ]
 
-    type RenderColotStatsOptions =
+    type RenderColorStatsOptions =
         {
             WithTotal: bool
             WithPortions: bool
@@ -166,8 +167,37 @@ module Tables =
         static member None with get() = {WithTotal = false; WithPortions = false; }
         static member WithTotalsAndPortions with get()  = {WithTotal = true; WithPortions = true; }
 
-    let renderColotStats (model: State) (opt: RenderColotStatsOptions) =
+    let renderColorStats (model: State) (opt: RenderColorStatsOptions) =
         let setting = model.Setup
+        let basicStats =
+            [
+                row [
+                        cellHeader "attribute" "Count"
+                        cell setting.CountOfRed
+                        cell setting.CountOfBlue
+                        if opt.WithTotal then cell setting.AgentCount
+                ]
+            ]
+        let extras =
+            if opt.WithPortions then
+                let redAvg, blueAvg, allAvg = model.CurrentRoundChallenges.PayoffAccumulativeAvgForRedAndBlue
+                let rounds = model.CurrentRound
+                let format = sprintf "%.1f"
+                [
+                    row [
+                        cellHeader "attribute" "Avg. total"
+                        cell (format redAvg)
+                        cell (format blueAvg)
+                        cell (format allAvg)
+                    ]
+                    row [
+                        cellHeader "attribute" "Avg. per round"
+                        cell (format (redAvg / (float rounds)))
+                        cell (format (blueAvg / (float rounds)))
+                        cell (format (allAvg / (float rounds)))
+                    ]
+                ]
+            else []
         table [ClassName "agent-summary"] [
             thead [] [
                 row [
@@ -177,34 +207,9 @@ module Tables =
                         if opt.WithTotal then cellHeader "AllTotal" "All"
                     ]
             ]
-            tbody [] [
-                row [
-                        cellHeader "attribute" "Count"
-                        cell setting.CountOfRed
-                        cell setting.CountOfBlue
-                        if opt.WithTotal then cell setting.AgentCount
-                    ]
-
-                if opt.WithPortions then
-                    let redAvg, blueAvg, allAvg = model.CurrentRoundChallenges.PayoffAccumulativeAvgForRedAndBlue
-                    let rounds = model.CurrentRound
-                    let format = sprintf "%.1f"
-                    ofList [
-                        row [
-                            cellHeader "attribute" "Avg. total"
-                            cell (format redAvg)
-                            cell (format blueAvg)
-                            cell (format allAvg)
-                        ]
-                        row [
-                            cellHeader "attribute" "Avg. per round"
-                            cell (format (redAvg / (float rounds)))
-                            cell (format (blueAvg / (float rounds)))
-                            cell (format (allAvg / (float rounds)))
-                        ]
-                    ]
-            ]
+            tbody [] (List.concat [basicStats; extras])
         ]
+
 
 module Fields =
     type NumberFieldProps =
@@ -315,9 +320,9 @@ module SettingsForm =
             model.Setup.SimulationFrames
             |> List.map<SimulationFrame, ReactElement>
                 (fun f ->
-                    div []
+                    div [Key f.StageName]
                         [
-                            h3 [] [str f.StageName]
+                            h3 [Key ("h_" + f.StageName)] [str f.StageName]
                             dropdownField
                                 {
                                    Disabled = isDisabled
@@ -337,6 +342,7 @@ module SettingsForm =
 
         let renderSetupForm (isDisabled: bool) =
             div [
+                    Key "setup-form"
                     ClassName "column is-one-quarter"
                     Id "settings"
                 ]
@@ -363,7 +369,7 @@ module SettingsForm =
                                     Value =    model.Setup.PortionOfRed
                                     OnChange = (fun value -> (PortionOfRed value))
                                 }
-                            (renderColotStats model RenderColotStatsOptions.None)
+                            (renderColorStats model RenderColorStatsOptions.None)
                         ]
 
                     group "Payoff" [
@@ -412,7 +418,7 @@ module SettingsForm =
                 ]
 
                 group "Color statistics" [
-                    renderColotStats model RenderColotStatsOptions.WithTotalsAndPortions
+                    renderColorStats model RenderColorStatsOptions.WithTotalsAndPortions
                 ]
 
                 h1  []

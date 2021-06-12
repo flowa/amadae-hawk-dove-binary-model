@@ -1,11 +1,45 @@
 module App
 
+open System
 open Model
 open Elmish
 open Browser
 open Simulation
 open ModelExtensions
 // module Model =
+
+type GameState with
+    member this.SimulateRoundsPromise (agents: Agent list) =
+        let cache = new AgentViewCache()
+        promise {
+            let initialValue = Promise.lift (agents, (Rounds [||]))
+            let start = DateTime.Now
+            let! (_, playedRounds) =
+                this.PlannedRounds
+                |> List.fold
+                    (fun accPromise plannedRound ->
+                        Promise.bind
+                                (fun (agents: Agent list, history: GameHistory) ->
+                                    promise {
+                                            // This is needed here to make UI responsive during simulation
+                                            do! Promise.sleep 5
+                                            let start = DateTime.Now
+                                            let roundResult = plannedRound.PlayRound cache agents history
+                                            let updatedHistory = history.Append roundResult
+                                            let agentsAfterRound = roundResult.Agents
+                                            let endTime = DateTime.Now
+                                            printfn "Round took %A ms" (endTime - start).TotalMilliseconds
+                                            return (agentsAfterRound, updatedHistory)
+                                    })
+                                accPromise
+                    )
+                    initialValue
+            let endTime = DateTime.Now
+            printfn "Full simulation took %A ms" (endTime - start).TotalMilliseconds
+            return {
+                this with ResolvedRounds = playedRounds
+            }
+        }
 
 
 // MODEL
@@ -27,28 +61,21 @@ let init () =
                 PayoffMatrix = FromRewardAndCost (10.0, 20.0)
             }
             SimulationFrames = [
-//                {
-//                    SimulationFrame.RoundCount = 1
-//                    SetPayoffForStage = id
-//                    StageName = "Stage 1"
-//                    StrategyInitFnName = SimulationStageNames.Random
-//                    MayUseColor = true
-//                }
+                {
+                    SimulationFrame.RoundCount = 15
+                    SetPayoffForStage = id
+                    StageName = "Stage 1"
+                    StrategyInitFnName = SimulationStageNames.Random
+                    MayUseColor = false
+                }
                 {
                      SimulationFrame.RoundCount = 100
                      SetPayoffForStage = id
                      StageName = "Stage 2"
-                     StrategyInitFnName = SimulationStageNames.HighestExpectedValueOnBasedOfHistory // SimulationStages.stage2Game_v5_withFullIndividualHistory
+                     StrategyInitFnName = SimulationStageNames.HighestExpectedValueOnBasedOfHistory
                      MayUseColor = true
                 }
-//                {
-//                   SimulationFrame.RoundCount = 10
-//                   SetPayoffForStage = id
-//                   StageName = "Stage 3"
-//                   StrategyInitFn = SimulationStages.stage3Game_onBasedOfLastEncounterWithOpponentColor
-//                   MayUseColor = true
-//                }
-            ]    
+            ]
         }
     let initialGameState = setup.ToInitialGameState()
     {
@@ -59,7 +86,6 @@ let init () =
     }, Cmd.none
 
 // UPDATE
-
 let update (msg:Msg) (state: State) =
     let setGameSimulationFrames (simulationFrames: SimulationFrame list ) =
         let updatedSetup = { state.Setup with SimulationFrames  = simulationFrames} 
@@ -68,6 +94,7 @@ let update (msg:Msg) (state: State) =
     let setGameParams (updatedGameParams: GameParameters) =
         let updatedSetup = { state.Setup with GameParameters = updatedGameParams } 
         { state with Setup = updatedSetup }
+
     let setField (field: FieldValue) =
         match field with
         | RoundCountOfStage (stage, value) ->
@@ -100,10 +127,6 @@ let update (msg:Msg) (state: State) =
                     state.Setup.GameParameters with
                         PayoffMatrix = (state.Setup.PayoffMatrix.SetC (float value))
                 })
-
-        // | f ->
-        //     eprintfn "Not implemented %A" f;
-        //     state
 
     match msg with
     | SetValue field -> (setField field), Cmd.none
@@ -157,7 +180,7 @@ let update (msg:Msg) (state: State) =
 open MainView
 open Elmish.React
 
-let timer initial =
+let timer _ =
     let sub dispatch =
         window.setInterval
             (fun _ -> dispatch (Tick System.DateTime.Now)

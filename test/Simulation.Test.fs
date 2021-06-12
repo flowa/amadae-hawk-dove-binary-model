@@ -142,57 +142,6 @@ Jest.describe("Test game modes: randomChoiceGame", fun () ->
             )))
 )
 
-Jest.describe("Test game modes: keepSameStrategy", fun () ->
-    let agent1 = TestData.Agents.Blue1.UpdateGameInfo(10.0, Hawk,  DifferentColor)
-    let agent2 = TestData.Agents.Red1.UpdateGameInfo(0.0, Dove,  DifferentColor)
-    let agent3 = TestData.Agents.Blue1
-    let agent4 = TestData.Agents.Red1
-
-    let matrix = FromRewardAndCost (10.0, 40.0)
-    let history = Rounds [| GameRound.Empty.AppendWith(agent1, agent2) |]
-    let agent1Info, agent2Info =
-        let cache = new AgentViewCache()
-        GameInformation.InitGameInformationForAgents cache matrix history agent1 agent2
-
-    let agent3Info, agent4Info =
-        let cache = new AgentViewCache()
-        GameInformation.InitGameInformationForAgents cache matrix history agent3 agent4
-
-    [
-        {
-           Name = "It should return Hawk because agent1 played Hawk on previous round"
-           FunctionToTest = GameMode.keepSameStrategy
-           Input = agent1Info
-           ExpectedOutput = Hawk
-        }
-        {
-           Name = "It should yield Dove because agent2 played Dove on previous round"
-           FunctionToTest = GameMode.keepSameStrategy
-           Input = agent2Info
-           ExpectedOutput = Dove
-        }
-        {
-           Name = "It should use NMSE -strategy when agent3 have not played earlier, and thereby when RandomNumber is 0.25 Dove should be played because 10 / 40 = 0.25"
-           FunctionToTest = GameMode.keepSameStrategy
-           Input = { agent3Info with RandomNumber = 0.25 }
-           ExpectedOutput = Dove
-        }
-        {
-           Name = "It should use NMSE -strategy when agent4 have not played earlier, and thereby when RandomNumber is 0.24 dove should be played because 10 / 40 = 0.25"
-           FunctionToTest = GameMode.keepSameStrategy
-           Input = { agent4Info with RandomNumber = 0.24 }
-           ExpectedOutput = Hawk
-        }
-    ]
-    |> List.iteri
-        (fun index testData ->
-            let name = sprintf "Case %i: %s" (index + 1) testData.Name
-            Jest.test(name,
-                (fun () ->
-                    let actual = testData.FunctionToTest testData.Input
-                    Jest.expect(actual).toEqual(testData.ExpectedOutput)
-                ))))
-
 type HighestEuTestInput =
     {
         History: GameHistory

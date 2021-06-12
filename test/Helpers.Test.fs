@@ -12,7 +12,7 @@ Jest.describe("Helpers test", fun () ->
             .toEqual(expected)
     )
 
-    Jest.test("suffle (this may faile in unlikely cases)", fun () ->
+    Jest.test("shuffle (this may fail in unlikely cases)", fun () ->
         let input = Array.init 1000 id;
 
         let result = ArrayHelpers.shuffle input

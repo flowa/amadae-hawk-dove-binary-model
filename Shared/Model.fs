@@ -1,5 +1,4 @@
 module Model
-open Fable
 open Helpers
 open System
 open System.Collections.Generic
@@ -281,38 +280,6 @@ type GameState =
             this with ResolvedRounds = playedRounds
         }
 
-    member this.SimulateRoundsPromise (agents: Agent list) =
-        let cache = new AgentViewCache()
-        promise {
-            let initialValue = Promise.lift (agents, (Rounds [||]))
-            let start = DateTime.Now
-            let! (_, playedRounds) =
-                this.PlannedRounds
-                |> List.fold
-                    (fun accPromise plannedRound ->
-                        Promise.bind
-                                (fun (agents: Agent list, history: GameHistory) ->
-                                    promise {
-                                            // This is needed here to make UI responsive during simulation
-                                            do! Promise.sleep 5
-                                            let start = DateTime.Now
-                                            let roundResult = plannedRound.PlayRound cache agents history
-                                            let updatedHistory = history.Append roundResult
-                                            let agentsAfterRound = roundResult.Agents
-                                            let endTime = DateTime.Now
-                                            printfn "Round took %A ms" (endTime - start).TotalMilliseconds
-                                            return (agentsAfterRound, updatedHistory)
-                                    })
-                                accPromise
-                    )
-                    initialValue
-            let endTime = DateTime.Now
-            printfn "Full simulation took %A ms" (endTime - start).TotalMilliseconds
-            return {
-                this with ResolvedRounds = playedRounds
-            }
-        }
-
 type GameParameters =
     {
         AgentCount: int
@@ -334,6 +301,7 @@ type StageStrategyFnOptions =
         DisplayName: string
         Name: string
         StrategyInitFn: GameParameters -> StrategyFn
+        AllowedStages: Set<int>
     }
 type UISetupState = {
     Stage1Options: StageStrategyFnOptions list

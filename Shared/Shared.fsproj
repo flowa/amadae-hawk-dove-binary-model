@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="Helpers.fs" />
+        <Compile Include="Model.fs" />
+        <Compile Include="Statistics.fs" />
+        <Compile Include="Simulation.fs" />
+    </ItemGroup>
+
+</Project>

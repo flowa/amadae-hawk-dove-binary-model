@@ -3,10 +3,6 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Helpers.fs" />
-    <Compile Include="Model.fs" />
-    <Compile Include="Statistics.fs" />
-    <Compile Include="Simulation.fs" />
     <Compile Include="MainView.fs" />
     <Compile Include="App.fs" />
   </ItemGroup>
@@ -21,5 +17,8 @@
     <PackageReference Include="Fable.Jester" Version="0.22.0" />
     <PackageReference Include="Fulma" Version="2.9.0" />
     <PackageReference Include="Fulma.Extensions.Wikiki.Slider" Version="2.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Shared\Shared.fsproj" />
   </ItemGroup>
 </Project>

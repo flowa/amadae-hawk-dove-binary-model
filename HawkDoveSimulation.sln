@@ -16,6 +16,8 @@ ProjectSection(SolutionItems) = preProject
 	webpack.config.js = webpack.config.js
 EndProjectSection
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Shared", "Shared\Shared.fsproj", "{75751AC5-E951-442D-8BD8-C5CEF13ADE7A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,5 +36,9 @@ Global
 		{6B085E7E-2A9D-48B4-9303-365AF18ECDE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B085E7E-2A9D-48B4-9303-365AF18ECDE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B085E7E-2A9D-48B4-9303-365AF18ECDE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75751AC5-E951-442D-8BD8-C5CEF13ADE7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75751AC5-E951-442D-8BD8-C5CEF13ADE7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75751AC5-E951-442D-8BD8-C5CEF13ADE7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75751AC5-E951-442D-8BD8-C5CEF13ADE7A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
