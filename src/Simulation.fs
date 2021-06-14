@@ -161,7 +161,7 @@ module GameMode =
                      pDove * payoff.GetMyPayoff (Dove, Dove)
 
         match (evHawk - evDove) with
-        | 0.0 ->
+        | diff when diff <= Double.Epsilon ->
             if hadRelevantHistory then
                 randomChoiceGame info
             else
