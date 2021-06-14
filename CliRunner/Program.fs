@@ -24,7 +24,7 @@ type SimulationSingleRunSetup =
         Runs: int
         AgentCount: int
         RedAgentPercentage: int
-        ExpectedHawkPortion: float
+        ExpectedHawkPortion: decimal
         Stage1: (int*string) option
         Stage2: int*string
     }
@@ -45,10 +45,10 @@ type SimulationSingleRunSetup =
         | (_, mode) -> mode
 
 let generateGameSetup (simulationSetup: SimulationSingleRunSetup)  =
-    let ``Reward (V)`` = 10.0 
+    let ``Reward (V)`` = 10.0m
     let ``Cost (C)`` =
         match simulationSetup.ExpectedHawkPortion with
-        | p when p >= 1.0 || p <= 0.0 -> raise (ArgumentException("expectedHawkPortion must be in range ]0,1["))
+        | p when p >= 1.0m || p <= 0.0m -> raise (ArgumentException("expectedHawkPortion must be in range ]0,1["))
         | _ -> ``Reward (V)`` / simulationSetup.ExpectedHawkPortion
     let modeMapper stageName (roundCount: int, strategyMode: string): SimulationFrame =
         {
@@ -88,9 +88,9 @@ type SimulationRunResultStats =
         Stage1Mode: string
         Stage2Rounds: int
         Stage2Mode: string
-        HawkPortion: float
-        PayoffReward: float
-        PayoffCost: float
+        HawkPortion: decimal
+        PayoffReward: decimal
+        PayoffCost: decimal
 
         FirstRoundHawkCountAvg: float
         FirstRoundDoveCountAvg: float
@@ -154,7 +154,7 @@ type SimulationRunResultStats =
     member this.saveToFile (simulationHistories: string list list)  =
 
         let json = Json.serialize this
-        let hawks = (int) (this.HawkPortion * 100.0)
+        let hawks = (int) (this.HawkPortion * 100.0m)
         let fileBase = $"%s{this.Id}_RN%i{this.Runs}.%s{this.Stage2Mode}.s2N%i{this.Stage2Rounds}.agent%i{this.AgentCount}.R%i{this.RedAgentPercentage}.H%i{hawks}"
         let path = $"output/%s{fileBase}.json"
         let historyEntryPath (simulationIndex: int) = $"%s{fileBase}.%i{simulationIndex}.history.csv"
@@ -409,7 +409,7 @@ type CliParams =
         Stage1: (int * string) option
         Stage2: (int * string) option
         RedSetup: int list option
-        HawkSetup: float list option
+        HawkSetup: decimal list option
     }
     static member Empty =
         {
@@ -464,7 +464,7 @@ let main argv =
         let parseHawkSetup (listStr: string)=
             listStr.Split(",")
             |> Seq.map Int32.Parse
-            |> Seq.map (fun percents -> (float) percents / 100.0)
+            |> Seq.map (fun percents -> decimal percents / 100.0m)
             |> List.ofSeq
         let parseMode (str: string) =
             (SimulationStageOptions.AllOptions

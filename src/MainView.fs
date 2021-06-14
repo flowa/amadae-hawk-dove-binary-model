@@ -105,7 +105,7 @@ module Tables =
 
     let hawkDoveStats className (stats: RoundStats.StrategyStats) = // (hawkN: int, doveN: int) =
         let format (n, portion) =
-            sprintf "%i (%.0f%%)" n (portion * 100.0)
+            sprintf "%i (%.0f%%)" n ((float) portion * 100.0)
 
 
         table [ClassName ("hawk-dove-stats " + className)] [
@@ -198,9 +198,9 @@ module Tables =
                         ]
                         row [
                             cellHeader "attribute" "Avg. per round"
-                            cell (format (redAvg / (float rounds)))
-                            cell (format (blueAvg / (float rounds)))
-                            cell (format (allAvg / (float rounds)))
+                            cell (format (redAvg / (decimal rounds)))
+                            cell (format (blueAvg / (decimal rounds)))
+                            cell (format (allAvg / (decimal rounds)))
                         ]
                     ]
             ]
@@ -455,8 +455,8 @@ module ResultTable =
         if usedColor then model.Color.ToString() else "UnknownColor"
     let avg =
       match rounds with
-      | 0 -> 0.0
-      | r -> model.Payoff / (float r)
+      | 0 -> 0.0m
+      | r -> model.Payoff / (decimal r)
     div [
             Key (model.Id.ToString())
             ClassName (sprintf "agent-box fade-in %s %A" colorTypeColor model.Strategy.Value)
@@ -466,7 +466,7 @@ module ResultTable =
               [
                 div [] [
                     span [] [str "Total: "]
-                    ofFloat model.Payoff
+                    ofFloat (float model.Payoff)
                   ]
                 div [] [
                     span [] [str "Avg: "]

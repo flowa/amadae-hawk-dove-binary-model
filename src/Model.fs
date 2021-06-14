@@ -34,7 +34,7 @@ type AgentIdentity =
 
 type GameInfo =
     {
-        Payoff: float
+        Payoff: decimal
         PreviousChoice: Strategy
         PreviousChallengeType: ChallengeType
     }
@@ -55,7 +55,7 @@ type Agent =
     member this.Payoff
         with get() =
             match this with
-            | AgentWithNoGames _ -> 0.0
+            | AgentWithNoGames _ -> 0.0m
             | AgentWithGameInfo (_, { Payoff = payoff}) -> payoff
     member this.Strategy
         with get() =
@@ -93,7 +93,7 @@ type ResolvedChallenge =
 
 
 type PayoffMatrixType =
-    | FromRewardAndCost of reward: float * cost: float
+    | FromRewardAndCost of reward: Decimal * cost: Decimal
     member this.Cost with get() =
         match this with
         | FromRewardAndCost (_, cost) -> cost
@@ -114,21 +114,21 @@ type PayoffMatrixType =
             let C = this.``Cost (C)``
             let V = this.``Revard (V)``
             match C with
-            | 0.0 -> 1.0
+            | 0.0m -> 1.0m
             | _ ->
                 let portionOfHawks = V / C
-                if (portionOfHawks > 1.0) then
-                    1.0
+                if (portionOfHawks > 1.0m) then
+                    1.0m
                 else
                     portionOfHawks
     member this.ToMatrix ()  =
         match this with
         | FromRewardAndCost (revard, cost) ->
             Map.ofList [
-                (Hawk, Hawk), (((revard - cost) / 2.0), ((revard - cost) / 2.0))
-                (Hawk, Dove), (revard, 0.0)
-                (Dove, Hawk), (0.0, revard)
-                (Dove, Dove), ((revard / 2.0), (revard / 2.0))
+                (Hawk, Hawk), (((revard - cost) / 2.0m), ((revard - cost) / 2.0m))
+                (Hawk, Dove), (revard, 0.0m)
+                (Dove, Hawk), (0.0m, revard)
+                (Dove, Dove), ((revard / 2.0m), (revard / 2.0m))
             ]
     member this.GetPayoffFor(myChoise:Strategy, opponentChoise: Strategy) =
         this.ToMatrix().[(myChoise, opponentChoise)]

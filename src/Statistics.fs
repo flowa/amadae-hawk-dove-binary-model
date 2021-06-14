@@ -14,8 +14,8 @@ module RoundStats =
             | HakwDoveStats (_, n) -> n
         member this.TotalN with get() = this.HawkN + this.DoveN
         // when showing stats it's possible that there are segments where total is 0, portion when total is 0 is 0 for hawks and doves
-        member this.HawkPortion with get() = if this.TotalN = 0 then 0.0 else (float this.HawkN) / (float this.TotalN)
-        member this.DovePortion with get() = if this.TotalN = 0 then 0.0 else 1.0 - this.HawkPortion
+        member this.HawkPortion with get() = if this.TotalN = 0 then 0.0m else (decimal this.HawkN) / (decimal this.TotalN)
+        member this.DovePortion with get() = if this.TotalN = 0 then 0.0m else 1.0m - this.HawkPortion
 
     let calcRoundAggregates (round: GameRound): Map<ChallengeType * Strategy * Color, int> =
         let items = round.ToList()

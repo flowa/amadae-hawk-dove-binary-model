@@ -1,5 +1,6 @@
 module App
 
+open System
 open Model
 open Elmish
 open Browser
@@ -24,7 +25,7 @@ let init () =
             GameParameters = {
                 AgentCount = 100
                 PortionOfRed = 50
-                PayoffMatrix = FromRewardAndCost (10.0, 20.0)
+                PayoffMatrix = FromRewardAndCost (10.0m, 20.0m)
             }
             SimulationFrames = [
 //                {
@@ -93,12 +94,12 @@ let update (msg:Msg) (state: State) =
         | BenefitOnVictory value ->
             (setGameParams {
                     state.Setup.GameParameters with
-                        PayoffMatrix = (state.Setup.PayoffMatrix.SetV (float value))
+                        PayoffMatrix = (state.Setup.PayoffMatrix.SetV (decimal value))
                 })
         | CostOfLoss value ->
             (setGameParams {
                     state.Setup.GameParameters with
-                        PayoffMatrix = (state.Setup.PayoffMatrix.SetC (float value))
+                        PayoffMatrix = (state.Setup.PayoffMatrix.SetC (decimal value))
                 })
 
         // | f ->

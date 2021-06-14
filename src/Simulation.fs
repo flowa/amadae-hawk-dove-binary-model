@@ -48,15 +48,15 @@ module GameMode =
             let C = info.PayoffMatrix.``Cost (C)``
             let V = info.PayoffMatrix.``Revard (V)``
             match C with
-            | 0.0 -> 1.0
+            | 0.0m -> 1.0m
             | _ ->
                 let portionOfHawks = V / C
-                if (portionOfHawks > 1.0) then
-                    1.0
+                if (portionOfHawks > 1.0m) then
+                    1.0m
                 else
                     portionOfHawks
 
-        if (info.RandomNumber < ``change of hawk``) then // Random number range [0.0, 1.0[
+        if (info.RandomNumber < (float) ``change of hawk``) then // Random number range [0.0, 1.0[
             Hawk
         else
             Dove
@@ -100,13 +100,13 @@ module GameMode =
             // When you have expected value for playing
             // hawk and playing dove are equal
             // choose randomly
-            | 0.0 -> randomChoiceGame info
+            | 0.0m -> randomChoiceGame info
             // if expected payoff for playing hawk is better, play hawk
             // otherwise play dove
-            | diff when diff > 0.0 -> Hawk
+            | diff when diff > 0.0m -> Hawk
             | _  -> Dove
 
-    let highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics (externalStatsHawkPortion: float) (info: GameInformation): Strategy =
+    let highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics (externalStatsHawkPortion: Decimal) (info: GameInformation): Strategy =
         let payoff = info.PayoffMatrix
         let history = info.HistoryView
         let pHawk =
@@ -117,7 +117,7 @@ module GameMode =
                 | _ -> opposingColor.HawkPortion
             else externalStatsHawkPortion
 
-        let pDove = 1.0 - pHawk;
+        let pDove = 1.0m - pHawk;
 
         // Calculate expected payoff for playing hawk and for playing dove
         // In payoff.GetMyPayoff the first param is my move, and the second is opponent move
@@ -131,14 +131,14 @@ module GameMode =
         // When you have expected value for playing
         // hawk and playing dove are equal
         // choose randomly
-        | 0.0 -> randomChoiceGame info
+        | 0.0m -> randomChoiceGame info
         // if expected payoff for playing hawk is better, play hawk
         // otherwise play dove
-        | diff when diff > 0.0 -> Hawk
+        | diff when diff > 0.0m -> Hawk
         | _  -> Dove
 
     let highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_UseNashOnExpectedValueTieWhenNoHistory
-        (externalStatsHawkPortion: float)
+        (externalStatsHawkPortion: decimal)
         (info: GameInformation): Strategy =
         let payoff = info.PayoffMatrix
         let history = info.HistoryView
@@ -150,7 +150,7 @@ module GameMode =
                 | _ -> opposingColor.HawkPortion, true
             else externalStatsHawkPortion, false
 
-        let pDove = 1.0 - pHawk;
+        let pDove = 1.0m - pHawk;
 
         // Calculate expected payoff for playing hawk and for playing dove
         // In payoff.GetMyPayoff the first param is my move, and the second is opponent move
@@ -159,16 +159,20 @@ module GameMode =
                      pDove * payoff.GetMyPayoff (Hawk, Dove)
         let evDove = pHawk * payoff.GetMyPayoff (Dove, Hawk) +
                      pDove * payoff.GetMyPayoff (Dove, Dove)
+        let evDiff = evHawk - evDove
+        let decimal_epsilon = 2e-28m
+        let isWithinEpsilon = Math.Abs(evDiff) <= decimal_epsilon
 
-        match (evHawk - evDove) with
-        | diff when diff <= Double.Epsilon ->
+        match evDiff with
+        // | diff when Math.Abs(diff) <= Double.Epsilon ->
+        | diff when Math.Abs(diff) <= decimal_epsilon ->
             if hadRelevantHistory then
                 randomChoiceGame info
             else
                 nashMixedStrategyEquilibriumGameFromPayoffParameters info
         // if expected payoff for playing hawk is better, play hawk
         // otherwise play dove
-        | diff when diff > 0.0 -> Hawk
+        | diff when diff > 0.0m -> Hawk
         | _  -> Dove
 
 
@@ -195,10 +199,10 @@ module GameMode =
             // When you have expected value for playing
             // hawk and playing dove are equal
             // choose randomly
-            | 0.0 -> randomChoiceGame info
+            | 0.0m -> randomChoiceGame info
             // if expected payoff for playing hawk is better, play hawk
             // otherwise play dove
-            | diff when diff > 0.0 -> Hawk
+            | diff when diff > 0.0m -> Hawk
             | _  -> Dove
 
     let highestEuOnDifferentColorGameWithFilter (challengeTypeFilter: ChallengeType option) (info: GameInformation): Strategy =
@@ -224,10 +228,10 @@ module GameMode =
             // When you have expected value for playing
             // hawk and playing dove are equal
             // choose randomly
-            | 0.0 -> randomChoiceGame info
+            | 0.0m -> randomChoiceGame info
             // if expected payoff for playing hawk is better, play hawk
             // otherwise play dove
-            | diff when diff > 0.0 -> Hawk
+            | diff when diff > 0.0m -> Hawk
             | _  -> Dove
 
     let highestExpectedValueOnDifferentColorGame = highestEuOnDifferentColorGameWithFilter None
@@ -243,16 +247,16 @@ module ExtraGameModes =
             let (doveMax, _)       = info.PayoffMatrix.GetPayoffFor(Dove, Dove)
             let (hawkMin, _)       = info.PayoffMatrix.GetPayoffFor(Hawk, Hawk)
             match (hawkMin - doveMin) with
-            | 0.0 -> 1.0
+            | 0.0m -> 1.0m
             | _ ->
                 let hawksPerDove = (doveMax - hawkMax) / (hawkMin - doveMin)
-                let portionOfHawks = hawksPerDove / (1.0 + hawksPerDove)
-                if (portionOfHawks > 1.0) then
-                    1.0
+                let portionOfHawks = hawksPerDove / (1.0m + hawksPerDove)
+                if (portionOfHawks > 1.0m) then
+                    1.0m
                 else
                     portionOfHawks
 
-        if (``change of hawk`` > info.RandomNumber) then // Random number range [0.0, 1.0[
+        if (``change of hawk`` > decimal info.RandomNumber) then // Random number range [0.0, 1.0[
             Hawk
         else
             Dove
@@ -260,7 +264,7 @@ module ExtraGameModes =
     let dependingHawksWithinColorSegment (info: GameInformation) =
         let lastRoundStats = info.HistoryView.History.LastRoundChallenges.StrategyStatsFor (info.OpponentColor)
         let hawkPortion = lastRoundStats.HawkPortion
-        if (hawkPortion > info.RandomNumber) then // random number range: [0.0, 1.0[
+        if (hawkPortion > decimal info.RandomNumber) then // random number range: [0.0, 1.0[
             Hawk
         else
             Dove
@@ -268,7 +272,7 @@ module ExtraGameModes =
     let onHawksOnLastRound (info: GameInformation) =
         let lastRoundStats = info.HistoryView.History.LastRoundChallenges.StrategyStats ()
         let hawkPortion = lastRoundStats.HawkPortion
-        if (hawkPortion > info.RandomNumber) then // random number range: [0.0, 1.0[
+        if (hawkPortion > decimal info.RandomNumber) then // random number range: [0.0, 1.0[
             Hawk
         else
             Dove
@@ -279,9 +283,9 @@ module IdealNashMixedDistribution =
     // portion of Hawks is exactly V / C and Portion of Doves is 1 - (V / C)
     let generate (setup: GameParameters) =
         let hawkCount =
-            let playerCount = (float) setup.AgentCount
+            let playerCount = decimal setup.AgentCount
             match setup.PayoffMatrix.``Cost (C)`` with
-            | 0.0 -> setup.AgentCount
+            | 0.0m -> setup.AgentCount
             | _ ->
                 let hawkCountFloat = (setup.PayoffMatrix.``Revard (V)`` / setup.PayoffMatrix.``Cost (C)``) * playerCount
                 // Uncomment to get warning (Note: Some errors are false positive due to float operation inaccuracy)
@@ -313,7 +317,7 @@ module SimulationStages =
     // let highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStats (hawkPortion: float) (_setup: GameParameters) =
     //    GameMode.highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics hawkPortion
 
-    let highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStats (hawkPortion: float) (_setup: GameParameters) =
+    let highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStats (hawkPortion: Decimal) (_setup: GameParameters) =
         Composition.compositeStrategy {
             SameColorNoHistoryStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
             SameColorStrategy = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
@@ -436,17 +440,17 @@ module SimulationStageOptions =
             {
                 StageStrategyFnOptions.Name = SimulationStageNames.HighestExpectedValueOnBasedOfHistory_AllDove
                 DisplayName = "Highest EV - External stats all play Dove"
-                StrategyInitFn = SimulationStages.highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStats 0.0
+                StrategyInitFn = SimulationStages.highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStats 0.0m
             }
             {
                 StageStrategyFnOptions.Name = SimulationStageNames.HighestExpectedValueOnBasedOfHistory_AllHawk
                 DisplayName = "Highest EV - External stats all play Hawk"
-                StrategyInitFn = SimulationStages.highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStats 1.0
+                StrategyInitFn = SimulationStages.highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStats 1.0m
             }
             {
                 StageStrategyFnOptions.Name = SimulationStageNames.HighestExpectedValueOnBasedOfHistory_50PercentHawk
                 DisplayName = "Highest EV - External stats 50% play Hawk"
-                StrategyInitFn = SimulationStages.highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStats 0.5
+                StrategyInitFn = SimulationStages.highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStats 0.5m
             }
 
             {
