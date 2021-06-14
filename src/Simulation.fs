@@ -159,9 +159,9 @@ module GameMode =
                      pDove * payoff.GetMyPayoff (Hawk, Dove)
         let evDove = pHawk * payoff.GetMyPayoff (Dove, Hawk) +
                      pDove * payoff.GetMyPayoff (Dove, Dove)
+
         let evDiff = evHawk - evDove
-        let decimal_epsilon = 2e-28m
-        let isWithinEpsilon = Math.Abs(evDiff) <= decimal_epsilon
+        let decimal_epsilon = 1e-16m
 
         match evDiff with
         // | diff when Math.Abs(diff) <= Double.Epsilon ->
