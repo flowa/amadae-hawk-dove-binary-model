@@ -29,7 +29,6 @@ module Composition =
 module GameMode =
     open Statistics.ModelExtensions
 
-    /// Random Choice game is used in e.g. in stage 2 when euHawk = euDove
     let randomChoiceGame (info: GameInformation): Strategy =
         let changeOfHawk = 0.5
         if info.RandomNumber < changeOfHawk then // Random number range [0.0, 1.0[
@@ -63,7 +62,6 @@ module GameMode =
 
     let keepSameStrategy (info: GameInformation): Strategy  =
         match info.Agent.Strategy with
-        // TODO: Should this be randomm
         | None -> nashMixedStrategyEquilibriumGameFromPayoffParameters info
         | Some choice -> choice
 
@@ -96,13 +94,12 @@ module GameMode =
             let evDove = pHawk * payoff.GetMyPayoff (Dove, Hawk) +
                          pDove * payoff.GetMyPayoff (Dove, Dove)
 
-            match (evHawk - evDove) with
-            // When you have expected value for playing
-            // hawk and playing dove are equal
-            // choose randomly
-            | 0.0m -> randomChoiceGame info
-            // if expected payoff for playing hawk is better, play hawk
-            // otherwise play dove
+            let evDiff = evHawk - evDove
+            let decimal_epsilon = 1e-16m
+
+            match evDiff with
+            | diff when Math.Abs(diff) <= decimal_epsilon ->
+                randomChoiceGame info
             | diff when diff > 0.0m -> Hawk
             | _  -> Dove
 
@@ -127,11 +124,12 @@ module GameMode =
         let evDove = pHawk * payoff.GetMyPayoff (Dove, Hawk) +
                      pDove * payoff.GetMyPayoff (Dove, Dove)
 
-        match (evHawk - evDove) with
-        // When you have expected value for playing
-        // hawk and playing dove are equal
-        // choose randomly
-        | 0.0m -> randomChoiceGame info
+        let evDiff = evHawk - evDove
+        let decimal_epsilon = 1e-16m
+
+        match evDiff with
+        | diff when Math.Abs(diff) <= decimal_epsilon ->
+            randomChoiceGame info
         // if expected payoff for playing hawk is better, play hawk
         // otherwise play dove
         | diff when diff > 0.0m -> Hawk
@@ -164,17 +162,13 @@ module GameMode =
         let decimal_epsilon = 1e-16m
 
         match evDiff with
-        // | diff when Math.Abs(diff) <= Double.Epsilon ->
         | diff when Math.Abs(diff) <= decimal_epsilon ->
             if hadRelevantHistory then
                 randomChoiceGame info
             else
                 nashMixedStrategyEquilibriumGameFromPayoffParameters info
-        // if expected payoff for playing hawk is better, play hawk
-        // otherwise play dove
         | diff when diff > 0.0m -> Hawk
         | _  -> Dove
-
 
     let highestEvOnDifferentColorGameForIndividualAgent_NonCached (challengeTypeFilter: ChallengeType option) (info: GameInformation): Strategy =
             let payoff = info.PayoffMatrix
@@ -187,21 +181,17 @@ module GameMode =
             let pHawk = opposingColorStats.HawkPortion // = Hawk count / total actors within color segment
             let pDove = opposingColorStats.DovePortion
 
-            // Calculate expected payoff for playing hawk and for playing dove
-            // In payoff.GetMyPayoff the first param is my move, and the second is opponent move
-            // E.g. for V = 10, C = 20 payoff.GetMyPayoff (Hawk, Hawk) return -5 (= (V-C)/2) and payoff.GetMyPayoff(Dove, Hawk) returns 10 (0)
             let evHawk = pHawk * payoff.GetMyPayoff (Hawk, Hawk) +
                          pDove * payoff.GetMyPayoff (Hawk, Dove)
             let evDove = pHawk * payoff.GetMyPayoff (Dove, Hawk) +
                          pDove * payoff.GetMyPayoff (Dove, Dove)
 
-            match (evHawk - evDove) with
-            // When you have expected value for playing
-            // hawk and playing dove are equal
-            // choose randomly
-            | 0.0m -> randomChoiceGame info
-            // if expected payoff for playing hawk is better, play hawk
-            // otherwise play dove
+            let evDiff = evHawk - evDove
+            let decimal_epsilon = 1e-16m
+
+            match evDiff with
+            | diff when Math.Abs(diff) <= decimal_epsilon ->
+                randomChoiceGame info
             | diff when diff > 0.0m -> Hawk
             | _  -> Dove
 
@@ -216,21 +206,17 @@ module GameMode =
             let pHawk = opposingColorStats.HawkPortion // = Hawk count / total actors within color segement
             let pDove = opposingColorStats.DovePortion
 
-            // Caclulate expected payoff for playinf hawk and for playing dove
-            // In payoff.GetMyPayoff the first param is my move, and the second is opponent move
-            // E.g. for V = 10, C = 20 payoff.GetMyPayoff (Hawk, Hawk) return -5 (= (V-C)/2) and payoff.GetMyPayoff(Dove, Hawk) returns 10 (0)
             let evHawk = pHawk * payoff.GetMyPayoff (Hawk, Hawk) +
                          pDove * payoff.GetMyPayoff (Hawk, Dove)
             let evDove = pHawk * payoff.GetMyPayoff (Dove, Hawk) +
                          pDove * payoff.GetMyPayoff (Dove, Dove)
 
-            match (evHawk - evDove) with
-            // When you have expected value for playing
-            // hawk and playing dove are equal
-            // choose randomly
-            | 0.0m -> randomChoiceGame info
-            // if expected payoff for playing hawk is better, play hawk
-            // otherwise play dove
+            let evDiff = evHawk - evDove
+            let decimal_epsilon = 1e-16m
+
+            match evDiff with
+            | diff when Math.Abs(diff) <= decimal_epsilon ->
+                randomChoiceGame info
             | diff when diff > 0.0m -> Hawk
             | _  -> Dove
 
@@ -422,9 +408,6 @@ module SimulationStages =
         }
 
 module SimulationStageNames =
-//    let AllPlayDove = "all_dove"
-//    let AllPlayHawk = "all_hawk"
-//    let GuaranteedNSME = "GuaranteedNSME"
     let Random = "random"
     let ProbabilisticNSME = "stage1"
     let HighestExpectedValueOnBasedOfHistory = "stage2"
