@@ -86,7 +86,7 @@ module GameMode =
             let pHawk = opposingColorStats.HawkPortion // = Hawk count / total actors within color segment
             let pDove = opposingColorStats.DovePortion
 
-            // Caclulate expected payoff for playinf hawk and for playing dove
+            // Calculate expected payoff for playing hawk and for playing dove
             // In payoff.GetMyPayoff the first param is my move, and the second is opponent move
             // E.g. for V = 10, C = 20 payoff.GetMyPayoff (Hawk, Hawk) return -5 (= (V-C)/2) and payoff.GetMyPayoff(Dove, Hawk) returns 10 (0)
             let evHawk = pHawk * payoff.GetMyPayoff (Hawk, Hawk) +
