@@ -5,11 +5,12 @@
 var path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
 
-module.exports = (env) =>
+module.exports = (env, ...opt) =>
 {
-    env = env || [];
-    const isProd = env === "prod" || env.filter(v => v === "prod").length > 0
-    const ghPages = env === "ghPages" || env.filter(v => v === "ghPages").length > 0
+    console.log("env", env, opt)
+    env = env || {};
+    const isProd = env === "prod" || Object.keys(env).filter(k => k === "prod" && env[k]).length > 0
+    const ghPages = env === "ghPages" || Object.keys(env).filter(k => k === "ghPages" && env[k]).length > 0
     console.log("ghPages", ghPages)
     console.log("isProd", isProd)
     return {
