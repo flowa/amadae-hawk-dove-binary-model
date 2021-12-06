@@ -28,28 +28,21 @@ let init () =
                 PayoffMatrix = FromRewardAndCost (10.0m, 20.0m)
             }
             SimulationFrames = [
-//                {
-//                    SimulationFrame.RoundCount = 1
-//                    SetPayoffForStage = id
-//                    StageName = "Stage 1"
-//                    StrategyInitFnName = SimulationStageNames.Random
-//                    MayUseColor = true
-//                }
+                {
+                    SimulationFrame.RoundCount = 20
+                    SetPayoffForStage = id
+                    StageName = "Stage 1"
+                    StrategyInitFnName = SimulationStageNames.ProbabilisticNSME
+                    MayUseColor = true
+                }
                 {
                      SimulationFrame.RoundCount = 100
                      SetPayoffForStage = id
                      StageName = "Stage 2"
-                     StrategyInitFnName = SimulationStageNames.HighestExpectedValueOnBasedOfHistory // SimulationStages.stage2Game_v5_withFullIndividualHistory
+                     StrategyInitFnName = SimulationStageNames.HighestExpectedValueOnBasedOfHistory
                      MayUseColor = true
                 }
-//                {
-//                   SimulationFrame.RoundCount = 10
-//                   SetPayoffForStage = id
-//                   StageName = "Stage 3"
-//                   StrategyInitFn = SimulationStages.stage3Game_onBasedOfLastEncounterWithOpponentColor
-//                   MayUseColor = true
-//                }
-            ]    
+            ]
         }
     let initialGameState = setup.ToInitialGameState()
     {
@@ -101,10 +94,6 @@ let update (msg:Msg) (state: State) =
                     state.Setup.GameParameters with
                         PayoffMatrix = (state.Setup.PayoffMatrix.SetC (decimal value))
                 })
-
-        // | f ->
-        //     eprintfn "Not implemented %A" f;
-        //     state
 
     match msg with
     | SetValue field -> (setField field), Cmd.none
@@ -165,9 +154,7 @@ let timer initial =
             , 500) |> ignore
     Cmd.ofSub sub
 
-// App
 Program.mkProgram init update MainView.view
 |> Program.withReactBatched "app"
 |> Program.withSubscription timer
-// |> Program.withConsoleTrace
 |> Program.run

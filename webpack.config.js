@@ -2,7 +2,7 @@
 // For a more comprehensive configuration check:
 // https://github.com/fable-compiler/webpack-config-template
 
-var path = require("path");
+const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = (env, ...opt) =>
@@ -31,8 +31,7 @@ module.exports = (env, ...opt) =>
         ],
         devtool: 'source-map',
         devServer: {
-            publicPath: "/",
-            contentBase: "./public",
+            static: "./public",
             port: 8080,
         },
         module: {
