@@ -45756,15 +45756,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Model_fs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Model.fs */ "./src/Model.fs");
 /* harmony import */ var _fable_Fable_Promise_2_1_0_Promise_fs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../.fable/Fable.Promise.2.1.0/Promise.fs */ "./.fable/Fable.Promise.2.1.0/Promise.fs");
 /* harmony import */ var _fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/Decimal.js */ "./.fable/fable-library.2.13.0/Decimal.js");
-/* harmony import */ var _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/Types.js */ "./.fable/fable-library.2.13.0/Types.js");
+/* harmony import */ var _fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/List.js */ "./.fable/fable-library.2.13.0/List.js");
 /* harmony import */ var _fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../.fable/Fable.Elmish.3.0.0/cmd.fs */ "./.fable/Fable.Elmish.3.0.0/cmd.fs");
-/* harmony import */ var _fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/List.js */ "./.fable/fable-library.2.13.0/List.js");
-/* harmony import */ var _fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/String.js */ "./.fable/fable-library.2.13.0/String.js");
-/* harmony import */ var _fable_fable_library_2_13_0_Date_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/Date.js */ "./.fable/fable-library.2.13.0/Date.js");
-/* harmony import */ var _MainView_fs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./MainView.fs */ "./src/MainView.fs");
-/* harmony import */ var _fable_Fable_Elmish_3_0_0_program_fs__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../.fable/Fable.Elmish.3.0.0/program.fs */ "./.fable/Fable.Elmish.3.0.0/program.fs");
-/* harmony import */ var _fable_Fable_Elmish_React_3_0_1_react_fs__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../.fable/Fable.Elmish.React.3.0.1/react.fs */ "./.fable/Fable.Elmish.React.3.0.1/react.fs");
-
+/* harmony import */ var _fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/String.js */ "./.fable/fable-library.2.13.0/String.js");
+/* harmony import */ var _fable_fable_library_2_13_0_Date_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/Date.js */ "./.fable/fable-library.2.13.0/Date.js");
+/* harmony import */ var _MainView_fs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./MainView.fs */ "./src/MainView.fs");
+/* harmony import */ var _fable_Fable_Elmish_3_0_0_program_fs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../.fable/Fable.Elmish.3.0.0/program.fs */ "./.fable/Fable.Elmish.3.0.0/program.fs");
+/* harmony import */ var _fable_Fable_Elmish_React_3_0_1_react_fs__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../.fable/Fable.Elmish.React.3.0.1/react.fs */ "./.fable/Fable.Elmish.React.3.0.1/react.fs");
 
 
 
@@ -45790,9 +45788,11 @@ function runSimulationAsync(setup) {
   }));
 }
 function init() {
-  const setup$$1 = new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameSetup"](new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameParameters"](100, 50, new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["PayoffMatrixType"](0, "FromRewardAndCost", Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_4__["fromParts"])(100, 0, 0, false, 1), Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_4__["fromParts"])(200, 0, 0, false, 1))), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_5__["List"](new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["SimulationFrame"](100, "Stage 2", _Simulation_fs__WEBPACK_IMPORTED_MODULE_1__["SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory"], function SetPayoffForStage(x) {
+  const setup$$1 = new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameSetup"](new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameParameters"](100, 50, new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["PayoffMatrixType"](0, "FromRewardAndCost", Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_4__["fromParts"])(100, 0, 0, false, 1), Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_4__["fromParts"])(200, 0, 0, false, 1))), Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_5__["ofArray"])([new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["SimulationFrame"](20, "Stage 1", _Simulation_fs__WEBPACK_IMPORTED_MODULE_1__["SimulationStageNames$$$ProbabilisticNSME"], function SetPayoffForStage(x) {
     return x;
-  }, true), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_5__["List"]()));
+  }, true), new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["SimulationFrame"](100, "Stage 2", _Simulation_fs__WEBPACK_IMPORTED_MODULE_1__["SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory"], function SetPayoffForStage$$1(x$$1) {
+    return x$$1;
+  }, true)]));
   const initialGameState$$1 = Object(_Simulation_fs__WEBPACK_IMPORTED_MODULE_1__["Model$002EGameSetup$$GameSetup$002EToInitialGameState"])(setup$$1);
   return [new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["State"](setup$$1, initialGameState$$1, new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["ResultViewState"](0, "InitGame"), false), Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_6__["Cmd$$$none"])()];
 }
@@ -45817,7 +45817,7 @@ function update(msg, state) {
         {
           const value$$1 = field.fields[1];
           const stage$$1 = field.fields[0];
-          return setGameSimulationFrames((list$$1 = state.Setup.SimulationFrames, (Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["map"])(function mapping$$1(frame$$1) {
+          return setGameSimulationFrames((list$$1 = state.Setup.SimulationFrames, (Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_5__["map"])(function mapping$$1(frame$$1) {
             if (frame$$1.StageName === stage$$1) {
               return new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["SimulationFrame"](frame$$1.RoundCount, frame$$1.StageName, value$$1, frame$$1.SetPayoffForStage, frame$$1.MayUseColor);
             } else {
@@ -45854,7 +45854,7 @@ function update(msg, state) {
         {
           const value = field.fields[1] | 0;
           const stage = field.fields[0];
-          return setGameSimulationFrames((list = state.Setup.SimulationFrames, (Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["map"])(function mapping(frame) {
+          return setGameSimulationFrames((list = state.Setup.SimulationFrames, (Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_5__["map"])(function mapping(frame) {
             if (frame.StageName === stage) {
               return new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["SimulationFrame"](value, frame.StageName, frame.StrategyInitFnName, frame.SetPayoffForStage, frame.MayUseColor);
             } else {
@@ -45882,19 +45882,19 @@ function update(msg, state) {
         const runSimulation = function runSimulation() {
           const builder$0040$$1 = _fable_Fable_Promise_2_1_0_PromiseImpl_fs__WEBPACK_IMPORTED_MODULE_0__["promise"];
           return Object(_fable_Fable_Promise_2_1_0_Promise_fs__WEBPACK_IMPORTED_MODULE_3__["PromiseBuilder$$Run$$212F1D4B"])(builder$0040$$1, Object(_fable_Fable_Promise_2_1_0_Promise_fs__WEBPACK_IMPORTED_MODULE_3__["PromiseBuilder$$Delay$$62FBFDE1"])(builder$0040$$1, function () {
-            Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_8__["toConsole"])(Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_8__["printf"])("starting"));
+            Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_7__["toConsole"])(Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_7__["printf"])("starting"));
             return new Promise(resolve => setTimeout(resolve, 200)).then(function () {
               return runSimulationAsync(state.Setup).then(function (_arg2) {
                 const results = _arg2;
-                Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_8__["toConsole"])(Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_8__["printf"])("beforeDispatch"));
+                Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_7__["toConsole"])(Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_7__["printf"])("beforeDispatch"));
                 return Promise.resolve(new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["Msg"](3, "OnSimulationCompleted", results));
               });
             });
           }));
         };
 
-        return [(ViewState$$2 = new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["ResultViewState"](1, "Loading"), new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["State"](state.Setup, state.GameState, ViewState$$2, state.PlayAnimation)), Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_6__["Cmd$002EOfPromise$$$perform"])(runSimulation, void null, function (x$$1) {
-          return x$$1;
+        return [(ViewState$$2 = new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["ResultViewState"](1, "Loading"), new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["State"](state.Setup, state.GameState, ViewState$$2, state.PlayAnimation)), Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_6__["Cmd$002EOfPromise$$$perform"])(runSimulation, void null, function (x$$2) {
+          return x$$2;
         })];
       }
 
@@ -45909,24 +45909,24 @@ function update(msg, state) {
         const maxRound = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameSetup$$get_RoundsToPlay"])(state.Setup) | 0;
         const currentRound = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["State$$get_CurrentRound"])(state) | 0;
         let updatedState;
-        var $target$$10, round$$2;
+        var $target$$11, round$$2;
 
         if (state.PlayAnimation) {
           if (state.ViewState.tag === 2) {
             if (round$$1 = state.ViewState.fields[0] | 0, maxRound > currentRound) {
-              $target$$10 = 0;
+              $target$$11 = 0;
               round$$2 = state.ViewState.fields[0];
             } else {
-              $target$$10 = 1;
+              $target$$11 = 1;
             }
           } else {
-            $target$$10 = 1;
+            $target$$11 = 1;
           }
         } else {
-          $target$$10 = 1;
+          $target$$11 = 1;
         }
 
-        switch ($target$$10) {
+        switch ($target$$11) {
           case 0:
             {
               const ViewState$$4 = new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["ResultViewState"](2, "ShowResults", round$$2 + 1);
@@ -45936,23 +45936,23 @@ function update(msg, state) {
 
           case 1:
             {
-              var $target$$11;
+              var $target$$12;
 
               if (state.PlayAnimation) {
                 if (state.ViewState.tag === 2) {
                   if (maxRound === currentRound) {
-                    $target$$11 = 0;
+                    $target$$12 = 0;
                   } else {
-                    $target$$11 = 1;
+                    $target$$12 = 1;
                   }
                 } else {
-                  $target$$11 = 1;
+                  $target$$12 = 1;
                 }
               } else {
-                $target$$11 = 1;
+                $target$$12 = 1;
               }
 
-              switch ($target$$11) {
+              switch ($target$$12) {
                 case 0:
                   {
                     updatedState = new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["State"](state.Setup, state.GameState, state.ViewState, false);
@@ -45993,7 +45993,7 @@ function update(msg, state) {
 function timer(initial) {
   const sub = function sub(dispatch) {
     const value$$6 = window.setInterval(function (_arg1$$2) {
-      return dispatch(new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["Msg"](5, "Tick", Object(_fable_fable_library_2_13_0_Date_js__WEBPACK_IMPORTED_MODULE_9__["now"])()));
+      return dispatch(new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["Msg"](5, "Tick", Object(_fable_fable_library_2_13_0_Date_js__WEBPACK_IMPORTED_MODULE_8__["now"])()));
     }, 500);
     void value$$6;
   };
@@ -46004,12 +46004,12 @@ function timer(initial) {
 (function () {
   let program$$2;
   let program$$1;
-  const program = Object(_fable_Fable_Elmish_3_0_0_program_fs__WEBPACK_IMPORTED_MODULE_11__["ProgramModule$$$mkProgram"])(function () {
+  const program = Object(_fable_Fable_Elmish_3_0_0_program_fs__WEBPACK_IMPORTED_MODULE_10__["ProgramModule$$$mkProgram"])(function () {
     return init();
-  }, update, _MainView_fs__WEBPACK_IMPORTED_MODULE_10__["view"]);
-  program$$1 = Object(_fable_Fable_Elmish_React_3_0_1_react_fs__WEBPACK_IMPORTED_MODULE_12__["Program$$$withReactBatched"])("app", program);
-  program$$2 = Object(_fable_Fable_Elmish_3_0_0_program_fs__WEBPACK_IMPORTED_MODULE_11__["ProgramModule$$$withSubscription"])(timer, program$$1);
-  Object(_fable_Fable_Elmish_3_0_0_program_fs__WEBPACK_IMPORTED_MODULE_11__["ProgramModule$$$run"])(program$$2);
+  }, update, _MainView_fs__WEBPACK_IMPORTED_MODULE_9__["view"]);
+  program$$1 = Object(_fable_Fable_Elmish_React_3_0_1_react_fs__WEBPACK_IMPORTED_MODULE_11__["Program$$$withReactBatched"])("app", program);
+  program$$2 = Object(_fable_Fable_Elmish_3_0_0_program_fs__WEBPACK_IMPORTED_MODULE_10__["ProgramModule$$$withSubscription"])(timer, program$$1);
+  Object(_fable_Fable_Elmish_3_0_0_program_fs__WEBPACK_IMPORTED_MODULE_10__["ProgramModule$$$run"])(program$$2);
 })();
 
 /***/ }),
