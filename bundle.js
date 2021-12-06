@@ -113,26 +113,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Cmd$002EOfPromise$$$attempt", function() { return Cmd$002EOfPromise$$$attempt; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Cmd$002EOfPromise$$$result", function() { return Cmd$002EOfPromise$$$result; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Cmd$$$attemptFunc", function() { return Cmd$$$attemptFunc; });
-/* harmony import */ var _fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../fable-library.2.4.15/List.js */ "./.fable/fable-library.2.4.15/List.js");
-/* harmony import */ var _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../fable-library.2.4.15/Types.js */ "./.fable/fable-library.2.4.15/Types.js");
-/* harmony import */ var _fable_library_2_4_15_AsyncBuilder_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../fable-library.2.4.15/AsyncBuilder.js */ "./.fable/fable-library.2.4.15/AsyncBuilder.js");
-/* harmony import */ var _fable_library_2_4_15_Async_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../fable-library.2.4.15/Async.js */ "./.fable/fable-library.2.4.15/Async.js");
+/* harmony import */ var _fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../fable-library.2.13.0/List.js */ "./.fable/fable-library.2.13.0/List.js");
+/* harmony import */ var _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../fable-library.2.13.0/Types.js */ "./.fable/fable-library.2.13.0/Types.js");
+/* harmony import */ var _fable_library_2_13_0_AsyncBuilder_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../fable-library.2.13.0/AsyncBuilder.js */ "./.fable/fable-library.2.13.0/AsyncBuilder.js");
+/* harmony import */ var _fable_library_2_13_0_Async_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../fable-library.2.13.0/Async.js */ "./.fable/fable-library.2.13.0/Async.js");
 
 
 
 
 function Cmd$$$exec(dispatch, cmd) {
   const list = cmd;
-  Object(_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_0__["iterate"])(function action(sub) {
+  Object(_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_0__["iterate"])(function action(sub) {
     sub(dispatch);
   }, list);
 }
 function Cmd$$$none() {
-  return new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]();
+  return new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]();
 }
 function Cmd$$$map(f, cmd$$1) {
   const list$$1 = cmd$$1;
-  return Object(_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_0__["map"])(function mapping(g) {
+  return Object(_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_0__["map"])(function mapping(g) {
     return function ($arg$$2) {
       var dispatch$$1;
       g((dispatch$$1 = $arg$$2, function ($arg$$1) {
@@ -143,10 +143,10 @@ function Cmd$$$map(f, cmd$$1) {
 }
 function Cmd$$$batch(cmds) {
   const lists = cmds;
-  return Object(_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_0__["concat"])(lists);
+  return Object(_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_0__["concat"])(lists);
 }
 function Cmd$$$ofSub(sub$$1) {
-  return new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](sub$$1, new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]());
+  return new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](sub$$1, new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]());
 }
 function Cmd$002EOfFunc$$$either(task, arg, ofSuccess, ofError) {
   const bind = function bind(dispatch$$2) {
@@ -159,17 +159,19 @@ function Cmd$002EOfFunc$$$either(task, arg, ofSuccess, ofError) {
     }
   };
 
-  return new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](bind, new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]());
+  return new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](bind, new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]());
 }
 function Cmd$002EOfFunc$$$perform(task$$1, arg$$1, ofSuccess$$1) {
   const bind$$1 = function bind$$1(dispatch$$3) {
     try {
       const $arg$$5 = task$$1(arg$$1);
       dispatch$$3(ofSuccess$$1($arg$$5));
-    } catch (x$$1) {}
+    } catch (x$$1) {
+      void null;
+    }
   };
 
-  return new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](bind$$1, new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]());
+  return new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](bind$$1, new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]());
 }
 function Cmd$002EOfFunc$$$attempt(task$$2, arg$$2, ofError$$1) {
   const bind$$2 = function bind$$2(dispatch$$4) {
@@ -181,19 +183,19 @@ function Cmd$002EOfFunc$$$attempt(task$$2, arg$$2, ofError$$1) {
     }
   };
 
-  return new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](bind$$2, new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]());
+  return new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](bind$$2, new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]());
 }
 function Cmd$002EOfFunc$$$result(msg) {
-  return new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](function (dispatch$$5) {
+  return new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](function (dispatch$$5) {
     dispatch$$5(msg);
-  }, new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]());
+  }, new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]());
 }
 function Cmd$002EOfAsync$$$either(task$$3, arg$$3, ofSuccess$$2, ofError$$2) {
   const bind$$3 = function bind$$3(dispatch$$6) {
-    const builder$0040 = _fable_library_2_4_15_AsyncBuilder_js__WEBPACK_IMPORTED_MODULE_2__["singleton"];
+    const builder$0040 = _fable_library_2_13_0_AsyncBuilder_js__WEBPACK_IMPORTED_MODULE_2__["singleton"];
     return builder$0040.Delay(function () {
       var arg00;
-      return builder$0040.Bind((arg00 = task$$3(arg$$3), (Object(_fable_library_2_4_15_Async_js__WEBPACK_IMPORTED_MODULE_3__["catchAsync"])(arg00))), function (_arg1) {
+      return builder$0040.Bind((arg00 = task$$3(arg$$3), (Object(_fable_library_2_13_0_Async_js__WEBPACK_IMPORTED_MODULE_3__["catchAsync"])(arg00))), function (_arg1) {
         var x$$4, x$$3;
         const r = _arg1;
         dispatch$$6(r.tag === 1 ? (x$$4 = r.fields[0], ofError$$2(x$$4)) : (x$$3 = r.fields[0], ofSuccess$$2(x$$3)));
@@ -202,17 +204,17 @@ function Cmd$002EOfAsync$$$either(task$$3, arg$$3, ofSuccess$$2, ofError$$2) {
     });
   };
 
-  return new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](function ($arg$$7) {
+  return new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](function ($arg$$7) {
     const arg00$$1 = bind$$3($arg$$7);
-    Object(_fable_library_2_4_15_Async_js__WEBPACK_IMPORTED_MODULE_3__["startImmediate"])(arg00$$1);
-  }, new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]());
+    Object(_fable_library_2_13_0_Async_js__WEBPACK_IMPORTED_MODULE_3__["startImmediate"])(arg00$$1);
+  }, new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]());
 }
 function Cmd$002EOfAsync$$$perform(task$$4, arg$$4, ofSuccess$$3) {
   const bind$$4 = function bind$$4(dispatch$$7) {
-    const builder$0040$$1 = _fable_library_2_4_15_AsyncBuilder_js__WEBPACK_IMPORTED_MODULE_2__["singleton"];
+    const builder$0040$$1 = _fable_library_2_13_0_AsyncBuilder_js__WEBPACK_IMPORTED_MODULE_2__["singleton"];
     return builder$0040$$1.Delay(function () {
       var arg00$$2;
-      return builder$0040$$1.Bind((arg00$$2 = task$$4(arg$$4), (Object(_fable_library_2_4_15_Async_js__WEBPACK_IMPORTED_MODULE_3__["catchAsync"])(arg00$$2))), function (_arg1$$1) {
+      return builder$0040$$1.Bind((arg00$$2 = task$$4(arg$$4), (Object(_fable_library_2_13_0_Async_js__WEBPACK_IMPORTED_MODULE_3__["catchAsync"])(arg00$$2))), function (_arg1$$1) {
         const r$$1 = _arg1$$1;
 
         if (r$$1.tag === 0) {
@@ -220,23 +222,24 @@ function Cmd$002EOfAsync$$$perform(task$$4, arg$$4, ofSuccess$$3) {
           dispatch$$7(ofSuccess$$3(x$$5));
           return builder$0040$$1.Zero();
         } else {
+          void null;
           return builder$0040$$1.Zero();
         }
       });
     });
   };
 
-  return new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](function ($arg$$8) {
+  return new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](function ($arg$$8) {
     const arg00$$3 = bind$$4($arg$$8);
-    Object(_fable_library_2_4_15_Async_js__WEBPACK_IMPORTED_MODULE_3__["startImmediate"])(arg00$$3);
-  }, new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]());
+    Object(_fable_library_2_13_0_Async_js__WEBPACK_IMPORTED_MODULE_3__["startImmediate"])(arg00$$3);
+  }, new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]());
 }
 function Cmd$002EOfAsync$$$attempt(task$$5, arg$$5, ofError$$3) {
   const bind$$5 = function bind$$5(dispatch$$8) {
-    const builder$0040$$2 = _fable_library_2_4_15_AsyncBuilder_js__WEBPACK_IMPORTED_MODULE_2__["singleton"];
+    const builder$0040$$2 = _fable_library_2_13_0_AsyncBuilder_js__WEBPACK_IMPORTED_MODULE_2__["singleton"];
     return builder$0040$$2.Delay(function () {
       var arg00$$4;
-      return builder$0040$$2.Bind((arg00$$4 = task$$5(arg$$5), (Object(_fable_library_2_4_15_Async_js__WEBPACK_IMPORTED_MODULE_3__["catchAsync"])(arg00$$4))), function (_arg1$$2) {
+      return builder$0040$$2.Bind((arg00$$4 = task$$5(arg$$5), (Object(_fable_library_2_13_0_Async_js__WEBPACK_IMPORTED_MODULE_3__["catchAsync"])(arg00$$4))), function (_arg1$$2) {
         const r$$2 = _arg1$$2;
 
         if (r$$2.tag === 1) {
@@ -244,23 +247,24 @@ function Cmd$002EOfAsync$$$attempt(task$$5, arg$$5, ofError$$3) {
           dispatch$$8(ofError$$3(x$$6));
           return builder$0040$$2.Zero();
         } else {
+          void null;
           return builder$0040$$2.Zero();
         }
       });
     });
   };
 
-  return new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](function ($arg$$9) {
+  return new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](function ($arg$$9) {
     const arg00$$5 = bind$$5($arg$$9);
-    Object(_fable_library_2_4_15_Async_js__WEBPACK_IMPORTED_MODULE_3__["startImmediate"])(arg00$$5);
-  }, new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]());
+    Object(_fable_library_2_13_0_Async_js__WEBPACK_IMPORTED_MODULE_3__["startImmediate"])(arg00$$5);
+  }, new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]());
 }
 function Cmd$002EOfAsync$$$result(task$$6) {
   const bind$$6 = function bind$$6(dispatch$$9) {
-    const builder$0040$$3 = _fable_library_2_4_15_AsyncBuilder_js__WEBPACK_IMPORTED_MODULE_2__["singleton"];
+    const builder$0040$$3 = _fable_library_2_13_0_AsyncBuilder_js__WEBPACK_IMPORTED_MODULE_2__["singleton"];
     return builder$0040$$3.Delay(function () {
       var arg00$$6;
-      return builder$0040$$3.Bind((arg00$$6 = task$$6, (Object(_fable_library_2_4_15_Async_js__WEBPACK_IMPORTED_MODULE_3__["catchAsync"])(arg00$$6))), function (_arg1$$3) {
+      return builder$0040$$3.Bind((arg00$$6 = task$$6, (Object(_fable_library_2_13_0_Async_js__WEBPACK_IMPORTED_MODULE_3__["catchAsync"])(arg00$$6))), function (_arg1$$3) {
         const r$$3 = _arg1$$3;
 
         if (r$$3.tag === 0) {
@@ -268,16 +272,17 @@ function Cmd$002EOfAsync$$$result(task$$6) {
           dispatch$$9(x$$7);
           return builder$0040$$3.Zero();
         } else {
+          void null;
           return builder$0040$$3.Zero();
         }
       });
     });
   };
 
-  return new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](function ($arg$$10) {
+  return new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](function ($arg$$10) {
     const arg00$$7 = bind$$6($arg$$10);
-    Object(_fable_library_2_4_15_Async_js__WEBPACK_IMPORTED_MODULE_3__["startImmediate"])(arg00$$7);
-  }, new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]());
+    Object(_fable_library_2_13_0_Async_js__WEBPACK_IMPORTED_MODULE_3__["startImmediate"])(arg00$$7);
+  }, new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]());
 }
 function Cmd$002EOfPromise$$$either(task$$7, arg$$6, ofSuccess$$4, ofError$$4) {
   const bind$$7 = function bind$$7(dispatch$$10) {
@@ -290,7 +295,7 @@ function Cmd$002EOfPromise$$$either(task$$7, arg$$6, ofSuccess$$4, ofError$$4) {
     void value$$1;
   };
 
-  return new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](bind$$7, new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]());
+  return new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](bind$$7, new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]());
 }
 function Cmd$002EOfPromise$$$perform(task$$8, arg$$7, ofSuccess$$5) {
   const bind$$8 = function bind$$8(dispatch$$11) {
@@ -300,7 +305,7 @@ function Cmd$002EOfPromise$$$perform(task$$8, arg$$7, ofSuccess$$5) {
     void value$$2;
   };
 
-  return new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](bind$$8, new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]());
+  return new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](bind$$8, new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]());
 }
 function Cmd$002EOfPromise$$$attempt(task$$9, arg$$8, ofError$$5) {
   const bind$$9 = function bind$$9(dispatch$$12) {
@@ -311,7 +316,7 @@ function Cmd$002EOfPromise$$$attempt(task$$9, arg$$8, ofError$$5) {
     void value$$4;
   };
 
-  return new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](bind$$9, new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]());
+  return new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](bind$$9, new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]());
 }
 function Cmd$002EOfPromise$$$result(task$$10) {
   const bind$$10 = function bind$$10(dispatch$$13) {
@@ -319,7 +324,7 @@ function Cmd$002EOfPromise$$$result(task$$10) {
     void value$$5;
   };
 
-  return new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](bind$$10, new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]());
+  return new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](bind$$10, new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]());
 }
 function Cmd$$$attemptFunc(task$$11, arg$$9, ofError$$6) {
   return Cmd$002EOfFunc$$$attempt(task$$11, arg$$9, ofError$$6);
@@ -338,13 +343,13 @@ function Cmd$$$attemptFunc(task$$11, arg$$9, ofError$$6) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onError", function() { return onError; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toConsole", function() { return toConsole; });
-/* harmony import */ var _fable_library_2_4_15_Option_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../fable-library.2.4.15/Option.js */ "./.fable/fable-library.2.4.15/Option.js");
+/* harmony import */ var _fable_library_2_13_0_Option_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../fable-library.2.13.0/Option.js */ "./.fable/fable-library.2.13.0/Option.js");
 
 function onError(text, ex) {
-  console.error(Object(_fable_library_2_4_15_Option_js__WEBPACK_IMPORTED_MODULE_0__["some"])(text), ex);
+  console.error(Object(_fable_library_2_13_0_Option_js__WEBPACK_IMPORTED_MODULE_0__["some"])(text), ex);
 }
 function toConsole(text$$1, o) {
-  console.log(Object(_fable_library_2_4_15_Option_js__WEBPACK_IMPORTED_MODULE_0__["some"])(text$$1), o);
+  console.log(Object(_fable_library_2_13_0_Option_js__WEBPACK_IMPORTED_MODULE_0__["some"])(text$$1), o);
 }
 
 /***/ }),
@@ -374,15 +379,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProgramModule$$$map", function() { return ProgramModule$$$map; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProgramModule$$$runWith", function() { return ProgramModule$$$runWith; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProgramModule$$$run", function() { return ProgramModule$$$run; });
-/* harmony import */ var _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../fable-library.2.4.15/Types.js */ "./.fable/fable-library.2.4.15/Types.js");
-/* harmony import */ var _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../fable-library.2.4.15/Reflection.js */ "./.fable/fable-library.2.4.15/Reflection.js");
+/* harmony import */ var _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../fable-library.2.13.0/Types.js */ "./.fable/fable-library.2.13.0/Types.js");
+/* harmony import */ var _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../fable-library.2.13.0/Reflection.js */ "./.fable/fable-library.2.13.0/Reflection.js");
 /* harmony import */ var _cmd_fs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./cmd.fs */ "./.fable/Fable.Elmish.3.0.0/cmd.fs");
 /* harmony import */ var _prelude_fs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./prelude.fs */ "./.fable/Fable.Elmish.3.0.0/prelude.fs");
-/* harmony import */ var _fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../fable-library.2.4.15/Util.js */ "./.fable/fable-library.2.4.15/Util.js");
-/* harmony import */ var _fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../fable-library.2.4.15/List.js */ "./.fable/fable-library.2.4.15/List.js");
+/* harmony import */ var _fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../fable-library.2.13.0/Util.js */ "./.fable/fable-library.2.13.0/Util.js");
+/* harmony import */ var _fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../fable-library.2.13.0/List.js */ "./.fable/fable-library.2.13.0/List.js");
 /* harmony import */ var _ring_fs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ring.fs */ "./.fable/Fable.Elmish.3.0.0/ring.fs");
-/* harmony import */ var _fable_library_2_4_15_Option_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../fable-library.2.4.15/Option.js */ "./.fable/fable-library.2.4.15/Option.js");
-/* harmony import */ var _fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../fable-library.2.4.15/String.js */ "./.fable/fable-library.2.4.15/String.js");
+/* harmony import */ var _fable_library_2_13_0_Option_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../fable-library.2.13.0/Option.js */ "./.fable/fable-library.2.13.0/Option.js");
+/* harmony import */ var _fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../fable-library.2.13.0/String.js */ "./.fable/fable-library.2.13.0/String.js");
 
 
 
@@ -392,17 +397,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const Program$00604 = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Elmish_Program(arg1, arg2, arg3, arg4, arg5, arg6, arg7) {
-  this.init = arg1;
-  this.update = arg2;
-  this.subscribe = arg3;
-  this.view = arg4;
-  this.setState = arg5;
-  this.onError = arg6;
-  this.syncDispatch = arg7;
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
+const Program$00604 = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Elmish_Program(init, update, subscribe, view, setState, onError, syncDispatch) {
+  this.init = init;
+  this.update = update;
+  this.subscribe = subscribe;
+  this.view = view;
+  this.setState = setState;
+  this.onError = onError;
+  this.syncDispatch = syncDispatch;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
 function Program$00604$reflection($gen$$5, $gen$$6, $gen$$7, $gen$$8) {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record"])("Elmish.Program`4", [$gen$$5, $gen$$6, $gen$$7, $gen$$8], Program$00604, () => [["init", Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])($gen$$5, Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["tuple"])($gen$$6, Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])($gen$$7, _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"]), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"]))))], ["update", Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])($gen$$7, Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])($gen$$6, Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["tuple"])($gen$$6, Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])($gen$$7, _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"]), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])))))], ["subscribe", Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])($gen$$6, Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])($gen$$7, _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"]), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])))], ["view", Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])($gen$$6, Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])($gen$$7, _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"]), $gen$$8))], ["setState", Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])($gen$$6, Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])($gen$$7, _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"]), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"]))], ["onError", Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["tuple"])(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"], Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("System.Exception")), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])], ["syncDispatch", Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])($gen$$7, _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"]), Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])($gen$$7, _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"]))]]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record_type"])("Elmish.Program`4", [$gen$$5, $gen$$6, $gen$$7, $gen$$8], Program$00604, () => [["init", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])($gen$$5, Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["tuple_type"])($gen$$6, Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])($gen$$7, _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"]), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"]))))], ["update", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])($gen$$7, Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])($gen$$6, Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["tuple_type"])($gen$$6, Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])($gen$$7, _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"]), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])))))], ["subscribe", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])($gen$$6, Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])($gen$$7, _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"]), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])))], ["view", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])($gen$$6, Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])($gen$$7, _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"]), $gen$$8))], ["setState", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])($gen$$6, Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])($gen$$7, _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"]), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"]))], ["onError", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["tuple_type"])(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"], Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("System.Exception")), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])], ["syncDispatch", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])($gen$$7, _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"]), Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])($gen$$7, _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"]))]]);
 }
 function ProgramModule$$$mkProgram(init, update, view) {
   return new Program$00604(init, update, function (_arg1) {
@@ -412,7 +417,7 @@ function ProgramModule$$$mkProgram(init, update, view) {
     void value;
   }, function (tupledArg) {
     Object(_prelude_fs__WEBPACK_IMPORTED_MODULE_3__["onError"])(tupledArg[0], tupledArg[1]);
-  }, Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["uncurry"])(2, function (x) {
+  }, Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__["uncurry"])(2, function (x) {
     return x;
   }));
 }
@@ -430,13 +435,13 @@ function ProgramModule$$$mkSimple(init$$1, update$$1, view$$1) {
     void value$$1;
   }, function (tupledArg$$1) {
     Object(_prelude_fs__WEBPACK_IMPORTED_MODULE_3__["onError"])(tupledArg$$1[0], tupledArg$$1[1]);
-  }, Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["uncurry"])(2, function (x$$1) {
+  }, Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__["uncurry"])(2, function (x$$1) {
     return x$$1;
   }));
 }
 function ProgramModule$$$withSubscription(subscribe, program) {
   const sub = function sub(model$$2) {
-    return Object(_cmd_fs__WEBPACK_IMPORTED_MODULE_2__["Cmd$$$batch"])(Object(_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_5__["ofArray"])([program.subscribe(model$$2), subscribe(model$$2)]));
+    return Object(_cmd_fs__WEBPACK_IMPORTED_MODULE_2__["Cmd$$$batch"])(Object(_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_5__["ofArray"])([program.subscribe(model$$2), subscribe(model$$2)]));
   };
 
   return new Program$00604(program.init, program.update, sub, program.view, program.setState, program.onError, program.syncDispatch);
@@ -471,27 +476,27 @@ function ProgramModule$$$withErrorHandler(onError, program$$3) {
   return new Program$00604(program$$3.init, program$$3.update, program$$3.subscribe, program$$3.view, program$$3.setState, onError, program$$3.syncDispatch);
 }
 function ProgramModule$$$mapErrorHandler(map, program$$4) {
-  const onError$$1 = Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["partialApply"])(1, map, [program$$4.onError]);
+  const onError$$1 = Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__["partialApply"])(1, map, [program$$4.onError]);
   return new Program$00604(program$$4.init, program$$4.update, program$$4.subscribe, program$$4.view, program$$4.setState, onError$$1, program$$4.syncDispatch);
 }
 function ProgramModule$$$withSetState(setState$$2, program$$5) {
   return new Program$00604(program$$5.init, program$$5.update, program$$5.subscribe, program$$5.view, setState$$2, program$$5.onError, program$$5.syncDispatch);
 }
 function ProgramModule$$$setState(program$$6) {
-  return Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["curry"])(2, program$$6.setState);
+  return Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__["curry"])(2, program$$6.setState);
 }
 function ProgramModule$$$view(program$$7) {
-  return Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["curry"])(2, program$$7.view);
+  return Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__["curry"])(2, program$$7.view);
 }
 function ProgramModule$$$withSyncDispatch(syncDispatch, program$$8) {
   return new Program$00604(program$$8.init, program$$8.update, program$$8.subscribe, program$$8.view, program$$8.setState, program$$8.onError, syncDispatch);
 }
 function ProgramModule$$$map(mapInit, mapUpdate, mapView, mapSetState, mapSubscribe, program$$9) {
-  const init$$3 = Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["partialApply"])(1, mapInit, [program$$9.init]);
-  const update$$4 = Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["partialApply"])(2, mapUpdate, [program$$9.update]);
-  const view$$2 = Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["partialApply"])(2, mapView, [program$$9.view]);
-  const setState$$3 = Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["partialApply"])(2, mapSetState, [program$$9.setState]);
-  return new Program$00604(init$$3, Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["uncurry"])(2, update$$4), Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["partialApply"])(1, mapSubscribe, [program$$9.subscribe]), Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["uncurry"])(2, view$$2), Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["uncurry"])(2, setState$$3), program$$9.onError, Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["uncurry"])(2, function (x$$2) {
+  const init$$3 = Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__["partialApply"])(1, mapInit, [program$$9.init]);
+  const update$$4 = Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__["partialApply"])(2, mapUpdate, [program$$9.update]);
+  const view$$2 = Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__["partialApply"])(2, mapView, [program$$9.view]);
+  const setState$$3 = Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__["partialApply"])(2, mapSetState, [program$$9.setState]);
+  return new Program$00604(init$$3, Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__["uncurry"])(2, update$$4), Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__["partialApply"])(1, mapSubscribe, [program$$9.subscribe]), Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__["uncurry"])(2, view$$2), Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__["uncurry"])(2, setState$$3), program$$9.onError, Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__["uncurry"])(2, function (x$$2) {
     return x$$2;
   }));
 }
@@ -510,10 +515,10 @@ function ProgramModule$$$runWith(arg$$1, program$$10) {
       Object(_ring_fs__WEBPACK_IMPORTED_MODULE_6__["RingBuffer$00601$$Push$$2B595"])(rb, msg$$3);
     } else {
       reentered = true;
-      let nextMsg = Object(_fable_library_2_4_15_Option_js__WEBPACK_IMPORTED_MODULE_7__["some"])(msg$$3);
+      let nextMsg = Object(_fable_library_2_13_0_Option_js__WEBPACK_IMPORTED_MODULE_7__["some"])(msg$$3);
 
       while (nextMsg != null) {
-        const msg$$4 = Object(_fable_library_2_4_15_Option_js__WEBPACK_IMPORTED_MODULE_7__["value"])(nextMsg);
+        const msg$$4 = Object(_fable_library_2_13_0_Option_js__WEBPACK_IMPORTED_MODULE_7__["value"])(nextMsg);
 
         try {
           const patternInput$$3 = program$$10.update(msg$$4, state$$2);
@@ -524,7 +529,7 @@ function ProgramModule$$$runWith(arg$$1, program$$10) {
           Object(_cmd_fs__WEBPACK_IMPORTED_MODULE_2__["Cmd$$$exec"])(syncDispatch$$1, cmd$$3);
           state$$2 = model$0027;
         } catch (ex$$2) {
-          program$$10.onError([(arg10 = msg$$4, (clo1 = Object(_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_8__["toText"])(Object(_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_8__["printf"])("Unable to process the message: %A")), clo1(arg10))), ex$$2]);
+          program$$10.onError([(arg10 = msg$$4, (clo1 = Object(_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_8__["toText"])(Object(_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_8__["printf"])("Unable to process the message: %A")), clo1(arg10))), ex$$2]);
         }
 
         nextMsg = Object(_ring_fs__WEBPACK_IMPORTED_MODULE_6__["RingBuffer$00601$$Pop"])(rb);
@@ -534,7 +539,7 @@ function ProgramModule$$$runWith(arg$$1, program$$10) {
     }
   };
 
-  const syncDispatch$$1 = Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["partialApply"])(1, program$$10.syncDispatch, [dispatch]);
+  const syncDispatch$$1 = Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__["partialApply"])(1, program$$10.syncDispatch, [dispatch]);
   program$$10.setState(model$$5, syncDispatch$$1);
   let sub$$1;
 
@@ -545,11 +550,11 @@ function ProgramModule$$$runWith(arg$$1, program$$10) {
     sub$$1 = Object(_cmd_fs__WEBPACK_IMPORTED_MODULE_2__["Cmd$$$none"])();
   }
 
-  const cmd$$4 = Object(_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_5__["append"])(sub$$1, cmd$$2);
+  const cmd$$4 = Object(_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_5__["append"])(sub$$1, cmd$$2);
   Object(_cmd_fs__WEBPACK_IMPORTED_MODULE_2__["Cmd$$$exec"])(syncDispatch$$1, cmd$$4);
 }
 function ProgramModule$$$run(program$$11) {
-  ProgramModule$$$runWith(null, program$$11);
+  ProgramModule$$$runWith(void null, program$$11);
 }
 
 /***/ }),
@@ -570,30 +575,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RingBuffer$00601$$$$002Ector$$Z524259A4", function() { return RingBuffer$00601$$$$002Ector$$Z524259A4; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RingBuffer$00601$$Pop", function() { return RingBuffer$00601$$Pop; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RingBuffer$00601$$Push$$2B595", function() { return RingBuffer$00601$$Push$$2B595; });
-/* harmony import */ var _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../fable-library.2.4.15/Types.js */ "./.fable/fable-library.2.4.15/Types.js");
-/* harmony import */ var _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../fable-library.2.4.15/Reflection.js */ "./.fable/fable-library.2.4.15/Reflection.js");
-/* harmony import */ var _fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../fable-library.2.4.15/Util.js */ "./.fable/fable-library.2.4.15/Util.js");
-/* harmony import */ var _fable_library_2_4_15_Array_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../fable-library.2.4.15/Array.js */ "./.fable/fable-library.2.4.15/Array.js");
-/* harmony import */ var _fable_library_2_4_15_Option_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../fable-library.2.4.15/Option.js */ "./.fable/fable-library.2.4.15/Option.js");
-/* harmony import */ var _fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../fable-library.2.4.15/Seq.js */ "./.fable/fable-library.2.4.15/Seq.js");
+/* harmony import */ var _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../fable-library.2.13.0/Types.js */ "./.fable/fable-library.2.13.0/Types.js");
+/* harmony import */ var _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../fable-library.2.13.0/Reflection.js */ "./.fable/fable-library.2.13.0/Reflection.js");
+/* harmony import */ var _fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../fable-library.2.13.0/Util.js */ "./.fable/fable-library.2.13.0/Util.js");
+/* harmony import */ var _fable_library_2_13_0_Array_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../fable-library.2.13.0/Array.js */ "./.fable/fable-library.2.13.0/Array.js");
+/* harmony import */ var _fable_library_2_13_0_Option_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../fable-library.2.13.0/Option.js */ "./.fable/fable-library.2.13.0/Option.js");
+/* harmony import */ var _fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../fable-library.2.13.0/Seq.js */ "./.fable/fable-library.2.13.0/Seq.js");
 
 
 
 
 
 
-const RingState$00601 = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Elmish_RingState(tag, name, ...fields) {
-  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
+const RingState$00601 = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Elmish_RingState(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
 function RingState$00601$reflection($gen$$4) {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union"])("Elmish.RingState`1", [$gen$$4], RingState$00601, () => [["Writable", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["array"])($gen$$4), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]]], ["ReadWritable", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["array"])($gen$$4), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"], _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]]]]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union_type"])("Elmish.RingState`1", [$gen$$4], RingState$00601, () => [["Writable", [["wx", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["array_type"])($gen$$4)], ["ix", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"]]]], ["ReadWritable", [["rw", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["array_type"])($gen$$4)], ["wix", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"]], ["rix", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"]]]]]);
 }
-const RingBuffer$00601 = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Elmish_RingBuffer(size) {
+const RingBuffer$00601 = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Elmish_RingBuffer(size) {
   const $this$$1 = this;
-  $this$$1.state = new RingState$00601(0, "Writable", Object(_fable_library_2_4_15_Array_js__WEBPACK_IMPORTED_MODULE_3__["fill"])(new Array(Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_2__["max"])(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_2__["comparePrimitives"], size, 10)), 0, Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_2__["max"])(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_2__["comparePrimitives"], size, 10), null), 0);
+  $this$$1.state = new RingState$00601(0, "Writable", Object(_fable_library_2_13_0_Array_js__WEBPACK_IMPORTED_MODULE_3__["fill"])(new Array(Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_2__["max"])(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_2__["comparePrimitives"], size, 10)), 0, Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_2__["max"])(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_2__["comparePrimitives"], size, 10), null), 0);
+  void null;
 });
 function RingBuffer$00601$reflection($gen$$5) {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Elmish.RingBuffer`1", [$gen$$5]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Elmish.RingBuffer`1", [$gen$$5], RingBuffer$00601);
 }
 function RingBuffer$00601$$$$002Ector$$Z524259A4(size) {
   return this instanceof RingBuffer$00601 ? RingBuffer$00601.call(this, size) : new RingBuffer$00601(size);
@@ -614,9 +622,9 @@ function RingBuffer$00601$$Pop(__) {
       __.state = new RingState$00601(1, "ReadWritable", items, wix, rix$0027);
     }
 
-    return Object(_fable_library_2_4_15_Option_js__WEBPACK_IMPORTED_MODULE_4__["some"])(items[rix]);
+    return Object(_fable_library_2_13_0_Option_js__WEBPACK_IMPORTED_MODULE_4__["some"])(items[rix]);
   } else {
-    return null;
+    return undefined;
   }
 }
 function RingBuffer$00601$$Push$$2B595(__$$1, item) {
@@ -648,18 +656,18 @@ function RingBuffer$00601$$Push$$2B595(__$$1, item) {
 }
 
 function RingBuffer$00601$$doubleSize(this$, ix$$1, items$$5) {
-  const source$$2 = Object(_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_5__["delay"])(function () {
+  const source$$2 = Object(_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_5__["delay"])(function () {
     var source;
-    return Object(_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_5__["append"])((source = items$$5, (Object(_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_5__["skip"])(ix$$1, source))), Object(_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_5__["delay"])(function () {
+    return Object(_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_5__["append"])((source = items$$5, (Object(_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_5__["skip"])(ix$$1, source))), Object(_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_5__["delay"])(function () {
       var source$$1;
-      return Object(_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_5__["append"])((source$$1 = items$$5, (Object(_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_5__["take"])(ix$$1, source$$1))), Object(_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_5__["delay"])(function () {
-        return Object(_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_5__["collect"])(function (matchValue$$4) {
-          return Object(_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_5__["singleton"])(null);
-        }, Object(_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_5__["rangeNumber"])(0, 1, items$$5.length));
+      return Object(_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_5__["append"])((source$$1 = items$$5, (Object(_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_5__["take"])(ix$$1, source$$1))), Object(_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_5__["delay"])(function () {
+        return Object(_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_5__["collect"])(function (matchValue$$4) {
+          return Object(_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_5__["singleton"])(null);
+        }, Object(_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_5__["rangeNumber"])(0, 1, items$$5.length));
       }));
     }));
   });
-  return Object(_fable_library_2_4_15_Array_js__WEBPACK_IMPORTED_MODULE_3__["ofSeq"])(source$$2, Array);
+  return Object(_fable_library_2_13_0_Array_js__WEBPACK_IMPORTED_MODULE_3__["ofSeq"])(source$$2, Array);
 }
 
 /***/ }),
@@ -684,30 +692,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Common$$$lazyView", function() { return Common$$$lazyView; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Common$$$lazyView2", function() { return Common$$$lazyView2; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Common$$$lazyView3", function() { return Common$$$lazyView3; });
-/* harmony import */ var _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../fable-library.2.4.15/Types.js */ "./.fable/fable-library.2.4.15/Types.js");
-/* harmony import */ var _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../fable-library.2.4.15/Reflection.js */ "./.fable/fable-library.2.4.15/Reflection.js");
+/* harmony import */ var _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../fable-library.2.13.0/Types.js */ "./.fable/fable-library.2.13.0/Types.js");
+/* harmony import */ var _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../fable-library.2.13.0/Reflection.js */ "./.fable/fable-library.2.13.0/Reflection.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../fable-library.2.4.15/Util.js */ "./.fable/fable-library.2.4.15/Util.js");
+/* harmony import */ var _fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../fable-library.2.13.0/Util.js */ "./.fable/fable-library.2.13.0/Util.js");
 
 
 
 
 
-const LazyProps$00601 = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Elmish_React_LazyProps(arg1, arg2, arg3) {
-  this.model = arg1;
-  this.render = arg2;
-  this.equal = arg3;
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
+const LazyProps$00601 = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Elmish_React_LazyProps(model, render, equal) {
+  this.model = model;
+  this.render = render;
+  this.equal = equal;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
 function LazyProps$00601$reflection($gen$$2) {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record"])("Elmish.React.LazyProps`1", [$gen$$2], LazyProps$00601, () => [["model", $gen$$2], ["render", Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"], Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Fable.React.ReactElement"))], ["equal", Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])($gen$$2, Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])($gen$$2, _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]))]]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record_type"])("Elmish.React.LazyProps`1", [$gen$$2], LazyProps$00601, () => [["model", $gen$$2], ["render", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"], Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Fable.React.ReactElement"))], ["equal", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])($gen$$2, Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])($gen$$2, _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]))]]);
 }
-const Components$002ELazyView$00601 = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Elmish_React_Components_LazyView(props) {
+const Components$002ELazyView$00601 = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Elmish_React_Components_LazyView(props) {
   const $this$$1 = this;
   react__WEBPACK_IMPORTED_MODULE_2__["Component"].call($this$$1, props);
+  void null;
 }, react__WEBPACK_IMPORTED_MODULE_2__["Component"]);
 function Components$002ELazyView$00601$reflection($gen$$3) {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Elmish.React.Components.LazyView`1", [$gen$$3]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Elmish.React.Components.LazyView`1", [$gen$$3], Components$002ELazyView$00601);
 }
 function Components$002ELazyView$00601$$$$002Ector$$Z7829D94B(props) {
   return this instanceof Components$002ELazyView$00601 ? Components$002ELazyView$00601.call(this, props) : new Components$002ELazyView$00601(props);
@@ -756,13 +765,13 @@ function Common$$$lazyView3With(equal$$2, view$$2, state1, state2, dispatch$$1) 
 }
 function Common$$$lazyView(view$$3) {
   return function (state$$2) {
-    return Common$$$lazyViewWith(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["equals"], view$$3, state$$2);
+    return Common$$$lazyViewWith(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_3__["equals"], view$$3, state$$2);
   };
 }
 function Common$$$lazyView2(view$$4) {
   return function (state$$3) {
     return function (dispatch$$2) {
-      return Common$$$lazyView2With(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["equals"], view$$4, state$$3, dispatch$$2);
+      return Common$$$lazyView2With(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_3__["equals"], view$$4, state$$3, dispatch$$2);
     };
   };
 }
@@ -770,7 +779,7 @@ function Common$$$lazyView3(view$$5) {
   return function (state1$$1) {
     return function (state2$$1) {
       return function (dispatch$$3) {
-        return Common$$$lazyView3With(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["equalArrays"], view$$5, state1$$1, state2$$1, dispatch$$3);
+        return Common$$$lazyView3With(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_3__["equalArrays"], view$$5, state1$$1, state2$$1, dispatch$$3);
       };
     };
   };
@@ -796,7 +805,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Program$$$withReactUnoptimized", function() { return Program$$$withReactUnoptimized; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Program$$$withReactHydrate", function() { return Program$$$withReactHydrate; });
 /* harmony import */ var _Fable_Elmish_3_0_0_program_fs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Fable.Elmish.3.0.0/program.fs */ "./.fable/Fable.Elmish.3.0.0/program.fs");
-/* harmony import */ var _fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../fable-library.2.4.15/Util.js */ "./.fable/fable-library.2.4.15/Util.js");
+/* harmony import */ var _fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../fable-library.2.13.0/Util.js */ "./.fable/fable-library.2.13.0/Util.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _common_fs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./common.fs */ "./.fable/Fable.Elmish.React.3.0.1/common.fs");
@@ -805,18 +814,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Program$002EInternal$$$withReactBatchedUsing(lazyView2With, placeholderId, program) {
-  let lastRequest = null;
+  let lastRequest = undefined;
 
   const setState = function setState(model, dispatch) {
     if (lastRequest != null) {
       const r = lastRequest;
       window.cancelAnimationFrame(r);
+    } else {
+      void null;
     }
 
     lastRequest = window.requestAnimationFrame(function (_arg1) {
       react_dom__WEBPACK_IMPORTED_MODULE_2__["render"](lazyView2With(function (x, y) {
         return x === y;
-      }, Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_1__["uncurry"])(2, Object(_Fable_Elmish_3_0_0_program_fs__WEBPACK_IMPORTED_MODULE_0__["ProgramModule$$$view"])(program)), model, dispatch), document.getElementById(placeholderId));
+      }, Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_1__["uncurry"])(2, Object(_Fable_Elmish_3_0_0_program_fs__WEBPACK_IMPORTED_MODULE_0__["ProgramModule$$$view"])(program)), model, dispatch), document.getElementById(placeholderId));
     });
   };
 
@@ -827,7 +838,7 @@ function Program$002EInternal$$$withReactSynchronousUsing(lazyView2With$$1, plac
   const setState$$1 = function setState$$1(model$$1, dispatch$$1) {
     react_dom__WEBPACK_IMPORTED_MODULE_2__["render"](lazyView2With$$1(function (x$$1, y$$1) {
       return x$$1 === y$$1;
-    }, Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_1__["uncurry"])(2, Object(_Fable_Elmish_3_0_0_program_fs__WEBPACK_IMPORTED_MODULE_0__["ProgramModule$$$view"])(program$$2)), model$$1, dispatch$$1), document.getElementById(placeholderId$$1));
+    }, Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_1__["uncurry"])(2, Object(_Fable_Elmish_3_0_0_program_fs__WEBPACK_IMPORTED_MODULE_0__["ProgramModule$$$view"])(program$$2)), model$$1, dispatch$$1), document.getElementById(placeholderId$$1));
   };
 
   const program$$3 = program$$2;
@@ -837,7 +848,7 @@ function Program$002EInternal$$$withReactHydrateUsing(lazyView2With$$2, placehol
   const setState$$2 = function setState$$2(model$$2, dispatch$$2) {
     react_dom__WEBPACK_IMPORTED_MODULE_2__["hydrate"](lazyView2With$$2(function (x$$2, y$$2) {
       return x$$2 === y$$2;
-    }, Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_1__["uncurry"])(2, Object(_Fable_Elmish_3_0_0_program_fs__WEBPACK_IMPORTED_MODULE_0__["ProgramModule$$$view"])(program$$4)), model$$2, dispatch$$2), document.getElementById(placeholderId$$2));
+    }, Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_1__["uncurry"])(2, Object(_Fable_Elmish_3_0_0_program_fs__WEBPACK_IMPORTED_MODULE_0__["ProgramModule$$$view"])(program$$4)), model$$2, dispatch$$2), document.getElementById(placeholderId$$2));
   };
 
   const program$$5 = program$$4;
@@ -891,11 +902,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Fa$002EStack$002EOptions$reflection", function() { return Fa$002EStack$002EOptions$reflection; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Fa$002EStack$002EOptions$$$get_Empty", function() { return Fa$002EStack$002EOptions$$$get_Empty; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Fa$$$stack", function() { return Fa$$$stack; });
-/* harmony import */ var _fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../fable-library.2.4.15/List.js */ "./.fable/fable-library.2.4.15/List.js");
+/* harmony import */ var _fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../fable-library.2.13.0/List.js */ "./.fable/fable-library.2.13.0/List.js");
 /* harmony import */ var _Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Fable.React.6.0.0/Fable.React.Props.fs */ "./.fable/Fable.React.6.0.0/Fable.React.Props.fs");
-/* harmony import */ var _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../fable-library.2.4.15/Types.js */ "./.fable/fable-library.2.4.15/Types.js");
-/* harmony import */ var _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../fable-library.2.4.15/Reflection.js */ "./.fable/fable-library.2.4.15/Reflection.js");
-/* harmony import */ var _fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../fable-library.2.4.15/Util.js */ "./.fable/fable-library.2.4.15/Util.js");
+/* harmony import */ var _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../fable-library.2.13.0/Types.js */ "./.fable/fable-library.2.13.0/Types.js");
+/* harmony import */ var _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../fable-library.2.13.0/Reflection.js */ "./.fable/fable-library.2.13.0/Reflection.js");
+/* harmony import */ var _fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../fable-library.2.13.0/Util.js */ "./.fable/fable-library.2.13.0/Util.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
 
@@ -909,7 +920,7 @@ function Helpers$$$classes(std, options, booleans) {
   let std$$1;
   const state = std;
   const list = options;
-  std$$1 = Object(_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_0__["fold"])(function folder(complete, opt) {
+  std$$1 = Object(_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_0__["fold"])(function folder(complete, opt) {
     if (opt == null) {
       return complete;
     } else {
@@ -917,7 +928,7 @@ function Helpers$$$classes(std, options, booleans) {
       return complete + " " + name;
     }
   }, state, list);
-  return arg0 = (state$$1 = std$$1, list$$1 = booleans, (Object(_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_0__["fold"])(function folder$$1(complete$$1, tupledArg) {
+  return arg0 = (state$$1 = std$$1, list$$1 = booleans, (Object(_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_0__["fold"])(function folder$$1(complete$$1, tupledArg) {
     const name$$1 = tupledArg[0];
     const flag = tupledArg[1];
 
@@ -928,17 +939,21 @@ function Helpers$$$classes(std, options, booleans) {
     }
   }, state$$1, list$$1))), (new _Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_1__["HTMLAttr"](64, "ClassName", arg0));
 }
-const Fa$002EISize = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["declare"])(function Fable_FontAwesome_Fa_ISize(tag, name, ...fields) {
-  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["Union"].call(this, tag, name, ...fields);
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["Union"]);
+const Fa$002EISize = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["declare"])(function Fable_FontAwesome_Fa_ISize(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["Union"]);
 function Fa$002EISize$reflection() {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["union"])("Fable.FontAwesome.Fa.ISize", [], Fa$002EISize, () => ["FaExtraSmall", "FaSmall", "FaLarge", "Fa2x", "Fa3x", "Fa4x", "Fa5x", "Fa6x", "Fa7x", "Fa8x", "Fa9x", "Fa10"]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["union_type"])("Fable.FontAwesome.Fa.ISize", [], Fa$002EISize, () => ["FaExtraSmall", "FaSmall", "FaLarge", "Fa2x", "Fa3x", "Fa4x", "Fa5x", "Fa6x", "Fa7x", "Fa8x", "Fa9x", "Fa10"]);
 }
-const Fa$002EIconOption = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["declare"])(function Fable_FontAwesome_Fa_IconOption(tag, name, ...fields) {
-  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["Union"].call(this, tag, name, ...fields);
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["Union"]);
+const Fa$002EIconOption = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["declare"])(function Fable_FontAwesome_Fa_IconOption(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["Union"]);
 function Fa$002EIconOption$reflection() {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["union"])("Fable.FontAwesome.Fa.IconOption", [], Fa$002EIconOption, () => [["Size", [Fa$002EISize$reflection()]], "Border", "PullLeft", "PullRight", "Inverse", "Rotate90", "Rotate180", "Rotate270", "FlipHorizontal", "FlipVertical", "IsLi", ["Icon", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string"]]], "Spin", "Pulse", ["Props", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["list"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["type"])("Fable.React.Props.IHTMLProp"))]], ["CustomClass", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string"]]], "FixedWidth", "Stack1x", "Stack2x"]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["union_type"])("Fable.FontAwesome.Fa.IconOption", [], Fa$002EIconOption, () => [["Size", [["Item", Fa$002EISize$reflection()]]], "Border", "PullLeft", "PullRight", "Inverse", "Rotate90", "Rotate180", "Rotate270", "FlipHorizontal", "FlipVertical", "IsLi", ["Icon", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string_type"]]]], "Spin", "Pulse", ["Props", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["list_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["class_type"])("Fable.React.Props.IHTMLProp"))]]], ["CustomClass", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string_type"]]]], "FixedWidth", "Stack1x", "Stack2x"]);
 }
 function Fa$$$ofSize(size) {
   switch (size.tag) {
@@ -1003,27 +1018,27 @@ function Fa$$$ofSize(size) {
       }
   }
 }
-const Fa$002EIconOptions = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["declare"])(function Fable_FontAwesome_Fa_IconOptions(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14) {
-  this.Icon = arg1;
-  this.Size = arg2;
-  this.Border = arg3;
-  this.Pull = arg4;
-  this.HaveSpin = arg5;
-  this.HavePulse = arg6;
-  this.Rotation = arg7;
-  this.Flip = arg8;
-  this.IsInverse = arg9;
-  this.Props = arg10;
-  this.FixedWidth = arg11;
-  this.IsLi = arg12;
-  this.StackSize = arg13;
-  this.CustomClass = arg14;
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["Record"]);
+const Fa$002EIconOptions = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["declare"])(function Fable_FontAwesome_Fa_IconOptions(Icon, Size, Border, Pull, HaveSpin, HavePulse, Rotation, Flip, IsInverse, Props, FixedWidth, IsLi, StackSize, CustomClass) {
+  this.Icon = Icon;
+  this.Size = Size;
+  this.Border = Border;
+  this.Pull = Pull;
+  this.HaveSpin = HaveSpin;
+  this.HavePulse = HavePulse;
+  this.Rotation = Rotation;
+  this.Flip = Flip;
+  this.IsInverse = IsInverse;
+  this.Props = Props;
+  this.FixedWidth = FixedWidth;
+  this.IsLi = IsLi;
+  this.StackSize = StackSize;
+  this.CustomClass = CustomClass;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["Record"]);
 function Fa$002EIconOptions$reflection() {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["record"])("Fable.FontAwesome.Fa.IconOptions", [], Fa$002EIconOptions, () => [["Icon", Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["option"])(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string"])], ["Size", Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["option"])(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string"])], ["Border", Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["option"])(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string"])], ["Pull", Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["option"])(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string"])], ["HaveSpin", _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["bool"]], ["HavePulse", _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["bool"]], ["Rotation", Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["option"])(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string"])], ["Flip", Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["option"])(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string"])], ["IsInverse", _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["bool"]], ["Props", Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["list"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["type"])("Fable.React.Props.IHTMLProp"))], ["FixedWidth", _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["bool"]], ["IsLi", _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["bool"]], ["StackSize", Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["option"])(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string"])], ["CustomClass", Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["option"])(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string"])]]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["record_type"])("Fable.FontAwesome.Fa.IconOptions", [], Fa$002EIconOptions, () => [["Icon", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["option_type"])(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string_type"])], ["Size", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["option_type"])(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string_type"])], ["Border", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["option_type"])(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string_type"])], ["Pull", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["option_type"])(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string_type"])], ["HaveSpin", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["bool_type"]], ["HavePulse", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["bool_type"]], ["Rotation", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["option_type"])(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string_type"])], ["Flip", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["option_type"])(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string_type"])], ["IsInverse", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["bool_type"]], ["Props", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["list_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["class_type"])("Fable.React.Props.IHTMLProp"))], ["FixedWidth", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["bool_type"]], ["IsLi", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["bool_type"]], ["StackSize", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["option_type"])(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string_type"])], ["CustomClass", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["option_type"])(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string_type"])]]);
 }
 function Fa$002EIconOptions$$$get_Empty() {
-  return new Fa$002EIconOptions(null, null, null, null, false, false, null, null, false, new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](), false, false, null, null);
+  return new Fa$002EIconOptions(undefined, undefined, undefined, undefined, false, false, undefined, undefined, false, new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](), false, false, undefined, undefined);
 }
 function Fa$$$toIconOptions(faOptions) {
   const parseOptions = function parseOptions(result, option) {
@@ -1157,50 +1172,52 @@ function Fa$$$toIconOptions(faOptions) {
 
   const list$$2 = faOptions;
   const state$$2 = Fa$002EIconOptions$$$get_Empty();
-  return Object(_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_0__["fold"])(parseOptions, state$$2, list$$2);
+  return Object(_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_0__["fold"])(parseOptions, state$$2, list$$2);
 }
 function Fa$$$displayIcon(baseElement, baseClass, opts, children) {
-  const classes = Helpers$$$classes(baseClass, Object(_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_0__["ofArray"])([opts.Icon, opts.Size, opts.Border, opts.Pull, opts.Rotation, opts.Flip, opts.CustomClass, opts.StackSize]), Object(_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_0__["ofArray"])([["fa-fw", opts.FixedWidth], ["fa-li", opts.IsLi], ["fa-pulse", opts.HavePulse], ["fa-spin", opts.HaveSpin], ["fa-inverse", opts.IsInverse]]));
-  return baseElement(new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](classes, opts.Props), children);
+  const classes = Helpers$$$classes(baseClass, Object(_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_0__["ofArray"])([opts.Icon, opts.Size, opts.Border, opts.Pull, opts.Rotation, opts.Flip, opts.CustomClass, opts.StackSize]), Object(_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_0__["ofArray"])([["fa-fw", opts.FixedWidth], ["fa-li", opts.IsLi], ["fa-pulse", opts.HavePulse], ["fa-spin", opts.HaveSpin], ["fa-inverse", opts.IsInverse]]));
+  return baseElement(new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](classes, opts.Props), children);
 }
 function Fa$$$ul(props$$1, children$$1) {
   const props$$2 = [new _Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_1__["HTMLAttr"](64, "ClassName", "fa-ul")];
-  return react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("ul", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["createObj"])(props$$2, 1), ...children$$1);
+  return react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("ul", Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__["createObj"])(props$$2, 1), ...children$$1);
 }
 function Fa$$$ol(props$$4, children$$4) {
   const props$$5 = [new _Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_1__["HTMLAttr"](64, "ClassName", "fa-ul")];
-  return react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("ol", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["createObj"])(props$$5, 1), ...children$$4);
+  return react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("ol", Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__["createObj"])(props$$5, 1), ...children$$4);
 }
 function Fa$$$i(faOptions$$1, children$$7) {
   const opts$$1 = Fa$$$toIconOptions(faOptions$$1);
   return Fa$$$displayIcon(function (props$$7, children$$8) {
     const props$$8 = props$$7;
-    return react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("i", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["createObj"])(props$$8, 1), ...children$$8);
+    return react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("i", Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__["createObj"])(props$$8, 1), ...children$$8);
   }, "", opts$$1, children$$7);
 }
 function Fa$$$span(faOptions$$2, children$$11) {
   const opts$$2 = Fa$$$toIconOptions(faOptions$$2);
   return Fa$$$displayIcon(function (props$$10, children$$12) {
     const props$$11 = props$$10;
-    return react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("span", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["createObj"])(props$$11, 1), ...children$$12);
+    return react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("span", Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__["createObj"])(props$$11, 1), ...children$$12);
   }, "", opts$$2, children$$11);
 }
-const Fa$002EStack$002EOption = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["declare"])(function Fable_FontAwesome_Fa_Stack_Option(tag, name, ...fields) {
-  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["Union"].call(this, tag, name, ...fields);
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["Union"]);
+const Fa$002EStack$002EOption = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["declare"])(function Fable_FontAwesome_Fa_Stack_Option(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["Union"]);
 function Fa$002EStack$002EOption$reflection() {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["union"])("Fable.FontAwesome.Fa.Stack.Option", [], Fa$002EStack$002EOption, () => [["Size", [Fa$002EISize$reflection()]], ["CustomClass", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string"]]], ["Props", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["list"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["type"])("Fable.React.Props.IHTMLProp"))]]]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["union_type"])("Fable.FontAwesome.Fa.Stack.Option", [], Fa$002EStack$002EOption, () => [["Size", [["Item", Fa$002EISize$reflection()]]], ["CustomClass", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string_type"]]]], ["Props", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["list_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["class_type"])("Fable.React.Props.IHTMLProp"))]]]]);
 }
-const Fa$002EStack$002EOptions = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["declare"])(function Fable_FontAwesome_Fa_Stack_Options(arg1, arg2, arg3) {
-  this.Size = arg1;
-  this.Props = arg2;
-  this.CustomClass = arg3;
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["Record"]);
+const Fa$002EStack$002EOptions = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["declare"])(function Fable_FontAwesome_Fa_Stack_Options(Size, Props, CustomClass) {
+  this.Size = Size;
+  this.Props = Props;
+  this.CustomClass = CustomClass;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["Record"]);
 function Fa$002EStack$002EOptions$reflection() {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["record"])("Fable.FontAwesome.Fa.Stack.Options", [], Fa$002EStack$002EOptions, () => [["Size", Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["option"])(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string"])], ["Props", Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["list"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["type"])("Fable.React.Props.IHTMLProp"))], ["CustomClass", Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["option"])(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string"])]]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["record_type"])("Fable.FontAwesome.Fa.Stack.Options", [], Fa$002EStack$002EOptions, () => [["Size", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["option_type"])(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string_type"])], ["Props", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["list_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["class_type"])("Fable.React.Props.IHTMLProp"))], ["CustomClass", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["option_type"])(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_3__["string_type"])]]);
 }
 function Fa$002EStack$002EOptions$$$get_Empty() {
-  return new Fa$002EStack$002EOptions(null, new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](), null);
+  return new Fa$002EStack$002EOptions(undefined, new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](), undefined);
 }
 function Fa$$$stack(options$$1, children$$15) {
   const parseOption = function parseOption(result$$1, opt$$1) {
@@ -1231,10 +1248,10 @@ function Fa$$$stack(options$$1, children$$15) {
   let opts$$3;
   const list$$3 = options$$1;
   const state$$3 = Fa$002EStack$002EOptions$$$get_Empty();
-  opts$$3 = Object(_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_0__["fold"])(parseOption, state$$3, list$$3);
-  const classes$$1 = Helpers$$$classes("fa-stack", Object(_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_0__["ofArray"])([opts$$3.Size, opts$$3.CustomClass]), new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]());
-  const props$$14 = new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](classes$$1, opts$$3.Props);
-  return react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("span", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["createObj"])(props$$14, 1), ...children$$15);
+  opts$$3 = Object(_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_0__["fold"])(parseOption, state$$3, list$$3);
+  const classes$$1 = Helpers$$$classes("fa-stack", Object(_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_0__["ofArray"])([opts$$3.Size, opts$$3.CustomClass]), new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]());
+  const props$$14 = new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](classes$$1, opts$$3.Props);
+  return react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("span", Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__["createObj"])(props$$14, 1), ...children$$15);
 }
 
 /***/ }),
@@ -1263,11 +1280,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PromiseBuilder$$Delay$$62FBFDE1", function() { return PromiseBuilder$$Delay$$62FBFDE1; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PromiseBuilder$$Run$$212F1D4B", function() { return PromiseBuilder$$Run$$212F1D4B; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PromiseBuilder$$Using$$74F7E79D", function() { return PromiseBuilder$$Using$$74F7E79D; });
-/* harmony import */ var _fable_library_2_4_15_Option_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../fable-library.2.4.15/Option.js */ "./.fable/fable-library.2.4.15/Option.js");
-/* harmony import */ var _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../fable-library.2.4.15/Types.js */ "./.fable/fable-library.2.4.15/Types.js");
-/* harmony import */ var _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../fable-library.2.4.15/Reflection.js */ "./.fable/fable-library.2.4.15/Reflection.js");
-/* harmony import */ var _fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../fable-library.2.4.15/Seq.js */ "./.fable/fable-library.2.4.15/Seq.js");
-/* harmony import */ var _fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../fable-library.2.4.15/Util.js */ "./.fable/fable-library.2.4.15/Util.js");
+/* harmony import */ var _fable_library_2_13_0_Option_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../fable-library.2.13.0/Option.js */ "./.fable/fable-library.2.13.0/Option.js");
+/* harmony import */ var _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../fable-library.2.13.0/Types.js */ "./.fable/fable-library.2.13.0/Types.js");
+/* harmony import */ var _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../fable-library.2.13.0/Reflection.js */ "./.fable/fable-library.2.13.0/Reflection.js");
+/* harmony import */ var _fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../fable-library.2.13.0/Seq.js */ "./.fable/fable-library.2.13.0/Seq.js");
+/* harmony import */ var _fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../fable-library.2.13.0/Util.js */ "./.fable/fable-library.2.13.0/Util.js");
 
 
 
@@ -1280,19 +1297,19 @@ function result(a) {
   return a.then(function ($arg$$1) {
     let arg0;
     const arg0$$1 = $arg$$1;
-    arg0 = new _fable_library_2_4_15_Option_js__WEBPACK_IMPORTED_MODULE_0__["Result"](0, "Ok", arg0$$1);
+    arg0 = new _fable_library_2_13_0_Option_js__WEBPACK_IMPORTED_MODULE_0__["Result"](0, "Ok", arg0$$1);
     return arg0;
   }, function ($arg$$2) {
     let arg0$$2;
     const arg0$$3 = $arg$$2;
-    arg0$$2 = new _fable_library_2_4_15_Option_js__WEBPACK_IMPORTED_MODULE_0__["Result"](1, "Error", arg0$$3);
+    arg0$$2 = new _fable_library_2_13_0_Option_js__WEBPACK_IMPORTED_MODULE_0__["Result"](1, "Error", arg0$$3);
     return arg0$$2;
   });
 }
 function mapResult(fn, a$$1) {
   const pr = a$$1;
   return pr.then(function a$$2(result$$1) {
-    return Object(_fable_library_2_4_15_Option_js__WEBPACK_IMPORTED_MODULE_0__["mapOk"])(fn, result$$1);
+    return Object(_fable_library_2_13_0_Option_js__WEBPACK_IMPORTED_MODULE_0__["mapOk"])(fn, result$$1);
   });
 }
 function bindResult(fn$$1, a$$3) {
@@ -1300,7 +1317,7 @@ function bindResult(fn$$1, a$$3) {
   return pr$$1.then(function a$$6(a$$4) {
     if (a$$4.tag === 1) {
       const e = a$$4.fields[0];
-      return Promise.resolve(new _fable_library_2_4_15_Option_js__WEBPACK_IMPORTED_MODULE_0__["Result"](1, "Error", e));
+      return Promise.resolve(new _fable_library_2_13_0_Option_js__WEBPACK_IMPORTED_MODULE_0__["Result"](1, "Error", e));
     } else {
       const a$$5 = a$$4.fields[0];
       return result(fn$$1(a$$5));
@@ -1310,7 +1327,7 @@ function bindResult(fn$$1, a$$3) {
 function mapResultError(fn$$2, a$$7) {
   const pr$$2 = a$$7;
   return pr$$2.then(function a$$8(result$$2) {
-    return Object(_fable_library_2_4_15_Option_js__WEBPACK_IMPORTED_MODULE_0__["mapError"])(fn$$2, result$$2);
+    return Object(_fable_library_2_13_0_Option_js__WEBPACK_IMPORTED_MODULE_0__["mapError"])(fn$$2, result$$2);
   });
 }
 function tap(fn$$3, a$$9) {
@@ -1320,16 +1337,18 @@ function tap(fn$$3, a$$9) {
     return x;
   });
 }
-const PromiseBuilder = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["declare"])(function Promise_PromiseBuilder() {});
+const PromiseBuilder = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["declare"])(function Promise_PromiseBuilder() {
+  void null;
+});
 function PromiseBuilder$reflection() {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["type"])("Promise.PromiseBuilder");
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["class_type"])("Promise.PromiseBuilder", undefined, PromiseBuilder);
 }
 function PromiseBuilder$$$$002Ector() {
   return this instanceof PromiseBuilder ? PromiseBuilder.call(this) : new PromiseBuilder();
 }
 function PromiseBuilder$$For$$1565554B(x$$1, seq, body) {
   let p = Promise.resolve(null);
-  Object(_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_3__["iterate"])(function (a$$11) {
+  Object(_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_3__["iterate"])(function (a$$11) {
     const x$$2 = p.then(function () {
       return body(a$$11);
     });
@@ -1361,7 +1380,7 @@ function PromiseBuilder$$Delay$$62FBFDE1(x$$7, generator) {
       try {
         return generator().then(f1, f2);
       } catch (er$$1) {
-        if (Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["equals"])(f2, null)) {
+        if (Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__["equals"])(f2, null)) {
           const x$$8 = Promise.reject(er$$1);
           return x$$8;
         } else {
@@ -1475,51 +1494,63 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CSSProp$reflection", function() { return CSSProp$reflection; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "stringEnum", function() { return stringEnum; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CSSProp$$$Overflow$$25F0CD75", function() { return CSSProp$$$Overflow$$25F0CD75; });
-/* harmony import */ var _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../fable-library.2.4.15/Types.js */ "./.fable/fable-library.2.4.15/Types.js");
-/* harmony import */ var _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../fable-library.2.4.15/Reflection.js */ "./.fable/fable-library.2.4.15/Reflection.js");
+/* harmony import */ var _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../fable-library.2.13.0/Types.js */ "./.fable/fable-library.2.13.0/Types.js");
+/* harmony import */ var _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../fable-library.2.13.0/Reflection.js */ "./.fable/fable-library.2.13.0/Reflection.js");
 
 
-const FragmentProp = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fable_React_Props_FragmentProp(tag, name, ...fields) {
-  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
+const FragmentProp = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fable_React_Props_FragmentProp(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
 function FragmentProp$reflection() {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union"])("Fable.React.Props.FragmentProp", [], FragmentProp, () => [["Key", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]]]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union_type"])("Fable.React.Props.FragmentProp", [], FragmentProp, () => [["Key", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]]]);
 }
-const Prop = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fable_React_Props_Prop(tag, name, ...fields) {
-  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
+const Prop = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fable_React_Props_Prop(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
 function Prop$reflection() {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union"])("Fable.React.Props.Prop", [], Prop, () => [["Key", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Ref", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.Element"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["ref", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Fable.React.IRefValue`1", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["option"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.Element"))])]], ["ref", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Fable.React.IRefValue`1", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["option"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.Element"))])]]]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union_type"])("Fable.React.Props.Prop", [], Prop, () => [["Key", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Ref", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.Element"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["ref", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Fable.React.IRefValue`1", [Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["option_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.Element"))])]]], ["ref", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Fable.React.IRefValue`1", [Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["option_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.Element"))])]]]]);
 }
-const DangerousHtml = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fable_React_Props_DangerousHtml(arg1) {
-  this.__html = arg1;
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
+const DangerousHtml = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fable_React_Props_DangerousHtml(__html) {
+  this.__html = __html;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
 function DangerousHtml$reflection() {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record"])("Fable.React.Props.DangerousHtml", [], DangerousHtml, () => [["__html", _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record_type"])("Fable.React.Props.DangerousHtml", [], DangerousHtml, () => [["__html", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]);
 }
-const DOMAttr = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fable_React_Props_DOMAttr(tag, name, ...fields) {
-  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
+const DOMAttr = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fable_React_Props_DOMAttr(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
 function DOMAttr$reflection() {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union"])("Fable.React.Props.DOMAttr", [], DOMAttr, () => [["DangerouslySetInnerHTML", [DangerousHtml$reflection()]], ["OnCut", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.ClipboardEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnPaste", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.ClipboardEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnCompositionEnd", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.CompositionEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnCompositionStart", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.CompositionEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnCopy", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.ClipboardEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnCompositionUpdate", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.CompositionEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnFocus", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.FocusEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnBlur", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.FocusEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnChange", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.Event"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnInput", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.Event"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnSubmit", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.Event"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnReset", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.Event"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnLoad", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.Event"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnError", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.Event"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnKeyDown", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.KeyboardEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnKeyPress", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.KeyboardEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnKeyUp", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.KeyboardEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnAbort", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.Event"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnCanPlay", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.Event"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnCanPlayThrough", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.Event"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnDurationChange", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.Event"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnEmptied", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.Event"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnEncrypted", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.Event"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnEnded", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.Event"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnLoadedData", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.Event"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnLoadedMetadata", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.Event"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnLoadStart", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.Event"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnPause", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.Event"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnPlay", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.Event"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnPlaying", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.Event"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnProgress", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.Event"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnRateChange", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.Event"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnSeeked", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.Event"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnSeeking", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.Event"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnStalled", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.Event"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnSuspend", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.Event"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnTimeUpdate", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.Event"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnVolumeChange", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.Event"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnWaiting", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.Event"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnClick", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.MouseEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnContextMenu", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.MouseEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnDoubleClick", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.MouseEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnDrag", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.DragEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnDragEnd", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.DragEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnDragEnter", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.DragEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnDragExit", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.DragEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnDragLeave", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.DragEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnDragOver", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.DragEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnDragStart", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.DragEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnDrop", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.DragEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnMouseDown", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.MouseEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnMouseEnter", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.MouseEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnMouseLeave", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.MouseEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnMouseMove", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.MouseEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnMouseOut", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.MouseEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnMouseOver", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.MouseEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnMouseUp", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.MouseEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnSelect", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.Event"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnTouchCancel", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.TouchEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnTouchEnd", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.TouchEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnTouchMove", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.TouchEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnTouchStart", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.TouchEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnScroll", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.UIEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnWheel", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.WheelEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnAnimationStart", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.AnimationEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnAnimationEnd", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.AnimationEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnAnimationIteration", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.AnimationEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["OnTransitionEnd", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.TransitionEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]]]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union_type"])("Fable.React.Props.DOMAttr", [], DOMAttr, () => [["DangerouslySetInnerHTML", [["Item", DangerousHtml$reflection()]]], ["OnCut", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.ClipboardEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnPaste", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.ClipboardEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnCompositionEnd", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.CompositionEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnCompositionStart", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.CompositionEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnCopy", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.ClipboardEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnCompositionUpdate", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.CompositionEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnFocus", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.FocusEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnBlur", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.FocusEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnChange", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.Event"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnInput", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.Event"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnSubmit", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.Event"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnReset", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.Event"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnLoad", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.Event"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnError", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.Event"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnKeyDown", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.KeyboardEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnKeyPress", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.KeyboardEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnKeyUp", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.KeyboardEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnAbort", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.Event"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnCanPlay", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.Event"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnCanPlayThrough", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.Event"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnDurationChange", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.Event"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnEmptied", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.Event"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnEncrypted", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.Event"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnEnded", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.Event"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnLoadedData", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.Event"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnLoadedMetadata", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.Event"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnLoadStart", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.Event"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnPause", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.Event"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnPlay", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.Event"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnPlaying", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.Event"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnProgress", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.Event"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnRateChange", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.Event"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnSeeked", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.Event"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnSeeking", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.Event"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnStalled", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.Event"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnSuspend", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.Event"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnTimeUpdate", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.Event"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnVolumeChange", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.Event"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnWaiting", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.Event"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnClick", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.MouseEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnContextMenu", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.MouseEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnDoubleClick", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.MouseEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnDrag", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.DragEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnDragEnd", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.DragEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnDragEnter", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.DragEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnDragExit", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.DragEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnDragLeave", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.DragEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnDragOver", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.DragEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnDragStart", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.DragEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnDrop", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.DragEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnMouseDown", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.MouseEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnMouseEnter", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.MouseEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnMouseLeave", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.MouseEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnMouseMove", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.MouseEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnMouseOut", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.MouseEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnMouseOver", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.MouseEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnMouseUp", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.MouseEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnSelect", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.Event"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnTouchCancel", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.TouchEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnTouchEnd", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.TouchEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnTouchMove", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.TouchEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnTouchStart", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.TouchEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnScroll", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.UIEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnWheel", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.WheelEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnAnimationStart", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.AnimationEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnAnimationEnd", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.AnimationEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnAnimationIteration", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.AnimationEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["OnTransitionEnd", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.TransitionEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]]]);
 }
-const SVGAttr = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fable_React_Props_SVGAttr(tag, name, ...fields) {
-  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
+const SVGAttr = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fable_React_Props_SVGAttr(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
 function SVGAttr$reflection() {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union"])("Fable.React.Props.SVGAttr", [], SVGAttr, () => [["ClipPath", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Cx", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Cy", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["D", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Dx", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Dy", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Fill", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["FillOpacity", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["FontFamily", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["FontSize", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Fx", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Fy", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["GradientTransform", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["GradientUnits", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Height", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MarkerEnd", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["MarkerMid", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["MarkerStart", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Offset", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Opacity", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["PatternContentUnits", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["PatternUnits", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Points", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["PreserveAspectRatio", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["R", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Rx", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Ry", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["SpreadMethod", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["StopColor", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["StopOpacity", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Stroke", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["StrokeDasharray", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["StrokeDashoffset", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["StrokeLinecap", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["StrokeMiterlimit", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["StrokeOpacity", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["StrokeWidth", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextAnchor", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Transform", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Version", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["ViewBox", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Width", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["X1", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["X2", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["X", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["XlinkActuate", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["XlinkArcrole", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["XlinkHref", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["XlinkRole", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["XlinkShow", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["XlinkTitle", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["XlinkType", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["XmlBase", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["XmlLang", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["XmlSpace", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Y1", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Y2", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Y", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Custom", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"], _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]]]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union_type"])("Fable.React.Props.SVGAttr", [], SVGAttr, () => [["ClipPath", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Cx", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Cy", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["D", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Dx", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Dy", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Fill", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["FillOpacity", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["FontFamily", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["FontSize", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Fx", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Fy", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["GradientTransform", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["GradientUnits", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Height", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MarkerEnd", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["MarkerMid", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["MarkerStart", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Offset", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Opacity", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["PatternContentUnits", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["PatternUnits", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Points", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["PreserveAspectRatio", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["R", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Rx", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Ry", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["SpreadMethod", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["StopColor", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["StopOpacity", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Stroke", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["StrokeDasharray", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["StrokeDashoffset", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["StrokeLinecap", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["StrokeMiterlimit", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["StrokeOpacity", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["StrokeWidth", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextAnchor", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Transform", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Version", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["ViewBox", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Width", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["X1", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["X2", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["X", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["XlinkActuate", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["XlinkArcrole", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["XlinkHref", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["XlinkRole", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["XlinkShow", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["XlinkTitle", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["XlinkType", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["XmlBase", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["XmlLang", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["XmlSpace", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Y1", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Y2", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Y", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Custom", [["Item1", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]], ["Item2", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]]]);
 }
-const HTMLAttr = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fable_React_Props_HTMLAttr(tag, name, ...fields) {
-  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
+const HTMLAttr = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fable_React_Props_HTMLAttr(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
 function HTMLAttr$reflection() {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union"])("Fable.React.Props.HTMLAttr", [], HTMLAttr, () => [["DefaultChecked", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["DefaultValue", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Accept", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["AcceptCharset", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["AccessKey", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Action", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["AllowFullScreen", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["AllowTransparency", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["Alt", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["aria-atomic", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["aria-busy", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["aria-checked", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["aria-colcount", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]]], ["aria-colindex", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]]], ["aria-colspan", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]]], ["aria-controls", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["aria-current", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["aria-describedby", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["aria-details", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["aria-disabled", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["aria-errormessage", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["aria-expanded", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["aria-flowto", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["aria-haspopup", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["aria-hidden", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["aria-invalid", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["aria-keyshortcuts", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["aria-label", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["aria-labelledby", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["aria-level", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]]], ["aria-live", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["aria-modal", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["aria-multiline", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["aria-multiselectable", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["aria-orientation", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["aria-owns", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["aria-placeholder", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["aria-posinset", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]]], ["aria-pressed", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["aria-readonly", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["aria-relevant", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["aria-required", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["aria-roledescription", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["aria-rowcount", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]]], ["aria-rowindex", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]]], ["aria-rowspan", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]]], ["aria-selected", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["aria-setsize", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]]], ["aria-sort", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["aria-valuemax", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["float64"]]], ["aria-valuemin", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["float64"]]], ["aria-valuenow", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["float64"]]], ["aria-valuetext", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Async", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["AutoComplete", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["AutoFocus", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["AutoPlay", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["Capture", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["CellPadding", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["CellSpacing", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["CharSet", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Challenge", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Checked", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["ClassID", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["ClassName", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["className", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Cols", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]]], ["ColSpan", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]]], ["Content", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["ContentEditable", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["ContextMenu", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Controls", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["Coords", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["CrossOrigin", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["data-toggle", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["DateTime", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Default", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["Defer", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["Dir", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Disabled", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["Download", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Draggable", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["EncType", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Form", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["FormAction", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["FormEncType", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["FormMethod", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["FormNoValidate", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["FormTarget", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["FrameBorder", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Headers", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Height", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Hidden", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["High", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["float64"]]], ["Href", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["HrefLang", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["HtmlFor", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["HttpEquiv", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Icon", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Id", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["InputMode", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Integrity", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Is", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["KeyParams", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["KeyType", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Kind", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Label", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Lang", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["List", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Loop", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["Low", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["float64"]]], ["Manifest", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["MarginHeight", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["float64"]]], ["MarginWidth", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["float64"]]], ["Max", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MaxLength", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["float64"]]], ["Media", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["MediaGroup", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Method", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Min", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MinLength", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["float64"]]], ["Multiple", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["Muted", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["Name", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["NoValidate", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["Open", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["Optimum", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["float64"]]], ["Pattern", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Placeholder", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Poster", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Preload", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["RadioGroup", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["ReadOnly", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["Rel", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Required", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["Role", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Rows", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]]], ["RowSpan", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]]], ["Sandbox", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Scope", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Scoped", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["Scrolling", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Seamless", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["Selected", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["Shape", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Size", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["float64"]]], ["Sizes", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Span", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["float64"]]], ["SpellCheck", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["Src", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["SrcDoc", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["SrcLang", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["SrcSet", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Start", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["float64"]]], ["Step", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Summary", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["TabIndex", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]]], ["Target", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Title", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Type", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["UseMap", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Value", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["value", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["array"])(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"])]], ["Width", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Wmode", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Wrap", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["About", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Datatype", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Inlist", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Prefix", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Property", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Resource", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Typeof", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Vocab", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["AutoCapitalize", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["AutoCorrect", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["AutoSave", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["ItemProp", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["ItemScope", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["ItemType", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["ItemID", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["ItemRef", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Results", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["float64"]]], ["Security", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Unselectable", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["Custom", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"], _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]]]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union_type"])("Fable.React.Props.HTMLAttr", [], HTMLAttr, () => [["DefaultChecked", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["DefaultValue", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Accept", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["AcceptCharset", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["AccessKey", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Action", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["AllowFullScreen", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["AllowTransparency", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["Alt", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["aria-atomic", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["aria-busy", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["aria-checked", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["aria-colcount", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"]]]], ["aria-colindex", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"]]]], ["aria-colspan", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"]]]], ["aria-controls", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["aria-current", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["aria-describedby", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["aria-details", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["aria-disabled", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["aria-errormessage", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["aria-expanded", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["aria-flowto", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["aria-haspopup", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["aria-hidden", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["aria-invalid", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["aria-keyshortcuts", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["aria-label", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["aria-labelledby", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["aria-level", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"]]]], ["aria-live", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["aria-modal", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["aria-multiline", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["aria-multiselectable", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["aria-orientation", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["aria-owns", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["aria-placeholder", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["aria-posinset", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"]]]], ["aria-pressed", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["aria-readonly", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["aria-relevant", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["aria-required", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["aria-roledescription", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["aria-rowcount", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"]]]], ["aria-rowindex", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"]]]], ["aria-rowspan", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"]]]], ["aria-selected", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["aria-setsize", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"]]]], ["aria-sort", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["aria-valuemax", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["float64_type"]]]], ["aria-valuemin", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["float64_type"]]]], ["aria-valuenow", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["float64_type"]]]], ["aria-valuetext", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Async", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["AutoComplete", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["AutoFocus", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["AutoPlay", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["Capture", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["CellPadding", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["CellSpacing", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["CharSet", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Challenge", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Checked", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["ClassID", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["ClassName", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["className", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Cols", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"]]]], ["ColSpan", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"]]]], ["Content", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["ContentEditable", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["ContextMenu", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Controls", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["Coords", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["CrossOrigin", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["data-toggle", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["DateTime", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Default", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["Defer", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["Dir", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Disabled", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["Download", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Draggable", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["EncType", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Form", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["FormAction", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["FormEncType", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["FormMethod", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["FormNoValidate", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["FormTarget", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["FrameBorder", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Headers", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Height", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Hidden", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["High", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["float64_type"]]]], ["Href", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["HrefLang", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["HtmlFor", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["HttpEquiv", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Icon", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Id", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["InputMode", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Integrity", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Is", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["KeyParams", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["KeyType", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Kind", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Label", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Lang", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["List", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Loop", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["Low", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["float64_type"]]]], ["Manifest", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["MarginHeight", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["float64_type"]]]], ["MarginWidth", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["float64_type"]]]], ["Max", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MaxLength", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["float64_type"]]]], ["Media", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["MediaGroup", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Method", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Min", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MinLength", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["float64_type"]]]], ["Multiple", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["Muted", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["Name", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["NoValidate", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["Open", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["Optimum", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["float64_type"]]]], ["Pattern", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Placeholder", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Poster", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Preload", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["RadioGroup", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["ReadOnly", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["Rel", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Required", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["Role", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Rows", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"]]]], ["RowSpan", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"]]]], ["Sandbox", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Scope", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Scoped", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["Scrolling", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Seamless", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["Selected", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["Shape", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Size", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["float64_type"]]]], ["Sizes", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Span", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["float64_type"]]]], ["SpellCheck", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["Src", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["SrcDoc", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["SrcLang", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["SrcSet", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Start", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["float64_type"]]]], ["Step", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Summary", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["TabIndex", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"]]]], ["Target", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Title", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Type", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["UseMap", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Value", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["value", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["array_type"])(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"])]]], ["Width", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Wmode", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Wrap", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["About", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Datatype", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Inlist", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Prefix", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Property", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Resource", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Typeof", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Vocab", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["AutoCapitalize", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["AutoCorrect", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["AutoSave", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["ItemProp", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["ItemScope", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["ItemType", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["ItemID", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["ItemRef", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Results", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["float64_type"]]]], ["Security", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Unselectable", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["Custom", [["Item1", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]], ["Item2", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]]]);
 }
-const CSSProp = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fable_React_Props_CSSProp(tag, name, ...fields) {
-  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
+const CSSProp = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fable_React_Props_CSSProp(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
 function CSSProp$reflection() {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union"])("Fable.React.Props.CSSProp", [], CSSProp, () => [["AlignContent", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["AlignItems", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["AlignSelf", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["AlignmentAdjust", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["AlignmentBaseline", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["All", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Animation", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["AnimationDelay", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["AnimationDirection", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["AnimationDuration", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["AnimationFillMode", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["AnimationIterationCount", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["AnimationName", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["AnimationPlayState", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["AnimationTimingFunction", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Appearance", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["BackfaceVisibility", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Background", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BackgroundAttachment", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BackgroundBlendMode", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BackgroundClip", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BackgroundColor", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BackgroundComposite", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BackgroundImage", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BackgroundOrigin", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BackgroundPosition", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BackgroundPositionX", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BackgroundPositionY", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BackgroundRepeat", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BackgroundSize", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BaselineShift", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Behavior", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BlockSize", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Border", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderBlockEnd", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderBlockEndColor", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderBlockEndStyle", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderBlockEndWidth", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderBlockStart", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderBlockStartColor", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderBlockStartStyle", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderBlockStartWidth", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderBottom", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderBottomColor", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderBottomLeftRadius", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderBottomRightRadius", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderBottomStyle", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderBottomWidth", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderCollapse", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderColor", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderCornerShape", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderImage", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderImageOutset", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderImageRepeat", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderImageSlice", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderImageSource", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderImageWidth", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderInlineEnd", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderInlineEndColor", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderInlineEndStyle", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderInlineEndWidth", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderInlineStart", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderInlineStartColor", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderInlineStartStyle", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderInlineStartWidth", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderLeft", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderLeftColor", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderLeftStyle", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderLeftWidth", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderRadius", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderRight", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderRightColor", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderRightStyle", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderRightWidth", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderSpacing", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderStyle", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderTop", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderTopColor", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderTopLeftRadius", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderTopRightRadius", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderTopStyle", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderTopWidth", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BorderWidth", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Bottom", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BoxAlign", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["BoxDecorationBreak", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["BoxDirection", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["BoxFlex", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BoxFlexGroup", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BoxLineProgression", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BoxLines", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BoxOrdinalGroup", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BoxShadow", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["BoxSizing", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["BreakAfter", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["BreakBefore", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["BreakInside", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["CaptionSide", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["CaretColor", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Clear", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Clip", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["ClipPath", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["ClipRule", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Color", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["ColorInterpolation", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["ColorInterpolationFilters", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["ColorProfile", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["ColorRendering", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["ColumnCount", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["ColumnFill", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["ColumnGap", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["ColumnRule", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["ColumnRuleColor", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["ColumnRuleStyle", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["ColumnRuleWidth", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["ColumnSpan", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["ColumnWidth", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Columns", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Content", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["CounterIncrement", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["CounterReset", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Cue", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["CueAfter", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Cursor", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Direction", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Display", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["DominantBaseline", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["EmptyCells", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["EnableBackground", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Fill", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["FillOpacity", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["FillRule", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Filter", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Flex", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["FlexAlign", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["FlexBasis", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["FlexDirection", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["FlexFlow", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["FlexGrow", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["FlexItemAlign", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["FlexLinePack", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["FlexOrder", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["FlexShrink", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["FlexWrap", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Float", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["FloodColor", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["FloodOpacity", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["FlowFrom", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Font", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["FontFamily", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["FontFeatureSettings", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["FontKerning", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["FontLanguageOverride", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["FontSize", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["FontSizeAdjust", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["FontStretch", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["FontStyle", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["FontSynthesis", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["FontVariant", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["FontVariantAlternates", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["FontVariantCaps", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["FontVariantEastAsian", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["FontVariantLigatures", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["FontVariantNumeric", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["FontVariantPosition", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["FontWeight", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["GlyphOrientationHorizontal", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["GlyphOrientationVertical", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Grid", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["GridArea", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["GridAutoColumns", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["GridAutoFlow", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["GridAutoRows", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["GridColumn", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["GridColumnEnd", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["GridColumnGap", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["GridColumnStart", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["GridGap", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["GridRow", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["GridRowEnd", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["GridRowGap", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["GridRowPosition", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["GridRowSpan", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["GridRowStart", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["GridTemplate", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["GridTemplateAreas", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["GridTemplateColumns", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["GridTemplateRows", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["HangingPunctuation", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Height", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["HyphenateLimitChars", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["HyphenateLimitLines", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["HyphenateLimitZone", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Hyphens", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["ImageOrientation", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["ImageRendering", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["ImageResolution", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["ImeMode", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["InlineSize", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Isolation", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["JustifyContent", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["JustifySelf", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Kerning", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["LayoutGrid", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["LayoutGridChar", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["LayoutGridLine", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["LayoutGridMode", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["LayoutGridType", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Left", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["LetterSpacing", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["LightingColor", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["LineBreak", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["LineClamp", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["LineHeight", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["ListStyle", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["ListStyleImage", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["ListStylePosition", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["ListStyleType", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Margin", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MarginBlockEnd", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MarginBlockStart", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MarginBottom", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MarginInlineEnd", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MarginInlineStart", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MarginLeft", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MarginRight", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MarginTop", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MarkerEnd", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MarkerMid", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MarkerStart", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MarqueeDirection", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MarqueeStyle", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Mask", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MaskBorder", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MaskBorderRepeat", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MaskBorderSlice", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MaskBorderSource", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MaskBorderWidth", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MaskClip", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MaskComposite", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MaskImage", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MaskMode", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MaskOrigin", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MaskPosition", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MaskRepeat", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MaskSize", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MaskType", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MaxFontSize", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MaxHeight", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MaxWidth", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MinBlockSize", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MinHeight", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MinInlineSize", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MinWidth", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["MixBlendMode", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["ObjectFit", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["ObjectPosition", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["OffsetBlockEnd", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["OffsetBlockStart", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["OffsetInlineEnd", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["OffsetInlineStart", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Opacity", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Order", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Orphans", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Outline", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["OutlineColor", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["OutlineOffset", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["OutlineStyle", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["OutlineWidth", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["OverflowStyle", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["OverflowWrap", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["OverflowX", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["OverflowY", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Padding", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["PaddingBlockEnd", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["PaddingBlockStart", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["PaddingBottom", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["PaddingInlineEnd", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["PaddingInlineStart", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["PaddingLeft", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["PaddingRight", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["PaddingTop", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["PageBreakAfter", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["PageBreakBefore", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["PageBreakInside", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Pause", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["PauseAfter", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["PauseBefore", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Perspective", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["PerspectiveOrigin", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["PointerEvents", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Position", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["PunctuationTrim", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Quotes", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["RegionFragment", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Resize", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["RestAfter", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["RestBefore", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Right", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["RubyAlign", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["RubyMerge", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["RubyPosition", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["ScrollBehavior", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["ScrollSnapCoordinate", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["ScrollSnapDestination", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["ScrollSnapType", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["ShapeImageThreshold", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["ShapeInside", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["ShapeMargin", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["ShapeOutside", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["ShapeRendering", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Speak", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["SpeakAs", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["StopColor", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["StopOpacity", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Stroke", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["StrokeDasharray", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["StrokeDashoffset", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["StrokeLinecap", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["StrokeLinejoin", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["StrokeMiterlimit", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["StrokeOpacity", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["StrokeWidth", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TabSize", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TableLayout", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextAlign", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["TextAlignLast", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextAnchor", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextCombineUpright", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextDecoration", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextDecorationColor", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextDecorationLine", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextDecorationLineThrough", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextDecorationNone", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextDecorationOverline", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextDecorationSkip", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextDecorationStyle", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextDecorationUnderline", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextEmphasis", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextEmphasisColor", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextEmphasisPosition", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextEmphasisStyle", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextHeight", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextIndent", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextJustify", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextJustifyTrim", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextKashidaSpace", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextLineThrough", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextLineThroughColor", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextLineThroughMode", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextLineThroughStyle", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextLineThroughWidth", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextOrientation", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextOverflow", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextOverline", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextOverlineColor", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextOverlineMode", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextOverlineStyle", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextOverlineWidth", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextRendering", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextScript", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextShadow", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextTransform", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextUnderlinePosition", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TextUnderlineStyle", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Top", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TouchAction", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Transform", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TransformBox", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TransformOrigin", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TransformOriginZ", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TransformStyle", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Transition", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TransitionDelay", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TransitionDuration", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TransitionProperty", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["TransitionTimingFunction", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["UnicodeBidi", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["UnicodeRange", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["UserFocus", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["UserInput", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["UserSelect", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["VerticalAlign", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Visibility", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["VoiceBalance", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["VoiceDuration", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["VoiceFamily", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["VoicePitch", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["VoiceRange", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["VoiceRate", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["VoiceStress", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["VoiceVolume", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["WhiteSpace", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["WhiteSpaceTreatment", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Widows", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Width", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["WillChange", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["WordBreak", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["WordSpacing", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["WordWrap", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["WrapFlow", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["WrapMargin", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["WrapOption", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["WritingMode", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["ZIndex", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Zoom", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]], ["Custom", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"], _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj"]]]]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union_type"])("Fable.React.Props.CSSProp", [], CSSProp, () => [["AlignContent", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["AlignItems", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["AlignSelf", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["AlignmentAdjust", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["AlignmentBaseline", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["All", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Animation", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["AnimationDelay", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["AnimationDirection", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["AnimationDuration", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["AnimationFillMode", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["AnimationIterationCount", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["AnimationName", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["AnimationPlayState", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["AnimationTimingFunction", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Appearance", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["BackfaceVisibility", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Background", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BackgroundAttachment", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BackgroundBlendMode", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BackgroundClip", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BackgroundColor", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BackgroundComposite", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BackgroundImage", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BackgroundOrigin", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BackgroundPosition", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BackgroundPositionX", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BackgroundPositionY", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BackgroundRepeat", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BackgroundSize", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BaselineShift", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Behavior", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BlockSize", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Border", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderBlockEnd", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderBlockEndColor", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderBlockEndStyle", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderBlockEndWidth", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderBlockStart", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderBlockStartColor", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderBlockStartStyle", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderBlockStartWidth", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderBottom", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderBottomColor", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderBottomLeftRadius", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderBottomRightRadius", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderBottomStyle", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderBottomWidth", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderCollapse", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderColor", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderCornerShape", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderImage", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderImageOutset", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderImageRepeat", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderImageSlice", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderImageSource", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderImageWidth", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderInlineEnd", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderInlineEndColor", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderInlineEndStyle", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderInlineEndWidth", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderInlineStart", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderInlineStartColor", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderInlineStartStyle", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderInlineStartWidth", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderLeft", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderLeftColor", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderLeftStyle", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderLeftWidth", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderRadius", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderRight", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderRightColor", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderRightStyle", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderRightWidth", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderSpacing", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderStyle", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderTop", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderTopColor", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderTopLeftRadius", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderTopRightRadius", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderTopStyle", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderTopWidth", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BorderWidth", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Bottom", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BoxAlign", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["BoxDecorationBreak", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["BoxDirection", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["BoxFlex", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BoxFlexGroup", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BoxLineProgression", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BoxLines", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BoxOrdinalGroup", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BoxShadow", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["BoxSizing", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["BreakAfter", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["BreakBefore", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["BreakInside", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["CaptionSide", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["CaretColor", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Clear", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Clip", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["ClipPath", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["ClipRule", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Color", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["ColorInterpolation", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["ColorInterpolationFilters", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["ColorProfile", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["ColorRendering", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["ColumnCount", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["ColumnFill", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["ColumnGap", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["ColumnRule", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["ColumnRuleColor", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["ColumnRuleStyle", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["ColumnRuleWidth", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["ColumnSpan", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["ColumnWidth", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Columns", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Content", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["CounterIncrement", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["CounterReset", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Cue", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["CueAfter", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Cursor", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Direction", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Display", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["DominantBaseline", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["EmptyCells", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["EnableBackground", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Fill", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["FillOpacity", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["FillRule", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Filter", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Flex", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["FlexAlign", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["FlexBasis", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["FlexDirection", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["FlexFlow", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["FlexGrow", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["FlexItemAlign", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["FlexLinePack", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["FlexOrder", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["FlexShrink", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["FlexWrap", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Float", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["FloodColor", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["FloodOpacity", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["FlowFrom", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Font", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["FontFamily", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["FontFeatureSettings", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["FontKerning", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["FontLanguageOverride", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["FontSize", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["FontSizeAdjust", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["FontStretch", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["FontStyle", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["FontSynthesis", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["FontVariant", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["FontVariantAlternates", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["FontVariantCaps", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["FontVariantEastAsian", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["FontVariantLigatures", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["FontVariantNumeric", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["FontVariantPosition", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["FontWeight", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["GlyphOrientationHorizontal", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["GlyphOrientationVertical", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Grid", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["GridArea", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["GridAutoColumns", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["GridAutoFlow", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["GridAutoRows", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["GridColumn", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["GridColumnEnd", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["GridColumnGap", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["GridColumnStart", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["GridGap", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["GridRow", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["GridRowEnd", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["GridRowGap", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["GridRowPosition", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["GridRowSpan", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["GridRowStart", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["GridTemplate", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["GridTemplateAreas", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["GridTemplateColumns", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["GridTemplateRows", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["HangingPunctuation", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Height", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["HyphenateLimitChars", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["HyphenateLimitLines", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["HyphenateLimitZone", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Hyphens", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["ImageOrientation", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["ImageRendering", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["ImageResolution", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["ImeMode", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["InlineSize", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Isolation", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["JustifyContent", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["JustifySelf", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Kerning", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["LayoutGrid", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["LayoutGridChar", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["LayoutGridLine", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["LayoutGridMode", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["LayoutGridType", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Left", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["LetterSpacing", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["LightingColor", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["LineBreak", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["LineClamp", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["LineHeight", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["ListStyle", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["ListStyleImage", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["ListStylePosition", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["ListStyleType", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Margin", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MarginBlockEnd", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MarginBlockStart", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MarginBottom", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MarginInlineEnd", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MarginInlineStart", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MarginLeft", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MarginRight", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MarginTop", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MarkerEnd", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MarkerMid", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MarkerStart", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MarqueeDirection", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MarqueeStyle", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Mask", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MaskBorder", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MaskBorderRepeat", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MaskBorderSlice", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MaskBorderSource", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MaskBorderWidth", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MaskClip", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MaskComposite", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MaskImage", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MaskMode", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MaskOrigin", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MaskPosition", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MaskRepeat", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MaskSize", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MaskType", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MaxFontSize", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MaxHeight", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MaxWidth", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MinBlockSize", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MinHeight", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MinInlineSize", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MinWidth", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["MixBlendMode", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["ObjectFit", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["ObjectPosition", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["OffsetBlockEnd", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["OffsetBlockStart", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["OffsetInlineEnd", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["OffsetInlineStart", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Opacity", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Order", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Orphans", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Outline", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["OutlineColor", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["OutlineOffset", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["OutlineStyle", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["OutlineWidth", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["OverflowStyle", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["OverflowWrap", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["OverflowX", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["OverflowY", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Padding", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["PaddingBlockEnd", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["PaddingBlockStart", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["PaddingBottom", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["PaddingInlineEnd", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["PaddingInlineStart", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["PaddingLeft", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["PaddingRight", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["PaddingTop", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["PageBreakAfter", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["PageBreakBefore", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["PageBreakInside", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Pause", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["PauseAfter", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["PauseBefore", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Perspective", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["PerspectiveOrigin", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["PointerEvents", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Position", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["PunctuationTrim", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Quotes", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["RegionFragment", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Resize", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["RestAfter", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["RestBefore", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Right", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["RubyAlign", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["RubyMerge", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["RubyPosition", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["ScrollBehavior", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["ScrollSnapCoordinate", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["ScrollSnapDestination", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["ScrollSnapType", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["ShapeImageThreshold", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["ShapeInside", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["ShapeMargin", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["ShapeOutside", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["ShapeRendering", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Speak", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["SpeakAs", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["StopColor", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["StopOpacity", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Stroke", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["StrokeDasharray", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["StrokeDashoffset", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["StrokeLinecap", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["StrokeLinejoin", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["StrokeMiterlimit", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["StrokeOpacity", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["StrokeWidth", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TabSize", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TableLayout", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextAlign", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["TextAlignLast", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextAnchor", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextCombineUpright", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextDecoration", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextDecorationColor", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextDecorationLine", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextDecorationLineThrough", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextDecorationNone", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextDecorationOverline", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextDecorationSkip", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextDecorationStyle", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextDecorationUnderline", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextEmphasis", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextEmphasisColor", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextEmphasisPosition", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextEmphasisStyle", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextHeight", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextIndent", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextJustify", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextJustifyTrim", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextKashidaSpace", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextLineThrough", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextLineThroughColor", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextLineThroughMode", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextLineThroughStyle", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextLineThroughWidth", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextOrientation", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextOverflow", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextOverline", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextOverlineColor", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextOverlineMode", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextOverlineStyle", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextOverlineWidth", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextRendering", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextScript", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextShadow", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextTransform", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextUnderlinePosition", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TextUnderlineStyle", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Top", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TouchAction", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Transform", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TransformBox", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TransformOrigin", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TransformOriginZ", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TransformStyle", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Transition", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TransitionDelay", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TransitionDuration", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TransitionProperty", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["TransitionTimingFunction", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["UnicodeBidi", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["UnicodeRange", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["UserFocus", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["UserInput", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["UserSelect", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["VerticalAlign", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Visibility", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["VoiceBalance", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["VoiceDuration", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["VoiceFamily", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["VoicePitch", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["VoiceRange", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["VoiceRate", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["VoiceStress", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["VoiceVolume", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["WhiteSpace", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["WhiteSpaceTreatment", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Widows", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Width", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["WillChange", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["WordBreak", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["WordSpacing", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["WordWrap", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["WrapFlow", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["WrapMargin", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["WrapOption", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["WritingMode", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["ZIndex", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Zoom", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]], ["Custom", [["Item1", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]], ["Item2", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["obj_type"]]]]]);
 }
 function stringEnum(case$) {
   return String(case$);
@@ -1595,12 +1626,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Text$$$p", function() { return Text$$$p; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Text$$$div", function() { return Text$$$div; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Text$$$span", function() { return Text$$$span; });
-/* harmony import */ var _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../fable-library.2.4.15/Reflection.js */ "./.fable/fable-library.2.4.15/Reflection.js");
-/* harmony import */ var _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../fable-library.2.4.15/Types.js */ "./.fable/fable-library.2.4.15/Types.js");
-/* harmony import */ var _fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../fable-library.2.4.15/Util.js */ "./.fable/fable-library.2.4.15/Util.js");
-/* harmony import */ var _fable_library_2_4_15_Option_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../fable-library.2.4.15/Option.js */ "./.fable/fable-library.2.4.15/Option.js");
-/* harmony import */ var _fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../fable-library.2.4.15/List.js */ "./.fable/fable-library.2.4.15/List.js");
-/* harmony import */ var _fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../fable-library.2.4.15/String.js */ "./.fable/fable-library.2.4.15/String.js");
+/* harmony import */ var _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../fable-library.2.13.0/Reflection.js */ "./.fable/fable-library.2.13.0/Reflection.js");
+/* harmony import */ var _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../fable-library.2.13.0/Types.js */ "./.fable/fable-library.2.13.0/Types.js");
+/* harmony import */ var _fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../fable-library.2.13.0/Util.js */ "./.fable/fable-library.2.13.0/Util.js");
+/* harmony import */ var _fable_library_2_13_0_Option_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../fable-library.2.13.0/Option.js */ "./.fable/fable-library.2.13.0/Option.js");
+/* harmony import */ var _fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../fable-library.2.13.0/List.js */ "./.fable/fable-library.2.13.0/List.js");
+/* harmony import */ var _fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../fable-library.2.13.0/String.js */ "./.fable/fable-library.2.13.0/String.js");
 /* harmony import */ var _Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Fable.React.6.0.0/Fable.React.Props.fs */ "./.fable/Fable.React.6.0.0/Fable.React.Props.fs");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
@@ -1613,16 +1644,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Reflection$$$getCaseName(case$) {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["getCaseName"])(case$);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["getCaseName"])(case$);
 }
 function Reflection$$$getCaseTag(case$$$1) {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["getCaseTag"])(case$$$1);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["getCaseTag"])(case$$$1);
 }
-const Screen = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["declare"])(function Fulma_Screen(tag, name, ...fields) {
-  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["Union"].call(this, tag, name, ...fields);
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["Union"]);
+const Screen = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["declare"])(function Fulma_Screen(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["Union"]);
 function Screen$reflection() {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["union"])("Fulma.Screen", [], Screen, () => ["All", "desktop", "tablet", "mobile", "widescreen", "touch", "fullhd"]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["union_type"])("Fulma.Screen", [], Screen, () => ["All", "desktop", "tablet", "mobile", "widescreen", "touch", "fullhd"]);
 }
 function Screen$$$ToString$$2D2414B4(screen) {
   switch (screen.tag) {
@@ -1642,11 +1675,13 @@ function Screen$$$ToString$$2D2414B4(screen) {
       }
   }
 }
-const Color$002EIColor = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["declare"])(function Fulma_Color_IColor(tag, name, ...fields) {
-  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["Union"].call(this, tag, name, ...fields);
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["Union"]);
+const Color$002EIColor = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["declare"])(function Fulma_Color_IColor(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["Union"]);
 function Color$002EIColor$reflection() {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["union"])("Fulma.Color.IColor", [], Color$002EIColor, () => ["is-black", "is-dark", "is-light", "is-white", "is-primary", "is-info", "is-success", "is-warning", "is-danger", "is-link", "is-black-bis", "is-black-ter", "is-grey-darker", "is-grey-dark", "is-grey", "is-grey-light", "is-grey-lighter", "is-white-ter", "is-white-bis", ["IsCustomColor", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["string"]]], "NoColor"]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["union_type"])("Fulma.Color.IColor", [], Color$002EIColor, () => ["is-black", "is-dark", "is-light", "is-white", "is-primary", "is-info", "is-success", "is-warning", "is-danger", "is-link", "is-black-bis", "is-black-ter", "is-grey-darker", "is-grey-dark", "is-grey", "is-grey-light", "is-grey-lighter", "is-white-ter", "is-white-bis", ["IsCustomColor", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["string_type"]]]], "NoColor"]);
 }
 function Color$$$ofColor(level) {
   switch (level.tag) {
@@ -1685,45 +1720,57 @@ function Color$$$ofColor(level) {
       }
   }
 }
-const Size$002EISize = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["declare"])(function Fulma_Size_ISize(tag, name, ...fields) {
-  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["Union"].call(this, tag, name, ...fields);
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["Union"]);
+const Size$002EISize = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["declare"])(function Fulma_Size_ISize(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["Union"]);
 function Size$002EISize$reflection() {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["union"])("Fulma.Size.ISize", [], Size$002EISize, () => ["is-small", "is-medium", "is-large"]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["union_type"])("Fulma.Size.ISize", [], Size$002EISize, () => ["is-small", "is-medium", "is-large"]);
 }
-const TextSize$002EOption = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["declare"])(function Fulma_TextSize_Option(tag, name, ...fields) {
-  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["Union"].call(this, tag, name, ...fields);
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["Union"]);
+const TextSize$002EOption = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["declare"])(function Fulma_TextSize_Option(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["Union"]);
 function TextSize$002EOption$reflection() {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["union"])("Fulma.TextSize.Option", [], TextSize$002EOption, () => ["Is1", "Is2", "Is3", "Is4", "Is5", "Is6", "Is7"]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["union_type"])("Fulma.TextSize.Option", [], TextSize$002EOption, () => ["Is1", "Is2", "Is3", "Is4", "Is5", "Is6", "Is7"]);
 }
 function TextSize$002EOption$$$ToString$$Z2E0B9453(x) {
   const value = Reflection$$$getCaseTag(x) + 1 | 0;
-  return Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_2__["int32ToString"])(value);
+  return Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_2__["int32ToString"])(value);
 }
-const TextAlignment$002EOption = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["declare"])(function Fulma_TextAlignment_Option(tag, name, ...fields) {
-  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["Union"].call(this, tag, name, ...fields);
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["Union"]);
+const TextAlignment$002EOption = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["declare"])(function Fulma_TextAlignment_Option(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["Union"]);
 function TextAlignment$002EOption$reflection() {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["union"])("Fulma.TextAlignment.Option", [], TextAlignment$002EOption, () => ["has-text-centered", "has-text-justified", "has-text-left", "has-text-right"]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["union_type"])("Fulma.TextAlignment.Option", [], TextAlignment$002EOption, () => ["has-text-centered", "has-text-justified", "has-text-left", "has-text-right"]);
 }
-const TextWeight$002EOption = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["declare"])(function Fulma_TextWeight_Option(tag, name, ...fields) {
-  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["Union"].call(this, tag, name, ...fields);
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["Union"]);
+const TextWeight$002EOption = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["declare"])(function Fulma_TextWeight_Option(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["Union"]);
 function TextWeight$002EOption$reflection() {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["union"])("Fulma.TextWeight.Option", [], TextWeight$002EOption, () => ["has-text-weight-light", "has-text-weight-normal", "has-text-weight-semibold", "has-text-weight-bold", "has-text-weight-medium"]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["union_type"])("Fulma.TextWeight.Option", [], TextWeight$002EOption, () => ["has-text-weight-light", "has-text-weight-normal", "has-text-weight-semibold", "has-text-weight-bold", "has-text-weight-medium"]);
 }
-const TextTransform$002EOption = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["declare"])(function Fulma_TextTransform_Option(tag, name, ...fields) {
-  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["Union"].call(this, tag, name, ...fields);
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["Union"]);
+const TextTransform$002EOption = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["declare"])(function Fulma_TextTransform_Option(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["Union"]);
 function TextTransform$002EOption$reflection() {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["union"])("Fulma.TextTransform.Option", [], TextTransform$002EOption, () => ["is-capitalized", "is-lowercase", "is-uppercase", "is-italic"]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["union_type"])("Fulma.TextTransform.Option", [], TextTransform$002EOption, () => ["is-capitalized", "is-lowercase", "is-uppercase", "is-italic"]);
 }
-const Display$002EOption = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["declare"])(function Fulma_Display_Option(tag, name, ...fields) {
-  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["Union"].call(this, tag, name, ...fields);
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["Union"]);
+const Display$002EOption = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["declare"])(function Fulma_Display_Option(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["Union"]);
 function Display$002EOption$reflection() {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["union"])("Fulma.Display.Option", [], Display$002EOption, () => ["block", "flex", "inline", "inline-block", "inline-flex"]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["union_type"])("Fulma.Display.Option", [], Display$002EOption, () => ["block", "flex", "inline", "inline-block", "inline-flex"]);
 }
 function Display$$$toDisplayClass(screen$$1, display) {
   const display$$1 = Reflection$$$getCaseName(display);
@@ -1744,7 +1791,7 @@ function Display$$$toDisplayOnlyClass(screen$$3, display$$2) {
     default:
       {
         const x$$1 = screen$$3;
-        console.warn(Object(_fable_library_2_4_15_Option_js__WEBPACK_IMPORTED_MODULE_3__["some"])("Screen `%s` does not support display only." + String(x$$1)));
+        console.warn(Object(_fable_library_2_13_0_Option_js__WEBPACK_IMPORTED_MODULE_3__["some"])("Screen `%s` does not support display only." + String(x$$1)));
         return "";
       }
   }
@@ -1841,7 +1888,7 @@ function Modifier$$$ofInvisibleOnly(screen$$7) {
     default:
       {
         const x$$2 = screen$$7;
-        console.warn(Object(_fable_library_2_4_15_Option_js__WEBPACK_IMPORTED_MODULE_3__["some"])("Screen `%s` does not support `is-invisible-xxx-only`." + String(x$$2)));
+        console.warn(Object(_fable_library_2_13_0_Option_js__WEBPACK_IMPORTED_MODULE_3__["some"])("Screen `%s` does not support `is-invisible-xxx-only`." + String(x$$2)));
         return "";
       }
   }
@@ -1858,16 +1905,18 @@ function Modifier$$$ofHiddenOnly(screen$$8) {
     default:
       {
         const x$$3 = screen$$8;
-        console.warn(Object(_fable_library_2_4_15_Option_js__WEBPACK_IMPORTED_MODULE_3__["some"])("Screen `%s` does not support `is-hidden-xxx-only`." + String(x$$3)));
+        console.warn(Object(_fable_library_2_13_0_Option_js__WEBPACK_IMPORTED_MODULE_3__["some"])("Screen `%s` does not support `is-hidden-xxx-only`." + String(x$$3)));
         return "";
       }
   }
 }
-const Modifier$002EIModifier = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["declare"])(function Fulma_Modifier_IModifier(tag, name, ...fields) {
-  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["Union"].call(this, tag, name, ...fields);
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["Union"]);
+const Modifier$002EIModifier = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["declare"])(function Fulma_Modifier_IModifier(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["Union"]);
 function Modifier$002EIModifier$reflection() {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["union"])("Fulma.Modifier.IModifier", [], Modifier$002EIModifier, () => [["BackgroundColor", [Color$002EIColor$reflection()]], ["TextColor", [Color$002EIColor$reflection()]], ["TextWeight", [TextWeight$002EOption$reflection()]], ["TextSize", [Screen$reflection(), TextSize$002EOption$reflection()]], ["TextSizeOnly", [Screen$reflection(), TextSize$002EOption$reflection()]], ["TextAlignment", [Screen$reflection(), TextAlignment$002EOption$reflection()]], ["TextAlignmentOnly", [Screen$reflection(), TextAlignment$002EOption$reflection()]], ["TextTransform", [TextTransform$002EOption$reflection()]], ["Display", [Screen$reflection(), Display$002EOption$reflection()]], ["DisplayOnly", [Screen$reflection(), Display$002EOption$reflection()]], "is-clearfix", "is-pulled-left", "is-pulled-right", "is-marginless", "is-paddingless", "is-overlay", "is-clipped", "is-radiusless", "is-shadowless", "is-unselectable", "is-relative", ["IsInvisible", [Screen$reflection(), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["bool"]]], ["IsHidden", [Screen$reflection(), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["bool"]]], ["IsInvisibleOnly", [Screen$reflection(), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["bool"]]], ["IsHiddenOnly", [Screen$reflection(), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["bool"]]], "IsSrOnly", "IsScreenReaderOnly"]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["union_type"])("Fulma.Modifier.IModifier", [], Modifier$002EIModifier, () => [["BackgroundColor", [["Item", Color$002EIColor$reflection()]]], ["TextColor", [["Item", Color$002EIColor$reflection()]]], ["TextWeight", [["Item", TextWeight$002EOption$reflection()]]], ["TextSize", [["Item1", Screen$reflection()], ["Item2", TextSize$002EOption$reflection()]]], ["TextSizeOnly", [["Item1", Screen$reflection()], ["Item2", TextSize$002EOption$reflection()]]], ["TextAlignment", [["Item1", Screen$reflection()], ["Item2", TextAlignment$002EOption$reflection()]]], ["TextAlignmentOnly", [["Item1", Screen$reflection()], ["Item2", TextAlignment$002EOption$reflection()]]], ["TextTransform", [["Item", TextTransform$002EOption$reflection()]]], ["Display", [["Item1", Screen$reflection()], ["Item2", Display$002EOption$reflection()]]], ["DisplayOnly", [["Item1", Screen$reflection()], ["Item2", Display$002EOption$reflection()]]], "is-clearfix", "is-pulled-left", "is-pulled-right", "is-marginless", "is-paddingless", "is-overlay", "is-clipped", "is-radiusless", "is-shadowless", "is-unselectable", "is-relative", ["IsInvisible", [["Item1", Screen$reflection()], ["Item2", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["bool_type"]]]], ["IsHidden", [["Item1", Screen$reflection()], ["Item2", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["bool_type"]]]], ["IsInvisibleOnly", [["Item1", Screen$reflection()], ["Item2", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["bool_type"]]]], ["IsHiddenOnly", [["Item1", Screen$reflection()], ["Item2", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["bool_type"]]]], "IsSrOnly", "IsScreenReaderOnly"]);
 }
 function Modifier$$$parseModifiers(options) {
   const parseOptions = function parseOptions(result, option) {
@@ -1877,61 +1926,61 @@ function Modifier$$$parseModifiers(options) {
       case 1:
         {
           const color$$4 = option.fields[0];
-          return new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](Modifier$$$ofText(color$$4), result);
+          return new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](Modifier$$$ofText(color$$4), result);
         }
 
       case 2:
         {
           const textWeight = option.fields[0];
-          return new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](Reflection$$$getCaseName(textWeight), result);
+          return new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](Reflection$$$getCaseName(textWeight), result);
         }
 
       case 3:
         {
           const size = option.fields[1];
           const screen$$9 = option.fields[0];
-          return new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]("is-size-" + TextSize$002EOption$$$ToString$$Z2E0B9453(size) + Screen$$$ToString$$2D2414B4(screen$$9), result);
+          return new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]("is-size-" + TextSize$002EOption$$$ToString$$Z2E0B9453(size) + Screen$$$ToString$$2D2414B4(screen$$9), result);
         }
 
       case 4:
         {
           const size$$2 = option.fields[1];
           const screen$$11 = option.fields[0];
-          return new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](screen$$11.tag === 2 ? "is-size-" + TextSize$002EOption$$$ToString$$Z2E0B9453(size$$2) + Screen$$$ToString$$2D2414B4(screen$$11) + "-only" : screen$$11.tag === 1 ? "is-size-" + TextSize$002EOption$$$ToString$$Z2E0B9453(size$$2) + Screen$$$ToString$$2D2414B4(screen$$11) + "-only" : screen$$11.tag === 4 ? "is-size-" + TextSize$002EOption$$$ToString$$Z2E0B9453(size$$2) + Screen$$$ToString$$2D2414B4(screen$$11) + "-only" : (x$$4 = screen$$11, (console.warn(Object(_fable_library_2_4_15_Option_js__WEBPACK_IMPORTED_MODULE_3__["some"])("Screen `%s` does not support `is-size-xxx-only`." + String(x$$4))), "")), result);
+          return new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](screen$$11.tag === 2 ? "is-size-" + TextSize$002EOption$$$ToString$$Z2E0B9453(size$$2) + Screen$$$ToString$$2D2414B4(screen$$11) + "-only" : screen$$11.tag === 1 ? "is-size-" + TextSize$002EOption$$$ToString$$Z2E0B9453(size$$2) + Screen$$$ToString$$2D2414B4(screen$$11) + "-only" : screen$$11.tag === 4 ? "is-size-" + TextSize$002EOption$$$ToString$$Z2E0B9453(size$$2) + Screen$$$ToString$$2D2414B4(screen$$11) + "-only" : (x$$4 = screen$$11, (console.warn(Object(_fable_library_2_13_0_Option_js__WEBPACK_IMPORTED_MODULE_3__["some"])("Screen `%s` does not support `is-size-xxx-only`." + String(x$$4))), "")), result);
         }
 
       case 5:
         {
           const size$$4 = option.fields[1];
           const screen$$13 = option.fields[0];
-          return new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](Reflection$$$getCaseName(size$$4) + Screen$$$ToString$$2D2414B4(screen$$13), result);
+          return new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](Reflection$$$getCaseName(size$$4) + Screen$$$ToString$$2D2414B4(screen$$13), result);
         }
 
       case 6:
         {
           const size$$5 = option.fields[1];
           const screen$$15 = option.fields[0];
-          return new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](screen$$15.tag === 2 ? Reflection$$$getCaseName(size$$5) + Screen$$$ToString$$2D2414B4(screen$$15) + "-only" : screen$$15.tag === 1 ? Reflection$$$getCaseName(size$$5) + Screen$$$ToString$$2D2414B4(screen$$15) + "-only" : screen$$15.tag === 4 ? Reflection$$$getCaseName(size$$5) + Screen$$$ToString$$2D2414B4(screen$$15) + "-only" : (x$$5 = screen$$15, (console.warn(Object(_fable_library_2_4_15_Option_js__WEBPACK_IMPORTED_MODULE_3__["some"])("Screen `%s` does not support `is-size-xxx-only`." + String(x$$5))), "")), result);
+          return new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](screen$$15.tag === 2 ? Reflection$$$getCaseName(size$$5) + Screen$$$ToString$$2D2414B4(screen$$15) + "-only" : screen$$15.tag === 1 ? Reflection$$$getCaseName(size$$5) + Screen$$$ToString$$2D2414B4(screen$$15) + "-only" : screen$$15.tag === 4 ? Reflection$$$getCaseName(size$$5) + Screen$$$ToString$$2D2414B4(screen$$15) + "-only" : (x$$5 = screen$$15, (console.warn(Object(_fable_library_2_13_0_Option_js__WEBPACK_IMPORTED_MODULE_3__["some"])("Screen `%s` does not support `is-size-xxx-only`." + String(x$$5))), "")), result);
         }
 
       case 7:
         {
           const transform = option.fields[0];
-          return new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](Reflection$$$getCaseName(transform), result);
+          return new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](Reflection$$$getCaseName(transform), result);
         }
 
       case 8:
         {
           const screen$$17 = option.fields[0];
           const display$$4 = option.fields[1];
-          return new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](Display$$$toDisplayClass(screen$$17, display$$4), result);
+          return new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](Display$$$toDisplayClass(screen$$17, display$$4), result);
         }
 
       case 9:
         {
           const screen$$18 = option.fields[0];
           const display$$5 = option.fields[1];
-          return new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](Display$$$toDisplayOnlyClass(screen$$18, display$$5), result);
+          return new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](Display$$$toDisplayOnlyClass(screen$$18, display$$5), result);
         }
 
       case 21:
@@ -1940,7 +1989,7 @@ function Modifier$$$parseModifiers(options) {
           const b = option.fields[1];
 
           if (b) {
-            return new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](Modifier$$$ofInvisible(screen$$19), result);
+            return new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](Modifier$$$ofInvisible(screen$$19), result);
           } else {
             return result;
           }
@@ -1952,7 +2001,7 @@ function Modifier$$$parseModifiers(options) {
           const b$$1 = option.fields[1];
 
           if (b$$1) {
-            return new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](Modifier$$$ofInvisibleOnly(screen$$20), result);
+            return new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](Modifier$$$ofInvisibleOnly(screen$$20), result);
           } else {
             return result;
           }
@@ -1964,7 +2013,7 @@ function Modifier$$$parseModifiers(options) {
           const b$$2 = option.fields[1];
 
           if (b$$2) {
-            return new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](Modifier$$$ofHidden(screen$$21), result);
+            return new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](Modifier$$$ofHidden(screen$$21), result);
           } else {
             return result;
           }
@@ -1976,7 +2025,7 @@ function Modifier$$$parseModifiers(options) {
           const b$$3 = option.fields[1];
 
           if (b$$3) {
-            return new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](Modifier$$$ofHiddenOnly(screen$$22), result);
+            return new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](Modifier$$$ofHiddenOnly(screen$$22), result);
           } else {
             return result;
           }
@@ -1985,7 +2034,7 @@ function Modifier$$$parseModifiers(options) {
       case 25:
       case 26:
         {
-          return new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]("is-sr-only", result);
+          return new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]("is-sr-only", result);
         }
 
       case 10:
@@ -2000,43 +2049,45 @@ function Modifier$$$parseModifiers(options) {
       case 19:
       case 20:
         {
-          return new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](Reflection$$$getCaseName(option), result);
+          return new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](Reflection$$$getCaseName(option), result);
         }
 
       default:
         {
           const color$$3 = option.fields[0];
-          return new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](Modifier$$$ofBackground(color$$3), result);
+          return new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](Modifier$$$ofBackground(color$$3), result);
         }
     }
   };
 
   const list = options;
-  const state = new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]();
-  return Object(_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_4__["fold"])(parseOptions, state, list);
+  const state = new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]();
+  return Object(_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__["fold"])(parseOptions, state, list);
 }
-const Common$002EGenericOption = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["declare"])(function Fulma_Common_GenericOption(tag, name, ...fields) {
-  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["Union"].call(this, tag, name, ...fields);
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["Union"]);
+const Common$002EGenericOption = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["declare"])(function Fulma_Common_GenericOption(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["Union"]);
 function Common$002EGenericOption$reflection() {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["union"])("Fulma.Common.GenericOption", [], Common$002EGenericOption, () => [["CustomClass", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["string"]]], ["Props", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["list"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["type"])("Fable.React.Props.IHTMLProp"))]], ["Modifiers", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["list"])(Modifier$002EIModifier$reflection())]]]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["union_type"])("Fulma.Common.GenericOption", [], Common$002EGenericOption, () => [["CustomClass", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["string_type"]]]], ["Props", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["list_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["class_type"])("Fable.React.Props.IHTMLProp"))]]], ["Modifiers", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["list_type"])(Modifier$002EIModifier$reflection())]]]]);
 }
-const Common$002EGenericOptions = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["declare"])(function Fulma_Common_GenericOptions(arg1, arg2, arg3) {
-  this.Props = arg1;
-  this.Classes = arg2;
-  this.RemovedClasses = arg3;
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["Record"]);
+const Common$002EGenericOptions = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["declare"])(function Fulma_Common_GenericOptions(Props, Classes, RemovedClasses) {
+  this.Props = Props;
+  this.Classes = Classes;
+  this.RemovedClasses = RemovedClasses;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["Record"]);
 function Common$002EGenericOptions$reflection() {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["record"])("Fulma.Common.GenericOptions", [], Common$002EGenericOptions, () => [["Props", Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["list"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["type"])("Fable.React.Props.IHTMLProp"))], ["Classes", Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["list"])(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["string"])], ["RemovedClasses", Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["list"])(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["string"])]]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["record_type"])("Fulma.Common.GenericOptions", [], Common$002EGenericOptions, () => [["Props", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["list_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["class_type"])("Fable.React.Props.IHTMLProp"))], ["Classes", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["list_type"])(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["string_type"])], ["RemovedClasses", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["list_type"])(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_0__["string_type"])]]);
 }
 function Common$002EGenericOptions$$$get_Empty() {
-  return new Common$002EGenericOptions(new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](), new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](), new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]());
+  return new Common$002EGenericOptions(new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](), new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](), new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]());
 }
 function Common$002EGenericOptions$$$Parse$$9AE2F7C(options$$1, parser, baseClass, baseProps) {
   let result$$1;
   const list$$1 = options$$1;
   const state$$1 = Common$002EGenericOptions$$$get_Empty();
-  result$$1 = Object(_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_4__["fold"])(parser, state$$1, list$$1);
+  result$$1 = Object(_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__["fold"])(parser, state$$1, list$$1);
   let result$$2;
 
   if (baseClass == null) {
@@ -2054,17 +2105,17 @@ function Common$002EGenericOptions$$$Parse$$9AE2F7C(options$$1, parser, baseClas
   }
 }
 function Common$002EGenericOptions$$AddProp$$7BFEDA81(this$, prop) {
-  return new Common$002EGenericOptions(new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](prop, this$.Props), this$.Classes, this$.RemovedClasses);
+  return new Common$002EGenericOptions(new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](prop, this$.Props), this$.Classes, this$.RemovedClasses);
 }
 function Common$002EGenericOptions$$AddProps$$416C4D0B(this$$$1, props) {
-  return new Common$002EGenericOptions(Object(_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_4__["append"])(props, this$$$1.Props), this$$$1.Classes, this$$$1.RemovedClasses);
+  return new Common$002EGenericOptions(Object(_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__["append"])(props, this$$$1.Props), this$$$1.Classes, this$$$1.RemovedClasses);
 }
 function Common$002EGenericOptions$$AddClass$$Z721C83C5(this$$$2, cl) {
-  const Classes = new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](cl, this$$$2.Classes);
+  const Classes = new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](cl, this$$$2.Classes);
   return new Common$002EGenericOptions(this$$$2.Props, Classes, this$$$2.RemovedClasses);
 }
 function Common$002EGenericOptions$$RemoveClass$$Z721C83C5(this$$$3, cl$$1) {
-  const RemovedClasses = new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](cl$$1, this$$$3.RemovedClasses);
+  const RemovedClasses = new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](cl$$1, this$$$3.RemovedClasses);
   return new Common$002EGenericOptions(this$$$3.Props, this$$$3.Classes, RemovedClasses);
 }
 function Common$002EGenericOptions$$AddCaseName$$1505(this$$$4, case$$$2) {
@@ -2073,35 +2124,35 @@ function Common$002EGenericOptions$$AddCaseName$$1505(this$$$4, case$$$2) {
 }
 function Common$002EGenericOptions$$AddModifiers$$5BB435D5(this$$$5, modifiers) {
   var options$$2;
-  const Classes$$1 = Object(_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_4__["append"])((options$$2 = modifiers, (Modifier$$$parseModifiers(options$$2))), this$$$5.Classes);
+  const Classes$$1 = Object(_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__["append"])((options$$2 = modifiers, (Modifier$$$parseModifiers(options$$2))), this$$$5.Classes);
   return new Common$002EGenericOptions(this$$$5.Props, Classes$$1, this$$$5.RemovedClasses);
 }
 function Common$002EGenericOptions$$ToReactElement$$Z6D3CD4B7(this$$$6, el, children) {
   var arg0, strings, list$$2;
-  const children$$1 = Object(_fable_library_2_4_15_Option_js__WEBPACK_IMPORTED_MODULE_3__["defaultArg"])(children, new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]());
-  const classes = (arg0 = (strings = (list$$2 = this$$$6.Classes, (Object(_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_4__["filter"])(function predicate(cls) {
-    return !Object(_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_4__["contains"])(cls, this$$$6.RemovedClasses, {
+  const children$$1 = Object(_fable_library_2_13_0_Option_js__WEBPACK_IMPORTED_MODULE_3__["defaultArg"])(children, new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]());
+  const classes = (arg0 = (strings = (list$$2 = this$$$6.Classes, (Object(_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__["filter"])(function predicate(cls) {
+    return !Object(_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__["contains"])(cls, this$$$6.RemovedClasses, {
       Equals($x$$1, $y$$2) {
         return $x$$1 === $y$$2;
       },
 
-      GetHashCode: _fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_2__["structuralHash"]
+      GetHashCode: _fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_2__["structuralHash"]
     });
-  }, list$$2))), (Object(_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_5__["join"])(" ", strings))), (new _Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_6__["HTMLAttr"](64, "ClassName", arg0)));
-  return el(new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](classes, this$$$6.Props), children$$1);
+  }, list$$2))), (Object(_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_5__["join"])(" ", strings))), (new _Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_6__["HTMLAttr"](64, "ClassName", arg0)));
+  return el(new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](classes, this$$$6.Props), children$$1);
 }
 function Common$002EGenericOptions$$ToReactElement$$Z46A53D36(this$$$7, el$$1) {
   var arg0$$1, strings$$1, list$$3;
-  const classes$$1 = (arg0$$1 = (strings$$1 = (list$$3 = this$$$7.Classes, (Object(_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_4__["filter"])(function predicate$$1(cls$$1) {
-    return !Object(_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_4__["contains"])(cls$$1, this$$$7.RemovedClasses, {
+  const classes$$1 = (arg0$$1 = (strings$$1 = (list$$3 = this$$$7.Classes, (Object(_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__["filter"])(function predicate$$1(cls$$1) {
+    return !Object(_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__["contains"])(cls$$1, this$$$7.RemovedClasses, {
       Equals($x$$3, $y$$4) {
         return $x$$3 === $y$$4;
       },
 
-      GetHashCode: _fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_2__["structuralHash"]
+      GetHashCode: _fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_2__["structuralHash"]
     });
-  }, list$$3))), (Object(_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_5__["join"])(" ", strings$$1))), (new _Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_6__["HTMLAttr"](64, "ClassName", arg0$$1)));
-  return el$$1(new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](classes$$1, this$$$7.Props));
+  }, list$$3))), (Object(_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_5__["join"])(" ", strings$$1))), (new _Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_6__["HTMLAttr"](64, "ClassName", arg0$$1)));
+  return el$$1(new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](classes$$1, this$$$7.Props));
 }
 function Common$$$parseOptions(result$$3, option$$1) {
   switch (option$$1.tag) {
@@ -2129,7 +2180,7 @@ function Common$002EHelpers$$$classes(std, options$$3, booleans) {
   let std$$1;
   const state$$2 = std;
   const list$$4 = options$$3;
-  std$$1 = Object(_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_4__["fold"])(function folder(complete, option$$2) {
+  std$$1 = Object(_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__["fold"])(function folder(complete, option$$2) {
     if (option$$2 == null) {
       return complete;
     } else {
@@ -2137,7 +2188,7 @@ function Common$002EHelpers$$$classes(std, options$$3, booleans) {
       return complete + " " + name;
     }
   }, state$$2, list$$4);
-  return arg0$$2 = (state$$3 = std$$1, list$$5 = booleans, (Object(_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_4__["fold"])(function folder$$1(complete$$1, tupledArg) {
+  return arg0$$2 = (state$$3 = std$$1, list$$5 = booleans, (Object(_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__["fold"])(function folder$$1(complete$$1, tupledArg) {
     const name$$1 = tupledArg[0];
     const flag = tupledArg[1];
 
@@ -2152,21 +2203,21 @@ function Text$$$p(options$$4, children$$2) {
   return Common$002EGenericOptions$$ToReactElement$$Z6D3CD4B7(Common$002EGenericOptions$$$Parse$$9AE2F7C(options$$4, Common$$$parseOptions), function (props$$2, children$$3) {
     const props$$3 = props$$2;
     const children$$4 = children$$3;
-    return react__WEBPACK_IMPORTED_MODULE_7__["createElement"]("p", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_2__["createObj"])(props$$3, 1), ...children$$4);
+    return react__WEBPACK_IMPORTED_MODULE_7__["createElement"]("p", Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_2__["createObj"])(props$$3, 1), ...children$$4);
   }, children$$2);
 }
 function Text$$$div(options$$5, children$$6) {
   return Common$002EGenericOptions$$ToReactElement$$Z6D3CD4B7(Common$002EGenericOptions$$$Parse$$9AE2F7C(options$$5, Common$$$parseOptions), function (props$$5, children$$7) {
     const props$$6 = props$$5;
     const children$$8 = children$$7;
-    return react__WEBPACK_IMPORTED_MODULE_7__["createElement"]("div", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_2__["createObj"])(props$$6, 1), ...children$$8);
+    return react__WEBPACK_IMPORTED_MODULE_7__["createElement"]("div", Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_2__["createObj"])(props$$6, 1), ...children$$8);
   }, children$$6);
 }
 function Text$$$span(options$$6, children$$10) {
   return Common$002EGenericOptions$$ToReactElement$$Z6D3CD4B7(Common$002EGenericOptions$$$Parse$$9AE2F7C(options$$6, Common$$$parseOptions), function (props$$8, children$$11) {
     const props$$9 = props$$8;
     const children$$12 = children$$11;
-    return react__WEBPACK_IMPORTED_MODULE_7__["createElement"]("span", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_2__["createObj"])(props$$9, 1), ...children$$12);
+    return react__WEBPACK_IMPORTED_MODULE_7__["createElement"]("span", Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_2__["createObj"])(props$$9, 1), ...children$$12);
   }, children$$10);
 }
 
@@ -2194,10 +2245,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Item$$$div", function() { return Item$$$div; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Item$$$a", function() { return Item$$$a; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Item$$$button", function() { return Item$$$button; });
-/* harmony import */ var _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../fable-library.2.4.15/Types.js */ "./.fable/fable-library.2.4.15/Types.js");
-/* harmony import */ var _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../fable-library.2.4.15/Reflection.js */ "./.fable/fable-library.2.4.15/Reflection.js");
+/* harmony import */ var _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../fable-library.2.13.0/Types.js */ "./.fable/fable-library.2.13.0/Types.js");
+/* harmony import */ var _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../fable-library.2.13.0/Reflection.js */ "./.fable/fable-library.2.13.0/Reflection.js");
 /* harmony import */ var _Common_fs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Common.fs */ "./.fable/Fulma.2.9.0/Common.fs");
-/* harmony import */ var _fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../fable-library.2.4.15/Util.js */ "./.fable/fable-library.2.4.15/Util.js");
+/* harmony import */ var _fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../fable-library.2.13.0/Util.js */ "./.fable/fable-library.2.13.0/Util.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
 
@@ -2205,11 +2256,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const Option = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fulma_Dropdown_Option(tag, name, ...fields) {
-  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
+const Option = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fulma_Dropdown_Option(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
 function Option$reflection() {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union"])("Fulma.Dropdown.Option", [], Option, () => [["is-active", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], "is-hoverable", "is-right", "is-up", ["Props", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Fable.React.Props.IHTMLProp"))]], ["CustomClass", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Modifiers", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Modifier$002EIModifier$reflection"])())]]]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union_type"])("Fulma.Dropdown.Option", [], Option, () => [["is-active", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], "is-hoverable", "is-right", "is-up", ["Props", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Fable.React.Props.IHTMLProp"))]]], ["CustomClass", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Modifiers", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list_type"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Modifier$002EIModifier$reflection"])())]]]]);
 }
 function dropdown(options, children) {
   const parseOptions = function parseOptions(result, option) {
@@ -2263,41 +2316,43 @@ function dropdown(options, children) {
   return Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$ToReactElement$$Z6D3CD4B7"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$$Parse$$9AE2F7C"])(options, parseOptions, "dropdown"), function (props$$1, children$$1) {
     const props$$2 = props$$1;
     const children$$2 = children$$1;
-    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("div", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$2, 1), ...children$$2);
+    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("div", Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$2, 1), ...children$$2);
   }, children);
 }
 function menu(options$$1, children$$4) {
   return Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$ToReactElement$$Z6D3CD4B7"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$$Parse$$9AE2F7C"])(options$$1, _Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$$$parseOptions"], "dropdown-menu"), function (props$$4, children$$5) {
     const props$$5 = props$$4;
     const children$$6 = children$$5;
-    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("div", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$5, 1), ...children$$6);
+    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("div", Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$5, 1), ...children$$6);
   }, children$$4);
 }
 function content(options$$2, children$$8) {
   return Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$ToReactElement$$Z6D3CD4B7"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$$Parse$$9AE2F7C"])(options$$2, _Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$$$parseOptions"], "dropdown-content"), function (props$$7, children$$9) {
     const props$$8 = props$$7;
     const children$$10 = children$$9;
-    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("div", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$8, 1), ...children$$10);
+    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("div", Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$8, 1), ...children$$10);
   }, children$$8);
 }
 function divider(options$$3) {
   return Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$ToReactElement$$Z46A53D36"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$$Parse$$9AE2F7C"])(options$$3, _Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$$$parseOptions"], "dropdown-divider"), function (props$$10) {
     const props$$11 = props$$10;
-    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("hr", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$11, 1), ...[]);
+    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("hr", Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$11, 1), ...[]);
   });
 }
 function trigger(options$$4, children$$12) {
   return Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$ToReactElement$$Z6D3CD4B7"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$$Parse$$9AE2F7C"])(options$$4, _Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$$$parseOptions"], "dropdown-trigger"), function (props$$13, children$$13) {
     const props$$14 = props$$13;
     const children$$14 = children$$13;
-    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("div", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$14, 1), ...children$$14);
+    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("div", Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$14, 1), ...children$$14);
   }, children$$12);
 }
-const Item$002EOption = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fulma_Dropdown_Item_Option(tag, name, ...fields) {
-  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
+const Item$002EOption = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fulma_Dropdown_Item_Option(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
 function Item$002EOption$reflection() {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union"])("Fulma.Dropdown.Item.Option", [], Item$002EOption, () => [["is-active", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["Props", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Fable.React.Props.IHTMLProp"))]], ["CustomClass", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Modifiers", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Modifier$002EIModifier$reflection"])())]]]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union_type"])("Fulma.Dropdown.Item.Option", [], Item$002EOption, () => [["is-active", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["Props", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Fable.React.Props.IHTMLProp"))]]], ["CustomClass", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Modifiers", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list_type"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Modifier$002EIModifier$reflection"])())]]]]);
 }
 function Item$$$item(element, options$$5, children$$16) {
   const parseOptions$$1 = function parseOptions$$1(result$$5, option$$5) {
@@ -2339,21 +2394,21 @@ function Item$$$div(x, y) {
   return Item$$$item(function (props$$17, children$$17) {
     const props$$18 = props$$17;
     const children$$18 = children$$17;
-    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("div", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$18, 1), ...children$$18);
+    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("div", Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$18, 1), ...children$$18);
   }, x, y);
 }
 function Item$$$a(x$$1, y$$1) {
   return Item$$$item(function (props$$20, children$$20) {
     const props$$21 = props$$20;
     const children$$21 = children$$20;
-    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("a", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$21, 1), ...children$$21);
+    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("a", Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$21, 1), ...children$$21);
   }, x$$1, y$$1);
 }
 function Item$$$button(x$$2, y$$2) {
   return Item$$$item(function (props$$23, children$$23) {
     const props$$24 = props$$23;
     const children$$24 = children$$23;
-    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("button", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$24, 1), ...children$$24);
+    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("button", Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$24, 1), ...children$$24);
   }, x$$2, y$$2);
 }
 
@@ -2380,14 +2435,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "List$002EOption", function() { return List$002EOption; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "List$002EOption$reflection", function() { return List$002EOption$reflection; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "list", function() { return list; });
-/* harmony import */ var _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../fable-library.2.4.15/Types.js */ "./.fable/fable-library.2.4.15/Types.js");
+/* harmony import */ var _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../fable-library.2.13.0/Types.js */ "./.fable/fable-library.2.13.0/Types.js");
 /* harmony import */ var _Common_fs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Common.fs */ "./.fable/Fulma.2.9.0/Common.fs");
-/* harmony import */ var _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../fable-library.2.4.15/Reflection.js */ "./.fable/fable-library.2.4.15/Reflection.js");
+/* harmony import */ var _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../fable-library.2.13.0/Reflection.js */ "./.fable/fable-library.2.13.0/Reflection.js");
 /* harmony import */ var _Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Fable.React.6.0.0/Fable.React.Props.fs */ "./.fable/Fable.React.6.0.0/Fable.React.Props.fs");
-/* harmony import */ var _fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../fable-library.2.4.15/Util.js */ "./.fable/fable-library.2.4.15/Util.js");
+/* harmony import */ var _fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../fable-library.2.13.0/Util.js */ "./.fable/fable-library.2.13.0/Util.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../fable-library.2.4.15/List.js */ "./.fable/fable-library.2.4.15/List.js");
+/* harmony import */ var _fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../fable-library.2.13.0/List.js */ "./.fable/fable-library.2.13.0/List.js");
 
 
 
@@ -2395,11 +2450,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const Option = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fulma_Button_Option(tag, name, ...fields) {
-  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
+const Option = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fulma_Button_Option(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
 function Option$reflection() {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["union"])("Fulma.Button.Option", [], Option, () => [["Color", [Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Color$002EIColor$reflection"])()]], ["Size", [Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Size$002EISize$reflection"])()]], "is-fullwidth", "is-link", "is-outlined", "is-inverted", "is-text", "is-rounded", "is-expanded", ["is-hovered", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["bool"]]], ["is-focused", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["bool"]]], ["is-active", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["bool"]]], ["is-loading", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["bool"]]], ["is-static", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["bool"]]], "is-light", ["Disabled", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["bool"]]], ["Props", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["list"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["type"])("Fable.React.Props.IHTMLProp"))]], ["OnClick", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["type"])("Browser.Types.MouseEvent"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["unit"])]], ["CustomClass", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["string"]]], ["Modifiers", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["list"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Modifier$002EIModifier$reflection"])())]]]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["union_type"])("Fulma.Button.Option", [], Option, () => [["Color", [["Item", Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Color$002EIColor$reflection"])()]]], ["Size", [["Item", Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Size$002EISize$reflection"])()]]], "is-fullwidth", "is-link", "is-outlined", "is-inverted", "is-text", "is-rounded", "is-expanded", ["is-hovered", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["bool_type"]]]], ["is-focused", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["bool_type"]]]], ["is-active", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["bool_type"]]]], ["is-loading", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["bool_type"]]]], ["is-static", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["bool_type"]]]], "is-light", ["Disabled", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["bool_type"]]]], ["Props", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["list_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["class_type"])("Fable.React.Props.IHTMLProp"))]]], ["OnClick", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["class_type"])("Browser.Types.MouseEvent"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["unit_type"])]]], ["CustomClass", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["string_type"]]]], ["Modifiers", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["list_type"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Modifier$002EIModifier$reflection"])())]]]]);
 }
 function btnView(element, options, children) {
   const parseOptions = function parseOptions(result, option) {
@@ -2539,27 +2596,27 @@ function button(options$$1, children$$1) {
   return btnView(function (props$$1, children$$2) {
     const props$$2 = props$$1;
     const children$$3 = children$$2;
-    return react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("button", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["createObj"])(props$$2, 1), ...children$$3);
+    return react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("button", Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__["createObj"])(props$$2, 1), ...children$$3);
   }, options$$1, children$$1);
 }
 function span(options$$2, children$$5) {
   return btnView(function (props$$4, children$$6) {
     const props$$5 = props$$4;
     const children$$7 = children$$6;
-    return react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("span", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["createObj"])(props$$5, 1), ...children$$7);
+    return react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("span", Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__["createObj"])(props$$5, 1), ...children$$7);
   }, options$$2, children$$5);
 }
 function a(options$$3, children$$9) {
   return btnView(function (props$$7, children$$10) {
     const props$$8 = props$$7;
     const children$$11 = children$$10;
-    return react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("a", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["createObj"])(props$$8, 1), ...children$$11);
+    return react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("a", Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__["createObj"])(props$$8, 1), ...children$$11);
   }, options$$3, children$$9);
 }
 function Input$$$btnInput(typ, options$$4) {
   let hasProps;
   const list$$1 = options$$4;
-  hasProps = Object(_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_6__["exists"])(function predicate(opts) {
+  hasProps = Object(_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_6__["exists"])(function predicate(opts) {
     if (opts.tag === 16) {
       return true;
     } else {
@@ -2570,10 +2627,10 @@ function Input$$$btnInput(typ, options$$4) {
   if (hasProps) {
     let newOptions;
     const list$$2 = options$$4;
-    newOptions = Object(_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_6__["map"])(function mapping(opts$$1) {
+    newOptions = Object(_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_6__["map"])(function mapping(opts$$1) {
       if (opts$$1.tag === 16) {
         const props$$10 = opts$$1.fields[0];
-        return new Option(16, "Props", new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["List"](new _Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_3__["HTMLAttr"](159, "Type", typ), props$$10));
+        return new Option(16, "Props", new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["List"](new _Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_3__["HTMLAttr"](159, "Type", typ), props$$10));
       } else {
         const forward = opts$$1;
         return forward;
@@ -2581,13 +2638,13 @@ function Input$$$btnInput(typ, options$$4) {
     }, list$$2);
     return btnView(function (options$$5, _arg1) {
       const props$$11 = options$$5;
-      return react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("input", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["createObj"])(props$$11, 1), ...[]);
-    }, newOptions, new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["List"]());
+      return react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("input", Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__["createObj"])(props$$11, 1), ...[]);
+    }, newOptions, new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["List"]());
   } else {
     return btnView(function (options$$6, _arg2) {
       const props$$13 = options$$6;
-      return react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("input", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["createObj"])(props$$13, 1), ...[]);
-    }, new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["List"](new Option(16, "Props", new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["List"](new _Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_3__["HTMLAttr"](159, "Type", typ), new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["List"]())), options$$4), new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["List"]());
+      return react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("input", Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__["createObj"])(props$$13, 1), ...[]);
+    }, new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["List"](new Option(16, "Props", new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["List"](new _Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_3__["HTMLAttr"](159, "Type", typ), new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["List"]())), options$$4), new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["List"]());
   }
 }
 function Input$$$reset(options$$7) {
@@ -2596,11 +2653,13 @@ function Input$$$reset(options$$7) {
 function Input$$$submit(options$$8) {
   return Input$$$btnInput("submit", options$$8);
 }
-const List$002EOption = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fulma_Button_List_Option(tag, name, ...fields) {
-  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
+const List$002EOption = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fulma_Button_List_Option(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
 function List$002EOption$reflection() {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["union"])("Fulma.Button.List.Option", [], List$002EOption, () => ["has-addons", "is-centered", "is-right", "are-small", "are-medium", "are-large", ["Props", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["list"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["type"])("Fable.React.Props.IHTMLProp"))]], ["CustomClass", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["string"]]], ["Modifiers", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["list"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Modifier$002EIModifier$reflection"])())]]]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["union_type"])("Fulma.Button.List.Option", [], List$002EOption, () => ["has-addons", "is-centered", "is-right", "are-small", "are-medium", "are-large", ["Props", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["list_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["class_type"])("Fable.React.Props.IHTMLProp"))]]], ["CustomClass", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["string_type"]]]], ["Modifiers", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["list_type"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Modifier$002EIModifier$reflection"])())]]]]);
 }
 function list(options$$9, children$$13) {
   const parseOptions$$1 = function parseOptions$$1(result$$1, option$$1) {
@@ -2642,7 +2701,7 @@ function list(options$$9, children$$13) {
   return Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Common$002EGenericOptions$$ToReactElement$$Z6D3CD4B7"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Common$002EGenericOptions$$$Parse$$9AE2F7C"])(options$$9, parseOptions$$1, "buttons"), function (props$$16, children$$14) {
     const props$$17 = props$$16;
     const children$$15 = children$$14;
-    return react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("div", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["createObj"])(props$$17, 1), ...children$$15);
+    return react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("div", Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__["createObj"])(props$$17, 1), ...children$$15);
   }, children$$13);
 }
 
@@ -2662,10 +2721,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "controlView", function() { return controlView; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "div", function() { return div; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return p; });
-/* harmony import */ var _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../fable-library.2.4.15/Types.js */ "./.fable/fable-library.2.4.15/Types.js");
-/* harmony import */ var _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../fable-library.2.4.15/Reflection.js */ "./.fable/fable-library.2.4.15/Reflection.js");
+/* harmony import */ var _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../fable-library.2.13.0/Types.js */ "./.fable/fable-library.2.13.0/Types.js");
+/* harmony import */ var _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../fable-library.2.13.0/Reflection.js */ "./.fable/fable-library.2.13.0/Reflection.js");
 /* harmony import */ var _Common_fs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Common.fs */ "./.fable/Fulma.2.9.0/Common.fs");
-/* harmony import */ var _fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../fable-library.2.4.15/Util.js */ "./.fable/fable-library.2.4.15/Util.js");
+/* harmony import */ var _fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../fable-library.2.13.0/Util.js */ "./.fable/fable-library.2.13.0/Util.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
 
@@ -2673,11 +2732,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const Option = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fulma_Control_Option(tag, name, ...fields) {
-  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
+const Option = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fulma_Control_Option(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
 function Option$reflection() {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union"])("Fulma.Control.Option", [], Option, () => ["has-icons-right", "has-icons-left", ["is-loading", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], "is-expanded", ["CustomClass", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Props", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Fable.React.Props.IHTMLProp"))]], ["Modifiers", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Modifier$002EIModifier$reflection"])())]]]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union_type"])("Fulma.Control.Option", [], Option, () => ["has-icons-right", "has-icons-left", ["is-loading", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], "is-expanded", ["CustomClass", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Props", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Fable.React.Props.IHTMLProp"))]]], ["Modifiers", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list_type"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Modifier$002EIModifier$reflection"])())]]]]);
 }
 function controlView(element, options, children) {
   const parseOptions = function parseOptions(result, option) {
@@ -2730,14 +2791,14 @@ function div(x, y) {
   return controlView(function (props$$1, children$$1) {
     const props$$2 = props$$1;
     const children$$2 = children$$1;
-    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("div", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$2, 1), ...children$$2);
+    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("div", Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$2, 1), ...children$$2);
   }, x, y);
 }
 function p(x$$1, y$$1) {
   return controlView(function (props$$4, children$$4) {
     const props$$5 = props$$4;
     const children$$5 = children$$4;
-    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("p", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$5, 1), ...children$$5);
+    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("p", Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$5, 1), ...children$$5);
   }, x$$1, y$$1);
 }
 
@@ -2761,10 +2822,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fieldView", function() { return fieldView; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "div", function() { return div; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return p; });
-/* harmony import */ var _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../fable-library.2.4.15/Types.js */ "./.fable/fable-library.2.4.15/Types.js");
-/* harmony import */ var _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../fable-library.2.4.15/Reflection.js */ "./.fable/fable-library.2.4.15/Reflection.js");
+/* harmony import */ var _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../fable-library.2.13.0/Types.js */ "./.fable/fable-library.2.13.0/Types.js");
+/* harmony import */ var _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../fable-library.2.13.0/Reflection.js */ "./.fable/fable-library.2.13.0/Reflection.js");
 /* harmony import */ var _Common_fs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Common.fs */ "./.fable/Fulma.2.9.0/Common.fs");
-/* harmony import */ var _fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../fable-library.2.4.15/Util.js */ "./.fable/fable-library.2.4.15/Util.js");
+/* harmony import */ var _fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../fable-library.2.13.0/Util.js */ "./.fable/fable-library.2.13.0/Util.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
 
@@ -2772,23 +2833,27 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const Option = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fulma_Field_Option(tag, name, ...fields) {
-  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
+const Option = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fulma_Field_Option(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
 function Option$reflection() {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union"])("Fulma.Field.Option", [], Option, () => ["has-addons", "has-addons-centered", "has-addons-right", "has-addons-fullwidth", "is-grouped", "is-grouped-centered", "is-grouped-right", "is-grouped-multiline", "is-horizontal", "is-expanded", ["CustomClass", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Props", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Fable.React.Props.IHTMLProp"))]], ["Modifiers", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Modifier$002EIModifier$reflection"])())]]]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union_type"])("Fulma.Field.Option", [], Option, () => ["has-addons", "has-addons-centered", "has-addons-right", "has-addons-fullwidth", "is-grouped", "is-grouped-centered", "is-grouped-right", "is-grouped-multiline", "is-horizontal", "is-expanded", ["CustomClass", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Props", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Fable.React.Props.IHTMLProp"))]]], ["Modifiers", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list_type"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Modifier$002EIModifier$reflection"])())]]]]);
 }
-const Label$002EOption = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fulma_Field_Label_Option(tag, name, ...fields) {
-  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
+const Label$002EOption = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fulma_Field_Label_Option(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
 function Label$002EOption$reflection() {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union"])("Fulma.Field.Label.Option", [], Label$002EOption, () => [["Size", [Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Size$002EISize$reflection"])()]], "is-normal", ["CustomClass", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Props", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Fable.React.Props.IHTMLProp"))]], ["Modifiers", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Modifier$002EIModifier$reflection"])())]]]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union_type"])("Fulma.Field.Label.Option", [], Label$002EOption, () => [["Size", [["Item", Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Size$002EISize$reflection"])()]]], "is-normal", ["CustomClass", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Props", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Fable.React.Props.IHTMLProp"))]]], ["Modifiers", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list_type"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Modifier$002EIModifier$reflection"])())]]]]);
 }
 function body(options, children) {
   return Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$ToReactElement$$Z6D3CD4B7"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$$Parse$$9AE2F7C"])(options, _Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$$$parseOptions"], "field-body"), function (props, children$$1) {
     const props$$1 = props;
     const children$$2 = children$$1;
-    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("div", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$1, 1), ...children$$2);
+    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("div", Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$1, 1), ...children$$2);
   }, children);
 }
 function label(options$$1, children$$4) {
@@ -2829,7 +2894,7 @@ function label(options$$1, children$$4) {
   return Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$ToReactElement$$Z6D3CD4B7"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$$Parse$$9AE2F7C"])(options$$1, parseOptions, "field-label"), function (props$$4, children$$5) {
     const props$$5 = props$$4;
     const children$$6 = children$$5;
-    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("div", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$5, 1), ...children$$6);
+    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("div", Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$5, 1), ...children$$6);
   }, children$$4);
 }
 function fieldView(element, options$$2, children$$8) {
@@ -2899,14 +2964,14 @@ function div(x, y) {
   return fieldView(function (props$$8, children$$9) {
     const props$$9 = props$$8;
     const children$$10 = children$$9;
-    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("div", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$9, 1), ...children$$10);
+    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("div", Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$9, 1), ...children$$10);
   }, x, y);
 }
 function p(x$$1, y$$1) {
   return fieldView(function (props$$11, children$$12) {
     const props$$12 = props$$11;
     const children$$13 = children$$12;
-    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("p", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$12, 1), ...children$$13);
+    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("p", Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$12, 1), ...children$$13);
   }, x$$1, y$$1);
 }
 
@@ -2926,11 +2991,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Option", function() { return Option; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Option$reflection", function() { return Option$reflection; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "input", function() { return input; });
-/* harmony import */ var _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../fable-library.2.4.15/Types.js */ "./.fable/fable-library.2.4.15/Types.js");
-/* harmony import */ var _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../fable-library.2.4.15/Reflection.js */ "./.fable/fable-library.2.4.15/Reflection.js");
+/* harmony import */ var _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../fable-library.2.13.0/Types.js */ "./.fable/fable-library.2.13.0/Types.js");
+/* harmony import */ var _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../fable-library.2.13.0/Reflection.js */ "./.fable/fable-library.2.13.0/Reflection.js");
 /* harmony import */ var _Common_fs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Common.fs */ "./.fable/Fulma.2.9.0/Common.fs");
 /* harmony import */ var _Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../Fable.React.6.0.0/Fable.React.Props.fs */ "./.fable/Fable.React.6.0.0/Fable.React.Props.fs");
-/* harmony import */ var _fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../fable-library.2.4.15/Util.js */ "./.fable/fable-library.2.4.15/Util.js");
+/* harmony import */ var _fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../fable-library.2.13.0/Util.js */ "./.fable/fable-library.2.13.0/Util.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
 
@@ -2939,17 +3004,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const IInputType = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fulma_Input_IInputType(tag, name, ...fields) {
-  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
+const IInputType = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fulma_Input_IInputType(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
 function IInputType$reflection() {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union"])("Fulma.Input.IInputType", [], IInputType, () => ["Text", "Password", "DatetimeLocal", "Date", "Month", "Time", "Week", "Number", "Email", "Url", "Search", "Tel", "ColorType"]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union_type"])("Fulma.Input.IInputType", [], IInputType, () => ["Text", "Password", "DatetimeLocal", "Date", "Month", "Time", "Week", "Number", "Email", "Url", "Search", "Tel", "ColorType"]);
 }
-const Option = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fulma_Input_Option(tag, name, ...fields) {
-  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
+const Option = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fulma_Input_Option(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
 function Option$reflection() {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union"])("Fulma.Input.Option", [], Option, () => [["Size", [Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Size$002EISize$reflection"])()]], ["Type", [IInputType$reflection()]], ["Color", [Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Color$002EIColor$reflection"])()]], ["Id", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Disabled", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["IsReadOnly", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], ["is-static", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]], "is-rounded", ["Value", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Key", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["DefaultValue", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["ValueOrDefault", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Placeholder", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["OnChange", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.Event"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["Ref", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Browser.Types.Element"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit"])]], ["Props", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Fable.React.Props.IHTMLProp"))]], ["CustomClass", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["Modifiers", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Modifier$002EIModifier$reflection"])())]]]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union_type"])("Fulma.Input.Option", [], Option, () => [["Size", [["Item", Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Size$002EISize$reflection"])()]]], ["Type", [["Item", IInputType$reflection()]]], ["Color", [["Item", Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Color$002EIColor$reflection"])()]]], ["Id", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Disabled", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["IsReadOnly", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], ["is-static", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]], "is-rounded", ["Value", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Key", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["DefaultValue", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["ValueOrDefault", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Placeholder", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["OnChange", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.Event"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["Ref", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Browser.Types.Element"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["unit_type"])]]], ["Props", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Fable.React.Props.IHTMLProp"))]]], ["CustomClass", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["Modifiers", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list_type"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Modifier$002EIModifier$reflection"])())]]]]);
 }
 
 function ofType(typ) {
@@ -3093,8 +3162,10 @@ function input(options) {
           const arg0 = function arg0(e) {
             var value$$2, value$$1;
 
-            if ((value$$2 = (value$$1 = e, (value$$1 == null)), (!value$$2)) ? !Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["equals"])(e.value, valueOrDefault) : false) {
+            if ((value$$2 = (value$$1 = e, (value$$1 == null)), (!value$$2)) ? !Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__["equals"])(e.value, valueOrDefault) : false) {
               e.value = valueOrDefault;
+            } else {
+              void null;
             }
           };
 
@@ -3163,7 +3234,7 @@ function input(options) {
 
   return Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$ToReactElement$$Z46A53D36"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_2__["Common$002EGenericOptions$$$Parse$$9AE2F7C"])(options, parseOptions, "input"), function (props$$1) {
     const props$$2 = props$$1;
-    return react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("input", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["createObj"])(props$$2, 1), ...[]);
+    return react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("input", Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__["createObj"])(props$$2, 1), ...[]);
   });
 }
 
@@ -3181,11 +3252,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Option", function() { return Option; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Option$reflection", function() { return Option$reflection; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "label", function() { return label; });
-/* harmony import */ var _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../fable-library.2.4.15/Types.js */ "./.fable/fable-library.2.4.15/Types.js");
+/* harmony import */ var _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../fable-library.2.13.0/Types.js */ "./.fable/fable-library.2.13.0/Types.js");
 /* harmony import */ var _Common_fs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Common.fs */ "./.fable/Fulma.2.9.0/Common.fs");
-/* harmony import */ var _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../fable-library.2.4.15/Reflection.js */ "./.fable/fable-library.2.4.15/Reflection.js");
+/* harmony import */ var _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../fable-library.2.13.0/Reflection.js */ "./.fable/fable-library.2.13.0/Reflection.js");
 /* harmony import */ var _Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../Fable.React.6.0.0/Fable.React.Props.fs */ "./.fable/Fable.React.6.0.0/Fable.React.Props.fs");
-/* harmony import */ var _fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../fable-library.2.4.15/Util.js */ "./.fable/fable-library.2.4.15/Util.js");
+/* harmony import */ var _fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../fable-library.2.13.0/Util.js */ "./.fable/fable-library.2.13.0/Util.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
 
@@ -3194,11 +3265,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const Option = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fulma_Label_Option(tag, name, ...fields) {
-  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
+const Option = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fulma_Label_Option(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
 function Option$reflection() {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["union"])("Fulma.Label.Option", [], Option, () => [["Size", [Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Size$002EISize$reflection"])()]], ["For", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["string"]]], ["CustomClass", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["string"]]], ["Props", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["list"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["type"])("Fable.React.Props.IHTMLProp"))]], ["Modifiers", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["list"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Modifier$002EIModifier$reflection"])())]]]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["union_type"])("Fulma.Label.Option", [], Option, () => [["Size", [["Item", Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Size$002EISize$reflection"])()]]], ["For", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["string_type"]]]], ["CustomClass", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["string_type"]]]], ["Props", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["list_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["class_type"])("Fable.React.Props.IHTMLProp"))]]], ["Modifiers", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["list_type"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Modifier$002EIModifier$reflection"])())]]]]);
 }
 function label(options, children) {
   const parseOptions = function parseOptions(result, option) {
@@ -3240,7 +3313,7 @@ function label(options, children) {
   return Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Common$002EGenericOptions$$ToReactElement$$Z6D3CD4B7"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Common$002EGenericOptions$$$Parse$$9AE2F7C"])(options, parseOptions, "label"), function (props$$1, children$$1) {
     const props$$2 = props$$1;
     const children$$2 = children$$1;
-    return react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("label", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["createObj"])(props$$2, 1), ...children$$2);
+    return react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("label", Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__["createObj"])(props$$2, 1), ...children$$2);
   }, children);
 }
 
@@ -3258,10 +3331,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Option", function() { return Option; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Option$reflection", function() { return Option$reflection; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "icon", function() { return icon; });
-/* harmony import */ var _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../fable-library.2.4.15/Types.js */ "./.fable/fable-library.2.4.15/Types.js");
+/* harmony import */ var _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../fable-library.2.13.0/Types.js */ "./.fable/fable-library.2.13.0/Types.js");
 /* harmony import */ var _Common_fs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Common.fs */ "./.fable/Fulma.2.9.0/Common.fs");
-/* harmony import */ var _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../fable-library.2.4.15/Reflection.js */ "./.fable/fable-library.2.4.15/Reflection.js");
-/* harmony import */ var _fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../fable-library.2.4.15/Util.js */ "./.fable/fable-library.2.4.15/Util.js");
+/* harmony import */ var _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../fable-library.2.13.0/Reflection.js */ "./.fable/fable-library.2.13.0/Reflection.js");
+/* harmony import */ var _fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../fable-library.2.13.0/Util.js */ "./.fable/fable-library.2.13.0/Util.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
 
@@ -3269,11 +3342,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const Option = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fulma_Icon_Option(tag, name, ...fields) {
-  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
+const Option = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fulma_Icon_Option(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
 function Option$reflection() {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["union"])("Fulma.Icon.Option", [], Option, () => [["Size", [Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Size$002EISize$reflection"])()]], "is-left", "is-right", ["CustomClass", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["string"]]], ["Props", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["list"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["type"])("Fable.React.Props.IHTMLProp"))]], ["Modifiers", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["list"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Modifier$002EIModifier$reflection"])())]]]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["union_type"])("Fulma.Icon.Option", [], Option, () => [["Size", [["Item", Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Size$002EISize$reflection"])()]]], "is-left", "is-right", ["CustomClass", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["string_type"]]]], ["Props", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["list_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["class_type"])("Fable.React.Props.IHTMLProp"))]]], ["Modifiers", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["list_type"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Modifier$002EIModifier$reflection"])())]]]]);
 }
 function icon(options, children) {
   const parseOptions = function parseOptions(result, option) {
@@ -3314,7 +3389,7 @@ function icon(options, children) {
   return Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Common$002EGenericOptions$$ToReactElement$$Z6D3CD4B7"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Common$002EGenericOptions$$$Parse$$9AE2F7C"])(options, parseOptions, "icon"), function (props$$1, children$$1) {
     const props$$2 = props$$1;
     const children$$2 = children$$1;
-    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("span", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$2, 1), ...children$$2);
+    return react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("span", Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_3__["createObj"])(props$$2, 1), ...children$$2);
   }, children);
 }
 
@@ -3332,11 +3407,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Option", function() { return Option; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Option$reflection", function() { return Option$reflection; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "progress", function() { return progress; });
-/* harmony import */ var _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../fable-library.2.4.15/Types.js */ "./.fable/fable-library.2.4.15/Types.js");
+/* harmony import */ var _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../fable-library.2.13.0/Types.js */ "./.fable/fable-library.2.13.0/Types.js");
 /* harmony import */ var _Common_fs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Common.fs */ "./.fable/Fulma.2.9.0/Common.fs");
-/* harmony import */ var _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../fable-library.2.4.15/Reflection.js */ "./.fable/fable-library.2.4.15/Reflection.js");
+/* harmony import */ var _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../fable-library.2.13.0/Reflection.js */ "./.fable/fable-library.2.13.0/Reflection.js");
 /* harmony import */ var _Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Fable.React.6.0.0/Fable.React.Props.fs */ "./.fable/Fable.React.6.0.0/Fable.React.Props.fs");
-/* harmony import */ var _fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../fable-library.2.4.15/Util.js */ "./.fable/fable-library.2.4.15/Util.js");
+/* harmony import */ var _fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../fable-library.2.13.0/Util.js */ "./.fable/fable-library.2.13.0/Util.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
 
@@ -3345,11 +3420,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const Option = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fulma_Progress_Option(tag, name, ...fields) {
-  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
+const Option = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fulma_Progress_Option(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
 function Option$reflection() {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["union"])("Fulma.Progress.Option", [], Option, () => [["Size", [Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Size$002EISize$reflection"])()]], ["Color", [Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Color$002EIColor$reflection"])()]], ["Props", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["list"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["type"])("Fable.React.Props.IHTMLProp"))]], ["Value", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["int32"]]], ["Max", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["int32"]]], ["CustomClass", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["string"]]], ["Modifiers", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["list"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Modifier$002EIModifier$reflection"])())]]]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["union_type"])("Fulma.Progress.Option", [], Option, () => [["Size", [["Item", Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Size$002EISize$reflection"])()]]], ["Color", [["Item", Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Color$002EIColor$reflection"])()]]], ["Props", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["list_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["class_type"])("Fable.React.Props.IHTMLProp"))]]], ["Value", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["int32_type"]]]], ["Max", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["int32_type"]]]], ["CustomClass", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["string_type"]]]], ["Modifiers", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["list_type"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Modifier$002EIModifier$reflection"])())]]]]);
 }
 function progress(options, children) {
   const parseOptions = function parseOptions(result, option) {
@@ -3405,7 +3482,7 @@ function progress(options, children) {
   return Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Common$002EGenericOptions$$ToReactElement$$Z6D3CD4B7"])(Object(_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Common$002EGenericOptions$$$Parse$$9AE2F7C"])(options, parseOptions, "progress"), function (props$$1, children$$1) {
     const props$$2 = props$$1;
     const children$$2 = children$$1;
-    return react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("progress", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["createObj"])(props$$2, 1), ...children$$2);
+    return react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("progress", Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__["createObj"])(props$$2, 1), ...children$$2);
   }, children);
 }
 
@@ -3423,11 +3500,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Option", function() { return Option; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Option$reflection", function() { return Option$reflection; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "slider", function() { return slider; });
-/* harmony import */ var _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../fable-library.2.4.15/Types.js */ "./.fable/fable-library.2.4.15/Types.js");
+/* harmony import */ var _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../fable-library.2.13.0/Types.js */ "./.fable/fable-library.2.13.0/Types.js");
 /* harmony import */ var _Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Fulma.2.9.0/Common.fs */ "./.fable/Fulma.2.9.0/Common.fs");
-/* harmony import */ var _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../fable-library.2.4.15/Reflection.js */ "./.fable/fable-library.2.4.15/Reflection.js");
+/* harmony import */ var _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../fable-library.2.13.0/Reflection.js */ "./.fable/fable-library.2.13.0/Reflection.js");
 /* harmony import */ var _Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Fable.React.6.0.0/Fable.React.Props.fs */ "./.fable/Fable.React.6.0.0/Fable.React.Props.fs");
-/* harmony import */ var _fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../fable-library.2.4.15/Util.js */ "./.fable/fable-library.2.4.15/Util.js");
+/* harmony import */ var _fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../fable-library.2.13.0/Util.js */ "./.fable/fable-library.2.13.0/Util.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
 
@@ -3436,11 +3513,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const Option = Object(_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fulma_Extensions_Wikiki_Slider_Option(tag, name, ...fields) {
-  _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
-}, _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
+const Option = Object(_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Fulma_Extensions_Wikiki_Slider_Option(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
 function Option$reflection() {
-  return Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["union"])("Fulma.Extensions.Wikiki.Slider.Option", [], Option, () => [["Color", [Object(_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Color$002EIColor$reflection"])()]], ["Size", [Object(_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Size$002EISize$reflection"])()]], "is-fullwidth", "is-circle", ["Disabled", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["bool"]]], ["OnChange", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["lambda"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["type"])("Browser.Types.Event"), _fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["unit"])]], ["Id", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["string"]]], ["Min", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["float64"]]], ["Max", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["float64"]]], ["Step", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["float64"]]], ["Value", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["float64"]]], ["DefaultValue", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["float64"]]], ["ValueOrDefault", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["string"]]], "IsVertical", ["Props", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["list"])(Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["type"])("Fable.React.Props.IHTMLProp"))]], ["CustomClass", [_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["string"]]], ["Modifiers", [Object(_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["list"])(Object(_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Modifier$002EIModifier$reflection"])())]]]);
+  return Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["union_type"])("Fulma.Extensions.Wikiki.Slider.Option", [], Option, () => [["Color", [["Item", Object(_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Color$002EIColor$reflection"])()]]], ["Size", [["Item", Object(_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Size$002EISize$reflection"])()]]], "is-fullwidth", "is-circle", ["Disabled", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["bool_type"]]]], ["OnChange", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["lambda_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["class_type"])("Browser.Types.Event"), _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["unit_type"])]]], ["Id", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["string_type"]]]], ["Min", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["float64_type"]]]], ["Max", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["float64_type"]]]], ["Step", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["float64_type"]]]], ["Value", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["float64_type"]]]], ["DefaultValue", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["float64_type"]]]], ["ValueOrDefault", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["string_type"]]]], "IsVertical", ["Props", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["list_type"])(Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["class_type"])("Fable.React.Props.IHTMLProp"))]]], ["CustomClass", [["Item", _fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["string_type"]]]], ["Modifiers", [["Item", Object(_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["list_type"])(Object(_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Modifier$002EIModifier$reflection"])())]]]]);
 }
 function slider(options) {
   const parseOptions = function parseOptions(result, option) {
@@ -3528,8 +3607,10 @@ function slider(options) {
           const arg0 = function arg0(e) {
             var value$$3, value$$2;
 
-            if ((value$$3 = (value$$2 = e, (value$$2 == null)), (!value$$3)) ? !Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["equals"])(e.value, valueOrDefault) : false) {
+            if ((value$$3 = (value$$2 = e, (value$$2 == null)), (!value$$3)) ? !Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__["equals"])(e.value, valueOrDefault) : false) {
               e.value = valueOrDefault;
+            } else {
+              void null;
             }
           };
 
@@ -3564,17 +3645,17 @@ function slider(options) {
     }
   };
 
-  return Object(_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Common$002EGenericOptions$$ToReactElement$$Z46A53D36"])(Object(_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Common$002EGenericOptions$$$Parse$$9AE2F7C"])(options, parseOptions, "slider", new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["List"](new _Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_3__["HTMLAttr"](159, "Type", "range"), new _fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["List"]())), function (props$$1) {
+  return Object(_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Common$002EGenericOptions$$ToReactElement$$Z46A53D36"])(Object(_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_1__["Common$002EGenericOptions$$$Parse$$9AE2F7C"])(options, parseOptions, "slider", new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["List"](new _Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_3__["HTMLAttr"](159, "Type", "range"), new _fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["List"]())), function (props$$1) {
     const props$$2 = props$$1;
-    return react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("input", Object(_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["createObj"])(props$$2, 1), ...[]);
+    return react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("input", Object(_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_4__["createObj"])(props$$2, 1), ...[]);
   });
 }
 
 /***/ }),
 
-/***/ "./.fable/fable-library.2.4.15/Array.js":
+/***/ "./.fable/fable-library.2.13.0/Array.js":
 /*!**********************************************!*\
-  !*** ./.fable/fable-library.2.4.15/Array.js ***!
+  !*** ./.fable/fable-library.2.13.0/Array.js ***!
   \**********************************************/
 /*! exports provided: append, filter, fill, getSubArray, last, tryLast, mapIndexed, map, mapIndexed2, map2, mapIndexed3, map3, mapFold, mapFoldBack, indexed, truncate, concat, collect, countBy, distinctBy, distinct, where, contains, except, groupBy, empty, singleton, initialize, pairwise, replicate, copy, reverse, scan, scanBack, skip, skipWhile, take, takeWhile, addInPlace, addRangeInPlace, removeInPlace, removeAllInPlace, copyTo, partition, find, tryFind, findIndex, tryFindIndex, pick, tryPick, findBack, tryFindBack, findLastIndex, findIndexBack, tryFindIndexBack, choose, foldIndexed, fold, iterate, iterateIndexed, iterate2, iterateIndexed2, isEmpty, forAll, permute, setSlice, sortInPlaceBy, sortInPlace, sort, sortBy, sortDescending, sortByDescending, sortWith, unfold, unzip, unzip3, zip, zip3, chunkBySize, splitAt, compareWith, equalsWith, exactlyOne, head, tryHead, tail, item, tryItem, foldBackIndexed, foldBack, foldIndexed2, fold2, foldBackIndexed2, foldBack2, reduce, reduceBack, forAll2, existsOffset, exists, existsOffset2, exists2, sum, sumBy, maxBy, max, minBy, min, average, averageBy, ofSeq, ofList, toList, windowed, splitInto, transpose */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -3696,12 +3777,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "windowed", function() { return windowed; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "splitInto", function() { return splitInto; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "transpose", function() { return transpose; });
-/* harmony import */ var _Option_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Option.js */ "./.fable/fable-library.2.4.15/Option.js");
-/* harmony import */ var _Util_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Util.js */ "./.fable/fable-library.2.4.15/Util.js");
-/* harmony import */ var _Map_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Map.js */ "./.fable/fable-library.2.4.15/Map.js");
-/* harmony import */ var _Set_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Set.js */ "./.fable/fable-library.2.4.15/Set.js");
-/* harmony import */ var _Types_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Types.js */ "./.fable/fable-library.2.4.15/Types.js");
-/* harmony import */ var _Seq_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Seq.js */ "./.fable/fable-library.2.4.15/Seq.js");
+/* harmony import */ var _Option_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Option.js */ "./.fable/fable-library.2.13.0/Option.js");
+/* harmony import */ var _Util_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Util.js */ "./.fable/fable-library.2.13.0/Util.js");
+/* harmony import */ var _Map_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Map.js */ "./.fable/fable-library.2.13.0/Map.js");
+/* harmony import */ var _Set_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Set.js */ "./.fable/fable-library.2.13.0/Set.js");
+/* harmony import */ var _Types_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Types.js */ "./.fable/fable-library.2.13.0/Types.js");
+/* harmony import */ var _Seq_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Seq.js */ "./.fable/fable-library.2.13.0/Seq.js");
 
 
 
@@ -3741,13 +3822,15 @@ function getSubArray(array$$3, start$$1, count$$2) {
 function last(array$$5) {
   if (array$$5.length === 0) {
     throw new Error("The input array was empty\\nParameter name: array");
+  } else {
+    void null;
   }
 
   return array$$5[array$$5.length - 1];
 }
 function tryLast(array$$6) {
   if (array$$6.length === 0) {
-    return null;
+    return undefined;
   } else {
     return Object(_Option_js__WEBPACK_IMPORTED_MODULE_0__["some"])(array$$6[array$$6.length - 1]);
   }
@@ -3787,6 +3870,8 @@ function map(f$$1, source$$1, cons$$2) {
 function mapIndexed2(f$$2, source1, source2, cons$$3) {
   if (source1.length !== source2.length) {
     throw new Error("Arrays had different lengths");
+  } else {
+    void null;
   }
 
   const result = new cons$$3(source1.length);
@@ -3800,6 +3885,8 @@ function mapIndexed2(f$$2, source1, source2, cons$$3) {
 function map2(f$$3, source1$$1, source2$$1, cons$$4) {
   if (source1$$1.length !== source2$$1.length) {
     throw new Error("Arrays had different lengths");
+  } else {
+    void null;
   }
 
   const result$$1 = new cons$$4(source1$$1.length);
@@ -3813,6 +3900,8 @@ function map2(f$$3, source1$$1, source2$$1, cons$$4) {
 function mapIndexed3(f$$4, source1$$2, source2$$2, source3, cons$$5) {
   if (source1$$2.length !== source2$$2.length ? true : source2$$2.length !== source3.length) {
     throw new Error("Arrays had different lengths");
+  } else {
+    void null;
   }
 
   const result$$2 = new cons$$5(source1$$2.length);
@@ -3826,6 +3915,8 @@ function mapIndexed3(f$$4, source1$$2, source2$$2, source3, cons$$5) {
 function map3(f$$5, source1$$3, source2$$3, source3$$1, cons$$6) {
   if (source1$$3.length !== source2$$3.length ? true : source2$$3.length !== source3$$1.length) {
     throw new Error("Arrays had different lengths");
+  } else {
+    void null;
   }
 
   const result$$3 = new cons$$6(source1$$3.length);
@@ -4038,6 +4129,8 @@ function singleton(value$$6, cons$$14) {
 function initialize(count$$8, initializer, cons$$15) {
   if (count$$8 < 0) {
     throw new Error("The input must be non-negative\\nParameter name: count");
+  } else {
+    void null;
   }
 
   const result$$7 = new cons$$15(count$$8);
@@ -4065,6 +4158,8 @@ function pairwise(array$$30) {
 function replicate(count$$10, initial, cons$$16) {
   if (count$$10 < 0) {
     throw new Error("The input must be non-negative\\nParameter name: count");
+  } else {
+    void null;
   }
 
   const result$$9 = new cons$$16(count$$10);
@@ -4105,6 +4200,8 @@ function scanBack(folder$$1, array$$38, state$$3, cons$$20) {
 function skip(count$$11, array$$39, cons$$21) {
   if (count$$11 > array$$39.length) {
     throw new Error("count is greater than array length\\nParameter name: count");
+  } else {
+    void null;
   }
 
   if (count$$11 === array$$39.length) {
@@ -4131,10 +4228,14 @@ function skipWhile(predicate$$7, array$$41, cons$$23) {
 function take(count$$16, array$$43, cons$$25) {
   if (count$$16 < 0) {
     throw new Error("The input must be non-negative\\nParameter name: count");
+  } else {
+    void null;
   }
 
   if (count$$16 > array$$43.length) {
     throw new Error("count is greater than array length\\nParameter name: count");
+  } else {
+    void null;
   }
 
   if (count$$16 === 0) {
@@ -4247,7 +4348,7 @@ function tryFindIndex(predicate$$17, array$$65) {
   if (matchValue$$7 > -1) {
     return matchValue$$7;
   } else {
-    return null;
+    return undefined;
   }
 }
 function pick(chooser, array$$67) {
@@ -4281,7 +4382,7 @@ function tryPick(chooser$$1, array$$68) {
       const i$$23 = $i$$23$$152;
 
       if (i$$23 >= array$$68.length) {
-        return null;
+        return undefined;
       } else {
         const matchValue$$9 = chooser$$1(array$$68[i$$23]);
 
@@ -4325,7 +4426,7 @@ function tryFindBack(predicate$$20, array$$70) {
       const i$$25 = $i$$25$$158;
 
       if (i$$25 < 0) {
-        return null;
+        return undefined;
       } else if (predicate$$20(array$$70[i$$25])) {
         return Object(_Option_js__WEBPACK_IMPORTED_MODULE_0__["some"])(array$$70[i$$25]);
       } else {
@@ -4385,7 +4486,7 @@ function tryFindIndexBack(predicate$$23, array$$73) {
       const i$$28 = $i$$28$$167;
 
       if (i$$28 < 0) {
-        return null;
+        return undefined;
       } else if (predicate$$23(array$$73[i$$28])) {
         return i$$28;
       } else {
@@ -4432,6 +4533,8 @@ function iterateIndexed(action$$1, array$$81) {
 function iterate2(action$$2, array1$$2, array2$$2) {
   if (array1$$2.length !== array2$$2.length) {
     throw new Error("Arrays had different lengths");
+  } else {
+    void null;
   }
 
   for (let i$$32 = 0; i$$32 <= array1$$2.length - 1; i$$32++) {
@@ -4441,6 +4544,8 @@ function iterate2(action$$2, array1$$2, array2$$2) {
 function iterateIndexed2(action$$3, array1$$3, array2$$3) {
   if (array1$$3.length !== array2$$3.length) {
     throw new Error("Arrays had different lengths");
+  } else {
+    void null;
   }
 
   for (let i$$33 = 0; i$$33 <= array1$$3.length - 1; i$$33++) {
@@ -4462,6 +4567,8 @@ function permute(f$$8, array$$85) {
 
     if (j$$1 < 0 ? true : j$$1 >= size) {
       throw new Error("Not a valid permutation");
+    } else {
+      void null;
     }
 
     res$$7[j$$1] = x$$9;
@@ -4474,6 +4581,8 @@ function permute(f$$8, array$$85) {
 
   if (!isValid) {
     throw new Error("Not a valid permutation");
+  } else {
+    void null;
   }
 
   return res$$7;
@@ -4545,6 +4654,8 @@ function unfold(generator, state$$8) {
         void value$$11;
         $state$$9$$226 = s$$2;
         continue loop$$8;
+      } else {
+        void null;
       }
 
       break;
@@ -4579,6 +4690,8 @@ function unzip3(array$$96) {
 function zip(array1$$4, array2$$4) {
   if (array1$$4.length !== array2$$4.length) {
     throw new Error("Arrays had different lengths");
+  } else {
+    void null;
   }
 
   let result$$10;
@@ -4594,6 +4707,8 @@ function zip(array1$$4, array2$$4) {
 function zip3(array1$$5, array2$$5, array3) {
   if (array1$$5.length !== array2$$5.length ? true : array2$$5.length !== array3.length) {
     throw new Error("Arrays had different lengths");
+  } else {
+    void null;
   }
 
   let result$$11;
@@ -4609,6 +4724,8 @@ function zip3(array1$$5, array2$$5, array3) {
 function chunkBySize(chunkSize, array$$97) {
   if (chunkSize < 1) {
     throw new Error("The input must be positive.\\nParameter name: size");
+  } else {
+    void null;
   }
 
   if (array$$97.length === 0) {
@@ -4629,10 +4746,14 @@ function chunkBySize(chunkSize, array$$97) {
 function splitAt(index$$4, array$$100) {
   if (index$$4 < 0) {
     throw new Error("The input must be non-negative\\nParameter name: index");
+  } else {
+    void null;
   }
 
   if (index$$4 > array$$100.length) {
     throw new Error("The input sequence has an insufficient number of elements.\\nParameter name: index");
+  } else {
+    void null;
   }
 
   return [array$$100.slice(0, 0 + index$$4), array$$100.slice(index$$4)];
@@ -4687,7 +4808,7 @@ function head(array$$104) {
 }
 function tryHead(array$$105) {
   if (array$$105.length === 0) {
-    return null;
+    return undefined;
   } else {
     return Object(_Option_js__WEBPACK_IMPORTED_MODULE_0__["some"])(array$$105[0]);
   }
@@ -4695,6 +4816,8 @@ function tryHead(array$$105) {
 function tail(array$$106) {
   if (array$$106.length === 0) {
     throw new Error("Not enough elements\\nParameter name: array");
+  } else {
+    void null;
   }
 
   return array$$106.slice(1);
@@ -4704,7 +4827,7 @@ function item(index$$5, array$$108) {
 }
 function tryItem(index$$6, array$$109) {
   if (index$$6 < 0 ? true : index$$6 >= array$$109.length) {
-    return null;
+    return undefined;
   } else {
     return Object(_Option_js__WEBPACK_IMPORTED_MODULE_0__["some"])(array$$109[index$$6]);
   }
@@ -4724,6 +4847,8 @@ function foldIndexed2(folder$$10, state$$14, array1$$8, array2$$8) {
 
   if (array1$$8.length !== array2$$8.length) {
     throw new Error("Arrays have different lengths");
+  } else {
+    void null;
   }
 
   for (let i$$42 = 0; i$$42 <= array1$$8.length - 1; i$$42++) {
@@ -4742,6 +4867,8 @@ function foldBackIndexed2(folder$$12, array1$$10, array2$$10, state$$16) {
 
   if (array1$$10.length !== array2$$10.length) {
     throw new Error("Arrays had different lengths");
+  } else {
+    void null;
   }
 
   const size$$1 = array1$$10.length | 0;
@@ -4760,6 +4887,8 @@ function foldBack2(f$$9, array1$$11, array2$$11, state$$17) {
 function reduce(reduction, array$$114) {
   if (array$$114.length === 0) {
     throw new Error("The input array was empty");
+  } else {
+    void null;
   }
 
   return array$$114.reduce(reduction);
@@ -4767,6 +4896,8 @@ function reduce(reduction, array$$114) {
 function reduceBack(reduction$$2, array$$116) {
   if (array$$116.length === 0) {
     throw new Error("The input array was empty");
+  } else {
+    void null;
   }
 
   return array$$116.reduceRight(reduction$$2);
@@ -4824,6 +4955,8 @@ function existsOffset2($predicate$$32$$286, $array1$$13$$287, $array2$$13$$288, 
 function exists2(predicate$$33, array1$$14, array2$$14) {
   if (array1$$14.length !== array2$$14.length) {
     throw new Error("Arrays had different lengths");
+  } else {
+    void null;
   }
 
   return existsOffset2(predicate$$33, array1$$14, array2$$14, 0);
@@ -4869,6 +5002,8 @@ function min(xs$$15, comparer$$17) {
 function average(array$$122, averager) {
   if (array$$122.length === 0) {
     throw new Error("The input array was empty\\nParameter name: array");
+  } else {
+    void null;
   }
 
   let total = averager.GetZero();
@@ -4882,6 +5017,8 @@ function average(array$$122, averager) {
 function averageBy(projection$$9, array$$123, averager$$1) {
   if (array$$123.length === 0) {
     throw new Error("The input array was empty\\nParameter name: array");
+  } else {
+    void null;
   }
 
   let total$$1 = averager$$1.GetZero();
@@ -4911,6 +5048,8 @@ function toList(source$$8) {
 function windowed(windowSize, source$$9) {
   if (windowSize <= 0) {
     throw new Error("windowSize must be positive");
+  } else {
+    void null;
   }
 
   let res$$9;
@@ -4926,6 +5065,8 @@ function windowed(windowSize, source$$9) {
 function splitInto(chunks, array$$124) {
   if (chunks < 1) {
     throw new Error("The input must be positive.\\nParameter name: chunks");
+  } else {
+    void null;
   }
 
   if (array$$124.length === 0) {
@@ -4961,6 +5102,8 @@ function transpose(arrays$$2, cons$$33) {
       return a.length === lenInner;
     }, arrays$$3)), (!value$$14)) {
       throw new Error("Arrays had different lengths");
+    } else {
+      void null;
     }
 
     const result$$15 = new Array(lenInner);
@@ -4979,16 +5122,16 @@ function transpose(arrays$$2, cons$$33) {
 
 /***/ }),
 
-/***/ "./.fable/fable-library.2.4.15/Async.js":
+/***/ "./.fable/fable-library.2.13.0/Async.js":
 /*!**********************************************!*\
-  !*** ./.fable/fable-library.2.4.15/Async.js ***!
+  !*** ./.fable/fable-library.2.13.0/Async.js ***!
   \**********************************************/
-/*! exports provided: default, makeAsync, invoke, callThenInvoke, bind, createCancellationToken, cancel, cancelAfter, isCancellationRequested, startChild, awaitPromise, cancellationToken, defaultCancellationToken, catchAsync, fromContinuations, ignore, parallel, sleep, start, startImmediate, startWithContinuations, startAsPromise */
+/*! exports provided: Async, makeAsync, invoke, callThenInvoke, bind, createCancellationToken, cancel, cancelAfter, isCancellationRequested, startChild, awaitPromise, cancellationToken, defaultCancellationToken, catchAsync, fromContinuations, ignore, parallel, sleep, start, startImmediate, startWithContinuations, startAsPromise, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Async; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Async", function() { return Async; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makeAsync", function() { return makeAsync; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "invoke", function() { return invoke; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "callThenInvoke", function() { return callThenInvoke; });
@@ -5010,9 +5153,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "startImmediate", function() { return startImmediate; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "startWithContinuations", function() { return startWithContinuations; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "startAsPromise", function() { return startAsPromise; });
-/* harmony import */ var _AsyncBuilder__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AsyncBuilder */ "./.fable/fable-library.2.4.15/AsyncBuilder.js");
-/* harmony import */ var _Option__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Option */ "./.fable/fable-library.2.4.15/Option.js");
-/* harmony import */ var _Seq__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Seq */ "./.fable/fable-library.2.4.15/Seq.js");
+/* harmony import */ var _AsyncBuilder__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AsyncBuilder */ "./.fable/fable-library.2.13.0/AsyncBuilder.js");
+/* harmony import */ var _Option__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Option */ "./.fable/fable-library.2.13.0/Option.js");
+/* harmony import */ var _Seq__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Seq */ "./.fable/fable-library.2.13.0/Seq.js");
 
 
 
@@ -5075,8 +5218,8 @@ const defaultCancellationToken = new _AsyncBuilder__WEBPACK_IMPORTED_MODULE_0__[
 function catchAsync(work) {
     return Object(_AsyncBuilder__WEBPACK_IMPORTED_MODULE_0__["protectedCont"])((ctx) => {
         work({
-            onSuccess: (x) => ctx.onSuccess(Object(_Option__WEBPACK_IMPORTED_MODULE_1__["choice1"])(x)),
-            onError: (ex) => ctx.onSuccess(Object(_Option__WEBPACK_IMPORTED_MODULE_1__["choice2"])(ex)),
+            onSuccess: (x) => ctx.onSuccess(Object(_Option__WEBPACK_IMPORTED_MODULE_1__["choice1Of2"])(x)),
+            onError: (ex) => ctx.onSuccess(Object(_Option__WEBPACK_IMPORTED_MODULE_1__["choice2Of2"])(ex)),
             onCancel: ctx.onCancel,
             cancelToken: ctx.cancelToken,
             trampoline: ctx.trampoline,
@@ -5128,13 +5271,14 @@ function startWithContinuations(computation, continuation, exceptionContinuation
 function startAsPromise(computation, cancellationToken) {
     return new Promise((resolve, reject) => startWithContinuations(computation, resolve, reject, reject, cancellationToken ? cancellationToken : defaultCancellationToken));
 }
+/* harmony default export */ __webpack_exports__["default"] = (Async);
 //# sourceMappingURL=Async.js.map
 
 /***/ }),
 
-/***/ "./.fable/fable-library.2.4.15/AsyncBuilder.js":
+/***/ "./.fable/fable-library.2.13.0/AsyncBuilder.js":
 /*!*****************************************************!*\
-  !*** ./.fable/fable-library.2.4.15/AsyncBuilder.js ***!
+  !*** ./.fable/fable-library.2.13.0/AsyncBuilder.js ***!
   \*****************************************************/
 /*! exports provided: CancellationToken, OperationCanceledError, Trampoline, protectedCont, protectedBind, protectedReturn, AsyncBuilder, singleton */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -5330,11 +5474,11 @@ const singleton = new AsyncBuilder();
 
 /***/ }),
 
-/***/ "./.fable/fable-library.2.4.15/Date.js":
+/***/ "./.fable/fable-library.2.13.0/Date.js":
 /*!*********************************************!*\
-  !*** ./.fable/fable-library.2.4.15/Date.js ***!
+  !*** ./.fable/fable-library.2.13.0/Date.js ***!
   \*********************************************/
-/*! exports provided: offsetRegex, dateOffsetToString, dateToHalfUTCString, toString, default, fromTicks, fromDateTimeOffset, getTicks, minValue, maxValue, parseRaw, parse, tryParse, create, now, utcNow, today, isLeapYear, daysInMonth, toUniversalTime, toLocalTime, specifyKind, timeOfDay, date, day, hour, millisecond, minute, month, second, year, dayOfWeek, dayOfYear, add, addDays, addHours, addMinutes, addSeconds, addMilliseconds, addYears, addMonths, subtract, toLongDateString, toShortDateString, toLongTimeString, toShortTimeString, equals, compare, compareTo, op_Addition, op_Subtraction, isDaylightSavingTime */
+/*! exports provided: offsetRegex, dateOffsetToString, dateToHalfUTCString, toString, DateTime, fromTicks, fromDateTimeOffset, getTicks, minValue, maxValue, parseRaw, parse, tryParse, create, now, utcNow, today, isLeapYear, daysInMonth, toUniversalTime, toLocalTime, specifyKind, timeOfDay, date, day, hour, millisecond, minute, month, second, year, dayOfWeek, dayOfYear, add, addDays, addHours, addMinutes, addSeconds, addMilliseconds, addYears, addMonths, subtract, toLongDateString, toShortDateString, toLongTimeString, toShortTimeString, equals, compare, compareTo, op_Addition, op_Subtraction, isDaylightSavingTime, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5343,7 +5487,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "dateOffsetToString", function() { return dateOffsetToString; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "dateToHalfUTCString", function() { return dateToHalfUTCString; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toString", function() { return toString; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return DateTime; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DateTime", function() { return DateTime; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fromTicks", function() { return fromTicks; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fromDateTimeOffset", function() { return fromDateTimeOffset; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTicks", function() { return getTicks; });
@@ -5391,8 +5535,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "op_Addition", function() { return op_Addition; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "op_Subtraction", function() { return op_Subtraction; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isDaylightSavingTime", function() { return isDaylightSavingTime; });
-/* harmony import */ var _Long__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Long */ "./.fable/fable-library.2.4.15/Long.js");
-/* harmony import */ var _Util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Util */ "./.fable/fable-library.2.4.15/Util.js");
+/* harmony import */ var _Long__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Long */ "./.fable/fable-library.2.13.0/Long.js");
+/* harmony import */ var _Util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Util */ "./.fable/fable-library.2.13.0/Util.js");
 /**
  * DateTimeOffset functions.
  *
@@ -5482,9 +5626,9 @@ function dateToStringWithCustomFormat(date, format, utc) {
 }
 function dateToStringWithOffset(date, format) {
     var _a, _b, _c;
-    const d = new Date(date.getTime() + (_a = date.offset, (_a !== null && _a !== void 0 ? _a : 0)));
+    const d = new Date(date.getTime() + ((_a = date.offset) !== null && _a !== void 0 ? _a : 0));
     if (typeof format !== "string") {
-        return d.toISOString().replace(/\.\d+/, "").replace(/[A-Z]|\.\d+/g, " ") + dateOffsetToString((_b = date.offset, (_b !== null && _b !== void 0 ? _b : 0)));
+        return d.toISOString().replace(/\.\d+/, "").replace(/[A-Z]|\.\d+/g, " ") + dateOffsetToString(((_b = date.offset) !== null && _b !== void 0 ? _b : 0));
     }
     else if (format.length === 1) {
         switch (format) {
@@ -5493,7 +5637,7 @@ function dateToStringWithOffset(date, format) {
             case "T":
             case "t": return dateToHalfUTCString(d, "second");
             case "O":
-            case "o": return dateToISOStringWithOffset(d, (_c = date.offset, (_c !== null && _c !== void 0 ? _c : 0)));
+            case "o": return dateToISOStringWithOffset(d, ((_c = date.offset) !== null && _c !== void 0 ? _c : 0));
             default: throw new Error("Unrecognized Date print format");
         }
     }
@@ -5525,7 +5669,7 @@ function dateToStringWithKind(date, format) {
         return dateToStringWithCustomFormat(date, format, utc);
     }
 }
-function toString(date, format) {
+function toString(date, format, _provider) {
     return date.offset != null
         ? dateToStringWithOffset(date, format)
         : dateToStringWithKind(date, format);
@@ -5553,7 +5697,7 @@ function fromDateTimeOffset(date, kind) {
         case 1 /* UTC */: return DateTime(date.getTime(), 1 /* UTC */);
         case 2 /* Local */: return DateTime(date.getTime(), 2 /* Local */);
         default:
-            const d = DateTime(date.getTime() + (_a = date.offset, (_a !== null && _a !== void 0 ? _a : 0)), kind);
+            const d = DateTime(date.getTime() + ((_a = date.offset) !== null && _a !== void 0 ? _a : 0), kind);
             return DateTime(d.getTime() - Object(_Util__WEBPACK_IMPORTED_MODULE_1__["dateOffset"])(d), kind);
     }
 }
@@ -5568,12 +5712,18 @@ function maxValue() {
     // This is "9999-12-31T23:59:59.999Z", actual JS max value is 8640000000000000
     return DateTime(253402300799999, 0 /* Unspecified */);
 }
-function parseRaw(str) {
-    let date = new Date(str);
+function parseRaw(input) {
+    if (input === null) {
+        throw new Error("Value cannot be null when parsing DateTime");
+    }
+    if (input.trim() === "") {
+        throw new Error("An empty string is not recognized as a valid DateTime");
+    }
+    let date = new Date(input);
     if (isNaN(date.getTime())) {
         // Try to check strings JS Date cannot parse (see #1045, #1422)
         // tslint:disable-next-line:max-line-length
-        const m = /^\s*(\d+[^\w\s:]\d+[^\w\s:]\d+)?\s*(\d+:\d+(?::\d+(?:\.\d+)?)?)?\s*([AaPp][Mm])?\s*([+-]\d+(?::\d+)?)?\s*$/.exec(str);
+        const m = /^\s*(\d+[^\w\s:]\d+[^\w\s:]\d+)?\s*(\d+:\d+(?::\d+(?:\.\d+)?)?)?\s*([AaPp][Mm])?\s*([+-]\d+(?::\d+)?)?\s*$/.exec(input);
         if (m != null) {
             let baseDate;
             let timeInSeconds = 0;
@@ -5631,12 +5781,8 @@ function parse(str, detectUTC = false) {
         : 0 /* Unspecified */;
     return DateTime(date.getTime(), kind);
 }
-function tryParse(v) {
+function tryParse(v, _refValue) {
     try {
-        // if value is null or whitespace, parsing fails
-        if (v == null || v.trim() === "") {
-            return [false, minValue()];
-        }
         return [true, parse(v)];
     }
     catch (_err) {
@@ -5779,7 +5925,9 @@ function addMonths(d, v) {
     return create(newYear, newMonth, newDay, hour(d), minute(d), second(d), millisecond(d), d.kind);
 }
 function subtract(d, that) {
-    return typeof that === "number" ? add(d, -that) : d.getTime() - that.getTime();
+    return typeof that === "number"
+        ? add(d, -that)
+        : d.getTime() - that.getTime();
 }
 function toLongDateString(d) {
     return d.toDateString();
@@ -5812,13 +5960,14 @@ function isDaylightSavingTime(x) {
 function isDST(janOffset, julOffset, tOffset) {
     return Math.min(janOffset, julOffset) === tOffset;
 }
+/* harmony default export */ __webpack_exports__["default"] = (DateTime);
 //# sourceMappingURL=Date.js.map
 
 /***/ }),
 
-/***/ "./.fable/fable-library.2.4.15/Decimal.js":
+/***/ "./.fable/fable-library.2.13.0/Decimal.js":
 /*!************************************************!*\
-  !*** ./.fable/fable-library.2.4.15/Decimal.js ***!
+  !*** ./.fable/fable-library.2.13.0/Decimal.js ***!
   \************************************************/
 /*! exports provided: default, get_Zero, get_One, get_MinusOne, get_MaxValue, get_MinValue, compare, equals, abs, round, truncate, ceiling, floor, pow, sqrt, op_Addition, op_Subtraction, op_Multiply, op_Division, op_Modulus, op_UnaryNegation, add, subtract, multiply, divide, remainder, negate, toString, tryParse, parse, toNumber, fromIntArray, fromInts, fromParts, getBits, makeRangeStepFunction */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -5860,7 +6009,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fromParts", function() { return fromParts; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getBits", function() { return getBits; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makeRangeStepFunction", function() { return makeRangeStepFunction; });
-/* harmony import */ var _lib_big__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/big */ "./.fable/fable-library.2.4.15/lib/big.js");
+/* harmony import */ var _lib_big__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/big */ "./.fable/fable-library.2.13.0/lib/big.js");
 
 /* harmony default export */ __webpack_exports__["default"] = (_lib_big__WEBPACK_IMPORTED_MODULE_0__["default"]);
 const get_Zero = new _lib_big__WEBPACK_IMPORTED_MODULE_0__["default"](0);
@@ -6038,7 +6187,7 @@ function makeRangeStepFunction(step, last) {
             return [x, op_Addition(x, step)];
         }
         else {
-            return null;
+            return undefined;
         }
     };
 }
@@ -6046,9 +6195,9 @@ function makeRangeStepFunction(step, last) {
 
 /***/ }),
 
-/***/ "./.fable/fable-library.2.4.15/Int32.js":
+/***/ "./.fable/fable-library.2.13.0/Int32.js":
 /*!**********************************************!*\
-  !*** ./.fable/fable-library.2.4.15/Int32.js ***!
+  !*** ./.fable/fable-library.2.13.0/Int32.js ***!
   \**********************************************/
 /*! exports provided: NumberStyles, isValid, parse, tryParse, op_UnaryNegation_Int8, op_UnaryNegation_Int16, op_UnaryNegation_Int32 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -6183,9 +6332,9 @@ function op_UnaryNegation_Int32(x) {
 
 /***/ }),
 
-/***/ "./.fable/fable-library.2.4.15/List.js":
+/***/ "./.fable/fable-library.2.13.0/List.js":
 /*!*********************************************!*\
-  !*** ./.fable/fable-library.2.4.15/List.js ***!
+  !*** ./.fable/fable-library.2.13.0/List.js ***!
   \*********************************************/
 /*! exports provided: head, tryHead, tail, last, tryLast, compareWith, foldIndexedAux, foldIndexed, fold, reverse, foldBack, toSeq, ofSeq, concat, foldIndexed2Aux, foldIndexed2, fold2, foldBack2, unfold, foldIndexed3Aux, foldIndexed3, fold3, scan, scanBack, length, append, collect, map, mapIndexed, indexed, map2, mapIndexed2, map3, mapIndexed3, mapFold, mapFoldBack, iterate, iterate2, iterateIndexed, iterateIndexed2, ofArray, empty, isEmpty, tryPickIndexedAux, tryPickIndexed, tryPick, pick, tryFindIndexed, tryFind, findIndexed, find, findBack, tryFindBack, tryFindIndex, tryFindIndexBack, findIndex, findIndexBack, item, tryItem, filter, partition, choose, contains, except, initialize, replicate, reduce, reduceBack, forAll, forAll2, exists, exists2, unzip, unzip3, zip, zip3, sort, sortBy, sortDescending, sortByDescending, sortWith, sum, sumBy, maxBy, max, minBy, min, average, averageBy, permute, chunkBySize, skip, skipWhile, takeSplitAux, take, takeWhile, truncate, splitAt, outOfRange, slice, distinctBy, distinct, exactlyOne, groupBy, countBy, where, pairwise, windowed, splitInto, transpose */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -6302,13 +6451,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "windowed", function() { return windowed; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "splitInto", function() { return splitInto; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "transpose", function() { return transpose; });
-/* harmony import */ var _Option_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Option.js */ "./.fable/fable-library.2.4.15/Option.js");
-/* harmony import */ var _Types_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Types.js */ "./.fable/fable-library.2.4.15/Types.js");
-/* harmony import */ var _Seq_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Seq.js */ "./.fable/fable-library.2.4.15/Seq.js");
-/* harmony import */ var _Util_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Util.js */ "./.fable/fable-library.2.4.15/Util.js");
-/* harmony import */ var _Array_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Array.js */ "./.fable/fable-library.2.4.15/Array.js");
-/* harmony import */ var _Set_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Set.js */ "./.fable/fable-library.2.4.15/Set.js");
-/* harmony import */ var _Map_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Map.js */ "./.fable/fable-library.2.4.15/Map.js");
+/* harmony import */ var _Option_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Option.js */ "./.fable/fable-library.2.13.0/Option.js");
+/* harmony import */ var _Types_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Types.js */ "./.fable/fable-library.2.13.0/Types.js");
+/* harmony import */ var _Seq_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Seq.js */ "./.fable/fable-library.2.13.0/Seq.js");
+/* harmony import */ var _Util_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Util.js */ "./.fable/fable-library.2.13.0/Util.js");
+/* harmony import */ var _Array_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Array.js */ "./.fable/fable-library.2.13.0/Array.js");
+/* harmony import */ var _Set_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Set.js */ "./.fable/fable-library.2.13.0/Set.js");
+/* harmony import */ var _Map_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Map.js */ "./.fable/fable-library.2.13.0/Map.js");
 
 
 
@@ -6328,7 +6477,7 @@ function tryHead(_arg1$$1) {
   if (_arg1$$1.tail != null) {
     return Object(_Option_js__WEBPACK_IMPORTED_MODULE_0__["some"])(_arg1$$1.head);
   } else {
-    return null;
+    return undefined;
   }
 }
 function tail(_arg1$$2) {
@@ -6368,7 +6517,7 @@ function tryLast($_arg1$$4$$6) {
         continue tryLast;
       }
     } else {
-      return null;
+      return undefined;
     }
 
     break;
@@ -6710,22 +6859,22 @@ function mapFoldBack(f$$23, xs$$45, s$$2) {
 function iterate(f$$24, xs$$46) {
   fold(function (unitVar0, x$$24) {
     f$$24(x$$24);
-  }, null, xs$$46);
+  }, void null, xs$$46);
 }
 function iterate2(f$$25, xs$$47, ys$$15) {
   fold2(function (unitVar0$$1, x$$25, y$$8) {
     f$$25(x$$25, y$$8);
-  }, null, xs$$47, ys$$15);
+  }, void null, xs$$47, ys$$15);
 }
 function iterateIndexed(f$$26, xs$$48) {
   foldIndexed(function (i$$7, unitVar1, x$$26) {
     f$$26(i$$7, x$$26);
-  }, null, xs$$48);
+  }, void null, xs$$48);
 }
 function iterateIndexed2(f$$27, xs$$49, ys$$16) {
   foldIndexed2(function (i$$8, unitVar1$$1, x$$27, y$$9) {
     f$$27(i$$8, x$$27, y$$9);
-  }, null, xs$$49, ys$$16);
+  }, void null, xs$$49, ys$$16);
 }
 function ofArray(xs$$50) {
   let res$$1 = new _Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]();
@@ -6764,7 +6913,7 @@ function tryPickIndexedAux($f$$28$$120, $i$$10$$121, $_arg1$$9$$122) {
         return result;
       }
     } else {
-      return null;
+      return undefined;
     }
 
     break;
@@ -6790,12 +6939,12 @@ function pick(f$$31, xs$$54) {
 }
 function tryFindIndexed(f$$32, xs$$55) {
   return tryPickIndexed(function (i$$11, x$$31) {
-    return f$$32(i$$11, x$$31) ? Object(_Option_js__WEBPACK_IMPORTED_MODULE_0__["some"])(x$$31) : null;
+    return f$$32(i$$11, x$$31) ? Object(_Option_js__WEBPACK_IMPORTED_MODULE_0__["some"])(x$$31) : undefined;
   }, xs$$55);
 }
 function tryFind(f$$33, xs$$56) {
   return tryPickIndexed(function (_arg1$$11, x$$32) {
-    return f$$33(x$$32) ? Object(_Option_js__WEBPACK_IMPORTED_MODULE_0__["some"])(x$$32) : null;
+    return f$$33(x$$32) ? Object(_Option_js__WEBPACK_IMPORTED_MODULE_0__["some"])(x$$32) : undefined;
   }, xs$$56);
 }
 function findIndexed(f$$34, xs$$57) {
@@ -6825,7 +6974,7 @@ function tryFindBack(f$$37, xs$$62) {
 }
 function tryFindIndex(f$$38, xs$$65) {
   return tryPickIndexed(function (i$$12, x$$35) {
-    return f$$38(x$$35) ? i$$12 : null;
+    return f$$38(x$$35) ? i$$12 : undefined;
   }, xs$$65);
 }
 function tryFindIndexBack(f$$39, xs$$66) {
@@ -6915,11 +7064,11 @@ function except(itemsToExclude, array$$2, eq$$1) {
 function initialize(n$$2, f$$46) {
   let xs$$78 = new _Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]();
 
-  for (let i$$15 = 1; i$$15 <= n$$2; i$$15++) {
-    xs$$78 = new _Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](f$$46(n$$2 - i$$15), xs$$78);
+  for (let i$$15 = 0; i$$15 <= n$$2 - 1; i$$15++) {
+    xs$$78 = new _Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](f$$46(i$$15), xs$$78);
   }
 
-  return xs$$78;
+  return reverse(xs$$78);
 }
 function replicate(n$$3, x$$40) {
   return initialize(n$$3, function (_arg1$$15) {
@@ -7431,6 +7580,8 @@ function slice(lower, upper, xs$$132) {
 
     if (lower$$1 > lastIndex + 1 ? true : hasUpper ? upper > lastIndex : false) {
       outOfRange();
+    } else {
+      void null;
     }
 
     return reverse(res$$2);
@@ -7501,99 +7652,52 @@ function countBy(projection$$6, xs$$142, eq$$5) {
   }, xs$$144);
   return result$$2;
 }
-function where(predicate$$2, xs$$145) {
-  return filter(predicate$$2, xs$$145);
+function where(predicate$$2, source) {
+  return filter(predicate$$2, source);
 }
-function pairwise(xs$$146) {
-  const inner = function inner($xs$$147$$287, $acc$$27$$288, $x1$$1$$289) {
-    inner: while (true) {
-      const xs$$147 = $xs$$147$$287,
-            acc$$27 = $acc$$27$$288,
-            x1$$1 = $x1$$1$$289;
-
-      if (xs$$147.tail != null) {
-        let copyOfStruct = acc$$27;
-        Object(_Array_js__WEBPACK_IMPORTED_MODULE_4__["addInPlace"])([x1$$1, xs$$147.head], copyOfStruct);
-        $xs$$147$$287 = xs$$147.tail;
-        $acc$$27$$288 = acc$$27;
-        $x1$$1$$289 = xs$$147.head;
-        continue inner;
-      } else {
-        return ofArray(acc$$27);
-      }
-
-      break;
-    }
-  };
-
-  var $target$$290, x1$$2, x2$$2, xs$$149;
-
-  if (xs$$146.tail != null) {
-    if (xs$$146.tail.tail != null) {
-      $target$$290 = 1;
-      x1$$2 = xs$$146.head;
-      x2$$2 = xs$$146.tail.head;
-      xs$$149 = xs$$146.tail.tail;
-    } else {
-      $target$$290 = 0;
-    }
-  } else {
-    $target$$290 = 0;
-  }
-
-  switch ($target$$290) {
-    case 0:
-      {
-        return new _Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]();
-      }
-
-    case 1:
-      {
-        const acc$$28 = [];
-        Object(_Array_js__WEBPACK_IMPORTED_MODULE_4__["addInPlace"])([x1$$2, x2$$2], acc$$28);
-        const clo1 = Object(_Util_js__WEBPACK_IMPORTED_MODULE_3__["partialApply"])(2, inner, [xs$$149]);
-        const clo2 = clo1(acc$$28);
-        return clo2(x2$$2);
-      }
-  }
+function pairwise(source$$1) {
+  const xs$$145 = Object(_Seq_js__WEBPACK_IMPORTED_MODULE_2__["pairwise"])(source$$1);
+  return ofSeq(xs$$145);
 }
-function windowed(windowSize, source) {
+function windowed(windowSize, source$$2) {
   if (windowSize <= 0) {
     throw new Error("windowSize must be positive");
+  } else {
+    void null;
   }
 
   let res$$3 = new _Types_js__WEBPACK_IMPORTED_MODULE_1__["List"]();
 
-  for (let i$$35 = length(source); i$$35 >= windowSize; i$$35--) {
-    res$$3 = new _Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](slice(i$$35 - windowSize, i$$35 - 1, source), res$$3);
+  for (let i$$35 = length(source$$2); i$$35 >= windowSize; i$$35--) {
+    res$$3 = new _Types_js__WEBPACK_IMPORTED_MODULE_1__["List"](slice(i$$35 - windowSize, i$$35 - 1, source$$2), res$$3);
   }
 
   return res$$3;
 }
-function splitInto(chunks, source$$1) {
-  let xs$$152;
-  let xs$$150;
+function splitInto(chunks, source$$3) {
+  let xs$$148;
+  let xs$$146;
   let array$$5;
-  array$$5 = Object(_Array_js__WEBPACK_IMPORTED_MODULE_4__["ofList"])(source$$1, Array);
-  xs$$150 = Object(_Array_js__WEBPACK_IMPORTED_MODULE_4__["splitInto"])(chunks, array$$5);
-  xs$$152 = ofArray(xs$$150);
-  return map(function f$$63(xs$$151) {
-    return ofArray(xs$$151);
-  }, xs$$152);
+  array$$5 = Object(_Array_js__WEBPACK_IMPORTED_MODULE_4__["ofList"])(source$$3, Array);
+  xs$$146 = Object(_Array_js__WEBPACK_IMPORTED_MODULE_4__["splitInto"])(chunks, array$$5);
+  xs$$148 = ofArray(xs$$146);
+  return map(function f$$63(xs$$147) {
+    return ofArray(xs$$147);
+  }, xs$$148);
 }
 function transpose(lists$$1) {
-  let xs$$154;
-  let source$$3;
-  source$$3 = Object(_Seq_js__WEBPACK_IMPORTED_MODULE_2__["transpose"])(lists$$1);
-  xs$$154 = Object(_Seq_js__WEBPACK_IMPORTED_MODULE_2__["map"])(ofSeq, source$$3);
-  return ofSeq(xs$$154);
+  let xs$$150;
+  let source$$5;
+  source$$5 = Object(_Seq_js__WEBPACK_IMPORTED_MODULE_2__["transpose"])(lists$$1);
+  xs$$150 = Object(_Seq_js__WEBPACK_IMPORTED_MODULE_2__["map"])(ofSeq, source$$5);
+  return ofSeq(xs$$150);
 }
 
 /***/ }),
 
-/***/ "./.fable/fable-library.2.4.15/Long.js":
+/***/ "./.fable/fable-library.2.13.0/Long.js":
 /*!*********************************************!*\
-  !*** ./.fable/fable-library.2.4.15/Long.js ***!
+  !*** ./.fable/fable-library.2.13.0/Long.js ***!
   \*********************************************/
 /*! exports provided: default, get_Zero, get_One, op_Addition, op_Subtraction, op_Multiply, op_Division, op_Modulus, op_UnaryNegation, op_LeftShift, op_RightShift, op_RightShiftUnsigned, op_BitwiseAnd, op_BitwiseOr, op_ExclusiveOr, op_LogicalNot, op_LessThan, op_LessThanOrEqual, op_GreaterThan, op_GreaterThanOrEqual, op_Equality, op_Inequality, equals, compare, fromInt, fromBits, fromBytes, fromNumber, fromString, fromValue, toInt, toBytes, toNumber, toString, getLowBits, getHighBits, getLowBitsUnsigned, getHighBitsUnsigned, abs, fromInteger, parse, tryParse, unixEpochMillisecondsToTicks, ticksToUnixEpochMilliseconds, makeRangeStepFunction */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -7644,8 +7748,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unixEpochMillisecondsToTicks", function() { return unixEpochMillisecondsToTicks; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ticksToUnixEpochMilliseconds", function() { return ticksToUnixEpochMilliseconds; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makeRangeStepFunction", function() { return makeRangeStepFunction; });
-/* harmony import */ var _Int32__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Int32 */ "./.fable/fable-library.2.4.15/Int32.js");
-/* harmony import */ var _lib_long__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./lib/long */ "./.fable/fable-library.2.4.15/lib/long.js");
+/* harmony import */ var _Int32__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Int32 */ "./.fable/fable-library.2.13.0/Int32.js");
+/* harmony import */ var _lib_long__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./lib/long */ "./.fable/fable-library.2.13.0/lib/long.js");
 
 
 /* harmony default export */ __webpack_exports__["default"] = (_lib_long__WEBPACK_IMPORTED_MODULE_1__["Long"]);
@@ -7785,7 +7889,7 @@ function makeRangeStepFunction(step, last, unsigned) {
             return [x, op_Addition(x, step)];
         }
         else {
-            return null;
+            return undefined;
         }
     };
 }
@@ -7793,9 +7897,9 @@ function makeRangeStepFunction(step, last, unsigned) {
 
 /***/ }),
 
-/***/ "./.fable/fable-library.2.4.15/Map.js":
+/***/ "./.fable/fable-library.2.13.0/Map.js":
 /*!********************************************!*\
-  !*** ./.fable/fable-library.2.4.15/Map.js ***!
+  !*** ./.fable/fable-library.2.13.0/Map.js ***!
   \********************************************/
 /*! exports provided: MapTree$00602, MapTree$00602$reflection, MapTreeModule$$$sizeAux, MapTreeModule$$$size, MapTreeModule$$$empty, MapTreeModule$$$height, MapTreeModule$$$isEmpty, MapTreeModule$$$mk, MapTreeModule$$$rebalance, MapTreeModule$$$add, MapTreeModule$$$find, MapTreeModule$$$tryFind, MapTreeModule$$$partition1, MapTreeModule$$$partitionAux, MapTreeModule$$$partition, MapTreeModule$$$filter1, MapTreeModule$$$filterAux, MapTreeModule$$$filter, MapTreeModule$$$spliceOutSuccessor, MapTreeModule$$$remove, MapTreeModule$$$mem, MapTreeModule$$$iter, MapTreeModule$$$tryPick, MapTreeModule$$$exists, MapTreeModule$$$forall, MapTreeModule$$$map, MapTreeModule$$$mapi, MapTreeModule$$$foldBack, MapTreeModule$$$fold, MapTreeModule$$$foldFromTo, MapTreeModule$$$foldSection, MapTreeModule$$$loop, MapTreeModule$$$toList, MapTreeModule$$$ofList, MapTreeModule$$$mkFromEnumerator, MapTreeModule$$$ofArray, MapTreeModule$$$ofSeq, MapTreeModule$$$copyToArray, MapTreeModule$002EMapIterator$00602, MapTreeModule$002EMapIterator$00602$reflection, MapTreeModule$$$collapseLHS, MapTreeModule$$$mkIterator, MapTreeModule$$$notStarted, MapTreeModule$$$alreadyFinished, MapTreeModule$$$current, MapTreeModule$$$moveNext, MapTreeModule$002EmkIEnumerator$0027$00602, MapTreeModule$002EmkIEnumerator$0027$00602$reflection, MapTreeModule$002EmkIEnumerator$0027$00602$$$$002Ector$$Z26BC498C, MapTreeModule$$$mkIEnumerator, MapTreeModule$$$toSeq, FSharpMap, FSharpMap$reflection, FSharpMap$$$$002Ector$$58ADD115, FSharpMap$$get_Comparer, FSharpMap$$get_Tree, FSharpMap$$Add$$5BDDA1, FSharpMap$$get_IsEmpty, FSharpMap$$get_Item$$2B595, FSharpMap$$TryGetValue$$5BDDA1, FSharpMap$$TryPick$$72321DD7, FSharpMap$$Exists$$Z395DDC35, FSharpMap$$Filter$$Z395DDC35, FSharpMap$$ForAll$$Z395DDC35, FSharpMap$$Fold, FSharpMap$$FoldSection, FSharpMap$$Iterate$$1DCFB91D, FSharpMap$$MapRange$$6DC7247, FSharpMap$$Map$$Z6F6B671C, FSharpMap$$Partition$$Z395DDC35, FSharpMap$$get_Count, FSharpMap$$ContainsKey$$2B595, FSharpMap$$Remove$$2B595, FSharpMap$$TryFind$$2B595, FSharpMap$$ToList, isEmpty, add, find, tryFind, remove, containsKey, iterate, tryPick, pick, exists, filter, partition, forAll, mapRange, map, fold, foldBack, toSeq, findKey, tryFindKey, ofList, ofSeq, ofArray, toList, toArray, empty, createMutable, groupBy, countBy, count */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -7907,15 +8011,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "groupBy", function() { return groupBy; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "countBy", function() { return countBy; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "count", function() { return count; });
-/* harmony import */ var _Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Types.js */ "./.fable/fable-library.2.4.15/Types.js");
-/* harmony import */ var _Reflection_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Reflection.js */ "./.fable/fable-library.2.4.15/Reflection.js");
-/* harmony import */ var _Option_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Option.js */ "./.fable/fable-library.2.4.15/Option.js");
-/* harmony import */ var _Seq_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Seq.js */ "./.fable/fable-library.2.4.15/Seq.js");
-/* harmony import */ var _Util_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Util.js */ "./.fable/fable-library.2.4.15/Util.js");
-/* harmony import */ var _String_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./String.js */ "./.fable/fable-library.2.4.15/String.js");
-/* harmony import */ var _MutableMap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./MutableMap */ "./.fable/fable-library.2.4.15/MutableMap.js");
-/* harmony import */ var _Array_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Array.js */ "./.fable/fable-library.2.4.15/Array.js");
-
+/* harmony import */ var _Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Types.js */ "./.fable/fable-library.2.13.0/Types.js");
+/* harmony import */ var _Reflection_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Reflection.js */ "./.fable/fable-library.2.13.0/Reflection.js");
+/* harmony import */ var _Option_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Option.js */ "./.fable/fable-library.2.13.0/Option.js");
+/* harmony import */ var _Seq_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Seq.js */ "./.fable/fable-library.2.13.0/Seq.js");
+/* harmony import */ var _Util_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Util.js */ "./.fable/fable-library.2.13.0/Util.js");
+/* harmony import */ var _String_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./String.js */ "./.fable/fable-library.2.13.0/String.js");
+/* harmony import */ var _MutableMap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./MutableMap */ "./.fable/fable-library.2.13.0/MutableMap.js");
 
 
 
@@ -7924,10 +8026,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const MapTree$00602 = Object(_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Map_MapTree(tag, name, ...fields) {
-  _Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
 }, _Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
 function MapTree$00602$reflection($gen$$3, $gen$$4) {
-  return Object(_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union"])("Map.MapTree`2", [$gen$$3, $gen$$4], MapTree$00602, () => ["MapEmpty", ["MapOne", [$gen$$3, $gen$$4]], ["MapNode", [$gen$$3, $gen$$4, MapTree$00602$reflection($gen$$3, $gen$$4), MapTree$00602$reflection($gen$$3, $gen$$4), _Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]]]]);
+  return Object(_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union_type"])("Map.MapTree`2", [$gen$$3, $gen$$4], MapTree$00602, () => ["MapEmpty", ["MapOne", [["Item1", $gen$$3], ["Item2", $gen$$4]]], ["MapNode", [["Item1", $gen$$3], ["Item2", $gen$$4], ["Item3", MapTree$00602$reflection($gen$$3, $gen$$4)], ["Item4", MapTree$00602$reflection($gen$$3, $gen$$4)], ["Item5", _Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"]]]]]);
 }
 function MapTreeModule$$$sizeAux($acc$$5, $m$$6) {
   MapTreeModule$$$sizeAux: while (true) {
@@ -8145,7 +8249,7 @@ function MapTreeModule$$$tryFind($comparer$$2$$26, $k$$4$$27, $m$$5$$28) {
           if (c$$4 === 0) {
             return Object(_Option_js__WEBPACK_IMPORTED_MODULE_2__["some"])(m$$5.fields[1]);
           } else {
-            return null;
+            return undefined;
           }
         }
 
@@ -8170,7 +8274,7 @@ function MapTreeModule$$$tryFind($comparer$$2$$26, $k$$4$$27, $m$$5$$28) {
 
       default:
         {
-          return null;
+          return undefined;
         }
     }
 
@@ -8390,7 +8494,9 @@ function MapTreeModule$$$iter($f$$6$$62, $m$$9$$63) {
         }
 
       default:
-        {}
+        {
+          void null;
+        }
     }
 
     break;
@@ -8428,7 +8534,7 @@ function MapTreeModule$$$tryPick($f$$7$$64, $m$$10$$65) {
 
       default:
         {
-          return null;
+          return undefined;
         }
     }
 
@@ -8706,6 +8812,8 @@ function MapTreeModule$$$ofSeq(comparer$$16, c$$9) {
   } finally {
     if (Object(_Util_js__WEBPACK_IMPORTED_MODULE_4__["isDisposable"])(ie)) {
       ie.Dispose();
+    } else {
+      void null;
     }
   }
 }
@@ -8716,12 +8824,12 @@ function MapTreeModule$$$copyToArray(s$$4, arr$$1, i$$1) {
     j = j + 1;
   }, s$$4);
 }
-const MapTreeModule$002EMapIterator$00602 = Object(_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Map_MapTreeModule_MapIterator(arg1, arg2) {
-  this.stack = arg1;
-  this.started = arg2;
+const MapTreeModule$002EMapIterator$00602 = Object(_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Map_MapTreeModule_MapIterator(stack, started) {
+  this.stack = stack;
+  this.started = started;
 }, _Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
 function MapTreeModule$002EMapIterator$00602$reflection($gen$$109, $gen$$110) {
-  return Object(_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record"])("Map.MapTreeModule.MapIterator`2", [$gen$$109, $gen$$110], MapTreeModule$002EMapIterator$00602, () => [["stack", Object(_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list"])(MapTree$00602$reflection($gen$$109, $gen$$110))], ["started", _Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]]);
+  return Object(_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record_type"])("Map.MapTreeModule.MapIterator`2", [$gen$$109, $gen$$110], MapTreeModule$002EMapIterator$00602, () => [["stack", Object(_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list_type"])(MapTree$00602$reflection($gen$$109, $gen$$110))], ["started", _Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]);
 }
 function MapTreeModule$$$collapseLHS($stack$$111) {
   MapTreeModule$$$collapseLHS: while (true) {
@@ -8789,9 +8897,10 @@ const MapTreeModule$002EmkIEnumerator$0027$00602 = Object(_Types_js__WEBPACK_IMP
   const $this$$1 = this;
   $this$$1.s = s$$6;
   $this$$1.i = MapTreeModule$$$mkIterator($this$$1.s);
+  void null;
 });
 function MapTreeModule$002EmkIEnumerator$0027$00602$reflection($gen$$115, $gen$$116) {
-  return Object(_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Map.MapTreeModule.mkIEnumerator'`2", [$gen$$115, $gen$$116]);
+  return Object(_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Map.MapTreeModule.mkIEnumerator'`2", [$gen$$115, $gen$$116], MapTreeModule$002EmkIEnumerator$0027$00602);
 }
 function MapTreeModule$002EmkIEnumerator$0027$00602$$$$002Ector$$Z26BC498C(s$$6) {
   return this instanceof MapTreeModule$002EmkIEnumerator$0027$00602 ? MapTreeModule$002EmkIEnumerator$0027$00602.call(this, s$$6) : new MapTreeModule$002EmkIEnumerator$0027$00602(s$$6);
@@ -8813,7 +8922,9 @@ MapTreeModule$002EmkIEnumerator$0027$00602.prototype.Reset = function () {
   __$$2.i = MapTreeModule$$$mkIterator(__$$2.s);
 };
 
-MapTreeModule$002EmkIEnumerator$0027$00602.prototype.Dispose = function () {};
+MapTreeModule$002EmkIEnumerator$0027$00602.prototype.Dispose = function () {
+  void null;
+};
 
 function MapTreeModule$$$mkIEnumerator(s$$7) {
   return MapTreeModule$002EmkIEnumerator$0027$00602$$$$002Ector$$Z26BC498C(s$$7);
@@ -8824,7 +8935,7 @@ function MapTreeModule$$$toSeq(s$$8) {
     if (en$$1.MoveNext()) {
       return [en$$1.Current, en$$1];
     } else {
-      return null;
+      return undefined;
     }
   }, en);
 }
@@ -8832,9 +8943,10 @@ const FSharpMap = Object(_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(func
   const $this$$2 = this;
   $this$$2.comparer = comparer$$17;
   $this$$2.tree = tree;
+  void null;
 });
 function FSharpMap$reflection($gen$$120, $gen$$121) {
-  return Object(_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Map.FSharpMap", [$gen$$120, $gen$$121]);
+  return Object(_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Map.FSharpMap", [$gen$$120, $gen$$121], FSharpMap);
 }
 function FSharpMap$$$$002Ector$$58ADD115(comparer$$17, tree) {
   return this instanceof FSharpMap ? FSharpMap.call(this, comparer$$17, tree) : new FSharpMap(comparer$$17, tree);
@@ -8912,13 +9024,14 @@ function FSharpMap$$ToList(__$$24) {
 }
 
 FSharpMap.prototype.toString = function () {
-  var strings;
   const this$ = this;
-  return "map [" + (strings = (Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["map"])(function mapping(kv) {
-    const clo1 = Object(_String_js__WEBPACK_IMPORTED_MODULE_5__["toText"])(Object(_String_js__WEBPACK_IMPORTED_MODULE_5__["printf"])("(%A, %A)"));
-    const clo2 = clo1(kv[0]);
-    return clo2(kv[1]);
-  }, this$)), (Object(_String_js__WEBPACK_IMPORTED_MODULE_5__["join"])("; ", strings))) + "]";
+  let str;
+  let strings;
+  strings = Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["map"])(function toStr(kv) {
+    return Object(_String_js__WEBPACK_IMPORTED_MODULE_5__["format"])("({0}, {1})", kv[0], kv[1]);
+  }, this$);
+  str = Object(_String_js__WEBPACK_IMPORTED_MODULE_5__["join"])("; ", strings);
+  return "map [" + str + "]";
 };
 
 FSharpMap.prototype.GetHashCode = function () {
@@ -8933,9 +9046,9 @@ FSharpMap.prototype.GetHashCode = function () {
 
   while (e$$1.MoveNext()) {
     const patternInput$$5 = e$$1.Current;
-    const activePatternResult3703 = patternInput$$5;
-    res$$3 = combineHash(res$$3, Object(_Util_js__WEBPACK_IMPORTED_MODULE_4__["structuralHash"])(activePatternResult3703[0]));
-    res$$3 = combineHash(res$$3, Object(_Util_js__WEBPACK_IMPORTED_MODULE_4__["structuralHash"])(activePatternResult3703[1]));
+    const activePatternResult3682 = patternInput$$5;
+    res$$3 = combineHash(res$$3, Object(_Util_js__WEBPACK_IMPORTED_MODULE_4__["structuralHash"])(activePatternResult3682[0]));
+    res$$3 = combineHash(res$$3, Object(_Util_js__WEBPACK_IMPORTED_MODULE_4__["structuralHash"])(activePatternResult3682[1]));
   }
 
   return Math.abs(res$$3) | 0;
@@ -8984,11 +9097,15 @@ FSharpMap.prototype.CompareTo = function (obj) {
     } finally {
       if (Object(_Util_js__WEBPACK_IMPORTED_MODULE_4__["isDisposable"])(e2)) {
         e2.Dispose();
+      } else {
+        void null;
       }
     }
   } finally {
     if (Object(_Util_js__WEBPACK_IMPORTED_MODULE_4__["isDisposable"])(e1)) {
       e1.Dispose();
+    } else {
+      void null;
     }
   }
 };
@@ -9026,7 +9143,7 @@ FSharpMap.prototype.has = function (k$$35) {
 FSharpMap.prototype.keys = function () {
   const this$$$7 = this;
   const source$$1 = MapTreeModule$$$toSeq(FSharpMap$$get_Tree(this$$$7));
-  return Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["map"])(function mapping$$1(kv$$1) {
+  return Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["map"])(function mapping(kv$$1) {
     return kv$$1[0];
   }, source$$1);
 };
@@ -9038,7 +9155,7 @@ FSharpMap.prototype.set = function (k$$36, v$$26) {
 FSharpMap.prototype.values = function () {
   const this$$$8 = this;
   const source$$2 = MapTreeModule$$$toSeq(FSharpMap$$get_Tree(this$$$8));
-  return Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["map"])(function mapping$$2(kv$$2) {
+  return Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["map"])(function mapping$$1(kv$$2) {
     return kv$$2[1];
   }, source$$2);
 };
@@ -9112,7 +9229,7 @@ function findKey(f$$38, m$$41) {
     if (f$$38(k$$42, v$$28)) {
       return Object(_Option_js__WEBPACK_IMPORTED_MODULE_2__["some"])(k$$42);
     } else {
-      return null;
+      return undefined;
     }
   }, m$$42);
 
@@ -9129,7 +9246,7 @@ function tryFindKey(f$$40, m$$43) {
     if (f$$40(k$$44, v$$29)) {
       return Object(_Option_js__WEBPACK_IMPORTED_MODULE_2__["some"])(k$$44);
     } else {
-      return null;
+      return undefined;
     }
   }, m$$44);
 }
@@ -9155,99 +9272,35 @@ function toArray(m$$46) {
 function empty(comparer$$21) {
   return FSharpMap$$$$002Ector$$58ADD115(comparer$$21, new MapTree$00602(0, "MapEmpty"));
 }
-
-function createMutablePrivate(comparer$$22, tree$0027) {
-  let tree$$1 = tree$0027;
-  return {
-    get size() {
-      return MapTreeModule$$$size(tree$$1);
-    },
-
-    clear() {
-      tree$$1 = new MapTree$00602(0, "MapEmpty");
-    },
-
-    delete(x$$18) {
-      if (MapTreeModule$$$mem(comparer$$22, x$$18, tree$$1)) {
-        tree$$1 = MapTreeModule$$$remove(comparer$$22, x$$18, tree$$1);
-        return true;
-      } else {
-        return false;
-      }
-    },
-
-    entries() {
-      return MapTreeModule$$$toSeq(tree$$1);
-    },
-
-    get(k$$45) {
-      return MapTreeModule$$$find(comparer$$22, k$$45, tree$$1);
-    },
-
-    has(x$$19) {
-      return MapTreeModule$$$mem(comparer$$22, x$$19, tree$$1);
-    },
-
-    keys() {
-      const source$$3 = MapTreeModule$$$toSeq(tree$$1);
-      return Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["map"])(function mapping$$3(kv$$3) {
-        return kv$$3[0];
-      }, source$$3);
-    },
-
-    set(k$$46, v$$30) {
-      const this$$$9 = this;
-      tree$$1 = MapTreeModule$$$add(comparer$$22, k$$46, v$$30, tree$$1);
-      return this$$$9;
-    },
-
-    values() {
-      const source$$4 = MapTreeModule$$$toSeq(tree$$1);
-      return Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["map"])(function mapping$$4(kv$$4) {
-        return kv$$4[1];
-      }, source$$4);
-    },
-
-    [Symbol.iterator]() {
-      return Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["toIterator"])(MapTreeModule$$$mkIEnumerator(tree$$1));
-    },
-
-    GetEnumerator() {
-      return MapTreeModule$$$mkIEnumerator(tree$$1);
-    }
-
-  };
-}
-
-function createMutable(source$$5, comparer$$23) {
-  const map$$1 = Object(_MutableMap__WEBPACK_IMPORTED_MODULE_6__["MutableMap$00602$$$$002Ector$$6623D9B3"])(source$$5, comparer$$23);
+function createMutable(source$$3, comparer$$22) {
+  const map$$1 = Object(_MutableMap__WEBPACK_IMPORTED_MODULE_6__["MutableMap$00602$$$$002Ector$$6623D9B3"])(source$$3, comparer$$22);
   return map$$1;
 }
-function groupBy(projection, xs, comparer$$24) {
-  const dict = createMutable(Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["empty"])(), comparer$$24);
-  Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["iterate"])(function (v$$31) {
-    const key = projection(v$$31);
+function groupBy(projection, xs, comparer$$23) {
+  const dict = createMutable(Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["empty"])(), comparer$$23);
+  Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["iterate"])(function (v$$30) {
+    const key = projection(v$$30);
 
     if (dict.has(key)) {
-      Object(_Array_js__WEBPACK_IMPORTED_MODULE_7__["addInPlace"])(v$$31, dict.get(key));
+      void dict.get(key).push(v$$30);
     } else {
-      const value = dict.set(key, [v$$31]);
+      const value = dict.set(key, [v$$30]);
       void value;
     }
   }, xs);
-  return Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["map"])(function mapping$$5(kv$$5) {
-    return [kv$$5[0], kv$$5[1]];
+  return Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["map"])(function mapping$$2(kv$$3) {
+    return [kv$$3[0], kv$$3[1]];
   }, dict);
 }
-function countBy(projection$$1, xs$$1, comparer$$25) {
-  const dict$$1 = createMutable(Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["empty"])(), comparer$$25);
+function countBy(projection$$1, xs$$1, comparer$$24) {
+  const dict$$1 = createMutable(Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["empty"])(), comparer$$24);
   Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["iterate"])(function (value$$1) {
     const key$$1 = projection$$1(value$$1);
     const value$$2 = dict$$1.has(key$$1) ? dict$$1.set(key$$1, dict$$1.get(key$$1) + 1) : dict$$1.set(key$$1, 1);
     void value$$2;
   }, xs$$1);
-  return Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["map"])(function mapping$$6(kv$$6) {
-    return [kv$$6[0], kv$$6[1]];
+  return Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["map"])(function mapping$$3(kv$$4) {
+    return [kv$$4[0], kv$$4[1]];
   }, dict$$1);
 }
 function count(m$$47) {
@@ -9256,9 +9309,9 @@ function count(m$$47) {
 
 /***/ }),
 
-/***/ "./.fable/fable-library.2.4.15/MutableMap.js":
+/***/ "./.fable/fable-library.2.13.0/MutableMap.js":
 /*!***************************************************!*\
-  !*** ./.fable/fable-library.2.4.15/MutableMap.js ***!
+  !*** ./.fable/fable-library.2.13.0/MutableMap.js ***!
   \***************************************************/
 /*! exports provided: MutableMap$00602, MutableMap$00602$reflection, MutableMap$00602$$$$002Ector$$6623D9B3, MutableMap$00602$$TryFind$$2B595, MutableMap$00602$$get_Comparer, MutableMap$00602$$Clear, MutableMap$00602$$get_Count, MutableMap$00602$$get_Item$$2B595, MutableMap$00602$$set_Item$$5BDDA1, MutableMap$00602$$Add$$5BDDA1, MutableMap$00602$$ContainsKey$$2B595, MutableMap$00602$$Remove$$2B595 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -9277,13 +9330,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MutableMap$00602$$Add$$5BDDA1", function() { return MutableMap$00602$$Add$$5BDDA1; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MutableMap$00602$$ContainsKey$$2B595", function() { return MutableMap$00602$$ContainsKey$$2B595; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MutableMap$00602$$Remove$$2B595", function() { return MutableMap$00602$$Remove$$2B595; });
-/* harmony import */ var _Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Types.js */ "./.fable/fable-library.2.4.15/Types.js");
-/* harmony import */ var _Seq_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Seq.js */ "./.fable/fable-library.2.4.15/Seq.js");
-/* harmony import */ var _Reflection_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Reflection.js */ "./.fable/fable-library.2.4.15/Reflection.js");
-/* harmony import */ var _Util_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Util.js */ "./.fable/fable-library.2.4.15/Util.js");
-/* harmony import */ var _Array_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Array.js */ "./.fable/fable-library.2.4.15/Array.js");
-/* harmony import */ var _String_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./String.js */ "./.fable/fable-library.2.4.15/String.js");
-
+/* harmony import */ var _Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Types.js */ "./.fable/fable-library.2.13.0/Types.js");
+/* harmony import */ var _Seq_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Seq.js */ "./.fable/fable-library.2.13.0/Seq.js");
+/* harmony import */ var _Reflection_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Reflection.js */ "./.fable/fable-library.2.13.0/Reflection.js");
+/* harmony import */ var _Util_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Util.js */ "./.fable/fable-library.2.13.0/Util.js");
+/* harmony import */ var _String_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./String.js */ "./.fable/fable-library.2.13.0/String.js");
 
 
 
@@ -9299,9 +9350,10 @@ const MutableMap$00602 = Object(_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"
   Object(_Seq_js__WEBPACK_IMPORTED_MODULE_1__["iterate"])(function (pair) {
     MutableMap$00602$$Add$$5BDDA1(this$.contents, pair[0], pair[1]);
   }, pairs);
+  void null;
 });
 function MutableMap$00602$reflection($gen$$4, $gen$$5) {
-  return Object(_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["type"])("Fable.Collections.MutableMap`2", [$gen$$4, $gen$$5]);
+  return Object(_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["class_type"])("Fable.Collections.MutableMap`2", [$gen$$4, $gen$$5], MutableMap$00602);
 }
 function MutableMap$00602$$$$002Ector$$6623D9B3(pairs, comparer) {
   return this instanceof MutableMap$00602 ? MutableMap$00602.call(this, pairs, comparer) : new MutableMap$00602(pairs, comparer);
@@ -9342,7 +9394,7 @@ function MutableMap$00602$$TryFind$$2B595(this$$$2, k$$1) {
 
     case 1:
       {
-        return null;
+        return undefined;
       }
   }
 }
@@ -9401,7 +9453,7 @@ function MutableMap$00602$$set_Item$$5BDDA1(this$$$7, k$$3, v) {
     case 1:
       {
         if (matchValue$$3[0]) {
-          const value = Object(_Array_js__WEBPACK_IMPORTED_MODULE_4__["addInPlace"])([k$$3, v], Object(_Util_js__WEBPACK_IMPORTED_MODULE_3__["getItemFromDict"])(this$$$7.hashMap, matchValue$$3[1]));
+          const value = void Object(_Util_js__WEBPACK_IMPORTED_MODULE_3__["getItemFromDict"])(this$$$7.hashMap, matchValue$$3[1]).push([k$$3, v]);
           void null;
         } else {
           this$$$7.hashMap.set(matchValue$$3[1], [[k$$3, v]]);
@@ -9428,9 +9480,7 @@ function MutableMap$00602$$Add$$5BDDA1(this$$$8, k$$4, v$$1) {
   switch ($target$$24) {
     case 0:
       {
-        let msg;
-        const clo1 = Object(_String_js__WEBPACK_IMPORTED_MODULE_5__["toText"])(Object(_String_js__WEBPACK_IMPORTED_MODULE_5__["printf"])("An item with the same key has already been added. Key: %A"));
-        msg = clo1(k$$4);
+        const msg = Object(_String_js__WEBPACK_IMPORTED_MODULE_4__["format"])("An item with the same key has already been added. Key: {0}", k$$4);
         throw new Error(msg);
         break;
       }
@@ -9438,7 +9488,7 @@ function MutableMap$00602$$Add$$5BDDA1(this$$$8, k$$4, v$$1) {
     case 1:
       {
         if (matchValue$$4[0]) {
-          const value$$1 = Object(_Array_js__WEBPACK_IMPORTED_MODULE_4__["addInPlace"])([k$$4, v$$1], Object(_Util_js__WEBPACK_IMPORTED_MODULE_3__["getItemFromDict"])(this$$$8.hashMap, matchValue$$4[1]));
+          const value$$1 = void Object(_Util_js__WEBPACK_IMPORTED_MODULE_3__["getItemFromDict"])(this$$$8.hashMap, matchValue$$4[1]).push([k$$4, v$$1]);
           void null;
         } else {
           this$$$8.hashMap.set(matchValue$$4[1], [[k$$4, v$$1]]);
@@ -9582,6 +9632,8 @@ MutableMap$00602.prototype.Remove = function (item$$2) {
     if (Object(_Util_js__WEBPACK_IMPORTED_MODULE_3__["equals"])(pair$$4[1], item$$2[1])) {
       const value$$2 = MutableMap$00602$$Remove$$2B595(this$$$18, item$$2[0]);
       void value$$2;
+    } else {
+      void null;
     }
 
     return true;
@@ -9646,9 +9698,9 @@ MutableMap$00602.prototype.values = function () {
 
 /***/ }),
 
-/***/ "./.fable/fable-library.2.4.15/MutableSet.js":
+/***/ "./.fable/fable-library.2.13.0/MutableSet.js":
 /*!***************************************************!*\
-  !*** ./.fable/fable-library.2.4.15/MutableSet.js ***!
+  !*** ./.fable/fable-library.2.13.0/MutableSet.js ***!
   \***************************************************/
 /*! exports provided: MutableSet$00601, MutableSet$00601$reflection, MutableSet$00601$$$$002Ector$$Z6150332D, MutableSet$00601$$get_Comparer, MutableSet$00601$$Clear, MutableSet$00601$$get_Count, MutableSet$00601$$Add$$2B595, MutableSet$00601$$Contains$$2B595, MutableSet$00601$$Remove$$2B595 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -9664,13 +9716,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MutableSet$00601$$Add$$2B595", function() { return MutableSet$00601$$Add$$2B595; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MutableSet$00601$$Contains$$2B595", function() { return MutableSet$00601$$Contains$$2B595; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MutableSet$00601$$Remove$$2B595", function() { return MutableSet$00601$$Remove$$2B595; });
-/* harmony import */ var _Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Types.js */ "./.fable/fable-library.2.4.15/Types.js");
-/* harmony import */ var _Seq_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Seq.js */ "./.fable/fable-library.2.4.15/Seq.js");
-/* harmony import */ var _Reflection_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Reflection.js */ "./.fable/fable-library.2.4.15/Reflection.js");
-/* harmony import */ var _Util_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Util.js */ "./.fable/fable-library.2.4.15/Util.js");
-/* harmony import */ var _Option_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Option.js */ "./.fable/fable-library.2.4.15/Option.js");
-/* harmony import */ var _Array_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Array.js */ "./.fable/fable-library.2.4.15/Array.js");
-
+/* harmony import */ var _Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Types.js */ "./.fable/fable-library.2.13.0/Types.js");
+/* harmony import */ var _Seq_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Seq.js */ "./.fable/fable-library.2.13.0/Seq.js");
+/* harmony import */ var _Reflection_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Reflection.js */ "./.fable/fable-library.2.13.0/Reflection.js");
+/* harmony import */ var _Util_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Util.js */ "./.fable/fable-library.2.13.0/Util.js");
+/* harmony import */ var _Option_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Option.js */ "./.fable/fable-library.2.13.0/Option.js");
 
 
 
@@ -9687,9 +9737,10 @@ const MutableSet$00601 = Object(_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"
     const value = MutableSet$00601$$Add$$2B595(this$.contents, item);
     void value;
   }, items);
+  void null;
 });
 function MutableSet$00601$reflection($gen$$4) {
-  return Object(_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["type"])("Fable.Collections.MutableSet`1", [$gen$$4]);
+  return Object(_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["class_type"])("Fable.Collections.MutableSet`1", [$gen$$4], MutableSet$00601);
 }
 function MutableSet$00601$$$$002Ector$$Z6150332D(items, comparer) {
   return this instanceof MutableSet$00601 ? MutableSet$00601.call(this, items, comparer) : new MutableSet$00601(items, comparer);
@@ -9730,7 +9781,7 @@ function MutableSet$00601$$TryFind$$2B595(this$$$2, k$$1) {
 
     case 1:
       {
-        return null;
+        return undefined;
       }
   }
 }
@@ -9779,7 +9830,7 @@ function MutableSet$00601$$Add$$2B595(this$$$6, k$$2) {
     case 1:
       {
         if (matchValue$$2[0]) {
-          const value$$1 = Object(_Array_js__WEBPACK_IMPORTED_MODULE_5__["addInPlace"])(k$$2, Object(_Util_js__WEBPACK_IMPORTED_MODULE_3__["getItemFromDict"])(this$$$6.hashMap, matchValue$$2[1]));
+          const value$$1 = void Object(_Util_js__WEBPACK_IMPORTED_MODULE_3__["getItemFromDict"])(this$$$6.hashMap, matchValue$$2[1]).push(k$$2);
           void null;
           return true;
         } else {
@@ -9952,11 +10003,11 @@ MutableSet$00601.prototype.entries = function () {
 
 /***/ }),
 
-/***/ "./.fable/fable-library.2.4.15/Option.js":
+/***/ "./.fable/fable-library.2.13.0/Option.js":
 /*!***********************************************!*\
-  !*** ./.fable/fable-library.2.4.15/Option.js ***!
+  !*** ./.fable/fable-library.2.13.0/Option.js ***!
   \***********************************************/
-/*! exports provided: Some, some, value, defaultArg, defaultArgWith, filter, map, map2, map3, bind, tryOp, Choice, choice1, choice2, tryValueIfChoice1, tryValueIfChoice2, Result, ok, error, mapOk, mapError, bindOk */
+/*! exports provided: Some, some, value, tryValue, toArray, defaultArg, defaultArgWith, filter, map, map2, map3, bind, tryOp, Choice, Choice3, Choice4, Choice5, Choice6, Choice7, choice1Of2, choice2Of2, tryValueIfChoice1Of2, tryValueIfChoice2Of2, Result, ok, error, mapOk, mapError, bindOk */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9964,6 +10015,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Some", function() { return Some; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "some", function() { return some; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "value", function() { return value; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "tryValue", function() { return tryValue; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toArray", function() { return toArray; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultArg", function() { return defaultArg; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultArgWith", function() { return defaultArgWith; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filter", function() { return filter; });
@@ -9973,18 +10026,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bind", function() { return bind; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "tryOp", function() { return tryOp; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Choice", function() { return Choice; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "choice1", function() { return choice1; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "choice2", function() { return choice2; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "tryValueIfChoice1", function() { return tryValueIfChoice1; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "tryValueIfChoice2", function() { return tryValueIfChoice2; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Choice3", function() { return Choice3; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Choice4", function() { return Choice4; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Choice5", function() { return Choice5; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Choice6", function() { return Choice6; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Choice7", function() { return Choice7; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "choice1Of2", function() { return choice1Of2; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "choice2Of2", function() { return choice2Of2; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "tryValueIfChoice1Of2", function() { return tryValueIfChoice1Of2; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "tryValueIfChoice2Of2", function() { return tryValueIfChoice2Of2; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Result", function() { return Result; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ok", function() { return ok; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "error", function() { return error; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapOk", function() { return mapOk; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapError", function() { return mapError; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bindOk", function() { return bindOk; });
-/* harmony import */ var _Types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Types */ "./.fable/fable-library.2.4.15/Types.js");
-/* harmony import */ var _Util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Util */ "./.fable/fable-library.2.4.15/Util.js");
+/* harmony import */ var _Types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Types */ "./.fable/fable-library.2.13.0/Types.js");
+/* harmony import */ var _Util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Util */ "./.fable/fable-library.2.13.0/Util.js");
 
 
 // Using a class here for better compatibility with TS files importing Some
@@ -10020,67 +10078,79 @@ class Some {
     }
 }
 function some(x) {
-    x = (x === undefined) ? null : x;
     return x == null || x instanceof Some ? new Some(x) : x;
 }
-function value(x, acceptNull) {
+function value(x) {
     if (x == null) {
-        if (!acceptNull) {
-            throw new Error("Option has no value");
-        }
-        return null;
+        throw new Error("Option has no value");
     }
     else {
         return x instanceof Some ? x.value : x;
     }
 }
-function defaultArg(opt, defaultValue, f) {
-    return (opt != null) ? (f != null ? f(value(opt)) : value(opt)) : defaultValue;
+function tryValue(x) {
+    return x instanceof Some ? x.value : x;
+}
+function toArray(opt) {
+    return (opt == null) ? [] : [value(opt)];
+}
+function defaultArg(opt, defaultValue) {
+    return (opt != null) ? value(opt) : defaultValue;
 }
 function defaultArgWith(opt, defThunk) {
     return (opt != null) ? value(opt) : defThunk();
 }
 function filter(predicate, opt) {
-    return (opt != null) ? (predicate(value(opt)) ? opt : null) : opt;
+    return (opt != null) ? (predicate(value(opt)) ? opt : undefined) : opt;
 }
 function map(mapping, opt) {
-    return (opt != null) ? some(mapping(value(opt))) : null;
+    return (opt != null) ? some(mapping(value(opt))) : undefined;
 }
 function map2(mapping, opt1, opt2) {
-    return (opt1 != null && opt2 != null) ? mapping(value(opt1), value(opt2)) : null;
+    return (opt1 != null && opt2 != null) ? mapping(value(opt1), value(opt2)) : undefined;
 }
 function map3(mapping, opt1, opt2, opt3) {
-    return (opt1 != null && opt2 != null && opt3 != null) ? mapping(value(opt1), value(opt2), value(opt3)) : null;
+    return (opt1 != null && opt2 != null && opt3 != null) ? mapping(value(opt1), value(opt2), value(opt3)) : undefined;
 }
 function bind(binder, opt) {
-    return opt != null ? binder(value(opt)) : null;
+    return opt != null ? binder(value(opt)) : undefined;
 }
 function tryOp(op, arg) {
     try {
         return some(op(arg));
     }
     catch (_a) {
-        return null;
+        return undefined;
     }
 }
-const Choice = Object(_Types__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Choice(tag, name, field) {
-    _Types__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, field);
-}, _Types__WEBPACK_IMPORTED_MODULE_0__["Union"]);
-function choice1(x) {
+// CHOICE
+class Choice extends _Types__WEBPACK_IMPORTED_MODULE_0__["Union"] {
+}
+class Choice3 extends _Types__WEBPACK_IMPORTED_MODULE_0__["Union"] {
+}
+class Choice4 extends _Types__WEBPACK_IMPORTED_MODULE_0__["Union"] {
+}
+class Choice5 extends _Types__WEBPACK_IMPORTED_MODULE_0__["Union"] {
+}
+class Choice6 extends _Types__WEBPACK_IMPORTED_MODULE_0__["Union"] {
+}
+class Choice7 extends _Types__WEBPACK_IMPORTED_MODULE_0__["Union"] {
+}
+function choice1Of2(x) {
     return new Choice(0, "Choice1Of2", x);
 }
-function choice2(x) {
+function choice2Of2(x) {
     return new Choice(1, "Choice2Of2", x);
 }
-function tryValueIfChoice1(x) {
-    return x.tag === 0 ? some(x.fields[0]) : null;
+function tryValueIfChoice1Of2(x) {
+    return x.tag === 0 ? some(x.fields[0]) : undefined;
 }
-function tryValueIfChoice2(x) {
-    return x.tag === 1 ? some(x.fields[0]) : null;
+function tryValueIfChoice2Of2(x) {
+    return x.tag === 1 ? some(x.fields[0]) : undefined;
 }
-const Result = Object(_Types__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Result(tag, name, field) {
-    _Types__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, field);
-}, _Types__WEBPACK_IMPORTED_MODULE_0__["Union"]);
+// RESULT
+class Result extends _Types__WEBPACK_IMPORTED_MODULE_0__["Union"] {
+}
 function ok(x) {
     return new Result(0, "Ok", x);
 }
@@ -10100,11 +10170,11 @@ function bindOk(f, result) {
 
 /***/ }),
 
-/***/ "./.fable/fable-library.2.4.15/Reflection.js":
+/***/ "./.fable/fable-library.2.13.0/Reflection.js":
 /*!***************************************************!*\
-  !*** ./.fable/fable-library.2.4.15/Reflection.js ***!
+  !*** ./.fable/fable-library.2.13.0/Reflection.js ***!
   \***************************************************/
-/*! exports provided: CaseInfo, TypeInfo, getGenerics, equals, compare, type, record, anonRecord, union, tuple, delegate, lambda, option, list, array, enumType, obj, unit, char, string, bool, int8, uint8, int16, uint16, int32, uint32, float32, float64, decimal, name, fullName, namespace, isArray, getElementType, isGenericType, isEnum, getGenericTypeDefinition, getEnumUnderlyingType, getEnumValues, getEnumNames, parseEnum, tryParseEnum, getEnumName, isEnumDefined, getUnionCases, getRecordElements, getTupleElements, getFunctionElements, isUnion, isRecord, isTuple, isFunction, getUnionFields, getUnionCaseFields, getRecordFields, getRecordField, getTupleFields, getTupleField, makeUnion, makeRecord, makeTuple, getCaseTag, getCaseName, getCaseFields */
+/*! exports provided: CaseInfo, TypeInfo, getGenerics, equals, compare, class_type, record_type, anonRecord_type, union_type, tuple_type, delegate_type, lambda_type, option_type, list_type, array_type, enum_type, obj_type, unit_type, char_type, string_type, bool_type, int8_type, uint8_type, int16_type, uint16_type, int32_type, uint32_type, float32_type, float64_type, decimal_type, name, fullName, namespace, isArray, getElementType, isGenericType, isEnum, getGenericTypeDefinition, getEnumUnderlyingType, getEnumValues, getEnumNames, parseEnum, tryParseEnum, getEnumName, isEnumDefined, getUnionCases, getRecordElements, getTupleElements, getFunctionElements, isUnion, isRecord, isTuple, isFunction, getUnionFields, getUnionCaseFields, getRecordFields, getRecordField, getTupleFields, getTupleField, makeUnion, makeRecord, makeTuple, makeGenericType, createInstance, getValue, getCaseTag, getCaseName, getCaseFields */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10114,31 +10184,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getGenerics", function() { return getGenerics; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "equals", function() { return equals; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "compare", function() { return compare; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "type", function() { return type; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "record", function() { return record; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "anonRecord", function() { return anonRecord; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "union", function() { return union; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "tuple", function() { return tuple; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "delegate", function() { return delegate; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "lambda", function() { return lambda; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "option", function() { return option; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "list", function() { return list; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "array", function() { return array; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "enumType", function() { return enumType; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "obj", function() { return obj; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unit", function() { return unit; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "char", function() { return char; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "string", function() { return string; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bool", function() { return bool; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "int8", function() { return int8; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "uint8", function() { return uint8; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "int16", function() { return int16; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "uint16", function() { return uint16; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "int32", function() { return int32; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "uint32", function() { return uint32; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "float32", function() { return float32; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "float64", function() { return float64; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "decimal", function() { return decimal; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "class_type", function() { return class_type; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "record_type", function() { return record_type; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "anonRecord_type", function() { return anonRecord_type; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "union_type", function() { return union_type; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "tuple_type", function() { return tuple_type; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "delegate_type", function() { return delegate_type; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "lambda_type", function() { return lambda_type; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "option_type", function() { return option_type; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "list_type", function() { return list_type; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "array_type", function() { return array_type; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "enum_type", function() { return enum_type; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "obj_type", function() { return obj_type; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unit_type", function() { return unit_type; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "char_type", function() { return char_type; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "string_type", function() { return string_type; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bool_type", function() { return bool_type; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "int8_type", function() { return int8_type; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "uint8_type", function() { return uint8_type; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "int16_type", function() { return int16_type; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "uint16_type", function() { return uint16_type; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "int32_type", function() { return int32_type; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "uint32_type", function() { return uint32_type; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "float32_type", function() { return float32_type; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "float64_type", function() { return float64_type; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "decimal_type", function() { return decimal_type; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "name", function() { return name; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fullName", function() { return fullName; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "namespace", function() { return namespace; });
@@ -10171,11 +10241,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makeUnion", function() { return makeUnion; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makeRecord", function() { return makeRecord; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makeTuple", function() { return makeTuple; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makeGenericType", function() { return makeGenericType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createInstance", function() { return createInstance; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getValue", function() { return getValue; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCaseTag", function() { return getCaseTag; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCaseName", function() { return getCaseName; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCaseFields", function() { return getCaseFields; });
-/* harmony import */ var _Types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Types */ "./.fable/fable-library.2.4.15/Types.js");
-/* harmony import */ var _Util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Util */ "./.fable/fable-library.2.4.15/Util.js");
+/* harmony import */ var _Types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Types */ "./.fable/fable-library.2.13.0/Types.js");
+/* harmony import */ var _Util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Util */ "./.fable/fable-library.2.13.0/Util.js");
 
 
 class CaseInfo {
@@ -10187,10 +10260,10 @@ class CaseInfo {
     }
 }
 class TypeInfo {
-    constructor(fullname, generics, constructor, fields, cases, enumCases) {
+    constructor(fullname, generics, construct, fields, cases, enumCases) {
         this.fullname = fullname;
         this.generics = generics;
-        this.constructor = constructor;
+        this.construct = construct;
         this.fields = fields;
         this.cases = cases;
         this.enumCases = enumCases;
@@ -10228,54 +10301,56 @@ function compare(t1, t2) {
         return Object(_Util__WEBPACK_IMPORTED_MODULE_1__["compareArraysWith"])(getGenerics(t1), getGenerics(t2), compare);
     }
 }
-function type(fullname, generics) {
-    return new TypeInfo(fullname, generics);
+function class_type(fullname, generics, construct) {
+    return new TypeInfo(fullname, generics, construct);
 }
-function record(fullname, generics, constructor, fields) {
-    return new TypeInfo(fullname, generics, constructor, fields);
+function record_type(fullname, generics, construct, fields) {
+    return new TypeInfo(fullname, generics, construct, fields);
 }
-function anonRecord(...fields) {
+function anonRecord_type(...fields) {
     return new TypeInfo("", undefined, undefined, () => fields);
 }
-function union(fullname, generics, constructor, cases) {
-    const t = new TypeInfo(fullname, generics, constructor, undefined, () => cases().map((x, i) => typeof x === "string" ? new CaseInfo(t, i, x) : new CaseInfo(t, i, x[0], x[1])));
+function union_type(fullname, generics, construct, cases) {
+    const t = new TypeInfo(fullname, generics, construct, undefined, () => cases().map((x, i) => typeof x === "string"
+        ? new CaseInfo(t, i, x)
+        : new CaseInfo(t, i, x[0], x[1])));
     return t;
 }
-function tuple(...generics) {
+function tuple_type(...generics) {
     return new TypeInfo("System.Tuple`" + generics.length, generics);
 }
-function delegate(...generics) {
+function delegate_type(...generics) {
     return new TypeInfo("System.Func`" + generics.length, generics);
 }
-function lambda(argType, returnType) {
+function lambda_type(argType, returnType) {
     return new TypeInfo("Microsoft.FSharp.Core.FSharpFunc`2", [argType, returnType]);
 }
-function option(generic) {
+function option_type(generic) {
     return new TypeInfo("Microsoft.FSharp.Core.FSharpOption`1", [generic]);
 }
-function list(generic) {
+function list_type(generic) {
     return new TypeInfo("Microsoft.FSharp.Collections.FSharpList`1", [generic]);
 }
-function array(generic) {
+function array_type(generic) {
     return new TypeInfo(generic.fullname + "[]", [generic]);
 }
-function enumType(fullname, underlyingType, enumCases) {
+function enum_type(fullname, underlyingType, enumCases) {
     return new TypeInfo(fullname, [underlyingType], undefined, undefined, undefined, enumCases);
 }
-const obj = new TypeInfo("System.Object");
-const unit = new TypeInfo("Microsoft.FSharp.Core.Unit");
-const char = new TypeInfo("System.Char");
-const string = new TypeInfo("System.String");
-const bool = new TypeInfo("System.Boolean");
-const int8 = new TypeInfo("System.SByte");
-const uint8 = new TypeInfo("System.Byte");
-const int16 = new TypeInfo("System.Int16");
-const uint16 = new TypeInfo("System.UInt16");
-const int32 = new TypeInfo("System.Int32");
-const uint32 = new TypeInfo("System.UInt32");
-const float32 = new TypeInfo("System.Single");
-const float64 = new TypeInfo("System.Double");
-const decimal = new TypeInfo("System.Decimal");
+const obj_type = new TypeInfo("System.Object");
+const unit_type = new TypeInfo("Microsoft.FSharp.Core.Unit");
+const char_type = new TypeInfo("System.Char");
+const string_type = new TypeInfo("System.String");
+const bool_type = new TypeInfo("System.Boolean");
+const int8_type = new TypeInfo("System.SByte");
+const uint8_type = new TypeInfo("System.Byte");
+const int16_type = new TypeInfo("System.Int16");
+const uint16_type = new TypeInfo("System.UInt16");
+const int32_type = new TypeInfo("System.Int32");
+const uint32_type = new TypeInfo("System.UInt32");
+const float32_type = new TypeInfo("System.Single");
+const float64_type = new TypeInfo("System.Double");
+const decimal_type = new TypeInfo("System.Decimal");
 function name(info) {
     if (Array.isArray(info)) {
         return info[0];
@@ -10319,7 +10394,7 @@ function isEnum(t) {
  * but it should be enough for type comparison purposes
  */
 function getGenericTypeDefinition(t) {
-    return t.generics == null ? t : new TypeInfo(t.fullname, t.generics.map(() => obj));
+    return t.generics == null ? t : new TypeInfo(t.fullname, t.generics.map(() => obj_type));
 }
 function getEnumUnderlyingType(t) {
     var _a;
@@ -10450,7 +10525,7 @@ function getUnionFields(v, t) {
     return [case_, v.fields];
 }
 function getUnionCaseFields(uci) {
-    return uci.fields == null ? [] : uci.fields.map((t, i) => ["Data" + i, t]);
+    return uci.fields == null ? [] : uci.fields;
 }
 function getRecordFields(v) {
     return Object.keys(v).map((k) => v[k]);
@@ -10469,8 +10544,8 @@ function makeUnion(uci, values) {
     if (values.length !== expectedLength) {
         throw new Error(`Expected an array of length ${expectedLength} but got ${values.length}`);
     }
-    return uci.declaringType.constructor != null
-        ? new uci.declaringType.constructor(uci.tag, uci.name, ...values)
+    return uci.declaringType.construct != null
+        ? new uci.declaringType.construct(uci.tag, uci.name, ...values)
         : {};
 }
 function makeRecord(t, values) {
@@ -10478,8 +10553,8 @@ function makeRecord(t, values) {
     if (fields.length !== values.length) {
         throw new Error(`Expected an array of length ${fields.length} but got ${values.length}`);
     }
-    return t.constructor != null
-        ? new t.constructor(...values)
+    return t.construct != null
+        ? new t.construct(...values)
         : Object(_Types__WEBPACK_IMPORTED_MODULE_0__["anonRecord"])(fields.reduce((obj, [key, _t], i) => {
             obj[key] = values[i];
             return obj;
@@ -10487,6 +10562,22 @@ function makeRecord(t, values) {
 }
 function makeTuple(values, _t) {
     return values;
+}
+function makeGenericType(t, generics) {
+    return new TypeInfo(t.fullname, generics, t.construct, t.fields, t.cases);
+}
+function createInstance(t, consArgs) {
+    // TODO: Check if consArgs length is same as t.construct?
+    // (Arg types can still be different)
+    if (typeof t.construct === "function") {
+        return new t.construct(...(consArgs !== null && consArgs !== void 0 ? consArgs : []));
+    }
+    else {
+        throw new Error(`Cannot access constructor of ${t.fullname}`);
+    }
+}
+function getValue(propertyInfo, v) {
+    return v[propertyInfo[0]];
 }
 // Fable.Core.Reflection
 function assertUnion(x) {
@@ -10510,9 +10601,9 @@ function getCaseFields(x) {
 
 /***/ }),
 
-/***/ "./.fable/fable-library.2.4.15/RegExp.js":
+/***/ "./.fable/fable-library.2.13.0/RegExp.js":
 /*!***********************************************!*\
-  !*** ./.fable/fable-library.2.4.15/RegExp.js ***!
+  !*** ./.fable/fable-library.2.13.0/RegExp.js ***!
   \***********************************************/
 /*! exports provided: create, escape, unescape, isMatch, match, matches, options, replace, split */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -10528,7 +10619,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "options", function() { return options; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "replace", function() { return replace; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "split", function() { return split; });
-function create(pattern, options) {
+function create(pattern, options = 0) {
     // Supported RegexOptions
     // * IgnoreCase:  0x0001
     // * Multiline:   0x0002
@@ -10604,7 +10695,7 @@ function replace(reg, input, replacement, limit, offset = 0) {
     }
     if (typeof reg === "string") {
         const tmp = reg;
-        reg = create(input, (limit !== null && limit !== void 0 ? limit : 0));
+        reg = create(input, limit !== null && limit !== void 0 ? limit : 0);
         input = tmp;
         limit = undefined;
     }
@@ -10631,7 +10722,7 @@ function replace(reg, input, replacement, limit, offset = 0) {
 function split(reg, input, limit, offset = 0) {
     if (typeof reg === "string") {
         const tmp = reg;
-        reg = create(input, (limit !== null && limit !== void 0 ? limit : 0));
+        reg = create(input, limit !== null && limit !== void 0 ? limit : 0);
         input = tmp;
         limit = undefined;
     }
@@ -10642,11 +10733,11 @@ function split(reg, input, limit, offset = 0) {
 
 /***/ }),
 
-/***/ "./.fable/fable-library.2.4.15/Seq.js":
+/***/ "./.fable/fable-library.2.13.0/Seq.js":
 /*!********************************************!*\
-  !*** ./.fable/fable-library.2.4.15/Seq.js ***!
+  !*** ./.fable/fable-library.2.13.0/Seq.js ***!
   \********************************************/
-/*! exports provided: Enumerator, getEnumerator, toIterator, ofArray, allPairs, append, average, averageBy, concat, collect, choose, compareWith, delay, empty, enumerateFromFunctions, enumerateWhile, enumerateThenFinally, enumerateUsing, exactlyOne, except, exists, exists2, forAll, forAll2, contains, filter, where, fold, foldBack, fold2, foldBack2, tryHead, head, initialize, initializeInfinite, tryItem, item, iterate, iterate2, iterateIndexed, iterateIndexed2, isEmpty, tryLast, last, length, map, mapIndexed, indexed, map2, mapIndexed2, map3, mapFold, mapFoldBack, max, maxBy, min, minBy, pairwise, rangeChar, rangeLong, rangeDecimal, rangeNumber, readOnly, reduce, reduceBack, replicate, reverse, scan, scanBack, singleton, skip, skipWhile, sortWith, sum, sumBy, tail, take, truncate, takeWhile, tryFind, find, tryFindBack, findBack, tryFindIndex, findIndex, tryFindIndexBack, findIndexBack, tryPick, pick, unfold, zip, zip3, windowed, transpose */
+/*! exports provided: Enumerator, getEnumerator, toIterator, ofArray, allPairs, append, average, averageBy, concat, collect, choose, compareWith, delay, empty, singleton, enumerateFromFunctions, enumerateWhile, enumerateThenFinally, enumerateUsing, exactlyOne, except, exists, exists2, forAll, forAll2, contains, filter, where, fold, foldBack, fold2, foldBack2, tryHead, head, initialize, initializeInfinite, tryItem, item, iterate, iterate2, iterateIndexed, iterateIndexed2, isEmpty, tryLast, last, length, map, mapIndexed, indexed, map2, mapIndexed2, map3, mapFold, mapFoldBack, max, maxBy, min, minBy, pairwise, rangeChar, rangeLong, rangeDecimal, rangeNumber, readOnly, reduce, reduceBack, replicate, reverse, scan, scanBack, skip, skipWhile, sortWith, sum, sumBy, tail, take, truncate, takeWhile, tryFind, find, tryFindBack, findBack, tryFindIndex, findIndex, tryFindIndexBack, findIndexBack, tryPick, pick, unfold, zip, zip3, windowed, transpose */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10665,6 +10756,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "compareWith", function() { return compareWith; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "delay", function() { return delay; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "empty", function() { return empty; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "singleton", function() { return singleton; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "enumerateFromFunctions", function() { return enumerateFromFunctions; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "enumerateWhile", function() { return enumerateWhile; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "enumerateThenFinally", function() { return enumerateThenFinally; });
@@ -10720,7 +10812,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "reverse", function() { return reverse; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "scan", function() { return scan; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "scanBack", function() { return scanBack; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "singleton", function() { return singleton; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "skip", function() { return skip; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "skipWhile", function() { return skipWhile; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sortWith", function() { return sortWith; });
@@ -10745,10 +10836,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "zip3", function() { return zip3; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "windowed", function() { return windowed; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "transpose", function() { return transpose; });
-/* harmony import */ var _Decimal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Decimal */ "./.fable/fable-library.2.4.15/Decimal.js");
-/* harmony import */ var _Long__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Long */ "./.fable/fable-library.2.4.15/Long.js");
-/* harmony import */ var _Option__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Option */ "./.fable/fable-library.2.4.15/Option.js");
-/* harmony import */ var _Util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Util */ "./.fable/fable-library.2.4.15/Util.js");
+/* harmony import */ var _Decimal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Decimal */ "./.fable/fable-library.2.13.0/Decimal.js");
+/* harmony import */ var _Long__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Long */ "./.fable/fable-library.2.13.0/Long.js");
+/* harmony import */ var _Option__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Option */ "./.fable/fable-library.2.13.0/Option.js");
+/* harmony import */ var _Util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Util */ "./.fable/fable-library.2.13.0/Util.js");
 
 
 
@@ -10780,7 +10871,7 @@ function toIterator(en) {
         next() {
             return en.MoveNext()
                 ? { done: false, value: en.Current }
-                : { done: true, value: null };
+                : { done: true, value: undefined };
         },
     };
 }
@@ -10797,8 +10888,15 @@ function __failIfNone(res) {
     }
     return Object(_Option__WEBPACK_IMPORTED_MODULE_2__["value"])(res);
 }
+function makeSeq(f) {
+    const seq = {
+        [Symbol.iterator]: f,
+        toString: () => "seq [" + Array.from(seq).join("; ") + "]",
+    };
+    return seq;
+}
 function ofArray(xs) {
-    return delay(() => unfold((i) => i != null && i < xs.length ? [xs[i], i + 1] : null, 0));
+    return delay(() => unfold((i) => i != null && i < xs.length ? [xs[i], i + 1] : undefined, 0));
 }
 function allPairs(xs, ys) {
     let firstEl = true;
@@ -10823,7 +10921,7 @@ function append(xs, ys) {
     return delay(() => {
         let firstDone = false;
         const i = xs[Symbol.iterator]();
-        let iters = [i, null];
+        let iters = [i, undefined];
         return unfold(() => {
             var _a, _b;
             let cur;
@@ -10834,11 +10932,11 @@ function append(xs, ys) {
                 }
                 else {
                     firstDone = true;
-                    iters = [null, ys[Symbol.iterator]()];
+                    iters = [undefined, ys[Symbol.iterator]()];
                 }
             }
             cur = (_b = iters[1]) === null || _b === void 0 ? void 0 : _b.next();
-            return cur != null && !cur.done ? [cur.value, iters] : null;
+            return cur != null && !cur.done ? [cur.value, iters] : undefined;
         }, iters);
     });
 }
@@ -10861,7 +10959,7 @@ function averageBy(f, xs, averager) {
 function concat(xs) {
     return delay(() => {
         const iter = xs[Symbol.iterator]();
-        let output = { value: null };
+        let output;
         return unfold((innerIter) => {
             let hasFinished = false;
             while (!hasFinished) {
@@ -10877,16 +10975,16 @@ function concat(xs) {
                 else {
                     const cur = innerIter.next();
                     if (!cur.done) {
-                        output = { value: cur.value };
+                        output = cur.value;
                         hasFinished = true;
                     }
                     else {
-                        innerIter = null;
+                        innerIter = undefined;
                     }
                 }
             }
-            return innerIter != null && output != null ? [output.value, innerIter] : null;
-        }, null);
+            return innerIter != null ? [output, innerIter] : undefined;
+        }, undefined);
     });
 }
 function collect(f, xs) {
@@ -10902,26 +11000,27 @@ function choose(f, xs) {
             }
             cur = iter.next();
         }
-        return null;
+        return undefined;
     }, xs[Symbol.iterator]()));
 }
 function compareWith(f, xs, ys) {
-    const nonZero = tryFind((i) => i !== 0, map2((x, y) => f(x, y), xs, ys));
+    const nonZero = tryFind((i) => i !== 0, map2(f, xs, ys));
     return nonZero != null ? Object(_Option__WEBPACK_IMPORTED_MODULE_2__["value"])(nonZero) : length(xs) - length(ys);
 }
 function delay(f) {
-    return {
-        [Symbol.iterator]: () => f()[Symbol.iterator](),
-    };
+    return makeSeq(() => f()[Symbol.iterator]());
 }
 function empty() {
-    return unfold(() => null, undefined);
+    return [];
+}
+function singleton(y) {
+    return [y];
 }
 function enumerateFromFunctions(factory, moveNext, current) {
-    return delay(() => unfold((e) => moveNext(e) ? [current(e), e] : null, factory()));
+    return delay(() => unfold((e) => moveNext(e) ? [current(e), e] : undefined, factory()));
 }
 function enumerateWhile(cond, xs) {
-    return concat(unfold(() => cond() ? [xs, true] : null, undefined));
+    return concat(unfold(() => cond() ? [xs, true] : undefined, undefined));
 }
 function enumerateThenFinally(xs, finalFn) {
     return delay(() => {
@@ -10930,18 +11029,20 @@ function enumerateThenFinally(xs, finalFn) {
             iter = xs[Symbol.iterator]();
         }
         catch (err) {
-            return empty();
-        }
-        finally {
-            finalFn();
+            try {
+                return empty();
+            }
+            finally {
+                finalFn();
+            }
         }
         return unfold((it) => {
             try {
                 const cur = it.next();
-                return !cur.done ? [cur.value, it] : null;
+                return !cur.done ? [cur.value, it] : undefined;
             }
             catch (err) {
-                return null;
+                return undefined;
             }
             finally {
                 finalFn();
@@ -11030,7 +11131,7 @@ function filter(f, xs) {
             }
             cur = iter.next();
         }
-        return null;
+        return undefined;
     }, xs[Symbol.iterator]()));
 }
 function where(f, xs) {
@@ -11085,23 +11186,23 @@ function foldBack2(f, xs, ys, acc) {
 function tryHead(xs) {
     const iter = xs[Symbol.iterator]();
     const cur = iter.next();
-    return cur.done ? null : Object(_Option__WEBPACK_IMPORTED_MODULE_2__["some"])(cur.value);
+    return cur.done ? undefined : Object(_Option__WEBPACK_IMPORTED_MODULE_2__["some"])(cur.value);
 }
 function head(xs) {
     return __failIfNone(tryHead(xs));
 }
 function initialize(n, f) {
-    return delay(() => unfold((i) => i < n ? [f(i), i + 1] : null, 0));
+    return delay(() => unfold((i) => i < n ? [f(i), i + 1] : undefined, 0));
 }
 function initializeInfinite(f) {
     return delay(() => unfold((i) => [f(i), i + 1], 0));
 }
 function tryItem(i, xs) {
     if (i < 0) {
-        return null;
+        return undefined;
     }
     if (Array.isArray(xs) || ArrayBuffer.isView(xs)) {
-        return i < xs.length ? Object(_Option__WEBPACK_IMPORTED_MODULE_2__["some"])(xs[i]) : null;
+        return i < xs.length ? Object(_Option__WEBPACK_IMPORTED_MODULE_2__["some"])(xs[i]) : undefined;
     }
     for (let j = 0, iter = xs[Symbol.iterator]();; j++) {
         const cur = iter.next();
@@ -11112,29 +11213,29 @@ function tryItem(i, xs) {
             return Object(_Option__WEBPACK_IMPORTED_MODULE_2__["some"])(cur.value);
         }
     }
-    return null;
+    return undefined;
 }
 function item(i, xs) {
     return __failIfNone(tryItem(i, xs));
 }
 function iterate(f, xs) {
-    fold((_, x) => (f(x), null), null, xs);
+    fold((_, x) => (f(x), undefined), undefined, xs);
 }
 function iterate2(f, xs, ys) {
-    fold2((_, x, y) => (f(x, y), null), null, xs, ys);
+    fold2((_, x, y) => (f(x, y), undefined), undefined, xs, ys);
 }
 function iterateIndexed(f, xs) {
-    fold((_, x, i) => (f((i !== null && i !== void 0 ? i : 0), x), null), null, xs);
+    fold((_, x, i) => (f(i !== null && i !== void 0 ? i : 0, x), undefined), undefined, xs);
 }
 function iterateIndexed2(f, xs, ys) {
-    fold2((_, x, y, i) => (f((i !== null && i !== void 0 ? i : 0), x, y), null), null, xs, ys);
+    fold2((_, x, y, i) => (f(i !== null && i !== void 0 ? i : 0, x, y), undefined), undefined, xs, ys);
 }
 function isEmpty(xs) {
     const i = xs[Symbol.iterator]();
     return i.next().done;
 }
 function tryLast(xs) {
-    return isEmpty(xs) ? null : Object(_Option__WEBPACK_IMPORTED_MODULE_2__["some"])(reduce((_, x) => x, xs));
+    return isEmpty(xs) ? undefined : Object(_Option__WEBPACK_IMPORTED_MODULE_2__["some"])(reduce((_, x) => x, xs));
 }
 function last(xs) {
     return __failIfNone(tryLast(xs));
@@ -11147,7 +11248,7 @@ function length(xs) {
 function map(f, xs) {
     return delay(() => unfold((iter) => {
         const cur = iter.next();
-        return !cur.done ? [f(cur.value), iter] : null;
+        return !cur.done ? [f(cur.value), iter] : undefined;
     }, xs[Symbol.iterator]()));
 }
 function mapIndexed(f, xs) {
@@ -11155,7 +11256,7 @@ function mapIndexed(f, xs) {
         let i = 0;
         return unfold((iter) => {
             const cur = iter.next();
-            return !cur.done ? [f(i++, cur.value), iter] : null;
+            return !cur.done ? [f(i++, cur.value), iter] : undefined;
         }, xs[Symbol.iterator]());
     });
 }
@@ -11169,7 +11270,7 @@ function map2(f, xs, ys) {
         return unfold(() => {
             const cur1 = iter1.next();
             const cur2 = iter2.next();
-            return !cur1.done && !cur2.done ? [f(cur1.value, cur2.value), null] : null;
+            return !cur1.done && !cur2.done ? [f(cur1.value, cur2.value), undefined] : undefined;
         }, undefined);
     });
 }
@@ -11181,7 +11282,7 @@ function mapIndexed2(f, xs, ys) {
         return unfold(() => {
             const cur1 = iter1.next();
             const cur2 = iter2.next();
-            return !cur1.done && !cur2.done ? [f(i++, cur1.value, cur2.value), null] : null;
+            return !cur1.done && !cur2.done ? [f(i++, cur1.value, cur2.value), undefined] : undefined;
         }, undefined);
     });
 }
@@ -11194,7 +11295,7 @@ function map3(f, xs, ys, zs) {
             const cur1 = iter1.next();
             const cur2 = iter2.next();
             const cur3 = iter3.next();
-            return !cur1.done && !cur2.done && !cur3.done ? [f(cur1.value, cur2.value, cur3.value), null] : null;
+            return !cur1.done && !cur2.done && !cur3.done ? [f(cur1.value, cur2.value, cur3.value), undefined] : undefined;
         }, undefined);
     });
 }
@@ -11239,11 +11340,20 @@ function minBy(f, xs, comparer) {
     return reduce((acc, x) => compareFn(f(acc), f(x)) === -1 ? acc : x, xs);
 }
 function pairwise(xs) {
-    const res = Array.from(scan((last, next) => [last[1], next], [0, 0], xs));
-    return res.length < 2 ? [] : skip(2, res);
+    return delay(() => {
+        const iter = xs[Symbol.iterator]();
+        const cur = iter.next();
+        if (cur.done) {
+            return empty();
+        }
+        const hd = cur.value;
+        const tl = tail(xs);
+        const ys = scan(([_, last], next) => [last, next], [hd, hd], tl);
+        return skip(1, ys);
+    });
 }
 function rangeChar(first, last) {
-    return delay(() => unfold((x) => x <= last ? [x, String.fromCharCode(x.charCodeAt(0) + 1)] : null, first));
+    return delay(() => unfold((x) => x <= last ? [x, String.fromCharCode(x.charCodeAt(0) + 1)] : undefined, first));
 }
 function rangeLong(first, step, last, unsigned) {
     const stepFn = Object(_Long__WEBPACK_IMPORTED_MODULE_1__["makeRangeStepFunction"])(step, last, unsigned);
@@ -11257,7 +11367,7 @@ function rangeNumber(first, step, last) {
     if (step === 0) {
         throw new Error("Step cannot be 0");
     }
-    return delay(() => unfold((x) => step > 0 && x <= last || step < 0 && x >= last ? [x, x + step] : null, first));
+    return delay(() => unfold((x) => step > 0 && x <= last || step < 0 && x >= last ? [x, x + step] : undefined, first));
 }
 function readOnly(xs) {
     return map((x) => x, xs);
@@ -11311,28 +11421,23 @@ function scan(f, seed, xs) {
                 acc = f(acc, cur.value);
                 return [acc, acc];
             }
-            return null;
-        }, null);
+            return undefined;
+        }, undefined);
     });
 }
 function scanBack(f, xs, seed) {
     return reverse(scan((acc, x) => f(x, acc), seed, reverse(xs)));
 }
-function singleton(y) {
-    return [y];
-}
 function skip(n, xs) {
-    return {
-        [Symbol.iterator]: () => {
-            const iter = xs[Symbol.iterator]();
-            for (let i = 1; i <= n; i++) {
-                if (iter.next().done) {
-                    throw new Error("Seq has not enough elements");
-                }
+    return makeSeq(() => {
+        const iter = xs[Symbol.iterator]();
+        for (let i = 1; i <= n; i++) {
+            if (iter.next().done) {
+                throw new Error("Seq has not enough elements");
             }
-            return iter;
-        },
-    };
+        }
+        return iter;
+    });
 }
 function skipWhile(f, xs) {
     return delay(() => {
@@ -11351,14 +11456,7 @@ function sumBy(f, xs, adder) {
     return fold((acc, x) => adder.Add(acc, f(x)), adder.GetZero(), xs);
 }
 function tail(xs) {
-    const iter = xs[Symbol.iterator]();
-    const cur = iter.next();
-    if (cur.done) {
-        throw new Error("Seq was empty");
-    }
-    return {
-        [Symbol.iterator]: () => iter,
-    };
+    return skip(1, xs);
 }
 function take(n, xs, truncate = false) {
     return delay(() => {
@@ -11373,7 +11471,7 @@ function take(n, xs, truncate = false) {
                     throw new Error("Seq has not enough elements");
                 }
             }
-            return null;
+            return undefined;
         }, 0);
     });
 }
@@ -11386,9 +11484,9 @@ function takeWhile(f, xs) {
         return unfold(() => {
             const cur = iter.next();
             if (!cur.done && f(cur.value)) {
-                return [cur.value, null];
+                return [cur.value, undefined];
             }
-            return null;
+            return undefined;
         }, 0);
     });
 }
@@ -11402,7 +11500,7 @@ function tryFind(f, xs, defaultValue) {
             return Object(_Option__WEBPACK_IMPORTED_MODULE_2__["some"])(cur.value);
         }
     }
-    return defaultValue === void 0 ? null : Object(_Option__WEBPACK_IMPORTED_MODULE_2__["some"])(defaultValue);
+    return defaultValue === void 0 ? undefined : Object(_Option__WEBPACK_IMPORTED_MODULE_2__["some"])(defaultValue);
 }
 function find(f, xs) {
     return __failIfNone(tryFind(f, xs));
@@ -11424,7 +11522,7 @@ function tryFindIndex(f, xs) {
             return i;
         }
     }
-    return null;
+    return undefined;
 }
 function findIndex(f, xs) {
     return __failIfNone(tryFindIndex(f, xs));
@@ -11436,7 +11534,7 @@ function tryFindIndexBack(f, xs) {
             return i;
         }
     }
-    return null;
+    return undefined;
 }
 function findIndexBack(f, xs) {
     return __failIfNone(tryFindIndexBack(f, xs));
@@ -11452,33 +11550,31 @@ function tryPick(f, xs) {
             return y;
         }
     }
-    return null;
+    return undefined;
 }
 function pick(f, xs) {
     return __failIfNone(tryPick(f, xs));
 }
 function unfold(f, fst) {
-    return {
-        [Symbol.iterator]: () => {
-            // Capture a copy of the first value in the closure
-            // so the sequence is restarted every time, see #1230
-            let acc = fst;
-            const iter = {
-                next: () => {
-                    const res = f(acc);
-                    if (res != null) {
-                        const v = Object(_Option__WEBPACK_IMPORTED_MODULE_2__["value"])(res);
-                        if (v != null) {
-                            acc = v[1];
-                            return { done: false, value: v[0] };
-                        }
+    return makeSeq(() => {
+        // Capture a copy of the first value in the closure
+        // so the sequence is restarted every time, see #1230
+        let acc = fst;
+        const iter = {
+            next() {
+                const res = f(acc);
+                if (res != null) {
+                    const v = Object(_Option__WEBPACK_IMPORTED_MODULE_2__["value"])(res);
+                    if (v != null) {
+                        acc = v[1];
+                        return { done: false, value: v[0] };
                     }
-                    return { done: true, value: undefined };
-                },
-            };
-            return iter;
-        },
-    };
+                }
+                return { done: true, value: undefined };
+            },
+        };
+        return iter;
+    });
 }
 function zip(xs, ys) {
     return map2((x, y) => [x, y], xs, ys);
@@ -11490,64 +11586,60 @@ function windowed(windowSize, source) {
     if (windowSize <= 0) {
         throw new Error("windowSize must be positive");
     }
-    return {
-        [Symbol.iterator]: () => {
-            let window = [];
-            const iter = source[Symbol.iterator]();
-            const iter2 = {
-                next: () => {
-                    let cur;
-                    while (window.length < windowSize) {
-                        if ((cur = iter.next()).done) {
-                            return { done: true, value: undefined };
-                        }
-                        window.push(cur.value);
-                    }
-                    const value = window;
-                    window = window.slice(1);
-                    return { done: false, value };
-                },
-            };
-            return iter2;
-        },
-    };
-}
-function transpose(source) {
-    return {
-        [Symbol.iterator]: () => {
-            const iters = Array.from(source, (x) => x[Symbol.iterator]());
-            const iter = {
-                next: () => {
-                    if (iters.length === 0) {
-                        return { done: true, value: undefined }; // empty sequence
-                    }
-                    const results = Array.from(iters, (iter) => iter.next());
-                    if (results[0].done) {
-                        if (!results.every((x) => x.done)) {
-                            throw new Error("Sequences have different lengths");
-                        }
+    return makeSeq(() => {
+        let window = [];
+        const iter = source[Symbol.iterator]();
+        const iter2 = {
+            next() {
+                let cur;
+                while (window.length < windowSize) {
+                    if ((cur = iter.next()).done) {
                         return { done: true, value: undefined };
                     }
-                    else {
-                        if (!results.every((x) => !x.done)) {
-                            throw new Error("Sequences have different lengths");
-                        }
-                        const values = results.map((x) => x.value);
-                        return { done: false, value: values };
+                    window.push(cur.value);
+                }
+                const value = window;
+                window = window.slice(1);
+                return { done: false, value };
+            },
+        };
+        return iter2;
+    });
+}
+function transpose(source) {
+    return makeSeq(() => {
+        const iters = Array.from(source, (x) => x[Symbol.iterator]());
+        const iter = {
+            next() {
+                if (iters.length === 0) {
+                    return { done: true, value: undefined }; // empty sequence
+                }
+                const results = Array.from(iters, (iter) => iter.next());
+                if (results[0].done) {
+                    if (!results.every((x) => x.done)) {
+                        throw new Error("Sequences have different lengths");
                     }
-                },
-            };
-            return iter;
-        },
-    };
+                    return { done: true, value: undefined };
+                }
+                else {
+                    if (!results.every((x) => !x.done)) {
+                        throw new Error("Sequences have different lengths");
+                    }
+                    const values = results.map((x) => x.value);
+                    return { done: false, value: values };
+                }
+            },
+        };
+        return iter;
+    });
 }
 //# sourceMappingURL=Seq.js.map
 
 /***/ }),
 
-/***/ "./.fable/fable-library.2.4.15/Set.js":
+/***/ "./.fable/fable-library.2.13.0/Set.js":
 /*!********************************************!*\
-  !*** ./.fable/fable-library.2.4.15/Set.js ***!
+  !*** ./.fable/fable-library.2.13.0/Set.js ***!
   \********************************************/
 /*! exports provided: SetTree$00601, SetTree$00601$reflection, SetTreeModule$$$countAux, SetTreeModule$$$count, SetTreeModule$$$SetOne, SetTreeModule$$$SetNode, SetTreeModule$$$height, SetTreeModule$$$tolerance, SetTreeModule$$$mk, SetTreeModule$$$rebalance, SetTreeModule$$$add, SetTreeModule$$$balance, SetTreeModule$$$split, SetTreeModule$$$spliceOutSuccessor, SetTreeModule$$$remove, SetTreeModule$$$mem, SetTreeModule$$$iter, SetTreeModule$$$foldBack, SetTreeModule$$$fold, SetTreeModule$$$forall, SetTreeModule$$$exists, SetTreeModule$$$isEmpty, SetTreeModule$$$subset, SetTreeModule$$$psubset, SetTreeModule$$$filterAux, SetTreeModule$$$filter, SetTreeModule$$$diffAux, SetTreeModule$$$diff, SetTreeModule$$$union, SetTreeModule$$$intersectionAux, SetTreeModule$$$intersection, SetTreeModule$$$partition1, SetTreeModule$$$partitionAux, SetTreeModule$$$partition, SetTreeModule$$$$007CMatchSetNode$007CMatchSetEmpty$007C, SetTreeModule$$$minimumElementAux, SetTreeModule$$$minimumElementOpt, SetTreeModule$$$maximumElementAux, SetTreeModule$$$maximumElementOpt, SetTreeModule$$$minimumElement, SetTreeModule$$$maximumElement, SetTreeModule$002ESetIterator$00601, SetTreeModule$002ESetIterator$00601$reflection, SetTreeModule$$$collapseLHS, SetTreeModule$$$mkIterator, SetTreeModule$$$notStarted, SetTreeModule$$$alreadyFinished, SetTreeModule$$$current, SetTreeModule$$$moveNext, SetTreeModule$002EmkIEnumerator$00601, SetTreeModule$002EmkIEnumerator$00601$reflection, SetTreeModule$002EmkIEnumerator$00601$$$$002Ector$$Z5B395D56, SetTreeModule$$$mkIEnumerator, SetTreeModule$$$toSeq, SetTreeModule$$$compareStacks, SetTreeModule$$$compare, SetTreeModule$$$choose, SetTreeModule$$$loop, SetTreeModule$$$toList, SetTreeModule$$$copyToArray, SetTreeModule$$$mkFromEnumerator, SetTreeModule$$$ofSeq, SetTreeModule$$$ofArray, FSharpSet, FSharpSet$reflection, FSharpSet$$$$002Ector$$2528C5CB, FSharpSet$$get_Comparer, FSharpSet$$get_Tree, FSharpSet$$Add$$2B595, FSharpSet$$Remove$$2B595, FSharpSet$$get_Count, FSharpSet$$Contains$$2B595, FSharpSet$$Iterate$$5028453F, FSharpSet$$Fold, FSharpSet$$get_IsEmpty, FSharpSet$$Partition$$Z1D55A0D7, FSharpSet$$Filter$$Z1D55A0D7, FSharpSet$$Map$$7597B8F7, FSharpSet$$Exists$$Z1D55A0D7, FSharpSet$$ForAll$$Z1D55A0D7, FSharpSet$$$op_Subtraction, FSharpSet$$$op_Addition, FSharpSet$$$Intersection$$Z3BE9BFE0, FSharpSet$$$IntersectionMany$$Z15B59630, FSharpSet$$$Equality$$Z3BE9BFE0, FSharpSet$$$Compare$$Z3BE9BFE0, FSharpSet$$get_Choose, FSharpSet$$get_MinimumElement, FSharpSet$$get_MaximumElement, FSharpSet$$IsSubsetOf$$6A20B1FF, FSharpSet$$IsSupersetOf$$6A20B1FF, FSharpSet$$IsProperSubsetOf$$6A20B1FF, FSharpSet$$IsProperSupersetOf$$6A20B1FF, isEmpty, contains, add, singleton, remove, union, unionMany, intersect, intersectMany, iterate, empty, forAll, exists, filter, partition, fold, foldBack, map, count, minimumElement, maximumElement, ofList, ofArray, toList, toArray, toSeq, ofSeq, difference, isSubset, isSuperset, isProperSubset, isProperSuperset, minElement, maxElement, createMutable, distinct, distinctBy, unionWith, intersectWith, exceptWith, isSubsetOf, isSupersetOf, isProperSubsetOf, isProperSupersetOf */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -11691,13 +11783,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isSupersetOf", function() { return isSupersetOf; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isProperSubsetOf", function() { return isProperSubsetOf; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isProperSupersetOf", function() { return isProperSupersetOf; });
-/* harmony import */ var _Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Types.js */ "./.fable/fable-library.2.4.15/Types.js");
-/* harmony import */ var _Reflection_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Reflection.js */ "./.fable/fable-library.2.4.15/Reflection.js");
-/* harmony import */ var _Option_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Option.js */ "./.fable/fable-library.2.4.15/Option.js");
-/* harmony import */ var _Seq_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Seq.js */ "./.fable/fable-library.2.4.15/Seq.js");
-/* harmony import */ var _Util_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Util.js */ "./.fable/fable-library.2.4.15/Util.js");
-/* harmony import */ var _String_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./String.js */ "./.fable/fable-library.2.4.15/String.js");
-/* harmony import */ var _MutableSet__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./MutableSet */ "./.fable/fable-library.2.4.15/MutableSet.js");
+/* harmony import */ var _Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Types.js */ "./.fable/fable-library.2.13.0/Types.js");
+/* harmony import */ var _Reflection_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Reflection.js */ "./.fable/fable-library.2.13.0/Reflection.js");
+/* harmony import */ var _Option_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Option.js */ "./.fable/fable-library.2.13.0/Option.js");
+/* harmony import */ var _Seq_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Seq.js */ "./.fable/fable-library.2.13.0/Seq.js");
+/* harmony import */ var _Util_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Util.js */ "./.fable/fable-library.2.13.0/Util.js");
+/* harmony import */ var _String_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./String.js */ "./.fable/fable-library.2.13.0/String.js");
+/* harmony import */ var _MutableSet__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./MutableSet */ "./.fable/fable-library.2.13.0/MutableSet.js");
 
 
 
@@ -11706,10 +11798,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const SetTree$00601 = Object(_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Set_SetTree(tag, name, ...fields) {
-  _Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
 }, _Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
 function SetTree$00601$reflection($gen$$3) {
-  return Object(_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union"])("Set.SetTree`1", [$gen$$3], SetTree$00601, () => ["SetEmpty", ["SetNode", [$gen$$3, SetTree$00601$reflection($gen$$3), SetTree$00601$reflection($gen$$3), _Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]]], ["SetOne", [$gen$$3]]]);
+  return Object(_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union_type"])("Set.SetTree`1", [$gen$$3], SetTree$00601, () => ["SetEmpty", ["SetNode", [["Item1", $gen$$3], ["Item2", SetTree$00601$reflection($gen$$3)], ["Item3", SetTree$00601$reflection($gen$$3)], ["Item4", _Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"]]]], ["SetOne", [["Item", $gen$$3]]]]);
 }
 function SetTreeModule$$$countAux($s$$4, $acc$$5) {
   SetTreeModule$$$countAux: while (true) {
@@ -12089,6 +12183,7 @@ function SetTreeModule$$$iter($f$$38, $t$$6$$39) {
 
       case 0:
         {
+          void null;
           break;
         }
 
@@ -12487,7 +12582,7 @@ function SetTreeModule$$$$007CMatchSetNode$007CMatchSetEmpty$007C(s$$6) {
 
     case 0:
       {
-        return new _Option_js__WEBPACK_IMPORTED_MODULE_2__["Choice"](1, "Choice2Of2", null);
+        return new _Option_js__WEBPACK_IMPORTED_MODULE_2__["Choice"](1, "Choice2Of2", void null);
       }
 
     default:
@@ -12532,7 +12627,7 @@ function SetTreeModule$$$minimumElementOpt(s$$8) {
 
     case 0:
       {
-        return null;
+        return undefined;
       }
 
     default:
@@ -12577,7 +12672,7 @@ function SetTreeModule$$$maximumElementOpt(s$$10) {
 
     case 0:
       {
-        return null;
+        return undefined;
       }
 
     default:
@@ -12606,12 +12701,12 @@ function SetTreeModule$$$maximumElement(s$$12) {
     return k$$28;
   }
 }
-const SetTreeModule$002ESetIterator$00601 = Object(_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Set_SetTreeModule_SetIterator(arg1, arg2) {
-  this.stack = arg1;
-  this.started = arg2;
+const SetTreeModule$002ESetIterator$00601 = Object(_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Set_SetTreeModule_SetIterator(stack, started) {
+  this.stack = stack;
+  this.started = started;
 }, _Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
 function SetTreeModule$002ESetIterator$00601$reflection($gen$$103) {
-  return Object(_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record"])("Set.SetTreeModule.SetIterator`1", [$gen$$103], SetTreeModule$002ESetIterator$00601, () => [["stack", Object(_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list"])(SetTree$00601$reflection($gen$$103))], ["started", _Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]]);
+  return Object(_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record_type"])("Set.SetTreeModule.SetIterator`1", [$gen$$103], SetTreeModule$002ESetIterator$00601, () => [["stack", Object(_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list_type"])(SetTree$00601$reflection($gen$$103))], ["started", _Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]);
 }
 function SetTreeModule$$$collapseLHS($stack$$104) {
   SetTreeModule$$$collapseLHS: while (true) {
@@ -12679,9 +12774,10 @@ const SetTreeModule$002EmkIEnumerator$00601 = Object(_Types_js__WEBPACK_IMPORTED
   const $this$$1 = this;
   $this$$1.s = s$$14;
   $this$$1.i = SetTreeModule$$$mkIterator($this$$1.s);
+  void null;
 });
 function SetTreeModule$002EmkIEnumerator$00601$reflection($gen$$108) {
-  return Object(_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Set.SetTreeModule.mkIEnumerator`1", [$gen$$108]);
+  return Object(_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Set.SetTreeModule.mkIEnumerator`1", [$gen$$108], SetTreeModule$002EmkIEnumerator$00601);
 }
 function SetTreeModule$002EmkIEnumerator$00601$$$$002Ector$$Z5B395D56(s$$14) {
   return this instanceof SetTreeModule$002EmkIEnumerator$00601 ? SetTreeModule$002EmkIEnumerator$00601.call(this, s$$14) : new SetTreeModule$002EmkIEnumerator$00601(s$$14);
@@ -12703,7 +12799,9 @@ SetTreeModule$002EmkIEnumerator$00601.prototype.Reset = function () {
   __$$2.i = SetTreeModule$$$mkIterator(__$$2.s);
 };
 
-SetTreeModule$002EmkIEnumerator$00601.prototype.Dispose = function () {};
+SetTreeModule$002EmkIEnumerator$00601.prototype.Dispose = function () {
+  void null;
+};
 
 function SetTreeModule$$$mkIEnumerator(s$$15) {
   return SetTreeModule$002EmkIEnumerator$00601$$$$002Ector$$Z5B395D56(s$$15);
@@ -12714,7 +12812,7 @@ function SetTreeModule$$$toSeq(s$$16) {
     if (en$$1.MoveNext()) {
       return [en$$1.Current, en$$1];
     } else {
-      return null;
+      return undefined;
     }
   }, en);
 }
@@ -13023,6 +13121,8 @@ function SetTreeModule$$$ofSeq(comparer$$20, c$$11) {
   } finally {
     if (Object(_Util_js__WEBPACK_IMPORTED_MODULE_4__["isDisposable"])(ie)) {
       ie.Dispose();
+    } else {
+      void null;
     }
   }
 }
@@ -13039,9 +13139,10 @@ const FSharpSet = Object(_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(func
   const $this$$2 = this;
   $this$$2.comparer = comparer$$22;
   $this$$2.tree = tree;
+  void null;
 });
 function FSharpSet$reflection($gen$$133) {
-  return Object(_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Set.FSharpSet", [$gen$$133]);
+  return Object(_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Set.FSharpSet", [$gen$$133], FSharpSet);
 }
 function FSharpSet$$$$002Ector$$2528C5CB(comparer$$22, tree) {
   return this instanceof FSharpSet ? FSharpSet.call(this, comparer$$22, tree) : new FSharpSet(comparer$$22, tree);
@@ -13324,132 +13425,68 @@ function minElement(s$$51) {
 function maxElement(s$$52) {
   return FSharpSet$$get_MaximumElement(s$$52);
 }
-
-function createMutablePrivate(comparer$$31, tree$0027) {
-  let tree$$1 = tree$0027;
-  return {
-    get size() {
-      return SetTreeModule$$$count(tree$$1);
-    },
-
-    add(x$$33) {
-      const this$$$4 = this;
-      tree$$1 = SetTreeModule$$$add(comparer$$31, x$$33, tree$$1);
-      return this$$$4;
-    },
-
-    add_(x$$34) {
-      if (SetTreeModule$$$mem(comparer$$31, x$$34, tree$$1)) {
-        return false;
-      } else {
-        tree$$1 = SetTreeModule$$$add(comparer$$31, x$$34, tree$$1);
-        return true;
-      }
-    },
-
-    clear() {
-      tree$$1 = new SetTree$00601(0, "SetEmpty");
-    },
-
-    delete(x$$35) {
-      if (SetTreeModule$$$mem(comparer$$31, x$$35, tree$$1)) {
-        tree$$1 = SetTreeModule$$$remove(comparer$$31, x$$35, tree$$1);
-        return true;
-      } else {
-        return false;
-      }
-    },
-
-    has(x$$36) {
-      return SetTreeModule$$$mem(comparer$$31, x$$36, tree$$1);
-    },
-
-    keys() {
-      return SetTreeModule$$$toSeq(tree$$1);
-    },
-
-    values() {
-      return SetTreeModule$$$toSeq(tree$$1);
-    },
-
-    entries() {
-      const source = SetTreeModule$$$toSeq(tree$$1);
-      return Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["map"])(function mapping(v) {
-        return [v, v];
-      }, source);
-    },
-
-    [Symbol.iterator]() {
-      return Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["toIterator"])(SetTreeModule$$$mkIEnumerator(tree$$1));
-    },
-
-    GetEnumerator() {
-      return SetTreeModule$$$mkIEnumerator(tree$$1);
-    }
-
-  };
-}
-
-function createMutable(source$$1, comparer$$32) {
-  const set = Object(_MutableSet__WEBPACK_IMPORTED_MODULE_6__["MutableSet$00601$$$$002Ector$$Z6150332D"])(source$$1, comparer$$32);
+function createMutable(source, comparer$$31) {
+  const set = Object(_MutableSet__WEBPACK_IMPORTED_MODULE_6__["MutableSet$00601$$$$002Ector$$Z6150332D"])(source, comparer$$31);
   return set;
 }
-function distinct(xs, comparer$$33) {
+function distinct(xs, comparer$$32) {
   return Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["delay"])(function () {
-    const set$$1 = Object(_MutableSet__WEBPACK_IMPORTED_MODULE_6__["MutableSet$00601$$$$002Ector$$Z6150332D"])(Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["empty"])(), comparer$$33);
-    return Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["collect"])(function (x$$37) {
-      return Object(_MutableSet__WEBPACK_IMPORTED_MODULE_6__["MutableSet$00601$$Add$$2B595"])(set$$1, x$$37) ? Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["singleton"])(x$$37) : Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["empty"])();
+    const set$$1 = Object(_MutableSet__WEBPACK_IMPORTED_MODULE_6__["MutableSet$00601$$$$002Ector$$Z6150332D"])(Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["empty"])(), comparer$$32);
+    return Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["collect"])(function (x$$33) {
+      return Object(_MutableSet__WEBPACK_IMPORTED_MODULE_6__["MutableSet$00601$$Add$$2B595"])(set$$1, x$$33) ? Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["singleton"])(x$$33) : Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["empty"])();
     }, xs);
   });
 }
-function distinctBy(projection, xs$$1, comparer$$34) {
+function distinctBy(projection, xs$$1, comparer$$33) {
   return Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["delay"])(function () {
-    const set$$2 = Object(_MutableSet__WEBPACK_IMPORTED_MODULE_6__["MutableSet$00601$$$$002Ector$$Z6150332D"])(Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["empty"])(), comparer$$34);
-    return Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["collect"])(function (x$$38) {
-      return Object(_MutableSet__WEBPACK_IMPORTED_MODULE_6__["MutableSet$00601$$Add$$2B595"])(set$$2, projection(x$$38)) ? Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["singleton"])(x$$38) : Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["empty"])();
+    const set$$2 = Object(_MutableSet__WEBPACK_IMPORTED_MODULE_6__["MutableSet$00601$$$$002Ector$$Z6150332D"])(Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["empty"])(), comparer$$33);
+    return Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["collect"])(function (x$$34) {
+      return Object(_MutableSet__WEBPACK_IMPORTED_MODULE_6__["MutableSet$00601$$Add$$2B595"])(set$$2, projection(x$$34)) ? Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["singleton"])(x$$34) : Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["empty"])();
     }, xs$$1);
   });
 }
 function unionWith(s1$$4, s2$$4) {
-  return Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["fold"])(function folder(acc$$14, x$$39) {
-    return acc$$14.add(x$$39);
+  return Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["fold"])(function folder(acc$$14, x$$35) {
+    return acc$$14.add(x$$35);
   }, s1$$4, s2$$4);
 }
-function intersectWith(s1$$5, s2$$5, comparer$$35) {
-  const s2$$6 = ofSeq(s2$$5, comparer$$35);
-  Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["iterate"])(function (x$$40) {
-    if (!FSharpSet$$Contains$$2B595(s2$$6, x$$40)) {
-      const value = s1$$5.delete(x$$40);
+function intersectWith(s1$$5, s2$$5, comparer$$34) {
+  const s2$$6 = ofSeq(s2$$5, comparer$$34);
+  Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["iterate"])(function (x$$36) {
+    if (!FSharpSet$$Contains$$2B595(s2$$6, x$$36)) {
+      const value = s1$$5.delete(x$$36);
       void value;
+    } else {
+      void null;
     }
   }, s1$$5);
 }
 function exceptWith(s1$$6, s2$$7) {
-  Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["iterate"])(function (x$$41) {
-    const value$$1 = s1$$6.delete(x$$41);
+  Object(_Seq_js__WEBPACK_IMPORTED_MODULE_3__["iterate"])(function (x$$37) {
+    const value$$1 = s1$$6.delete(x$$37);
     void value$$1;
   }, s2$$7);
 }
-function isSubsetOf(s1$$7, s2$$8, comparer$$36) {
-  return isSubset(ofSeq(s1$$7, comparer$$36), ofSeq(s2$$8, comparer$$36));
+function isSubsetOf(s1$$7, s2$$8, comparer$$35) {
+  return isSubset(ofSeq(s1$$7, comparer$$35), ofSeq(s2$$8, comparer$$35));
 }
-function isSupersetOf(s1$$8, s2$$9, comparer$$37) {
-  return isSuperset(ofSeq(s1$$8, comparer$$37), ofSeq(s2$$9, comparer$$37));
+function isSupersetOf(s1$$8, s2$$9, comparer$$36) {
+  return isSuperset(ofSeq(s1$$8, comparer$$36), ofSeq(s2$$9, comparer$$36));
 }
-function isProperSubsetOf(s1$$9, s2$$10, comparer$$38) {
-  return isProperSubset(ofSeq(s1$$9, comparer$$38), ofSeq(s2$$10, comparer$$38));
+function isProperSubsetOf(s1$$9, s2$$10, comparer$$37) {
+  return isProperSubset(ofSeq(s1$$9, comparer$$37), ofSeq(s2$$10, comparer$$37));
 }
-function isProperSupersetOf(s1$$10, s2$$11, comparer$$39) {
-  return isProperSuperset(ofSeq(s1$$10, comparer$$39), ofSeq(s2$$11, comparer$$39));
+function isProperSupersetOf(s1$$10, s2$$11, comparer$$38) {
+  return isProperSuperset(ofSeq(s1$$10, comparer$$38), ofSeq(s2$$11, comparer$$38));
 }
 
 /***/ }),
 
-/***/ "./.fable/fable-library.2.4.15/String.js":
+/***/ "./.fable/fable-library.2.13.0/String.js":
 /*!***********************************************!*\
-  !*** ./.fable/fable-library.2.4.15/String.js ***!
+  !*** ./.fable/fable-library.2.13.0/String.js ***!
   \***********************************************/
-/*! exports provided: compare, compareOrdinal, compareTo, startsWith, indexOfAny, printf, toConsole, toConsoleError, toText, toFail, fsFormat, format, endsWith, initialize, insert, isNullOrEmpty, isNullOrWhiteSpace, concat, join, joinWithIndices, validateGuid, newGuid, guidToArray, arrayToGuid, toBase64String, fromBase64String, padLeft, padRight, remove, replace, replicate, getCharAtIndex, split, trim, trimStart, trimEnd, filter, substring */
+/*! exports provided: compare, compareOrdinal, compareTo, startsWith, indexOfAny, printf, toConsole, toConsoleError, toText, toFail, fsFormat, format, endsWith, initialize, insert, isNullOrEmpty, isNullOrWhiteSpace, concat, join, joinWithIndices, toBase64String, fromBase64String, padLeft, padRight, remove, replace, replicate, getCharAtIndex, split, trim, trimStart, trimEnd, filter, substring */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -13474,10 +13511,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "concat", function() { return concat; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "join", function() { return join; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "joinWithIndices", function() { return joinWithIndices; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "validateGuid", function() { return validateGuid; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "newGuid", function() { return newGuid; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "guidToArray", function() { return guidToArray; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "arrayToGuid", function() { return arrayToGuid; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toBase64String", function() { return toBase64String; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fromBase64String", function() { return fromBase64String; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "padLeft", function() { return padLeft; });
@@ -13492,20 +13525,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "trimEnd", function() { return trimEnd; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filter", function() { return filter; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "substring", function() { return substring; });
-/* harmony import */ var _Date__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Date */ "./.fable/fable-library.2.4.15/Date.js");
-/* harmony import */ var _Decimal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Decimal */ "./.fable/fable-library.2.4.15/Decimal.js");
-/* harmony import */ var _Long__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Long */ "./.fable/fable-library.2.4.15/Long.js");
-/* harmony import */ var _RegExp__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./RegExp */ "./.fable/fable-library.2.4.15/RegExp.js");
+/* harmony import */ var _Date__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Date */ "./.fable/fable-library.2.13.0/Date.js");
+/* harmony import */ var _Decimal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Decimal */ "./.fable/fable-library.2.13.0/Decimal.js");
+/* harmony import */ var _Long__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Long */ "./.fable/fable-library.2.13.0/Long.js");
+/* harmony import */ var _RegExp__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./RegExp */ "./.fable/fable-library.2.13.0/RegExp.js");
 
 
 
 
 const fsFormatRegExp = /(^|[^%])%([0+\- ]*)(\d+)?(?:\.(\d+))?(\w)/;
 const formatRegExp = /\{(\d+)(,-?\d+)?(?:\:([a-zA-Z])(\d{0,2})|\:(.+?))?\}/g;
-// RFC 4122 compliant. From https://stackoverflow.com/a/13653180/3922220
-// const guidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/;
-// Relax GUID parsing, see #1637
-const guidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
 // These are used for formatting and only take longs and decimals into account (no bigint)
 function isNumeric(x) {
     return typeof x === "number" || x instanceof _Long__WEBPACK_IMPORTED_MODULE_2__["default"] || x instanceof _Decimal__WEBPACK_IMPORTED_MODULE_1__["default"];
@@ -13854,102 +13883,6 @@ function joinWithIndices(delimiter, xs, startIndex, count) {
     }
     return xs.slice(startIndex, endIndexPlusOne).join(delimiter);
 }
-/** Validates UUID as specified in RFC4122 (versions 1-5). Trims braces. */
-function validateGuid(str, doNotThrow) {
-    const trimmedAndLowered = trim(str, "{", "}").toLowerCase();
-    if (guidRegex.test(trimmedAndLowered)) {
-        return doNotThrow ? [true, trimmedAndLowered] : trimmedAndLowered;
-    }
-    else if (doNotThrow) {
-        return [false, "00000000-0000-0000-0000-000000000000"];
-    }
-    throw new Error("Guid should contain 32 digits with 4 dashes: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx");
-}
-// From https://gist.github.com/LeverOne/1308368
-function newGuid() {
-    let b = "";
-    for (let a = 0; a++ < 36;) {
-        b += a * 51 & 52
-            ? (a ^ 15 ? 8 ^ Math.random() * (a ^ 20 ? 16 : 4) : 4).toString(16)
-            : "-";
-    }
-    return b;
-}
-// Maps for number <-> hex string conversion
-let _convertMapsInitialized = false;
-let _byteToHex;
-let _hexToByte;
-function initConvertMaps() {
-    _byteToHex = new Array(256);
-    _hexToByte = {};
-    for (let i = 0; i < 256; i++) {
-        _byteToHex[i] = (i + 0x100).toString(16).substr(1);
-        _hexToByte[_byteToHex[i]] = i;
-    }
-    _convertMapsInitialized = true;
-}
-/** Parse a UUID into it's component bytes */
-// Adapted from https://github.com/zefferus/uuid-parse
-function guidToArray(s) {
-    if (!_convertMapsInitialized) {
-        initConvertMaps();
-    }
-    let i = 0;
-    const buf = new Uint8Array(16);
-    s.toLowerCase().replace(/[0-9a-f]{2}/g, ((oct) => {
-        switch (i) {
-            // .NET saves first three byte groups with different endianness
-            // See https://stackoverflow.com/a/16722909/3922220
-            case 0:
-            case 1:
-            case 2:
-            case 3:
-                buf[3 - i++] = _hexToByte[oct];
-                break;
-            case 4:
-            case 5:
-                buf[9 - i++] = _hexToByte[oct];
-                break;
-            case 6:
-            case 7:
-                buf[13 - i++] = _hexToByte[oct];
-                break;
-            case 8:
-            case 9:
-            case 10:
-            case 11:
-            case 12:
-            case 13:
-            case 14:
-            case 15:
-                buf[i++] = _hexToByte[oct];
-                break;
-        }
-    }));
-    // Zero out remaining bytes if string was short
-    while (i < 16) {
-        buf[i++] = 0;
-    }
-    return buf;
-}
-/** Convert UUID byte array into a string */
-function arrayToGuid(buf) {
-    if (buf.length !== 16) {
-        throw new Error("Byte array for GUID must be exactly 16 bytes long");
-    }
-    if (!_convertMapsInitialized) {
-        initConvertMaps();
-    }
-    const guid = _byteToHex[buf[3]] + _byteToHex[buf[2]] +
-        _byteToHex[buf[1]] + _byteToHex[buf[0]] + "-" +
-        _byteToHex[buf[5]] + _byteToHex[buf[4]] + "-" +
-        _byteToHex[buf[7]] + _byteToHex[buf[6]] + "-" +
-        _byteToHex[buf[8]] + _byteToHex[buf[9]] + "-" +
-        _byteToHex[buf[10]] + _byteToHex[buf[11]] +
-        _byteToHex[buf[12]] + _byteToHex[buf[13]] +
-        _byteToHex[buf[14]] + _byteToHex[buf[15]];
-    return guid;
-}
 function notSupported(name) {
     throw new Error("The environment doesn't support '" + name + "', please use a polyfill.");
 }
@@ -14070,9 +14003,9 @@ function substring(str, startIndex, length) {
 
 /***/ }),
 
-/***/ "./.fable/fable-library.2.4.15/Types.js":
+/***/ "./.fable/fable-library.2.13.0/Types.js":
 /*!**********************************************!*\
-  !*** ./.fable/fable-library.2.4.15/Types.js ***!
+  !*** ./.fable/fable-library.2.13.0/Types.js ***!
   \**********************************************/
 /*! exports provided: declare, SystemObject, List, Union, Record, anonRecord, FSharpRef, Exception, isException, FSharpException, MatchFailureException, Attribute */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -14091,7 +14024,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FSharpException", function() { return FSharpException; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MatchFailureException", function() { return MatchFailureException; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Attribute", function() { return Attribute; });
-/* harmony import */ var _Util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Util */ "./.fable/fable-library.2.4.15/Util.js");
+/* harmony import */ var _Util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Util */ "./.fable/fable-library.2.13.0/Util.js");
 // tslint:disable: space-before-function-paren
 
 function sameType(x, y) {
@@ -14122,18 +14055,17 @@ function declare(cons, superClass) {
     inherits(cons, superClass || SystemObject);
     return cons;
 }
-function SystemObject() {
-    return;
+class SystemObject {
+    toString() {
+        return "{" + Object.entries(this).map(([k, v]) => k + " = " + String(v)).join(";\n ") + "}";
+    }
+    GetHashCode(x) {
+        return Object(_Util__WEBPACK_IMPORTED_MODULE_0__["identityHash"])(x !== null && x !== void 0 ? x : this);
+    }
+    Equals(x, y) {
+        return x === (y !== null && y !== void 0 ? y : this);
+    }
 }
-SystemObject.prototype.toString = function () {
-    return "{" + Object.keys(this).map((k) => k + " = " + String(this[k])).join(";\n ") + "}";
-};
-SystemObject.prototype.GetHashCode = function () {
-    return Object(_Util__WEBPACK_IMPORTED_MODULE_0__["identityHash"])(this);
-};
-SystemObject.prototype.Equals = function (other) {
-    return this === other;
-};
 function compareList(self, other) {
     if (self === other) {
         return 0;
@@ -14156,83 +14088,89 @@ function compareList(self, other) {
         return other.tail == null ? 0 : -1;
     }
 }
-function List(head, tail) {
-    this.head = head;
-    this.tail = tail;
+class List {
+    constructor(head, tail) {
+        this.head = head;
+        this.tail = tail;
+    }
+    toString() {
+        return "[" + Array.from(this).join("; ") + "]";
+    }
+    toJSON() {
+        return Array.from(this);
+    }
+    [Symbol.iterator]() {
+        let cur = this;
+        return {
+            next: () => {
+                const value = cur === null || cur === void 0 ? void 0 : cur.head;
+                const done = (cur === null || cur === void 0 ? void 0 : cur.tail) == null;
+                cur = cur === null || cur === void 0 ? void 0 : cur.tail;
+                return { done, value };
+            },
+        };
+    }
+    GetHashCode() {
+        const hashes = Array.from(this).map(_Util__WEBPACK_IMPORTED_MODULE_0__["structuralHash"]);
+        return Object(_Util__WEBPACK_IMPORTED_MODULE_0__["combineHashCodes"])(hashes);
+    }
+    Equals(other) {
+        return compareList(this, other) === 0;
+    }
+    CompareTo(other) {
+        return compareList(this, other);
+    }
 }
-List.prototype.toString = function () {
-    return "[" + Array.from(this).map((x) => String(x)).join("; ") + "]";
-};
-List.prototype.toJSON = function () {
-    return Array.from(this);
-};
-List.prototype[Symbol.iterator] = function () {
-    let cur = this;
-    return {
-        next: () => {
-            const tmp = cur;
-            cur = cur.tail;
-            return { done: tmp.tail == null, value: tmp.head };
-        },
-    };
-};
-List.prototype.GetHashCode = function () {
-    const hashes = Array.from(this).map(_Util__WEBPACK_IMPORTED_MODULE_0__["structuralHash"]);
-    return Object(_Util__WEBPACK_IMPORTED_MODULE_0__["combineHashCodes"])(hashes);
-};
-List.prototype.Equals = function (other) {
-    return compareList(this, other) === 0;
-};
-List.prototype.CompareTo = function (other) {
-    return compareList(this, other);
-};
-function Union(tag, name, ...fields) {
-    this.tag = tag | 0;
-    this.name = name;
-    this.fields = fields;
+class Union extends SystemObject {
+    constructor(tag, name, ...fields) {
+        super();
+        this.tag = tag | 0;
+        this.name = name;
+        this.fields = fields;
+    }
+    toString() {
+        const len = this.fields.length;
+        if (len === 0) {
+            return this.name;
+        }
+        else if (len === 1) {
+            return this.name + " " + String(this.fields[0]);
+        }
+        else {
+            return this.name + " (" + this.fields.map((x) => String(x)).join(",") + ")";
+        }
+    }
+    toJSON() {
+        return this.fields.length === 0
+            ? this.name
+            : [this.name].concat(this.fields);
+    }
+    GetHashCode() {
+        const hashes = this.fields.map((x) => Object(_Util__WEBPACK_IMPORTED_MODULE_0__["structuralHash"])(x));
+        hashes.splice(0, 0, Object(_Util__WEBPACK_IMPORTED_MODULE_0__["numberHash"])(this.tag));
+        return Object(_Util__WEBPACK_IMPORTED_MODULE_0__["combineHashCodes"])(hashes);
+    }
+    Equals(other) {
+        return this === other
+            || (sameType(this, other)
+                && this.tag === other.tag
+                && Object(_Util__WEBPACK_IMPORTED_MODULE_0__["equalArrays"])(this.fields, other.fields));
+    }
+    CompareTo(other) {
+        if (this === other) {
+            return 0;
+        }
+        else if (!sameType(this, other)) {
+            return -1;
+        }
+        else if (this.tag === other.tag) {
+            return Object(_Util__WEBPACK_IMPORTED_MODULE_0__["compareArrays"])(this.fields, other.fields);
+        }
+        else {
+            return this.tag < other.tag ? -1 : 1;
+        }
+    }
 }
-Union.prototype.toString = function () {
-    const len = this.fields.length;
-    if (len === 0) {
-        return this.name;
-    }
-    else if (len === 1) {
-        return this.name + " " + String(this.fields[0]);
-    }
-    else {
-        return this.name + " (" + this.fields.map((x) => String(x)).join(",") + ")";
-    }
-};
-Union.prototype.toJSON = function () {
-    return this.fields.length === 0
-        ? this.name
-        : [this.name].concat(this.fields);
-};
-Union.prototype.GetHashCode = function () {
-    const hashes = this.fields.map((x) => Object(_Util__WEBPACK_IMPORTED_MODULE_0__["structuralHash"])(x));
-    hashes.splice(0, 0, Object(_Util__WEBPACK_IMPORTED_MODULE_0__["numberHash"])(this.tag));
-    return Object(_Util__WEBPACK_IMPORTED_MODULE_0__["combineHashCodes"])(hashes);
-};
-Union.prototype.Equals = function (other) {
-    return this === other
-        || (sameType(this, other)
-            && this.tag === other.tag
-            && Object(_Util__WEBPACK_IMPORTED_MODULE_0__["equalArrays"])(this.fields, other.fields));
-};
-Union.prototype.CompareTo = function (other) {
-    if (this === other) {
-        return 0;
-    }
-    else if (!sameType(this, other)) {
-        return -1;
-    }
-    else if (this.tag === other.tag) {
-        return Object(_Util__WEBPACK_IMPORTED_MODULE_0__["compareArrays"])(this.fields, other.fields);
-    }
-    else {
-        return this.tag < other.tag ? -1 : 1;
-    }
-};
 function recordToJson(record, getFieldNames) {
     const o = {};
     const keys = getFieldNames == null ? Object.keys(record) : getFieldNames(record);
@@ -14276,31 +14214,33 @@ function recordCompare(self, other, getFieldNames) {
         return 0;
     }
 }
-function Record() {
-    return;
+class Record extends SystemObject {
+    toString() {
+        return "{" + Object.entries(this).map(([k, v]) => k + " = " + String(v)).join(";\n ") + "}";
+    }
+    toJSON() {
+        return recordToJson(this);
+    }
+    GetHashCode() {
+        const hashes = Object.values(this).map((v) => Object(_Util__WEBPACK_IMPORTED_MODULE_0__["structuralHash"])(v));
+        return Object(_Util__WEBPACK_IMPORTED_MODULE_0__["combineHashCodes"])(hashes);
+    }
+    Equals(other) {
+        return recordEquals(this, other);
+    }
+    CompareTo(other) {
+        return recordCompare(this, other);
+    }
 }
-Record.prototype.toString = function () {
-    return "{" + Object.keys(this).map((k) => k + " = " + String(this[k])).join(";\n ") + "}";
-};
-Record.prototype.toJSON = function () {
-    return recordToJson(this);
-};
-Record.prototype.GetHashCode = function () {
-    const hashes = Object.keys(this).map((k) => Object(_Util__WEBPACK_IMPORTED_MODULE_0__["structuralHash"])(this[k]));
-    return Object(_Util__WEBPACK_IMPORTED_MODULE_0__["combineHashCodes"])(hashes);
-};
-Record.prototype.Equals = function (other) {
-    return recordEquals(this, other);
-};
-Record.prototype.CompareTo = function (other) {
-    return recordCompare(this, other);
-};
 function anonRecord(o) {
     return Object.assign(Object.create(Record.prototype), o);
 }
-const FSharpRef = declare(function FSharpRef(contents) {
-    this.contents = contents;
-}, Record);
+class FSharpRef extends Record {
+    constructor(contents) {
+        super();
+        this.contents = contents;
+    }
+}
 const Exception = declare(function Exception(message) {
     this.stack = Error().stack;
     this.message = message;
@@ -14311,55 +14251,61 @@ function isException(x) {
 function getFSharpExceptionFieldNames(self) {
     return Object.keys(self).filter((k) => k !== "message" && k !== "stack");
 }
-const FSharpException = declare(function FSharpException() {
-    Exception.call(this);
-}, Exception);
-FSharpException.prototype.toString = function () {
-    const fieldNames = getFSharpExceptionFieldNames(this);
-    const len = fieldNames.length;
-    if (len === 0) {
-        return this.message;
+class FSharpException extends Exception {
+    toString() {
+        var _a;
+        // const fieldNames = getFSharpExceptionFieldNames(this);
+        const fields = Object.entries(this).filter(([k, _]) => k !== "message" && k !== "stack");
+        const len = fields.length;
+        if (len === 0) {
+            return (_a = this.message) !== null && _a !== void 0 ? _a : "";
+        }
+        else if (len === 1) {
+            return this.message + " " + String(fields[1]);
+        }
+        else {
+            return this.message + " (" + fields.map(([_, v]) => String(v)).join(",") + ")";
+        }
     }
-    else if (len === 1) {
-        return this.message + " " + String(this[fieldNames[0]]);
+    toJSON() {
+        return recordToJson(this, getFSharpExceptionFieldNames);
     }
-    else {
-        return this.message + " (" + fieldNames.map((k) => String(this[k])).join(",") + ")";
+    GetHashCode() {
+        const fields = Object.entries(this).filter(([k, _]) => k !== "message" && k !== "stack");
+        const hashes = fields.map(([_, v]) => Object(_Util__WEBPACK_IMPORTED_MODULE_0__["structuralHash"])(v));
+        return Object(_Util__WEBPACK_IMPORTED_MODULE_0__["combineHashCodes"])(hashes);
     }
-};
-FSharpException.prototype.toJSON = function () {
-    return recordToJson(this, getFSharpExceptionFieldNames);
-};
-FSharpException.prototype.GetHashCode = function () {
-    const hashes = getFSharpExceptionFieldNames(this).map((k) => Object(_Util__WEBPACK_IMPORTED_MODULE_0__["structuralHash"])(this[k]));
-    return Object(_Util__WEBPACK_IMPORTED_MODULE_0__["combineHashCodes"])(hashes);
-};
-FSharpException.prototype.Equals = function (other) {
-    return recordEquals(this, other, getFSharpExceptionFieldNames);
-};
-FSharpException.prototype.CompareTo = function (other) {
-    return recordCompare(this, other, getFSharpExceptionFieldNames);
-};
-const MatchFailureException = declare(function MatchFailureException(arg1, arg2, arg3) {
-    this.arg1 = arg1;
-    this.arg2 = arg2 | 0;
-    this.arg3 = arg3 | 0;
-    this.message = "The match cases were incomplete";
-}, FSharpException);
+    Equals(other) {
+        return recordEquals(this, other, getFSharpExceptionFieldNames);
+    }
+    CompareTo(other) {
+        return recordCompare(this, other, getFSharpExceptionFieldNames);
+    }
+}
+class MatchFailureException extends FSharpException {
+    constructor(arg1, arg2, arg3) {
+        super();
+        this.arg1 = arg1;
+        this.arg2 = arg2 | 0;
+        this.arg3 = arg3 | 0;
+        this.message = "The match cases were incomplete";
+    }
+}
 const Attribute = declare(function Attribute() { return; }, SystemObject);
 //# sourceMappingURL=Types.js.map
 
 /***/ }),
 
-/***/ "./.fable/fable-library.2.4.15/Util.js":
+/***/ "./.fable/fable-library.2.13.0/Util.js":
 /*!*********************************************!*\
-  !*** ./.fable/fable-library.2.4.15/Util.js ***!
+  !*** ./.fable/fable-library.2.13.0/Util.js ***!
   \*********************************************/
-/*! exports provided: extend, isIterable, isArrayLike, isComparer, isComparable, isEquatable, isHashable, isDisposable, Comparer, comparerFromEqualityComparer, containsValue, tryGetValue, addToSet, assertEqual, assertNotEqual, Lazy, lazyFromValue, padWithZeros, padLeftAndRightWithZeros, dateOffset, int16ToString, int32ToString, ObjectRef, stringHash, numberHash, combineHashCodes, identityHash, structuralHash, equalArraysWith, equalArrays, equals, compareDates, comparePrimitives, compareArraysWith, compareArrays, compareObjects, compare, min, max, createAtom, createObj, jsOptions, round, sign, randomNext, randomBytes, unescapeDataString, escapeDataString, escapeUriString, count, clear, uncurry, curry, partialApply, mapCurriedArgs, addToDict, getItemFromDict */
+/*! exports provided: bindThis, extend, isIterable, isArrayLike, isComparer, isComparable, isEquatable, isHashable, isDisposable, Comparer, comparerFromEqualityComparer, containsValue, tryGetValue, addToSet, assertEqual, assertNotEqual, Lazy, lazyFromValue, padWithZeros, padLeftAndRightWithZeros, dateOffset, int16ToString, int32ToString, ObjectRef, stringHash, numberHash, combineHashCodes, identityHash, structuralHash, equalArraysWith, equalArrays, equals, compareDates, comparePrimitives, compareArraysWith, compareArrays, compareObjects, compare, min, max, createAtom, createObj, jsOptions, round, sign, randomNext, randomBytes, unescapeDataString, escapeDataString, escapeUriString, count, clear, uncurry, curry, partialApply, mapCurriedArgs, addToDict, getItemFromDict */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bindThis", function() { return bindThis; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "extend", function() { return extend; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isIterable", function() { return isIterable; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isArrayLike", function() { return isArrayLike; });
@@ -14418,6 +14364,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addToDict", function() { return addToDict; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getItemFromDict", function() { return getItemFromDict; });
 // tslint:disable:ban-types
+function bindThis(this$, source) {
+    for (const key of Object.keys(source)) {
+        if (typeof source[key] === "function") {
+            source[key] = source[key].bind(this$);
+        }
+    }
+    return source;
+}
 // Object.assign flattens getters and setters
 // See https://stackoverflow.com/questions/37054596/js-es5-how-to-assign-objects-with-setters-and-getters
 function extend(target, ...sources) {
@@ -14561,16 +14515,20 @@ function int32ToString(i, radix) {
     i = i < 0 && radix != null && radix !== 10 ? 0xFFFFFFFF + i + 1 : i;
     return i.toString(radix);
 }
-class ObjectRef {
-    static id(o) {
-        if (!ObjectRef.idMap.has(o)) {
-            ObjectRef.idMap.set(o, ++ObjectRef.count);
+let ObjectRef = /** @class */ (() => {
+    class ObjectRef {
+        static id(o) {
+            if (!ObjectRef.idMap.has(o)) {
+                ObjectRef.idMap.set(o, ++ObjectRef.count);
+            }
+            return ObjectRef.idMap.get(o);
         }
-        return ObjectRef.idMap.get(o);
     }
-}
-ObjectRef.idMap = new WeakMap();
-ObjectRef.count = 0;
+    ObjectRef.idMap = new WeakMap();
+    ObjectRef.count = 0;
+    return ObjectRef;
+})();
+
 function stringHash(s) {
     let i = 0;
     let h = 5381;
@@ -14799,8 +14757,8 @@ function max(comparer, x, y) {
 }
 function createAtom(value) {
     let atom = value;
-    return (value) => {
-        if (value === void 0) {
+    return (value, isSetter) => {
+        if (!isSetter) {
             return atom;
         }
         else {
@@ -14954,7 +14912,7 @@ const CURRIED_KEY = "__CURRIED__";
 function uncurry(arity, f) {
     // f may be a function option with None value
     if (f == null) {
-        return null;
+        return undefined;
     }
     // The function is already uncurried
     if (f.length > 1) {
@@ -15018,7 +14976,7 @@ function curry(arity, f) {
 }
 function partialApply(arity, f, args) {
     if (f == null) {
-        return null;
+        return undefined;
     }
     else if (CURRIED_KEY in f) {
         f = f[CURRIED_KEY];
@@ -15033,21 +14991,21 @@ function partialApply(arity, f, args) {
                 // Wrap arguments to make sure .concat doesn't destruct arrays. Example
                 // [1,2].concat([3,4],5)   --> [1,2,3,4,5]    // fails
                 // [1,2].concat([[3,4],5]) --> [1,2,[3,4],5]  // ok
-                return (a1) => f.apply(null, args.concat([a1]));
+                return (a1) => f.apply(undefined, args.concat([a1]));
             case 2:
-                return (a1) => (a2) => f.apply(null, args.concat([a1, a2]));
+                return (a1) => (a2) => f.apply(undefined, args.concat([a1, a2]));
             case 3:
-                return (a1) => (a2) => (a3) => f.apply(null, args.concat([a1, a2, a3]));
+                return (a1) => (a2) => (a3) => f.apply(undefined, args.concat([a1, a2, a3]));
             case 4:
-                return (a1) => (a2) => (a3) => (a4) => f.apply(null, args.concat([a1, a2, a3, a4]));
+                return (a1) => (a2) => (a3) => (a4) => f.apply(undefined, args.concat([a1, a2, a3, a4]));
             case 5:
-                return (a1) => (a2) => (a3) => (a4) => (a5) => f.apply(null, args.concat([a1, a2, a3, a4, a5]));
+                return (a1) => (a2) => (a3) => (a4) => (a5) => f.apply(undefined, args.concat([a1, a2, a3, a4, a5]));
             case 6:
-                return (a1) => (a2) => (a3) => (a4) => (a5) => (a6) => f.apply(null, args.concat([a1, a2, a3, a4, a5, a6]));
+                return (a1) => (a2) => (a3) => (a4) => (a5) => (a6) => f.apply(undefined, args.concat([a1, a2, a3, a4, a5, a6]));
             case 7:
-                return (a1) => (a2) => (a3) => (a4) => (a5) => (a6) => (a7) => f.apply(null, args.concat([a1, a2, a3, a4, a5, a6, a7]));
+                return (a1) => (a2) => (a3) => (a4) => (a5) => (a6) => (a7) => f.apply(undefined, args.concat([a1, a2, a3, a4, a5, a6, a7]));
             case 8:
-                return (a1) => (a2) => (a3) => (a4) => (a5) => (a6) => (a7) => (a8) => f.apply(null, args.concat([a1, a2, a3, a4, a5, a6, a7, a8]));
+                return (a1) => (a2) => (a3) => (a4) => (a5) => (a6) => (a7) => (a8) => f.apply(undefined, args.concat([a1, a2, a3, a4, a5, a6, a7, a8]));
             default:
                 throw new Error("Partially applying to more than 8-arity is not supported: " + arity);
         }
@@ -15094,9 +15052,9 @@ function getItemFromDict(map, key) {
 
 /***/ }),
 
-/***/ "./.fable/fable-library.2.4.15/lib/big.js":
+/***/ "./.fable/fable-library.2.13.0/lib/big.js":
 /*!************************************************!*\
-  !*** ./.fable/fable-library.2.4.15/lib/big.js ***!
+  !*** ./.fable/fable-library.2.13.0/lib/big.js ***!
   \************************************************/
 /*! exports provided: Big, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -15104,7 +15062,7 @@ function getItemFromDict(map, key) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Big", function() { return Big; });
-/* harmony import */ var _Util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Util */ "./.fable/fable-library.2.4.15/Util.js");
+/* harmony import */ var _Util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Util */ "./.fable/fable-library.2.13.0/Util.js");
 // https://github.com/MikeMcl/big.js/blob/01b3ce3a6b0ba7b42442ea48ec4ffc88d1669ec4/big.mjs
 /* tslint:disable */
 
@@ -15877,9 +15835,9 @@ var Big = _Big_();
 
 /***/ }),
 
-/***/ "./.fable/fable-library.2.4.15/lib/long.js":
+/***/ "./.fable/fable-library.2.13.0/lib/long.js":
 /*!*************************************************!*\
-  !*** ./.fable/fable-library.2.4.15/lib/long.js ***!
+  !*** ./.fable/fable-library.2.13.0/lib/long.js ***!
   \*************************************************/
 /*! exports provided: default, Long, isLong, fromInt, fromNumber, fromBits, fromString, fromValue, ZERO, UZERO, ONE, UONE, NEG_ONE, MAX_VALUE, MAX_UNSIGNED_VALUE, MIN_VALUE, toInt, toNumber, toString, getHighBits, getHighBitsUnsigned, getLowBits, getLowBitsUnsigned, getNumBitsAbs, isZero, isNegative, isPositive, isOdd, isEven, equals, notEquals, lessThan, lessThanOrEqual, greaterThan, greaterThanOrEqual, compare, negate, add, subtract, multiply, divide, modulo, not, and, or, xor, shiftLeft, shiftRight, shiftRightUnsigned, rotateLeft, rotateRight, toSigned, toUnsigned, toBytes, toBytesLE, toBytesBE, fromBytes, fromBytesLE, fromBytesBE */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -45797,13 +45755,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Simulation_fs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Simulation.fs */ "./src/Simulation.fs");
 /* harmony import */ var _Model_fs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Model.fs */ "./src/Model.fs");
 /* harmony import */ var _fable_Fable_Promise_2_1_0_Promise_fs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../.fable/Fable.Promise.2.1.0/Promise.fs */ "./.fable/Fable.Promise.2.1.0/Promise.fs");
-/* harmony import */ var _fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/List.js */ "./.fable/fable-library.2.4.15/List.js");
-/* harmony import */ var _fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../.fable/Fable.Elmish.3.0.0/cmd.fs */ "./.fable/Fable.Elmish.3.0.0/cmd.fs");
-/* harmony import */ var _fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/String.js */ "./.fable/fable-library.2.4.15/String.js");
-/* harmony import */ var _fable_fable_library_2_4_15_Date_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/Date.js */ "./.fable/fable-library.2.4.15/Date.js");
-/* harmony import */ var _MainView_fs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./MainView.fs */ "./src/MainView.fs");
-/* harmony import */ var _fable_Fable_Elmish_3_0_0_program_fs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../.fable/Fable.Elmish.3.0.0/program.fs */ "./.fable/Fable.Elmish.3.0.0/program.fs");
-/* harmony import */ var _fable_Fable_Elmish_React_3_0_1_react_fs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../.fable/Fable.Elmish.React.3.0.1/react.fs */ "./.fable/Fable.Elmish.React.3.0.1/react.fs");
+/* harmony import */ var _fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/Decimal.js */ "./.fable/fable-library.2.13.0/Decimal.js");
+/* harmony import */ var _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/Types.js */ "./.fable/fable-library.2.13.0/Types.js");
+/* harmony import */ var _fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../.fable/Fable.Elmish.3.0.0/cmd.fs */ "./.fable/Fable.Elmish.3.0.0/cmd.fs");
+/* harmony import */ var _fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/List.js */ "./.fable/fable-library.2.13.0/List.js");
+/* harmony import */ var _fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/String.js */ "./.fable/fable-library.2.13.0/String.js");
+/* harmony import */ var _fable_fable_library_2_13_0_Date_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/Date.js */ "./.fable/fable-library.2.13.0/Date.js");
+/* harmony import */ var _MainView_fs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./MainView.fs */ "./src/MainView.fs");
+/* harmony import */ var _fable_Fable_Elmish_3_0_0_program_fs__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../.fable/Fable.Elmish.3.0.0/program.fs */ "./.fable/Fable.Elmish.3.0.0/program.fs");
+/* harmony import */ var _fable_Fable_Elmish_React_3_0_1_react_fs__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../.fable/Fable.Elmish.React.3.0.1/react.fs */ "./.fable/Fable.Elmish.React.3.0.1/react.fs");
+
+
+
 
 
 
@@ -45827,13 +45790,11 @@ function runSimulationAsync(setup) {
   }));
 }
 function init() {
-  const setup$$1 = new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameSetup"](new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameParameters"](100, 50, new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["PayoffMatrixType"](0, "FromRewardAndCost", 10, 20)), Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_4__["ofArray"])([new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["SimulationFrame"](1, "Stage 1", _Simulation_fs__WEBPACK_IMPORTED_MODULE_1__["SimulationStageNames$$$Random"], function SetPayoffForStage(x) {
+  const setup$$1 = new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameSetup"](new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameParameters"](100, 50, new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["PayoffMatrixType"](0, "FromRewardAndCost", Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_4__["fromParts"])(100, 0, 0, false, 1), Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_4__["fromParts"])(200, 0, 0, false, 1))), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_5__["List"](new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["SimulationFrame"](100, "Stage 2", _Simulation_fs__WEBPACK_IMPORTED_MODULE_1__["SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory"], function SetPayoffForStage(x) {
     return x;
-  }, true), new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["SimulationFrame"](100, "Stage 2", _Simulation_fs__WEBPACK_IMPORTED_MODULE_1__["SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory"], function SetPayoffForStage$$1(x$$1) {
-    return x$$1;
-  }, true)]));
+  }, true), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_5__["List"]()));
   const initialGameState$$1 = Object(_Simulation_fs__WEBPACK_IMPORTED_MODULE_1__["Model$002EGameSetup$$GameSetup$002EToInitialGameState"])(setup$$1);
-  return [new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["State"](setup$$1, initialGameState$$1, new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["ResultViewState"](0, "InitGame"), false), Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_5__["Cmd$$$none"])()];
+  return [new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["State"](setup$$1, initialGameState$$1, new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["ResultViewState"](0, "InitGame"), false), Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_6__["Cmd$$$none"])()];
 }
 function update(msg, state) {
   var ViewState, ViewState$$1, ViewState$$2, ViewState$$3, round$$1, ViewState$$5;
@@ -45856,7 +45817,7 @@ function update(msg, state) {
         {
           const value$$1 = field.fields[1];
           const stage$$1 = field.fields[0];
-          return setGameSimulationFrames((list$$1 = state.Setup.SimulationFrames, (Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_4__["map"])(function mapping$$1(frame$$1) {
+          return setGameSimulationFrames((list$$1 = state.Setup.SimulationFrames, (Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["map"])(function mapping$$1(frame$$1) {
             if (frame$$1.StageName === stage$$1) {
               return new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["SimulationFrame"](frame$$1.RoundCount, frame$$1.StageName, value$$1, frame$$1.SetPayoffForStage, frame$$1.MayUseColor);
             } else {
@@ -45880,20 +45841,20 @@ function update(msg, state) {
       case 4:
         {
           const value$$4 = field.fields[0] | 0;
-          return setGameParams((PayoffMatrix = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["PayoffMatrixType$$SetV$$5E38073B"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameSetup$$get_PayoffMatrix"])(state.Setup), value$$4), new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameParameters"](state.Setup.GameParameters.AgentCount, state.Setup.GameParameters.PortionOfRed, PayoffMatrix)));
+          return setGameParams((PayoffMatrix = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["PayoffMatrixType$$SetV$$32C73145"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameSetup$$get_PayoffMatrix"])(state.Setup), new _fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_4__["default"](value$$4)), new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameParameters"](state.Setup.GameParameters.AgentCount, state.Setup.GameParameters.PortionOfRed, PayoffMatrix)));
         }
 
       case 5:
         {
           const value$$5 = field.fields[0] | 0;
-          return setGameParams((PayoffMatrix$$1 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["PayoffMatrixType$$SetC$$5E38073B"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameSetup$$get_PayoffMatrix"])(state.Setup), value$$5), new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameParameters"](state.Setup.GameParameters.AgentCount, state.Setup.GameParameters.PortionOfRed, PayoffMatrix$$1)));
+          return setGameParams((PayoffMatrix$$1 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["PayoffMatrixType$$SetC$$32C73145"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameSetup$$get_PayoffMatrix"])(state.Setup), new _fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_4__["default"](value$$5)), new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameParameters"](state.Setup.GameParameters.AgentCount, state.Setup.GameParameters.PortionOfRed, PayoffMatrix$$1)));
         }
 
       default:
         {
           const value = field.fields[1] | 0;
           const stage = field.fields[0];
-          return setGameSimulationFrames((list = state.Setup.SimulationFrames, (Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_4__["map"])(function mapping(frame) {
+          return setGameSimulationFrames((list = state.Setup.SimulationFrames, (Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["map"])(function mapping(frame) {
             if (frame.StageName === stage) {
               return new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["SimulationFrame"](value, frame.StageName, frame.StrategyInitFnName, frame.SetPayoffForStage, frame.MayUseColor);
             } else {
@@ -45908,12 +45869,12 @@ function update(msg, state) {
     case 1:
       {
         const round = msg.fields[0] | 0;
-        return [(ViewState = new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["ResultViewState"](2, "ShowResults", round), new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["State"](state.Setup, state.GameState, ViewState, state.PlayAnimation)), Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_5__["Cmd$$$none"])()];
+        return [(ViewState = new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["ResultViewState"](2, "ShowResults", round), new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["State"](state.Setup, state.GameState, ViewState, state.PlayAnimation)), Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_6__["Cmd$$$none"])()];
       }
 
     case 4:
       {
-        return [(ViewState$$1 = new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["ResultViewState"](0, "InitGame"), new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["State"](state.Setup, state.GameState, ViewState$$1, false)), Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_5__["Cmd$$$none"])()];
+        return [(ViewState$$1 = new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["ResultViewState"](0, "InitGame"), new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["State"](state.Setup, state.GameState, ViewState$$1, false)), Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_6__["Cmd$$$none"])()];
       }
 
     case 2:
@@ -45921,26 +45882,26 @@ function update(msg, state) {
         const runSimulation = function runSimulation() {
           const builder$0040$$1 = _fable_Fable_Promise_2_1_0_PromiseImpl_fs__WEBPACK_IMPORTED_MODULE_0__["promise"];
           return Object(_fable_Fable_Promise_2_1_0_Promise_fs__WEBPACK_IMPORTED_MODULE_3__["PromiseBuilder$$Run$$212F1D4B"])(builder$0040$$1, Object(_fable_Fable_Promise_2_1_0_Promise_fs__WEBPACK_IMPORTED_MODULE_3__["PromiseBuilder$$Delay$$62FBFDE1"])(builder$0040$$1, function () {
-            Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_6__["toConsole"])(Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_6__["printf"])("starting"));
+            Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_8__["toConsole"])(Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_8__["printf"])("starting"));
             return new Promise(resolve => setTimeout(resolve, 200)).then(function () {
               return runSimulationAsync(state.Setup).then(function (_arg2) {
                 const results = _arg2;
-                Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_6__["toConsole"])(Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_6__["printf"])("beforeDispatch"));
+                Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_8__["toConsole"])(Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_8__["printf"])("beforeDispatch"));
                 return Promise.resolve(new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["Msg"](3, "OnSimulationCompleted", results));
               });
             });
           }));
         };
 
-        return [(ViewState$$2 = new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["ResultViewState"](1, "Loading"), new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["State"](state.Setup, state.GameState, ViewState$$2, state.PlayAnimation)), Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_5__["Cmd$002EOfPromise$$$perform"])(runSimulation, null, function (x$$2) {
-          return x$$2;
+        return [(ViewState$$2 = new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["ResultViewState"](1, "Loading"), new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["State"](state.Setup, state.GameState, ViewState$$2, state.PlayAnimation)), Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_6__["Cmd$002EOfPromise$$$perform"])(runSimulation, void null, function (x$$1) {
+          return x$$1;
         })];
       }
 
     case 3:
       {
         const gameState = msg.fields[0];
-        return [(ViewState$$3 = new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["ResultViewState"](2, "ShowResults", Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameSetup$$get_RoundsToPlay"])(state.Setup)), new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["State"](state.Setup, gameState, ViewState$$3, state.PlayAnimation)), Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_5__["Cmd$$$none"])()];
+        return [(ViewState$$3 = new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["ResultViewState"](2, "ShowResults", Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameSetup$$get_RoundsToPlay"])(state.Setup)), new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["State"](state.Setup, gameState, ViewState$$3, state.PlayAnimation)), Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_6__["Cmd$$$none"])()];
       }
 
     case 5:
@@ -45948,24 +45909,24 @@ function update(msg, state) {
         const maxRound = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameSetup$$get_RoundsToPlay"])(state.Setup) | 0;
         const currentRound = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["State$$get_CurrentRound"])(state) | 0;
         let updatedState;
-        var $target$$11, round$$2;
+        var $target$$10, round$$2;
 
         if (state.PlayAnimation) {
           if (state.ViewState.tag === 2) {
             if (round$$1 = state.ViewState.fields[0] | 0, maxRound > currentRound) {
-              $target$$11 = 0;
+              $target$$10 = 0;
               round$$2 = state.ViewState.fields[0];
             } else {
-              $target$$11 = 1;
+              $target$$10 = 1;
             }
           } else {
-            $target$$11 = 1;
+            $target$$10 = 1;
           }
         } else {
-          $target$$11 = 1;
+          $target$$10 = 1;
         }
 
-        switch ($target$$11) {
+        switch ($target$$10) {
           case 0:
             {
               const ViewState$$4 = new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["ResultViewState"](2, "ShowResults", round$$2 + 1);
@@ -45975,23 +45936,23 @@ function update(msg, state) {
 
           case 1:
             {
-              var $target$$12;
+              var $target$$11;
 
               if (state.PlayAnimation) {
                 if (state.ViewState.tag === 2) {
                   if (maxRound === currentRound) {
-                    $target$$12 = 0;
+                    $target$$11 = 0;
                   } else {
-                    $target$$12 = 1;
+                    $target$$11 = 1;
                   }
                 } else {
-                  $target$$12 = 1;
+                  $target$$11 = 1;
                 }
               } else {
-                $target$$12 = 1;
+                $target$$11 = 1;
               }
 
-              switch ($target$$12) {
+              switch ($target$$11) {
                 case 0:
                   {
                     updatedState = new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["State"](state.Setup, state.GameState, state.ViewState, false);
@@ -46009,46 +45970,46 @@ function update(msg, state) {
             }
         }
 
-        return [updatedState, Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_5__["Cmd$$$none"])()];
+        return [updatedState, Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_6__["Cmd$$$none"])()];
       }
 
     case 6:
       {
-        return [(ViewState$$5 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["State$$get_CurrentRound"])(state) === Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameSetup$$get_RoundsToPlay"])(state.Setup) ? new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["ResultViewState"](2, "ShowResults", 1) : state.ViewState, new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["State"](state.Setup, state.GameState, ViewState$$5, true)), Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_5__["Cmd$$$none"])()];
+        return [(ViewState$$5 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["State$$get_CurrentRound"])(state) === Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameSetup$$get_RoundsToPlay"])(state.Setup) ? new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["ResultViewState"](2, "ShowResults", 1) : state.ViewState, new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["State"](state.Setup, state.GameState, ViewState$$5, true)), Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_6__["Cmd$$$none"])()];
       }
 
     case 7:
       {
-        return [new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["State"](state.Setup, state.GameState, state.ViewState, false), Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_5__["Cmd$$$none"])()];
+        return [new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["State"](state.Setup, state.GameState, state.ViewState, false), Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_6__["Cmd$$$none"])()];
       }
 
     default:
       {
         const field$$1 = msg.fields[0];
-        return [setField(field$$1), Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_5__["Cmd$$$none"])()];
+        return [setField(field$$1), Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_6__["Cmd$$$none"])()];
       }
   }
 }
 function timer(initial) {
   const sub = function sub(dispatch) {
     const value$$6 = window.setInterval(function (_arg1$$2) {
-      return dispatch(new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["Msg"](5, "Tick", Object(_fable_fable_library_2_4_15_Date_js__WEBPACK_IMPORTED_MODULE_7__["now"])()));
+      return dispatch(new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["Msg"](5, "Tick", Object(_fable_fable_library_2_13_0_Date_js__WEBPACK_IMPORTED_MODULE_9__["now"])()));
     }, 500);
     void value$$6;
   };
 
-  return Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_5__["Cmd$$$ofSub"])(sub);
+  return Object(_fable_Fable_Elmish_3_0_0_cmd_fs__WEBPACK_IMPORTED_MODULE_6__["Cmd$$$ofSub"])(sub);
 }
 
 (function () {
   let program$$2;
   let program$$1;
-  const program = Object(_fable_Fable_Elmish_3_0_0_program_fs__WEBPACK_IMPORTED_MODULE_9__["ProgramModule$$$mkProgram"])(function () {
+  const program = Object(_fable_Fable_Elmish_3_0_0_program_fs__WEBPACK_IMPORTED_MODULE_11__["ProgramModule$$$mkProgram"])(function () {
     return init();
-  }, update, _MainView_fs__WEBPACK_IMPORTED_MODULE_8__["view"]);
-  program$$1 = Object(_fable_Fable_Elmish_React_3_0_1_react_fs__WEBPACK_IMPORTED_MODULE_10__["Program$$$withReactBatched"])("app", program);
-  program$$2 = Object(_fable_Fable_Elmish_3_0_0_program_fs__WEBPACK_IMPORTED_MODULE_9__["ProgramModule$$$withSubscription"])(timer, program$$1);
-  Object(_fable_Fable_Elmish_3_0_0_program_fs__WEBPACK_IMPORTED_MODULE_9__["ProgramModule$$$run"])(program$$2);
+  }, update, _MainView_fs__WEBPACK_IMPORTED_MODULE_10__["view"]);
+  program$$1 = Object(_fable_Fable_Elmish_React_3_0_1_react_fs__WEBPACK_IMPORTED_MODULE_12__["Program$$$withReactBatched"])("app", program);
+  program$$2 = Object(_fable_Fable_Elmish_3_0_0_program_fs__WEBPACK_IMPORTED_MODULE_11__["ProgramModule$$$withSubscription"])(timer, program$$1);
+  Object(_fable_Fable_Elmish_3_0_0_program_fs__WEBPACK_IMPORTED_MODULE_11__["ProgramModule$$$run"])(program$$2);
 })();
 
 /***/ }),
@@ -46092,11 +46053,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListHelpers$$$shuffle", function() { return ListHelpers$$$shuffle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListHelpers$$$toPairs", function() { return ListHelpers$$$toPairs; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Memoize$$$memoize", function() { return Memoize$$$memoize; });
-/* harmony import */ var _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/Util.js */ "./.fable/fable-library.2.4.15/Util.js");
-/* harmony import */ var _fable_fable_library_2_4_15_Array_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/Array.js */ "./.fable/fable-library.2.4.15/Array.js");
-/* harmony import */ var _fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/Seq.js */ "./.fable/fable-library.2.4.15/Seq.js");
-/* harmony import */ var _fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/List.js */ "./.fable/fable-library.2.4.15/List.js");
-/* harmony import */ var _fable_fable_library_2_4_15_Map_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/Map.js */ "./.fable/fable-library.2.4.15/Map.js");
+/* harmony import */ var _fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/Util.js */ "./.fable/fable-library.2.13.0/Util.js");
+/* harmony import */ var _fable_fable_library_2_13_0_Array_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/Array.js */ "./.fable/fable-library.2.13.0/Array.js");
+/* harmony import */ var _fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/Seq.js */ "./.fable/fable-library.2.13.0/Seq.js");
+/* harmony import */ var _fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/List.js */ "./.fable/fable-library.2.13.0/List.js");
+/* harmony import */ var _fable_fable_library_2_13_0_Map_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/Map.js */ "./.fable/fable-library.2.13.0/Map.js");
 
 
 
@@ -46111,49 +46072,49 @@ function ArrayHelpers$$$swap(a, x, y) {
 }
 function ArrayHelpers$$$shuffle(arr) {
   const array = arr;
-  Object(_fable_fable_library_2_4_15_Array_js__WEBPACK_IMPORTED_MODULE_1__["iterateIndexed"])(function action(i, _arg1) {
-    ArrayHelpers$$$swap(arr, i, Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["randomNext"])(i, arr.length));
+  Object(_fable_fable_library_2_13_0_Array_js__WEBPACK_IMPORTED_MODULE_1__["iterateIndexed"])(function action(i, _arg1) {
+    ArrayHelpers$$$swap(arr, i, Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["randomNext"])(i, arr.length));
   }, array);
   return arr;
 }
 function ArrayHelpers$$$toPairs(items) {
-  const source = Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_2__["delay"])(function () {
-    return Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_2__["map"])(function (pairIndex) {
+  const source = Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_2__["delay"])(function () {
+    return Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_2__["map"])(function (pairIndex) {
       return [items[pairIndex], items[pairIndex + 1]];
-    }, Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_2__["rangeNumber"])(0, 2, items.length - 1));
+    }, Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_2__["rangeNumber"])(0, 2, items.length - 1));
   });
-  return Object(_fable_fable_library_2_4_15_Array_js__WEBPACK_IMPORTED_MODULE_1__["ofSeq"])(source, Array);
+  return Object(_fable_fable_library_2_13_0_Array_js__WEBPACK_IMPORTED_MODULE_1__["ofSeq"])(source, Array);
 }
 function ListHelpers$$$shuffle(l) {
   let array$$1;
   let arr$$1;
   const list = l;
-  arr$$1 = Object(_fable_fable_library_2_4_15_Array_js__WEBPACK_IMPORTED_MODULE_1__["ofList"])(list, Array);
+  arr$$1 = Object(_fable_fable_library_2_13_0_Array_js__WEBPACK_IMPORTED_MODULE_1__["ofList"])(list, Array);
   array$$1 = ArrayHelpers$$$shuffle(arr$$1);
-  return Object(_fable_fable_library_2_4_15_Array_js__WEBPACK_IMPORTED_MODULE_1__["toList"])(array$$1);
+  return Object(_fable_fable_library_2_13_0_Array_js__WEBPACK_IMPORTED_MODULE_1__["toList"])(array$$1);
 }
 function ListHelpers$$$toPairs(items$$1) {
-  const source$$1 = Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_2__["delay"])(function () {
-    return Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_2__["map"])(function (pairIndex$$1) {
-      return [Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_3__["item"])(pairIndex$$1, items$$1), Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_3__["item"])(pairIndex$$1 + 1, items$$1)];
-    }, Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_2__["rangeNumber"])(0, 2, Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_3__["length"])(items$$1) - 1));
+  const source$$1 = Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_2__["delay"])(function () {
+    return Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_2__["map"])(function (pairIndex$$1) {
+      return [Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_3__["item"])(pairIndex$$1, items$$1), Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_3__["item"])(pairIndex$$1 + 1, items$$1)];
+    }, Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_2__["rangeNumber"])(0, 2, Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_3__["length"])(items$$1) - 1));
   });
-  return Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_3__["ofSeq"])(source$$1);
+  return Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_3__["ofSeq"])(source$$1);
 }
 function Memoize$$$memoize(fn) {
-  const cache = Object(_fable_fable_library_2_4_15_Map_js__WEBPACK_IMPORTED_MODULE_4__["createMutable"])([], {
-    Equals: _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["equals"],
-    GetHashCode: _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["structuralHash"]
+  const cache = Object(_fable_fable_library_2_13_0_Map_js__WEBPACK_IMPORTED_MODULE_4__["createMutable"])([], {
+    Equals: _fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["equals"],
+    GetHashCode: _fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["structuralHash"]
   });
   return function (x$$1) {
-    const matchValue = Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["tryGetValue"])(cache, x$$1, null);
+    const matchValue = Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["tryGetValue"])(cache, x$$1, null);
 
     if (matchValue[0]) {
       const v = matchValue[1];
       return v;
     } else {
       const v$$1 = fn(x$$1);
-      Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["addToDict"])(cache, x$$1, v$$1);
+      Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["addToDict"])(cache, x$$1, v$$1);
       return v$$1;
     }
   };
@@ -46198,33 +46159,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResultTable$$$agentBox", function() { return ResultTable$$$agentBox; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResultTable$$$view", function() { return ResultTable$$$view; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "view", function() { return view; });
-/* harmony import */ var _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/Util.js */ "./.fable/fable-library.2.4.15/Util.js");
+/* harmony import */ var _fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/Util.js */ "./.fable/fable-library.2.13.0/Util.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/Types.js */ "./.fable/fable-library.2.4.15/Types.js");
-/* harmony import */ var _fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/String.js */ "./.fable/fable-library.2.4.15/String.js");
+/* harmony import */ var _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/Types.js */ "./.fable/fable-library.2.13.0/Types.js");
+/* harmony import */ var _fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/String.js */ "./.fable/fable-library.2.13.0/String.js");
 /* harmony import */ var _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../.fable/Fable.React.6.0.0/Fable.React.Props.fs */ "./.fable/Fable.React.6.0.0/Fable.React.Props.fs");
 /* harmony import */ var _Model_fs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Model.fs */ "./src/Model.fs");
-/* harmony import */ var _fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/Seq.js */ "./.fable/fable-library.2.4.15/Seq.js");
-/* harmony import */ var _fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/List.js */ "./.fable/fable-library.2.4.15/List.js");
+/* harmony import */ var _fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/Seq.js */ "./.fable/fable-library.2.13.0/Seq.js");
+/* harmony import */ var _fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/List.js */ "./.fable/fable-library.2.13.0/List.js");
 /* harmony import */ var _fable_Fable_React_6_0_0_Fable_React_Extensions_fs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../.fable/Fable.React.6.0.0/Fable.React.Extensions.fs */ "./.fable/Fable.React.6.0.0/Fable.React.Extensions.fs");
-/* harmony import */ var _fable_fable_library_2_4_15_Int32_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/Int32.js */ "./.fable/fable-library.2.4.15/Int32.js");
+/* harmony import */ var _fable_fable_library_2_13_0_Int32_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/Int32.js */ "./.fable/fable-library.2.13.0/Int32.js");
 /* harmony import */ var _fable_Fulma_Extensions_Wikiki_Slider_2_0_1_Slider_fs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../.fable/Fulma.Extensions.Wikiki.Slider.2.0.1/Slider.fs */ "./.fable/Fulma.Extensions.Wikiki.Slider.2.0.1/Slider.fs");
-/* harmony import */ var _Statistics_fs__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Statistics.fs */ "./src/Statistics.fs");
-/* harmony import */ var _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/Reflection.js */ "./.fable/fable-library.2.4.15/Reflection.js");
-/* harmony import */ var _fable_fable_library_2_4_15_Array_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/Array.js */ "./.fable/fable-library.2.4.15/Array.js");
-/* harmony import */ var _fable_Fulma_2_9_0_Elements_Form_Field_fs__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../.fable/Fulma.2.9.0/Elements/Form/Field.fs */ "./.fable/Fulma.2.9.0/Elements/Form/Field.fs");
-/* harmony import */ var _fable_Fulma_2_9_0_Elements_Form_Label_fs__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../.fable/Fulma.2.9.0/Elements/Form/Label.fs */ "./.fable/Fulma.2.9.0/Elements/Form/Label.fs");
-/* harmony import */ var _fable_Fulma_2_9_0_Elements_Form_Input_fs__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../.fable/Fulma.2.9.0/Elements/Form/Input.fs */ "./.fable/Fulma.2.9.0/Elements/Form/Input.fs");
-/* harmony import */ var _fable_Fulma_2_9_0_Elements_Form_Control_fs__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../.fable/Fulma.2.9.0/Elements/Form/Control.fs */ "./.fable/Fulma.2.9.0/Elements/Form/Control.fs");
-/* harmony import */ var _fable_Fulma_2_9_0_Components_Dropdown_fs__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../.fable/Fulma.2.9.0/Components/Dropdown.fs */ "./.fable/Fulma.2.9.0/Components/Dropdown.fs");
-/* harmony import */ var _fable_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../.fable/Fulma.2.9.0/Common.fs */ "./.fable/Fulma.2.9.0/Common.fs");
-/* harmony import */ var _fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../.fable/Fulma.2.9.0/Elements/Button.fs */ "./.fable/Fulma.2.9.0/Elements/Button.fs");
-/* harmony import */ var _fable_Fulma_2_9_0_Elements_Icon_fs__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../.fable/Fulma.2.9.0/Elements/Icon.fs */ "./.fable/Fulma.2.9.0/Elements/Icon.fs");
-/* harmony import */ var _fable_Fable_FontAwesome_2_0_0_FontAwesome_fs__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../.fable/Fable.FontAwesome.2.0.0/FontAwesome.fs */ "./.fable/Fable.FontAwesome.2.0.0/FontAwesome.fs");
-/* harmony import */ var _Simulation_fs__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./Simulation.fs */ "./src/Simulation.fs");
-/* harmony import */ var _fable_fable_library_2_4_15_Map_js__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/Map.js */ "./.fable/fable-library.2.4.15/Map.js");
-/* harmony import */ var _fable_Fulma_2_9_0_Elements_Progress_fs__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../.fable/Fulma.2.9.0/Elements/Progress.fs */ "./.fable/Fulma.2.9.0/Elements/Progress.fs");
+/* harmony import */ var _fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/Decimal.js */ "./.fable/fable-library.2.13.0/Decimal.js");
+/* harmony import */ var _Statistics_fs__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./Statistics.fs */ "./src/Statistics.fs");
+/* harmony import */ var _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/Reflection.js */ "./.fable/fable-library.2.13.0/Reflection.js");
+/* harmony import */ var _fable_fable_library_2_13_0_Array_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/Array.js */ "./.fable/fable-library.2.13.0/Array.js");
+/* harmony import */ var _fable_Fulma_2_9_0_Elements_Form_Field_fs__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../.fable/Fulma.2.9.0/Elements/Form/Field.fs */ "./.fable/Fulma.2.9.0/Elements/Form/Field.fs");
+/* harmony import */ var _fable_Fulma_2_9_0_Elements_Form_Label_fs__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../.fable/Fulma.2.9.0/Elements/Form/Label.fs */ "./.fable/Fulma.2.9.0/Elements/Form/Label.fs");
+/* harmony import */ var _fable_Fulma_2_9_0_Elements_Form_Input_fs__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../.fable/Fulma.2.9.0/Elements/Form/Input.fs */ "./.fable/Fulma.2.9.0/Elements/Form/Input.fs");
+/* harmony import */ var _fable_Fulma_2_9_0_Elements_Form_Control_fs__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../.fable/Fulma.2.9.0/Elements/Form/Control.fs */ "./.fable/Fulma.2.9.0/Elements/Form/Control.fs");
+/* harmony import */ var _fable_Fulma_2_9_0_Components_Dropdown_fs__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../.fable/Fulma.2.9.0/Components/Dropdown.fs */ "./.fable/Fulma.2.9.0/Components/Dropdown.fs");
+/* harmony import */ var _fable_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../.fable/Fulma.2.9.0/Common.fs */ "./.fable/Fulma.2.9.0/Common.fs");
+/* harmony import */ var _fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../.fable/Fulma.2.9.0/Elements/Button.fs */ "./.fable/Fulma.2.9.0/Elements/Button.fs");
+/* harmony import */ var _fable_Fulma_2_9_0_Elements_Icon_fs__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../.fable/Fulma.2.9.0/Elements/Icon.fs */ "./.fable/Fulma.2.9.0/Elements/Icon.fs");
+/* harmony import */ var _fable_Fable_FontAwesome_2_0_0_FontAwesome_fs__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../.fable/Fable.FontAwesome.2.0.0/FontAwesome.fs */ "./.fable/Fable.FontAwesome.2.0.0/FontAwesome.fs");
+/* harmony import */ var _Simulation_fs__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./Simulation.fs */ "./src/Simulation.fs");
+/* harmony import */ var _fable_fable_library_2_13_0_Map_js__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/Map.js */ "./.fable/fable-library.2.13.0/Map.js");
+/* harmony import */ var _fable_Fulma_2_9_0_Elements_Progress_fs__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../.fable/Fulma.2.9.0/Elements/Progress.fs */ "./.fable/Fulma.2.9.0/Elements/Progress.fs");
+
+
 
 
 
@@ -46254,63 +46218,63 @@ __webpack_require__.r(__webpack_exports__);
 function Common$$$group(title, items) {
   var props, children, props$$2;
   const props$$4 = [];
-  const children$$4 = [(props = [], (children = [title], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("legend", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props, 1), ...children))), (props$$2 = [], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$2, 1), ...items))];
-  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("fieldset", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$4, 1), ...children$$4);
+  const children$$4 = [(props = [], (children = [title], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("legend", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props, 1), ...children))), (props$$2 = [], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$2, 1), ...items))];
+  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("fieldset", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$4, 1), ...children$$4);
 }
 function Common$$$row() {
-  const props$$6 = new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]();
+  const props$$6 = new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]();
   return function (children$$6) {
     const props$$7 = props$$6;
     const children$$7 = children$$6;
-    return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("tr", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$7, 1), ...children$$7);
+    return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("tr", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$7, 1), ...children$$7);
   };
 }
 function Common$$$cell(value) {
   var s$$1, arg10, clo1;
   const props$$9 = [];
-  const children$$9 = [(s$$1 = (arg10 = value, (clo1 = Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["toText"])(Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("%O")), clo1(arg10))), s$$1)];
-  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("td", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$9, 1), ...children$$9);
+  const children$$9 = [(s$$1 = (arg10 = value, (clo1 = Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_3__["toText"])(Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("%O")), clo1(arg10))), s$$1)];
+  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("td", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$9, 1), ...children$$9);
 }
 function Common$$$cellHtml(elem) {
   const props$$11 = [];
   const children$$11 = [elem];
-  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("td", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$11, 1), ...children$$11);
+  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("td", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$11, 1), ...children$$11);
 }
 function Common$$$cellHeader(className, value$$1) {
   const props$$13 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", className)];
   const children$$13 = [value$$1];
-  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("th", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$13, 1), ...children$$13);
+  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("th", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$13, 1), ...children$$13);
 }
 const Common$$$emptyCellHeader = (() => {
   const props$$15 = [];
   const children$$15 = [];
-  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("th", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$15, 1), ...children$$15);
+  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("th", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$15, 1), ...children$$15);
 })();
 function RoundSlider$$$playOrStopButton(model, dispatch) {
   const props$$25 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "animation-buttons column is-narrow")];
-  const children$$25 = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["ofSeq"])(Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_6__["delay"])(function () {
+  const children$$25 = Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["ofSeq"])(Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_6__["delay"])(function () {
     var props$$19, children$$19, props$$17, children$$17, props$$23, children$$23, props$$21, children$$21;
-    return model.PlayAnimation ? Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_6__["singleton"])((props$$19 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["Prop"](0, "Key", "stop"), new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "button is-small is-danger"), new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["DOMAttr"](40, "OnClick", function (e) {
+    return model.PlayAnimation ? Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_6__["singleton"])((props$$19 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["Prop"](0, "Key", "stop"), new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "button is-small is-danger"), new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["DOMAttr"](40, "OnClick", function (e) {
       e.preventDefault();
       dispatch(new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Msg"](7, "StopAnimation"));
-    })], (children$$19 = [(props$$17 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["Prop"](0, "Key", "stop"), new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "fa fa-stop")], (children$$17 = [], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("i", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$17, 1), ...children$$17)))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("button", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$19, 1), ...children$$19)))) : Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_6__["singleton"])((props$$23 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["Prop"](0, "Key", "play"), new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "button is-small is-primary"), new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["DOMAttr"](40, "OnClick", function (e$$1) {
+    })], (children$$19 = [(props$$17 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["Prop"](0, "Key", "stop"), new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "fa fa-stop")], (children$$17 = [], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("i", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$17, 1), ...children$$17)))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("button", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$19, 1), ...children$$19)))) : Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_6__["singleton"])((props$$23 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["Prop"](0, "Key", "play"), new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "button is-small is-primary"), new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["DOMAttr"](40, "OnClick", function (e$$1) {
       e$$1.preventDefault();
       dispatch(new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Msg"](6, "PlayAnimation"));
-    })], (children$$23 = [(props$$21 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["Prop"](0, "Key", "play"), new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "fa fa-play")], (children$$21 = [], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("i", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$21, 1), ...children$$21)))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("button", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$23, 1), ...children$$23))));
+    })], (children$$23 = [(props$$21 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["Prop"](0, "Key", "play"), new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "fa fa-play")], (children$$21 = [], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("i", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$21, 1), ...children$$21)))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("button", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$23, 1), ...children$$23))));
   }));
-  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$25, 1), ...children$$25);
+  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$25, 1), ...children$$25);
 }
 function RoundSlider$$$slider(model$$1, dispatch$$1) {
   var props$$29, children$$29, props$$27, children$$27;
   const max = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["GameSetup$$get_RoundsToPlay"])(model$$1.Setup);
 
   const onChange = function onChange(e$$2) {
-    dispatch$$1(new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Msg"](1, "ShowRound", Object(_fable_fable_library_2_4_15_Int32_js__WEBPACK_IMPORTED_MODULE_9__["parse"])(Object(_fable_Fable_React_6_0_0_Fable_React_Extensions_fs__WEBPACK_IMPORTED_MODULE_8__["Browser$002ETypes$002EEvent$$Event$002Eget_Value"])(e$$2), 511, false, 32)));
+    dispatch$$1(new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Msg"](1, "ShowRound", Object(_fable_fable_library_2_13_0_Int32_js__WEBPACK_IMPORTED_MODULE_9__["parse"])(Object(_fable_Fable_React_6_0_0_Fable_React_Extensions_fs__WEBPACK_IMPORTED_MODULE_8__["Browser$002ETypes$002EEvent$$Event$002Eget_Value"])(e$$2), 511, false, 32)));
   };
 
   const props$$31 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "block")];
-  const children$$31 = [(props$$29 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "animation-controls columns")], (children$$29 = [RoundSlider$$$playOrStopButton(model$$1, dispatch$$1), (props$$27 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "simulation-frame-slider column")], (children$$27 = [Object(_fable_Fulma_Extensions_Wikiki_Slider_2_0_1_Slider_fs__WEBPACK_IMPORTED_MODULE_10__["slider"])(Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([new _fable_Fulma_Extensions_Wikiki_Slider_2_0_1_Slider_fs__WEBPACK_IMPORTED_MODULE_10__["Option"](2, "is-fullwidth"), new _fable_Fulma_Extensions_Wikiki_Slider_2_0_1_Slider_fs__WEBPACK_IMPORTED_MODULE_10__["Option"](8, "Max", max), new _fable_Fulma_Extensions_Wikiki_Slider_2_0_1_Slider_fs__WEBPACK_IMPORTED_MODULE_10__["Option"](7, "Min", 1), new _fable_Fulma_Extensions_Wikiki_Slider_2_0_1_Slider_fs__WEBPACK_IMPORTED_MODULE_10__["Option"](10, "Value", Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["State$$get_CurrentRound"])(model$$1)), new _fable_Fulma_Extensions_Wikiki_Slider_2_0_1_Slider_fs__WEBPACK_IMPORTED_MODULE_10__["Option"](5, "OnChange", onChange)]))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$27, 1), ...children$$27)))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$29, 1), ...children$$29)))];
-  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$31, 1), ...children$$31);
+  const children$$31 = [(props$$29 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "animation-controls columns")], (children$$29 = [RoundSlider$$$playOrStopButton(model$$1, dispatch$$1), (props$$27 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "simulation-frame-slider column")], (children$$27 = [Object(_fable_Fulma_Extensions_Wikiki_Slider_2_0_1_Slider_fs__WEBPACK_IMPORTED_MODULE_10__["slider"])(Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([new _fable_Fulma_Extensions_Wikiki_Slider_2_0_1_Slider_fs__WEBPACK_IMPORTED_MODULE_10__["Option"](2, "is-fullwidth"), new _fable_Fulma_Extensions_Wikiki_Slider_2_0_1_Slider_fs__WEBPACK_IMPORTED_MODULE_10__["Option"](8, "Max", max), new _fable_Fulma_Extensions_Wikiki_Slider_2_0_1_Slider_fs__WEBPACK_IMPORTED_MODULE_10__["Option"](7, "Min", 1), new _fable_Fulma_Extensions_Wikiki_Slider_2_0_1_Slider_fs__WEBPACK_IMPORTED_MODULE_10__["Option"](10, "Value", Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["State$$get_CurrentRound"])(model$$1)), new _fable_Fulma_Extensions_Wikiki_Slider_2_0_1_Slider_fs__WEBPACK_IMPORTED_MODULE_10__["Option"](5, "OnChange", onChange)]))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$27, 1), ...children$$27)))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$29, 1), ...children$$29)))];
+  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$31, 1), ...children$$31);
 }
 function Tables$$$renderPayoffMatrics(payoff) {
   var props$$33, children$$33, props$$35, children$$35;
@@ -46320,20 +46284,20 @@ function Tables$$$renderPayoffMatrics(payoff) {
     const player2 = tupledArg[1];
     const arg10$$1 = player1;
     const arg20 = player2;
-    const clo1$$1 = Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["toText"])(Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("%.0f / %.0f"));
+    const clo1$$1 = Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_3__["toText"])(Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("%.0f / %.0f"));
     const clo2 = clo1$$1(arg10$$1);
     return clo2(arg20);
   };
 
   const props$$37 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "payoff-summary")];
-  const children$$37 = [(props$$33 = [], (children$$33 = [Common$$$row()(Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([Common$$$emptyCellHeader, Common$$$cellHeader("Hawk", "Hawk"), Common$$$cellHeader("Dove", "Dove")]))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("thead", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$33, 1), ...children$$33))), (props$$35 = [], (children$$35 = [Common$$$row()(Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([Common$$$cellHeader("Hawk", "Hawk"), Common$$$cell(format(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["PayoffMatrixType$$GetPayoffFor$$Z5F957E0"])(payoff, new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Strategy"](1, "Hawk"), new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Strategy"](1, "Hawk")))), Common$$$cell(format(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["PayoffMatrixType$$GetPayoffFor$$Z5F957E0"])(payoff, new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Strategy"](1, "Hawk"), new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Strategy"](0, "Dove"))))])), Common$$$row()(Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([Common$$$cellHeader("Dove", "Dove"), Common$$$cell(format(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["PayoffMatrixType$$GetPayoffFor$$Z5F957E0"])(payoff, new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Strategy"](0, "Dove"), new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Strategy"](1, "Hawk")))), Common$$$cell(format(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["PayoffMatrixType$$GetPayoffFor$$Z5F957E0"])(payoff, new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Strategy"](0, "Dove"), new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Strategy"](0, "Dove"))))]))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("tbody", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$35, 1), ...children$$35)))];
-  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("table", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$37, 1), ...children$$37);
+  const children$$37 = [(props$$33 = [], (children$$33 = [Common$$$row()(Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([Common$$$emptyCellHeader, Common$$$cellHeader("Hawk", "Hawk"), Common$$$cellHeader("Dove", "Dove")]))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("thead", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$33, 1), ...children$$33))), (props$$35 = [], (children$$35 = [Common$$$row()(Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([Common$$$cellHeader("Hawk", "Hawk"), Common$$$cell(format(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["PayoffMatrixType$$GetPayoffFor$$Z5F957E0"])(payoff, new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Strategy"](1, "Hawk"), new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Strategy"](1, "Hawk")))), Common$$$cell(format(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["PayoffMatrixType$$GetPayoffFor$$Z5F957E0"])(payoff, new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Strategy"](1, "Hawk"), new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Strategy"](0, "Dove"))))])), Common$$$row()(Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([Common$$$cellHeader("Dove", "Dove"), Common$$$cell(format(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["PayoffMatrixType$$GetPayoffFor$$Z5F957E0"])(payoff, new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Strategy"](0, "Dove"), new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Strategy"](1, "Hawk")))), Common$$$cell(format(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["PayoffMatrixType$$GetPayoffFor$$Z5F957E0"])(payoff, new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Strategy"](0, "Dove"), new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Strategy"](0, "Dove"))))]))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("tbody", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$35, 1), ...children$$35)))];
+  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("table", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$37, 1), ...children$$37);
 }
 const Tables$$$hawkDoveStatsHeader = (() => {
   var props$$39, children$$39;
   const props$$41 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "hawk-dove-stats")];
-  const children$$41 = [(props$$39 = [], (children$$39 = [Common$$$row()(new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](Common$$$cellHeader("Hawk", "Hawk"), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]())), Common$$$row()(new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](Common$$$cellHeader("Dove", "Dove"), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]())), Common$$$row()(new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](Common$$$cellHeader("Sum", ""), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("tbody", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$39, 1), ...children$$39)))];
-  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("table", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$41, 1), ...children$$41);
+  const children$$41 = [(props$$39 = [], (children$$39 = [Common$$$row()(new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](Common$$$cellHeader("Hawk", "Hawk"), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]())), Common$$$row()(new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](Common$$$cellHeader("Dove", "Dove"), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]())), Common$$$row()(new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](Common$$$cellHeader("Sum", ""), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("tbody", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$39, 1), ...children$$39)))];
+  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("table", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$41, 1), ...children$$41);
 })();
 function Tables$$$hawkDoveStats(className$$1, stats) {
   var props$$45, children$$45, props$$43, children$$43, i;
@@ -46342,41 +46306,41 @@ function Tables$$$hawkDoveStats(className$$1, stats) {
     const n = tupledArg$$1[0] | 0;
     const portion = tupledArg$$1[1];
     const arg10$$2 = n | 0;
-    const arg20$$1 = portion * 100;
-    const clo1$$2 = Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["toText"])(Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("%i (%.0f%%)"));
+    const arg20$$1 = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_11__["toNumber"])(portion) * 100;
+    const clo1$$2 = Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_3__["toText"])(Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("%i (%.0f%%)"));
     const clo2$$1 = clo1$$2(arg10$$2);
     return clo2$$1(arg20$$1);
   };
 
   const props$$47 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "hawk-dove-stats " + className$$1)];
-  const children$$47 = [(props$$45 = [], (children$$45 = [Common$$$row()(new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](Common$$$cell(format$$1([Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_11__["RoundStats$002EStrategyStats$$get_HawkN"])(stats), Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_11__["RoundStats$002EStrategyStats$$get_HawkPortion"])(stats)])), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]())), Common$$$row()(new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](Common$$$cell(format$$1([Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_11__["RoundStats$002EStrategyStats$$get_DoveN"])(stats), Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_11__["RoundStats$002EStrategyStats$$get_DovePortion"])(stats)])), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]())), Common$$$row()(new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]((props$$43 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "Sum")], (children$$43 = [(i = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_11__["RoundStats$002EStrategyStats$$get_TotalN"])(stats) | 0, i)], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("td", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$43, 1), ...children$$43))), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("tbody", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$45, 1), ...children$$45)))];
-  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("table", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$47, 1), ...children$$47);
+  const children$$47 = [(props$$45 = [], (children$$45 = [Common$$$row()(new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](Common$$$cell(format$$1([Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_12__["RoundStats$002EStrategyStats$$get_HawkN"])(stats), Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_12__["RoundStats$002EStrategyStats$$get_HawkPortion"])(stats)])), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]())), Common$$$row()(new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](Common$$$cell(format$$1([Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_12__["RoundStats$002EStrategyStats$$get_DoveN"])(stats), Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_12__["RoundStats$002EStrategyStats$$get_DovePortion"])(stats)])), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]())), Common$$$row()(new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]((props$$43 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "Sum")], (children$$43 = [(i = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_12__["RoundStats$002EStrategyStats$$get_TotalN"])(stats) | 0, i)], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("td", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$43, 1), ...children$$43))), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("tbody", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$45, 1), ...children$$45)))];
+  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("table", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$47, 1), ...children$$47);
 }
 function Tables$$$simulatioStatsTable(model$$2) {
   var props$$55, children$$55, props$$57, children$$57;
   let intentTd;
   const props$$49 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "cell-intent")];
   const children$$49 = [];
-  intentTd = react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("td", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$49, 1), ...children$$49);
+  intentTd = react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("td", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$49, 1), ...children$$49);
 
   const subTitle = function subTitle(title$$1) {
     var props$$51, children$$51;
     const props$$53 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](65, "className", "subtitle-row")];
-    const children$$53 = [(props$$51 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](67, "ColSpan", 4)], (children$$51 = [title$$1], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("th", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$51, 1), ...children$$51)))];
-    return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("tr", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$53, 1), ...children$$53);
+    const children$$53 = [(props$$51 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](67, "ColSpan", 4)], (children$$51 = [title$$1], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("th", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$51, 1), ...children$$51)))];
+    return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("tr", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$53, 1), ...children$$53);
   };
 
   const challenges = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["State$$get_CurrentRoundChallenges"])(model$$2);
   const props$$59 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "hawk-dowe-stats")];
-  const children$$59 = [(props$$55 = [], (children$$55 = [Common$$$row()(Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([Common$$$emptyCellHeader, Common$$$cellHeader("Red", "Red"), Common$$$cellHeader("Blue", "Blue"), Common$$$cellHeader("AllTotal", "All")]))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("thead", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$55, 1), ...children$$55))), (props$$57 = [], (children$$57 = [subTitle("Different color"), Common$$$row()(Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([Common$$$cellHtml(Tables$$$hawkDoveStatsHeader), Common$$$cellHtml(Tables$$$hawkDoveStats("Red", Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_11__["Model$002EGameRound$$GameRound$002EStrategyStatsFor$$4A800086"])(challenges, new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["ChallengeType"](0, "DifferentColor"), new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Color"](1, "Red")))), Common$$$cellHtml(Tables$$$hawkDoveStats("Blue", Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_11__["Model$002EGameRound$$GameRound$002EStrategyStatsFor$$4A800086"])(challenges, new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["ChallengeType"](0, "DifferentColor"), new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Color"](0, "Blue")))), Common$$$cellHtml(Tables$$$hawkDoveStats("All", Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_11__["Model$002EGameRound$$GameRound$002EStrategyStatsFor$$412F88BF"])(challenges, new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["ChallengeType"](0, "DifferentColor"))))])), subTitle("Same color"), Common$$$row()(Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([Common$$$cellHtml(Tables$$$hawkDoveStatsHeader), Common$$$cellHtml(Tables$$$hawkDoveStats("Red", Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_11__["Model$002EGameRound$$GameRound$002EStrategyStatsFor$$4A800086"])(challenges, new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["ChallengeType"](1, "SameColor"), new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Color"](1, "Red")))), Common$$$cellHtml(Tables$$$hawkDoveStats("Blue", Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_11__["Model$002EGameRound$$GameRound$002EStrategyStatsFor$$4A800086"])(challenges, new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["ChallengeType"](1, "SameColor"), new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Color"](0, "Blue")))), Common$$$cellHtml(Tables$$$hawkDoveStats("All", Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_11__["Model$002EGameRound$$GameRound$002EStrategyStatsFor$$412F88BF"])(challenges, new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["ChallengeType"](1, "SameColor"))))])), subTitle("All"), Common$$$row()(Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([Common$$$cellHtml(Tables$$$hawkDoveStatsHeader), Common$$$cellHtml(Tables$$$hawkDoveStats("Red", Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_11__["Model$002EGameRound$$GameRound$002EStrategyStatsFor$$2DA0A019"])(challenges, new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Color"](1, "Red")))), Common$$$cellHtml(Tables$$$hawkDoveStats("Blue", Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_11__["Model$002EGameRound$$GameRound$002EStrategyStatsFor$$2DA0A019"])(challenges, new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Color"](0, "Blue")))), Common$$$cellHtml(Tables$$$hawkDoveStats("All", Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_11__["Model$002EGameRound$$GameRound$002EStrategyStats"])(challenges)))]))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("tbody", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$57, 1), ...children$$57)))];
-  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("table", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$59, 1), ...children$$59);
+  const children$$59 = [(props$$55 = [], (children$$55 = [Common$$$row()(Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([Common$$$emptyCellHeader, Common$$$cellHeader("Red", "Red"), Common$$$cellHeader("Blue", "Blue"), Common$$$cellHeader("AllTotal", "All")]))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("thead", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$55, 1), ...children$$55))), (props$$57 = [], (children$$57 = [subTitle("Different color"), Common$$$row()(Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([Common$$$cellHtml(Tables$$$hawkDoveStatsHeader), Common$$$cellHtml(Tables$$$hawkDoveStats("Red", Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_12__["Model$002EGameRound$$GameRound$002EStrategyStatsFor$$4A800086"])(challenges, new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["ChallengeType"](0, "DifferentColor"), new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Color"](1, "Red")))), Common$$$cellHtml(Tables$$$hawkDoveStats("Blue", Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_12__["Model$002EGameRound$$GameRound$002EStrategyStatsFor$$4A800086"])(challenges, new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["ChallengeType"](0, "DifferentColor"), new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Color"](0, "Blue")))), Common$$$cellHtml(Tables$$$hawkDoveStats("All", Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_12__["Model$002EGameRound$$GameRound$002EStrategyStatsFor$$412F88BF"])(challenges, new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["ChallengeType"](0, "DifferentColor"))))])), subTitle("Same color"), Common$$$row()(Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([Common$$$cellHtml(Tables$$$hawkDoveStatsHeader), Common$$$cellHtml(Tables$$$hawkDoveStats("Red", Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_12__["Model$002EGameRound$$GameRound$002EStrategyStatsFor$$4A800086"])(challenges, new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["ChallengeType"](1, "SameColor"), new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Color"](1, "Red")))), Common$$$cellHtml(Tables$$$hawkDoveStats("Blue", Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_12__["Model$002EGameRound$$GameRound$002EStrategyStatsFor$$4A800086"])(challenges, new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["ChallengeType"](1, "SameColor"), new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Color"](0, "Blue")))), Common$$$cellHtml(Tables$$$hawkDoveStats("All", Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_12__["Model$002EGameRound$$GameRound$002EStrategyStatsFor$$412F88BF"])(challenges, new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["ChallengeType"](1, "SameColor"))))])), subTitle("All"), Common$$$row()(Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([Common$$$cellHtml(Tables$$$hawkDoveStatsHeader), Common$$$cellHtml(Tables$$$hawkDoveStats("Red", Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_12__["Model$002EGameRound$$GameRound$002EStrategyStatsFor$$2DA0A019"])(challenges, new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Color"](1, "Red")))), Common$$$cellHtml(Tables$$$hawkDoveStats("Blue", Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_12__["Model$002EGameRound$$GameRound$002EStrategyStatsFor$$2DA0A019"])(challenges, new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Color"](0, "Blue")))), Common$$$cellHtml(Tables$$$hawkDoveStats("All", Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_12__["Model$002EGameRound$$GameRound$002EStrategyStats"])(challenges)))]))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("tbody", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$57, 1), ...children$$57)))];
+  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("table", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$59, 1), ...children$$59);
 }
-const Tables$002ERenderColotStatsOptions = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["declare"])(function MainView_Tables_RenderColotStatsOptions(arg1, arg2) {
-  this.WithTotal = arg1;
-  this.WithPortions = arg2;
-}, _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["Record"]);
+const Tables$002ERenderColotStatsOptions = Object(_fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["declare"])(function MainView_Tables_RenderColotStatsOptions(WithTotal, WithPortions) {
+  this.WithTotal = WithTotal;
+  this.WithPortions = WithPortions;
+}, _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["Record"]);
 function Tables$002ERenderColotStatsOptions$reflection() {
-  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_12__["record"])("MainView.Tables.RenderColotStatsOptions", [], Tables$002ERenderColotStatsOptions, () => [["WithTotal", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_12__["bool"]], ["WithPortions", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_12__["bool"]]]);
+  return Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_13__["record_type"])("MainView.Tables.RenderColotStatsOptions", [], Tables$002ERenderColotStatsOptions, () => [["WithTotal", _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_13__["bool_type"]], ["WithPortions", _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_13__["bool_type"]]]);
 }
 function Tables$002ERenderColotStatsOptions$$$get_None() {
   return new Tables$002ERenderColotStatsOptions(false, false);
@@ -46388,65 +46352,65 @@ function Tables$$$renderColotStats(model$$3, opt) {
   var props$$61, children$$61, props$$63, children$$63;
   const setting = model$$3.Setup;
   const props$$65 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "agent-summary")];
-  const children$$65 = [(props$$61 = [], (children$$61 = [Common$$$row()(Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["ofSeq"])(Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_6__["delay"])(function () {
-    return Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_6__["append"])(Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_6__["singleton"])(Common$$$emptyCellHeader), Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_6__["delay"])(function () {
-      return Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_6__["append"])(Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_6__["singleton"])(Common$$$cellHeader("Red", "Red")), Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_6__["delay"])(function () {
-        return Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_6__["append"])(Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_6__["singleton"])(Common$$$cellHeader("Blue", "Blue")), Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_6__["delay"])(function () {
-          return opt.WithTotal ? Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_6__["singleton"])(Common$$$cellHeader("AllTotal", "All")) : Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_6__["empty"])();
+  const children$$65 = [(props$$61 = [], (children$$61 = [Common$$$row()(Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["ofSeq"])(Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_6__["delay"])(function () {
+    return Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_6__["append"])(Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_6__["singleton"])(Common$$$emptyCellHeader), Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_6__["delay"])(function () {
+      return Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_6__["append"])(Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_6__["singleton"])(Common$$$cellHeader("Red", "Red")), Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_6__["delay"])(function () {
+        return Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_6__["append"])(Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_6__["singleton"])(Common$$$cellHeader("Blue", "Blue")), Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_6__["delay"])(function () {
+          return opt.WithTotal ? Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_6__["singleton"])(Common$$$cellHeader("AllTotal", "All")) : Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_6__["empty"])();
         }));
       }));
     }));
-  })))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("thead", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$61, 1), ...children$$61))), (props$$63 = [], (children$$63 = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["ofSeq"])(Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_6__["delay"])(function () {
-    return Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_6__["append"])(Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_6__["singleton"])(Common$$$row()(Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["ofSeq"])(Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_6__["delay"])(function () {
-      return Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_6__["append"])(Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_6__["singleton"])(Common$$$cellHeader("attribute", "Count")), Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_6__["delay"])(function () {
-        return Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_6__["append"])(Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_6__["singleton"])(Common$$$cell(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["GameSetup$$get_CountOfRed"])(setting))), Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_6__["delay"])(function () {
-          return Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_6__["append"])(Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_6__["singleton"])(Common$$$cell(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["GameSetup$$get_CountOfBlue"])(setting))), Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_6__["delay"])(function () {
-            return opt.WithTotal ? Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_6__["singleton"])(Common$$$cell(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["GameSetup$$get_AgentCount"])(setting))) : Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_6__["empty"])();
+  })))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("thead", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$61, 1), ...children$$61))), (props$$63 = [], (children$$63 = Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["ofSeq"])(Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_6__["delay"])(function () {
+    return Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_6__["append"])(Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_6__["singleton"])(Common$$$row()(Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["ofSeq"])(Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_6__["delay"])(function () {
+      return Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_6__["append"])(Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_6__["singleton"])(Common$$$cellHeader("attribute", "Count")), Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_6__["delay"])(function () {
+        return Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_6__["append"])(Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_6__["singleton"])(Common$$$cell(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["GameSetup$$get_CountOfRed"])(setting))), Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_6__["delay"])(function () {
+          return Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_6__["append"])(Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_6__["singleton"])(Common$$$cell(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["GameSetup$$get_CountOfBlue"])(setting))), Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_6__["delay"])(function () {
+            return opt.WithTotal ? Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_6__["singleton"])(Common$$$cell(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["GameSetup$$get_AgentCount"])(setting))) : Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_6__["empty"])();
           }));
         }));
       }));
-    })))), Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_6__["delay"])(function () {
+    })))), Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_6__["delay"])(function () {
       var els;
 
       if (opt.WithPortions) {
-        const patternInput = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_11__["Model$002EGameRound$$GameRound$002Eget_PayoffAccumulativeAvgForRedAndBlue"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["State$$get_CurrentRoundChallenges"])(model$$3));
+        const patternInput = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_12__["Model$002EGameRound$$GameRound$002Eget_PayoffAccumulativeAvgForRedAndBlue"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["State$$get_CurrentRoundChallenges"])(model$$3));
         const redAvg = patternInput[0];
         const blueAvg = patternInput[1];
         const allAvg = patternInput[2];
         const rounds = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["State$$get_CurrentRound"])(model$$3) | 0;
         let format$$2;
-        const clo1$$3 = Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["toText"])(Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("%.1f"));
+        const clo1$$3 = Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_3__["toText"])(Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("%.1f"));
 
         format$$2 = function (arg10$$3) {
           return clo1$$3(arg10$$3);
         };
 
-        return Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_6__["singleton"])((els = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([Common$$$row()(Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([Common$$$cellHeader("attribute", "Avg. total"), Common$$$cell(format$$2(redAvg)), Common$$$cell(format$$2(blueAvg)), Common$$$cell(format$$2(allAvg))])), Common$$$row()(Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([Common$$$cellHeader("attribute", "Avg. per round"), Common$$$cell(format$$2(redAvg / rounds)), Common$$$cell(format$$2(blueAvg / rounds)), Common$$$cell(format$$2(allAvg / rounds))]))]), Object(_fable_fable_library_2_4_15_Array_js__WEBPACK_IMPORTED_MODULE_13__["ofList"])(els, Array)));
+        return Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_6__["singleton"])((els = Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([Common$$$row()(Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([Common$$$cellHeader("attribute", "Avg. total"), Common$$$cell(format$$2(redAvg)), Common$$$cell(format$$2(blueAvg)), Common$$$cell(format$$2(allAvg))])), Common$$$row()(Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([Common$$$cellHeader("attribute", "Avg. per round"), Common$$$cell(format$$2(Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_11__["op_Division"])(redAvg, new _fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_11__["default"](rounds)))), Common$$$cell(format$$2(Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_11__["op_Division"])(blueAvg, new _fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_11__["default"](rounds)))), Common$$$cell(format$$2(Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_11__["op_Division"])(allAvg, new _fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_11__["default"](rounds))))]))]), Object(_fable_fable_library_2_13_0_Array_js__WEBPACK_IMPORTED_MODULE_14__["ofList"])(els, Array)));
       } else {
-        return Object(_fable_fable_library_2_4_15_Seq_js__WEBPACK_IMPORTED_MODULE_6__["empty"])();
+        return Object(_fable_fable_library_2_13_0_Seq_js__WEBPACK_IMPORTED_MODULE_6__["empty"])();
       }
     }));
-  })), react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("tbody", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$63, 1), ...children$$63)))];
-  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("table", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$65, 1), ...children$$65);
+  })), react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("tbody", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$63, 1), ...children$$63)))];
+  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("table", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$65, 1), ...children$$65);
 }
-const Fields$002ENumberFieldProps = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["declare"])(function MainView_Fields_NumberFieldProps(arg1, arg2, arg3, arg4) {
-  this.Disabled = arg1;
-  this.Label = arg2;
-  this.Value = arg3 | 0;
-  this.OnChange = arg4;
-}, _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["Record"]);
+const Fields$002ENumberFieldProps = Object(_fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["declare"])(function MainView_Fields_NumberFieldProps(Disabled, Label, Value, OnChange) {
+  this.Disabled = Disabled;
+  this.Label = Label;
+  this.Value = Value | 0;
+  this.OnChange = OnChange;
+}, _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["Record"]);
 function Fields$002ENumberFieldProps$reflection() {
-  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_12__["record"])("MainView.Fields.NumberFieldProps", [], Fields$002ENumberFieldProps, () => [["Disabled", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_12__["bool"]], ["Label", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_12__["string"]], ["Value", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_12__["int32"]], ["OnChange", Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_12__["lambda"])(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_12__["int32"], Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["FieldValue$reflection"])())]]);
+  return Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_13__["record_type"])("MainView.Fields.NumberFieldProps", [], Fields$002ENumberFieldProps, () => [["Disabled", _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_13__["bool_type"]], ["Label", _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_13__["string_type"]], ["Value", _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_13__["int32_type"]], ["OnChange", Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_13__["lambda_type"])(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_13__["int32_type"], Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["FieldValue$reflection"])())]]);
 }
-const Fields$002EDropdownFieldProps = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["declare"])(function MainView_Fields_DropdownFieldProps(arg1, arg2, arg3, arg4, arg5) {
-  this.Disabled = arg1;
-  this.Label = arg2;
-  this.SelectedValue = arg3;
-  this.Options = arg4;
-  this.OnChange = arg5;
-}, _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["Record"]);
+const Fields$002EDropdownFieldProps = Object(_fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["declare"])(function MainView_Fields_DropdownFieldProps(Disabled, Label, SelectedValue, Options, OnChange) {
+  this.Disabled = Disabled;
+  this.Label = Label;
+  this.SelectedValue = SelectedValue;
+  this.Options = Options;
+  this.OnChange = OnChange;
+}, _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["Record"]);
 function Fields$002EDropdownFieldProps$reflection() {
-  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_12__["record"])("MainView.Fields.DropdownFieldProps", [], Fields$002EDropdownFieldProps, () => [["Disabled", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_12__["bool"]], ["Label", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_12__["string"]], ["SelectedValue", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_12__["string"]], ["Options", Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_12__["list"])(Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_12__["tuple"])(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_12__["string"], _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_12__["string"]))], ["OnChange", Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_12__["lambda"])(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_12__["string"], Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["FieldValue$reflection"])())]]);
+  return Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_13__["record_type"])("MainView.Fields.DropdownFieldProps", [], Fields$002EDropdownFieldProps, () => [["Disabled", _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_13__["bool_type"]], ["Label", _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_13__["string_type"]], ["SelectedValue", _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_13__["string_type"]], ["Options", Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_13__["list_type"])(Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_13__["tuple_type"])(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_13__["string_type"], _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_13__["string_type"]))], ["OnChange", Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_13__["lambda_type"])(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_13__["string_type"], Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["FieldValue$reflection"])())]]);
 }
 function Fields$$$numberField(dispatch$$2, props$$67) {
   var props$$68, children$$67, props$$70, children$$69, options;
@@ -46456,13 +46420,13 @@ function Fields$$$numberField(dispatch$$2, props$$67) {
       return 0;
     } else {
       const s$$5 = s$$4;
-      return Object(_fable_fable_library_2_4_15_Int32_js__WEBPACK_IMPORTED_MODULE_9__["parse"])(s$$5, 511, false, 32) | 0;
+      return Object(_fable_fable_library_2_13_0_Int32_js__WEBPACK_IMPORTED_MODULE_9__["parse"])(s$$5, 511, false, 32) | 0;
     }
   };
 
-  return Object(_fable_Fulma_2_9_0_Elements_Form_Field_fs__WEBPACK_IMPORTED_MODULE_14__["div"])(new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fulma_2_9_0_Elements_Form_Field_fs__WEBPACK_IMPORTED_MODULE_14__["Option"](8, "is-horizontal"), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()), Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([(props$$68 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "field-label is-small")], (children$$67 = [Object(_fable_Fulma_2_9_0_Elements_Form_Label_fs__WEBPACK_IMPORTED_MODULE_15__["label"])(new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fulma_2_9_0_Elements_Form_Label_fs__WEBPACK_IMPORTED_MODULE_15__["Option"](2, "CustomClass", "is-expanded"), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](props$$67.Label, new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$68, 1), ...children$$67))), (props$$70 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "field-body")], (children$$69 = [Object(_fable_Fulma_2_9_0_Elements_Form_Field_fs__WEBPACK_IMPORTED_MODULE_14__["div"])(new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](Object(_fable_Fulma_2_9_0_Elements_Form_Control_fs__WEBPACK_IMPORTED_MODULE_17__["div"])(new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]((options = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([new _fable_Fulma_2_9_0_Elements_Form_Input_fs__WEBPACK_IMPORTED_MODULE_16__["Option"](4, "Disabled", props$$67.Disabled), new _fable_Fulma_2_9_0_Elements_Form_Input_fs__WEBPACK_IMPORTED_MODULE_16__["Option"](15, "Props", new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "is-small"), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]())), new _fable_Fulma_2_9_0_Elements_Form_Input_fs__WEBPACK_IMPORTED_MODULE_16__["Option"](13, "OnChange", function (e$$3) {
+  return Object(_fable_Fulma_2_9_0_Elements_Form_Field_fs__WEBPACK_IMPORTED_MODULE_15__["div"])(new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fulma_2_9_0_Elements_Form_Field_fs__WEBPACK_IMPORTED_MODULE_15__["Option"](8, "is-horizontal"), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()), Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([(props$$68 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "field-label is-small")], (children$$67 = [Object(_fable_Fulma_2_9_0_Elements_Form_Label_fs__WEBPACK_IMPORTED_MODULE_16__["label"])(new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fulma_2_9_0_Elements_Form_Label_fs__WEBPACK_IMPORTED_MODULE_16__["Option"](2, "CustomClass", "is-expanded"), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](props$$67.Label, new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$68, 1), ...children$$67))), (props$$70 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "field-body")], (children$$69 = [Object(_fable_Fulma_2_9_0_Elements_Form_Field_fs__WEBPACK_IMPORTED_MODULE_15__["div"])(new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](Object(_fable_Fulma_2_9_0_Elements_Form_Control_fs__WEBPACK_IMPORTED_MODULE_18__["div"])(new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]((options = Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([new _fable_Fulma_2_9_0_Elements_Form_Input_fs__WEBPACK_IMPORTED_MODULE_17__["Option"](4, "Disabled", props$$67.Disabled), new _fable_Fulma_2_9_0_Elements_Form_Input_fs__WEBPACK_IMPORTED_MODULE_17__["Option"](15, "Props", new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "is-small"), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]())), new _fable_Fulma_2_9_0_Elements_Form_Input_fs__WEBPACK_IMPORTED_MODULE_17__["Option"](13, "OnChange", function (e$$3) {
     dispatch$$2(new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Msg"](0, "SetValue", props$$67.OnChange(strToInt(Object(_fable_Fable_React_6_0_0_Fable_React_Extensions_fs__WEBPACK_IMPORTED_MODULE_8__["Browser$002ETypes$002EEvent$$Event$002Eget_Value"])(e$$3)))));
-  }), new _fable_Fulma_2_9_0_Elements_Form_Input_fs__WEBPACK_IMPORTED_MODULE_16__["Option"](8, "Value", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["int32ToString"])(props$$67.Value))]), Object(_fable_Fulma_2_9_0_Elements_Form_Input_fs__WEBPACK_IMPORTED_MODULE_16__["input"])(new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fulma_2_9_0_Elements_Form_Input_fs__WEBPACK_IMPORTED_MODULE_16__["Option"](1, "Type", new _fable_Fulma_2_9_0_Elements_Form_Input_fs__WEBPACK_IMPORTED_MODULE_16__["IInputType"](7, "Number")), options))), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]())), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$70, 1), ...children$$69)))]));
+  }), new _fable_Fulma_2_9_0_Elements_Form_Input_fs__WEBPACK_IMPORTED_MODULE_17__["Option"](8, "Value", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["int32ToString"])(props$$67.Value))]), Object(_fable_Fulma_2_9_0_Elements_Form_Input_fs__WEBPACK_IMPORTED_MODULE_17__["input"])(new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fulma_2_9_0_Elements_Form_Input_fs__WEBPACK_IMPORTED_MODULE_17__["Option"](1, "Type", new _fable_Fulma_2_9_0_Elements_Form_Input_fs__WEBPACK_IMPORTED_MODULE_17__["IInputType"](7, "Number")), options))), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]())), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$70, 1), ...children$$69)))]));
 }
 function Fields$$$dropdownField(dispatch$$3, props$$72) {
   var props$$73, children$$71, css, props$$77, children$$75, css$$1, css$$2, css$$3, props$$75, children$$73, list$$3;
@@ -46470,35 +46434,35 @@ function Fields$$$dropdownField(dispatch$$3, props$$72) {
   let list$$2;
   let list$$1;
   const list = props$$72.Options;
-  list$$1 = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["filter"])(function predicate(tupledArg$$2) {
+  list$$1 = Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["filter"])(function predicate(tupledArg$$2) {
     const name = tupledArg$$2[0];
     const displayName = tupledArg$$2[1];
     return name === props$$72.SelectedValue;
   }, list);
-  list$$2 = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["map"])(function mapping(tupledArg$$3) {
+  list$$2 = Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["map"])(function mapping(tupledArg$$3) {
     const name$$1 = tupledArg$$3[0];
     const displayName$$1 = tupledArg$$3[1];
     return displayName$$1;
   }, list$$1);
-  selectedDisplayName = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["head"])(list$$2);
+  selectedDisplayName = Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["head"])(list$$2);
 
   const isActive = function isActive(name$$2) {
     return name$$2 === props$$72.SelectedValue;
   };
 
-  return Object(_fable_Fulma_2_9_0_Elements_Form_Field_fs__WEBPACK_IMPORTED_MODULE_14__["div"])(new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](), Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([(props$$73 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "field-label is-small left")], (children$$71 = [Object(_fable_Fulma_2_9_0_Elements_Form_Label_fs__WEBPACK_IMPORTED_MODULE_15__["label"])(Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([new _fable_Fulma_2_9_0_Elements_Form_Label_fs__WEBPACK_IMPORTED_MODULE_15__["Option"](2, "CustomClass", "is-expanded"), new _fable_Fulma_2_9_0_Elements_Form_Label_fs__WEBPACK_IMPORTED_MODULE_15__["Option"](3, "Props", new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]((css = new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["CSSProp"](325, "TextAlign", "left"), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()), ["style", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(css, 1)]), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))]), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](props$$72.Label, new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$73, 1), ...children$$71))), (props$$77 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "field-body is-expanded")], (children$$75 = [Object(_fable_Fulma_2_9_0_Components_Dropdown_fs__WEBPACK_IMPORTED_MODULE_18__["dropdown"])(Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([new _fable_Fulma_2_9_0_Components_Dropdown_fs__WEBPACK_IMPORTED_MODULE_18__["Option"](1, "is-hoverable"), new _fable_Fulma_2_9_0_Components_Dropdown_fs__WEBPACK_IMPORTED_MODULE_18__["Option"](4, "Props", new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]((css$$1 = new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["CSSProp"](395, "Width", "100%"), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()), ["style", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(css$$1, 1)]), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))]), Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([Object(_fable_Fulma_2_9_0_Components_Dropdown_fs__WEBPACK_IMPORTED_MODULE_18__["trigger"])(new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_19__["Common$002EGenericOption"](1, "Props", new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]((css$$2 = new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["CSSProp"](395, "Width", "100%"), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()), ["style", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(css$$2, 1)]), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]())), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](Object(_fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_20__["button"])(Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([new _fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_20__["Option"](1, "Size", new _fable_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_19__["Size$002EISize"](0, "is-small")), new _fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_20__["Option"](16, "Props", new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]((css$$3 = new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["CSSProp"](395, "Width", "100%"), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()), ["style", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(css$$3, 1)]), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))]), Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([(props$$75 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "is-small")], (children$$73 = [selectedDisplayName], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("span", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$75, 1), ...children$$73))), Object(_fable_Fulma_2_9_0_Elements_Icon_fs__WEBPACK_IMPORTED_MODULE_21__["icon"])(new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fulma_2_9_0_Elements_Icon_fs__WEBPACK_IMPORTED_MODULE_21__["Option"](0, "Size", new _fable_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_19__["Size$002EISize"](0, "is-small")), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](Object(_fable_Fable_FontAwesome_2_0_0_FontAwesome_fs__WEBPACK_IMPORTED_MODULE_22__["Fa$$$i"])(new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fable_FontAwesome_2_0_0_FontAwesome_fs__WEBPACK_IMPORTED_MODULE_22__["Fa$002EIconOption"](11, "Icon", "fas fa-angle-down"), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()), []), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))])), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]())), Object(_fable_Fulma_2_9_0_Components_Dropdown_fs__WEBPACK_IMPORTED_MODULE_18__["menu"])(new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](Object(_fable_Fulma_2_9_0_Components_Dropdown_fs__WEBPACK_IMPORTED_MODULE_18__["content"])(new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](), (list$$3 = props$$72.Options, (Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["map"])(function mapping$$1(tupledArg$$4) {
+  return Object(_fable_Fulma_2_9_0_Elements_Form_Field_fs__WEBPACK_IMPORTED_MODULE_15__["div"])(new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](), Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([(props$$73 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "field-label is-small left")], (children$$71 = [Object(_fable_Fulma_2_9_0_Elements_Form_Label_fs__WEBPACK_IMPORTED_MODULE_16__["label"])(Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([new _fable_Fulma_2_9_0_Elements_Form_Label_fs__WEBPACK_IMPORTED_MODULE_16__["Option"](2, "CustomClass", "is-expanded"), new _fable_Fulma_2_9_0_Elements_Form_Label_fs__WEBPACK_IMPORTED_MODULE_16__["Option"](3, "Props", new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]((css = new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["CSSProp"](325, "TextAlign", "left"), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()), ["style", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(css, 1)]), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))]), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](props$$72.Label, new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$73, 1), ...children$$71))), (props$$77 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "field-body is-expanded")], (children$$75 = [Object(_fable_Fulma_2_9_0_Components_Dropdown_fs__WEBPACK_IMPORTED_MODULE_19__["dropdown"])(Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([new _fable_Fulma_2_9_0_Components_Dropdown_fs__WEBPACK_IMPORTED_MODULE_19__["Option"](1, "is-hoverable"), new _fable_Fulma_2_9_0_Components_Dropdown_fs__WEBPACK_IMPORTED_MODULE_19__["Option"](4, "Props", new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]((css$$1 = new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["CSSProp"](395, "Width", "100%"), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()), ["style", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(css$$1, 1)]), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))]), Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([Object(_fable_Fulma_2_9_0_Components_Dropdown_fs__WEBPACK_IMPORTED_MODULE_19__["trigger"])(new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_20__["Common$002EGenericOption"](1, "Props", new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]((css$$2 = new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["CSSProp"](395, "Width", "100%"), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()), ["style", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(css$$2, 1)]), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]())), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](Object(_fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_21__["button"])(Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([new _fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_21__["Option"](1, "Size", new _fable_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_20__["Size$002EISize"](0, "is-small")), new _fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_21__["Option"](16, "Props", new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]((css$$3 = new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["CSSProp"](395, "Width", "100%"), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()), ["style", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(css$$3, 1)]), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))]), Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([(props$$75 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "is-small")], (children$$73 = [selectedDisplayName], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("span", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$75, 1), ...children$$73))), Object(_fable_Fulma_2_9_0_Elements_Icon_fs__WEBPACK_IMPORTED_MODULE_22__["icon"])(new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fulma_2_9_0_Elements_Icon_fs__WEBPACK_IMPORTED_MODULE_22__["Option"](0, "Size", new _fable_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_20__["Size$002EISize"](0, "is-small")), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](Object(_fable_Fable_FontAwesome_2_0_0_FontAwesome_fs__WEBPACK_IMPORTED_MODULE_23__["Fa$$$i"])(new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fable_FontAwesome_2_0_0_FontAwesome_fs__WEBPACK_IMPORTED_MODULE_23__["Fa$002EIconOption"](11, "Icon", "fas fa-angle-down"), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()), []), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))])), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]())), Object(_fable_Fulma_2_9_0_Components_Dropdown_fs__WEBPACK_IMPORTED_MODULE_19__["menu"])(new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](Object(_fable_Fulma_2_9_0_Components_Dropdown_fs__WEBPACK_IMPORTED_MODULE_19__["content"])(new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](), (list$$3 = props$$72.Options, (Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["map"])(function mapping$$1(tupledArg$$4) {
     const name$$3 = tupledArg$$4[0];
     const displayName$$2 = tupledArg$$4[1];
-    return Object(_fable_Fulma_2_9_0_Components_Dropdown_fs__WEBPACK_IMPORTED_MODULE_18__["Item$$$a"])(Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([new _fable_Fulma_2_9_0_Components_Dropdown_fs__WEBPACK_IMPORTED_MODULE_18__["Item$002EOption"](0, "is-active", isActive(name$$3)), new _fable_Fulma_2_9_0_Components_Dropdown_fs__WEBPACK_IMPORTED_MODULE_18__["Item$002EOption"](1, "Props", new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["DOMAttr"](40, "OnClick", function (_arg1) {
+    return Object(_fable_Fulma_2_9_0_Components_Dropdown_fs__WEBPACK_IMPORTED_MODULE_19__["Item$$$a"])(Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([new _fable_Fulma_2_9_0_Components_Dropdown_fs__WEBPACK_IMPORTED_MODULE_19__["Item$002EOption"](0, "is-active", isActive(name$$3)), new _fable_Fulma_2_9_0_Components_Dropdown_fs__WEBPACK_IMPORTED_MODULE_19__["Item$002EOption"](1, "Props", new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["DOMAttr"](40, "OnClick", function (_arg1) {
       dispatch$$3(new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Msg"](0, "SetValue", props$$72.OnChange(name$$3)));
-    }), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))]), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](displayName$$2, new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()));
-  }, list$$3)))), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))]))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$77, 1), ...children$$75)))]));
+    }), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))]), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](displayName$$2, new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()));
+  }, list$$3)))), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))]))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$77, 1), ...children$$75)))]));
 }
 function Authors$$$render() {
   var props$$79, children$$77, props$$81, children$$79;
   const props$$83 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "column authors")];
-  const children$$81 = [(props$$79 = [], (children$$77 = ["Amadae Hawk-Dove Binary Model 1.0 by S.M. Amadae"], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("p", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$79, 1), ...children$$77))), (props$$81 = [], (children$$79 = ["Programmed by Ari-Pekka Lappi (Flowa Oy)"], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("p", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$81, 1), ...children$$79)))];
-  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$83, 1), ...children$$81);
+  const children$$81 = [(props$$79 = [], (children$$77 = ["Amadae Hawk-Dove Binary Model 1.0 by S.M. Amadae"], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("p", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$79, 1), ...children$$77))), (props$$81 = [], (children$$79 = ["Programmed by Ari-Pekka Lappi (Flowa Oy)"], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("p", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$81, 1), ...children$$79)))];
+  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$83, 1), ...children$$81);
 }
 function SettingsForm$$$view(model$$4, dispatch$$4) {
   var props$$95, children$$91, props$$97, children$$93, s$$15, arg10$$4, clo1$$4, props$$99, children$$95, props$$105, children$$101, props$$101, children$$97, props$$103, children$$99;
@@ -46513,41 +46477,41 @@ function SettingsForm$$$view(model$$4, dispatch$$4) {
 
   const renderStageRoundCountFields = function renderStageRoundCountFields(isDisabled) {
     const list$$5 = model$$4.Setup.SimulationFrames;
-    return Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["map"])(function mapping$$3(f) {
+    return Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["map"])(function mapping$$3(f) {
       var props$$87, children$$83, list$$4;
       const props$$89 = [];
-      const children$$85 = [(props$$87 = [], (children$$83 = [f.StageName], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("h3", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$87, 1), ...children$$83))), dropdownField(new Fields$002EDropdownFieldProps(isDisabled, "Mode", f.StrategyInitFnName, (list$$4 = _Simulation_fs__WEBPACK_IMPORTED_MODULE_23__["SimulationStageOptions$$$AllOptions"], (Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["map"])(function mapping$$2(o) {
+      const children$$85 = [(props$$87 = [], (children$$83 = [f.StageName], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("h3", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$87, 1), ...children$$83))), dropdownField(new Fields$002EDropdownFieldProps(isDisabled, "Mode", f.StrategyInitFnName, (list$$4 = _Simulation_fs__WEBPACK_IMPORTED_MODULE_24__["SimulationStageOptions$$$AllOptions"], (Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["map"])(function mapping$$2(o) {
         return [o.Name, o.DisplayName];
       }, list$$4))), function (value$$2) {
         return new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["FieldValue"](1, "ModeOfStage", f.StageName, value$$2);
       })), numberField(new Fields$002ENumberFieldProps(isDisabled, "Rounds", f.RoundCount, function (value$$3) {
         return new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["FieldValue"](0, "RoundCountOfStage", f.StageName, value$$3);
       }))];
-      return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$89, 1), ...children$$85);
+      return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$89, 1), ...children$$85);
     }, list$$5);
   };
 
   const renderSetupForm = function renderSetupForm(isDisabled$$1) {
     var props$$91, children$$87;
     const props$$93 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "column is-one-quarter"), new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](99, "Id", "settings")];
-    const children$$89 = [(props$$91 = [], (children$$87 = ["Settings"], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("h1", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$91, 1), ...children$$87))), Common$$$group("Duration", renderStageRoundCountFields(isDisabled$$1)), Common$$$group("Agents", [numberField(new Fields$002ENumberFieldProps(isDisabled$$1, "Agent count", Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["GameSetup$$get_AgentCount"])(model$$4.Setup), function (value$$4) {
+    const children$$89 = [(props$$91 = [], (children$$87 = ["Settings"], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("h1", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$91, 1), ...children$$87))), Common$$$group("Duration", renderStageRoundCountFields(isDisabled$$1)), Common$$$group("Agents", [numberField(new Fields$002ENumberFieldProps(isDisabled$$1, "Agent count", Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["GameSetup$$get_AgentCount"])(model$$4.Setup), function (value$$4) {
       return new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["FieldValue"](2, "AgentCount", value$$4);
     })), numberField(new Fields$002ENumberFieldProps(isDisabled$$1, "Red agents (%)", Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["GameSetup$$get_PortionOfRed"])(model$$4.Setup), function (value$$5) {
       return new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["FieldValue"](3, "PortionOfRed", value$$5);
-    })), Tables$$$renderColotStats(model$$4, Tables$002ERenderColotStatsOptions$$$get_None())]), Common$$$group("Payoff", [numberField(new Fields$002ENumberFieldProps(isDisabled$$1, "Reward (V)", ~~Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["PayoffMatrixType$$get_VictoryBenefit"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["GameSetup$$get_PayoffMatrix"])(model$$4.Setup)), function (value$$6) {
+    })), Tables$$$renderColotStats(model$$4, Tables$002ERenderColotStatsOptions$$$get_None())]), Common$$$group("Payoff", [numberField(new Fields$002ENumberFieldProps(isDisabled$$1, "Reward (V)", ~~Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_11__["toNumber"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["PayoffMatrixType$$get_VictoryBenefit"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["GameSetup$$get_PayoffMatrix"])(model$$4.Setup))), function (value$$6) {
       return new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["FieldValue"](4, "BenefitOnVictory", value$$6);
-    })), numberField(new Fields$002ENumberFieldProps(isDisabled$$1, "Cost (C)", ~~Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["PayoffMatrixType$$get_Cost"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["GameSetup$$get_PayoffMatrix"])(model$$4.Setup)), function (value$$7) {
+    })), numberField(new Fields$002ENumberFieldProps(isDisabled$$1, "Cost (C)", ~~Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_11__["toNumber"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["PayoffMatrixType$$get_Cost"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["GameSetup$$get_PayoffMatrix"])(model$$4.Setup))), function (value$$7) {
       return new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["FieldValue"](5, "CostOfLoss", value$$7);
     })), Tables$$$renderPayoffMatrics(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["GameSetup$$get_PayoffMatrix"])(model$$4.Setup))]), Common$$$group("Authors", [Authors$$$render()])];
-    return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$93, 1), ...children$$89);
+    return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$93, 1), ...children$$89);
   };
 
   let colorSeparation;
-  const matchValue = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_11__["Model$002EGameHistory$$GameHistory$002EFirstRoundWithNConsecutiveRoundOfSeparatedColors$$Z524259A4"])(model$$4.GameState.ResolvedRounds, 1);
+  const matchValue = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_12__["Model$002EGameHistory$$GameHistory$002EFirstRoundWithNConsecutiveRoundOfSeparatedColors$$Z524259A4"])(model$$4.GameState.ResolvedRounds, 1);
 
   if (matchValue != null) {
     const i$$1 = matchValue | 0;
-    colorSeparation = Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["int32ToString"])(i$$1);
+    colorSeparation = Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["int32ToString"])(i$$1);
   } else {
     colorSeparation = "None";
   }
@@ -46557,12 +46521,12 @@ function SettingsForm$$$view(model$$4, dispatch$$4) {
   } else if (model$$4.ViewState.tag === 2) {
     const viewState = model$$4.ViewState.fields[0] | 0;
     const props$$107 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "column is-one-quarter"), new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](99, "Id", "settings")];
-    const children$$103 = [(props$$95 = [], (children$$91 = ["Simulation statistics"], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("h1", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$95, 1), ...children$$91))), Common$$$group("Round challenges", [Tables$$$simulatioStatsTable(model$$4), (props$$97 = [], (children$$93 = [(s$$15 = (arg10$$4 = colorSeparation, (clo1$$4 = Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["toText"])(Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("1st round of color separation in Different color encounters: %s")), clo1$$4(arg10$$4))), s$$15)], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$97, 1), ...children$$93)))]), Common$$$group("Color statistics", [Tables$$$renderColotStats(model$$4, Tables$002ERenderColotStatsOptions$$$get_WithTotalsAndPortions())]), (props$$99 = [], (children$$95 = ["Setup"], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("h1", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$99, 1), ...children$$95))), Common$$$group("Payoff", [Tables$$$renderPayoffMatrics(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["State$$get_CurrentStagePayoffMatrix"])(model$$4))]), Common$$$group("Simulation controls", [(props$$105 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "columns")], (children$$101 = [(props$$101 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "column")], (children$$97 = [Object(_fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_20__["button"])(new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_20__["Option"](17, "OnClick", function (_arg1$$1) {
+    const children$$103 = [(props$$95 = [], (children$$91 = ["Simulation statistics"], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("h1", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$95, 1), ...children$$91))), Common$$$group("Round challenges", [Tables$$$simulatioStatsTable(model$$4), (props$$97 = [], (children$$93 = [(s$$15 = (arg10$$4 = colorSeparation, (clo1$$4 = Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_3__["toText"])(Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("1st round of color separation in Different color encounters: %s")), clo1$$4(arg10$$4))), s$$15)], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$97, 1), ...children$$93)))]), Common$$$group("Color statistics", [Tables$$$renderColotStats(model$$4, Tables$002ERenderColotStatsOptions$$$get_WithTotalsAndPortions())]), (props$$99 = [], (children$$95 = ["Setup"], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("h1", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$99, 1), ...children$$95))), Common$$$group("Payoff", [Tables$$$renderPayoffMatrics(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["State$$get_CurrentStagePayoffMatrix"])(model$$4))]), Common$$$group("Simulation controls", [(props$$105 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "columns")], (children$$101 = [(props$$101 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "column")], (children$$97 = [Object(_fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_21__["button"])(new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_21__["Option"](17, "OnClick", function (_arg1$$1) {
       dispatch$$4(new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Msg"](2, "RunSimulation"));
-    }), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]("Re-run simulation", new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$101, 1), ...children$$97))), (props$$103 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "column")], (children$$99 = [Object(_fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_20__["button"])(Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([new _fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_20__["Option"](0, "Color", new _fable_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_19__["Color$002EIColor"](8, "is-danger")), new _fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_20__["Option"](17, "OnClick", function (_arg2) {
+    }), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]("Re-run simulation", new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$101, 1), ...children$$97))), (props$$103 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "column")], (children$$99 = [Object(_fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_21__["button"])(Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([new _fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_21__["Option"](0, "Color", new _fable_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_20__["Color$002EIColor"](8, "is-danger")), new _fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_21__["Option"](17, "OnClick", function (_arg2) {
       dispatch$$4(new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Msg"](4, "ToInitialization"));
-    })]), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]("Reset setup", new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$103, 1), ...children$$99)))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$105, 1), ...children$$101)))])];
-    return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$107, 1), ...children$$103);
+    })]), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]("Reset setup", new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$103, 1), ...children$$99)))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$105, 1), ...children$$101)))])];
+    return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$107, 1), ...children$$103);
   } else {
     return renderSetupForm(false);
   }
@@ -46573,15 +46537,15 @@ function ResultTable$$$agentBox(usedColor, rounds$$1, model$$5) {
   let avg;
 
   if (rounds$$1 === 0) {
-    avg = 0;
+    avg = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_11__["fromParts"])(0, 0, 0, false, 1);
   } else {
     const r = rounds$$1 | 0;
-    avg = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["Agent$$get_Payoff"])(model$$5) / r;
+    avg = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_11__["op_Division"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["Agent$$get_Payoff"])(model$$5), new _fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_11__["default"](r));
   }
 
-  const props$$123 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["Prop"](0, "Key", (copyOfStruct = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["Agent$$get_Id"])(model$$5) | 0, Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["int32ToString"])(copyOfStruct))), new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", (arg10$$5 = colorTypeColor, arg20$$2 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["Agent$$get_Strategy"])(model$$5), (clo1$$5 = Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["toText"])(Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("agent-box fade-in %s %A")), clo2$$2 = clo1$$5(arg10$$5), clo2$$2(arg20$$2))))];
-  const children$$119 = [(props$$109 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "strategy")], (children$$105 = [(s$$19 = (arg10$$6 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["Agent$$get_Strategy"])(model$$5), (clo1$$6 = Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["toText"])(Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("%A")), clo1$$6(arg10$$6))), s$$19)], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$109, 1), ...children$$105))), (props$$119 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "payoff")], (children$$115 = [(props$$113 = [], (children$$109 = [(props$$111 = [], (children$$107 = ["Total: "], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("span", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$111, 1), ...children$$107))), (f$$1 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["Agent$$get_Payoff"])(model$$5), f$$1)], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$113, 1), ...children$$109))), (props$$117 = [], (children$$113 = [(props$$115 = [], (children$$111 = ["Avg: "], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("span", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$115, 1), ...children$$111))), (s$$22 = (arg10$$7 = avg, (clo1$$7 = Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["toText"])(Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("%.3f")), clo1$$7(arg10$$7))), s$$22)], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$117, 1), ...children$$113)))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$119, 1), ...children$$115))), (props$$121 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "agent-id")], (children$$117 = ["#", (i$$2 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["Agent$$get_Id"])(model$$5) | 0, i$$2)], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$121, 1), ...children$$117)))];
-  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$123, 1), ...children$$119);
+  const props$$123 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["Prop"](0, "Key", (copyOfStruct = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["Agent$$get_Id"])(model$$5) | 0, Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["int32ToString"])(copyOfStruct))), new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", (arg10$$5 = colorTypeColor, arg20$$2 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["Agent$$get_Strategy"])(model$$5), (clo1$$5 = Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_3__["toText"])(Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("agent-box fade-in %s %A")), clo2$$2 = clo1$$5(arg10$$5), clo2$$2(arg20$$2))))];
+  const children$$119 = [(props$$109 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "strategy")], (children$$105 = [(s$$19 = (arg10$$6 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["Agent$$get_Strategy"])(model$$5), (clo1$$6 = Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_3__["toText"])(Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("%A")), clo1$$6(arg10$$6))), s$$19)], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$109, 1), ...children$$105))), (props$$119 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "payoff")], (children$$115 = [(props$$113 = [], (children$$109 = [(props$$111 = [], (children$$107 = ["Total: "], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("span", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$111, 1), ...children$$107))), (f$$1 = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_11__["toNumber"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["Agent$$get_Payoff"])(model$$5)), f$$1)], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$113, 1), ...children$$109))), (props$$117 = [], (children$$113 = [(props$$115 = [], (children$$111 = ["Avg: "], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("span", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$115, 1), ...children$$111))), (s$$22 = (arg10$$7 = avg, (clo1$$7 = Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_3__["toText"])(Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("%.3f")), clo1$$7(arg10$$7))), s$$22)], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$117, 1), ...children$$113)))], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$119, 1), ...children$$115))), (props$$121 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "agent-id")], (children$$117 = ["#", (i$$2 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["Agent$$get_Id"])(model$$5) | 0, i$$2)], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$121, 1), ...children$$117)))];
+  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$123, 1), ...children$$119);
 }
 function ResultTable$$$view(model$$6, dispatch$$5) {
   var props$$125, children$$121, props$$127, children$$123, props$$129, children$$125, props$$131, children$$127;
@@ -46592,26 +46556,26 @@ function ResultTable$$$view(model$$6, dispatch$$5) {
   let elements;
   let list$$8;
   const list$$6 = currentRoundAgents;
-  list$$8 = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["groupBy"])(function projection(a) {
+  list$$8 = Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["groupBy"])(function projection(a) {
     return Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["Agent$$get_LastRoundChallengeType"])(a);
   }, list$$6, {
-    Equals: _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["equals"],
-    GetHashCode: _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["structuralHash"]
+    Equals: _fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["equals"],
+    GetHashCode: _fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["structuralHash"]
   });
-  elements = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["map"])(function mapping$$5(tupledArg$$5) {
+  elements = Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["map"])(function mapping$$5(tupledArg$$5) {
     var list$$7;
     const group = tupledArg$$5[0];
     const agents = tupledArg$$5[1];
-    return [group, (list$$7 = agents, (Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["map"])(function mapping$$4(model$$7) {
+    return [group, (list$$7 = agents, (Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["map"])(function mapping$$4(model$$7) {
       return ResultTable$$$agentBox(mayUseColor, currentRound, model$$7);
     }, list$$7)))];
   }, list$$8);
-  agents$$1 = Object(_fable_fable_library_2_4_15_Map_js__WEBPACK_IMPORTED_MODULE_24__["ofList"])(elements, {
-    Compare: _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["compare"]
+  agents$$1 = Object(_fable_fable_library_2_13_0_Map_js__WEBPACK_IMPORTED_MODULE_25__["ofList"])(elements, {
+    Compare: _fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["compare"]
   });
   const props$$133 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "agent-group")];
-  const children$$129 = [(props$$125 = [], (children$$121 = ["Different color"], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("h1", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$125, 1), ...children$$121))), (props$$127 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "agent-listing")], (children$$123 = Object(_fable_fable_library_2_4_15_Map_js__WEBPACK_IMPORTED_MODULE_24__["FSharpMap$$get_Item$$2B595"])(agents$$1, new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["ChallengeType"](0, "DifferentColor")), react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$127, 1), ...children$$123))), (props$$129 = [], (children$$125 = ["Same color"], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("h1", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$129, 1), ...children$$125))), (props$$131 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "agent-listing")], (children$$127 = Object(_fable_fable_library_2_4_15_Map_js__WEBPACK_IMPORTED_MODULE_24__["FSharpMap$$get_Item$$2B595"])(agents$$1, new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["ChallengeType"](1, "SameColor")), react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$131, 1), ...children$$127)))];
-  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$133, 1), ...children$$129);
+  const children$$129 = [(props$$125 = [], (children$$121 = ["Different color"], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("h1", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$125, 1), ...children$$121))), (props$$127 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "agent-listing")], (children$$123 = Object(_fable_fable_library_2_13_0_Map_js__WEBPACK_IMPORTED_MODULE_25__["FSharpMap$$get_Item$$2B595"])(agents$$1, new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["ChallengeType"](0, "DifferentColor")), react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$127, 1), ...children$$123))), (props$$129 = [], (children$$125 = ["Same color"], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("h1", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$129, 1), ...children$$125))), (props$$131 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "agent-listing")], (children$$127 = Object(_fable_fable_library_2_13_0_Map_js__WEBPACK_IMPORTED_MODULE_25__["FSharpMap$$get_Item$$2B595"])(agents$$1, new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["ChallengeType"](1, "SameColor")), react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$131, 1), ...children$$127)))];
+  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$133, 1), ...children$$129);
 }
 function view(model$$8, dispatch$$6) {
   var props$$141, children$$135, s$$29, props$$143, props$$147, children$$139, s$$31, arg10$$8, arg20$$3, arg30, clo1$$8, clo2$$3, clo3, props$$135, children$$131, s$$27, props$$137, props$$151, children$$143;
@@ -46619,24 +46583,24 @@ function view(model$$8, dispatch$$6) {
 
   if (model$$8.ViewState.tag === 1) {
     const props$$145 = [];
-    const children$$137 = [(props$$141 = [], (children$$135 = [(s$$29 = Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["toText"])(Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("Results")), s$$29)], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("h1", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$141, 1), ...children$$135))), (props$$143 = [], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("br", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$143, 1), ...[])), Object(_fable_Fulma_2_9_0_Elements_Progress_fs__WEBPACK_IMPORTED_MODULE_25__["progress"])(new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fulma_2_9_0_Elements_Progress_fs__WEBPACK_IMPORTED_MODULE_25__["Option"](0, "Size", new _fable_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_19__["Size$002EISize"](2, "is-large")), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()), "Running simulation..."];
-    resultPanel = react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$145, 1), ...children$$137);
+    const children$$137 = [(props$$141 = [], (children$$135 = [(s$$29 = Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_3__["toText"])(Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("Results")), s$$29)], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("h1", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$141, 1), ...children$$135))), (props$$143 = [], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("br", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$143, 1), ...[])), Object(_fable_Fulma_2_9_0_Elements_Progress_fs__WEBPACK_IMPORTED_MODULE_26__["progress"])(new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"](new _fable_Fulma_2_9_0_Elements_Progress_fs__WEBPACK_IMPORTED_MODULE_26__["Option"](0, "Size", new _fable_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_20__["Size$002EISize"](2, "is-large")), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()), "Running simulation..."];
+    resultPanel = react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$145, 1), ...children$$137);
   } else if (model$$8.ViewState.tag === 2) {
     const round = model$$8.ViewState.fields[0] | 0;
     const props$$149 = [];
-    const children$$141 = [(props$$147 = [], (children$$139 = [(s$$31 = (arg10$$8 = round | 0, arg20$$3 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["GameSetup$$get_RoundsToPlay"])(model$$8.Setup) | 0, arg30 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["State$$get_CurrentStageName"])(model$$8), (clo1$$8 = Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["toText"])(Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("Results (Round %i/%i - %s)")), clo2$$3 = clo1$$8(arg10$$8), clo3 = clo2$$3(arg20$$3), clo3(arg30))), s$$31)], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("h1", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$147, 1), ...children$$139))), RoundSlider$$$slider(model$$8, dispatch$$6), ResultTable$$$view(model$$8, dispatch$$6)];
-    resultPanel = react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$149, 1), ...children$$141);
+    const children$$141 = [(props$$147 = [], (children$$139 = [(s$$31 = (arg10$$8 = round | 0, arg20$$3 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["GameSetup$$get_RoundsToPlay"])(model$$8.Setup) | 0, arg30 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_5__["State$$get_CurrentStageName"])(model$$8), (clo1$$8 = Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_3__["toText"])(Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("Results (Round %i/%i - %s)")), clo2$$3 = clo1$$8(arg10$$8), clo3 = clo2$$3(arg20$$3), clo3(arg30))), s$$31)], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("h1", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$147, 1), ...children$$139))), RoundSlider$$$slider(model$$8, dispatch$$6), ResultTable$$$view(model$$8, dispatch$$6)];
+    resultPanel = react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$149, 1), ...children$$141);
   } else {
     const props$$139 = [];
-    const children$$133 = [(props$$135 = [], (children$$131 = [(s$$27 = Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["toText"])(Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("Results")), s$$27)], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("h1", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$135, 1), ...children$$131))), (props$$137 = [], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("br", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$137, 1), ...[])), Object(_fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_20__["button"])(Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([new _fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_20__["Option"](0, "Color", new _fable_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_19__["Color$002EIColor"](4, "is-primary")), new _fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_20__["Option"](1, "Size", new _fable_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_19__["Size$002EISize"](2, "is-large")), new _fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_20__["Option"](17, "OnClick", function (_arg1$$2) {
+    const children$$133 = [(props$$135 = [], (children$$131 = [(s$$27 = Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_3__["toText"])(Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("Results")), s$$27)], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("h1", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$135, 1), ...children$$131))), (props$$137 = [], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("br", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$137, 1), ...[])), Object(_fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_21__["button"])(Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_7__["ofArray"])([new _fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_21__["Option"](0, "Color", new _fable_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_20__["Color$002EIColor"](4, "is-primary")), new _fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_21__["Option"](1, "Size", new _fable_Fulma_2_9_0_Common_fs__WEBPACK_IMPORTED_MODULE_20__["Size$002EISize"](2, "is-large")), new _fable_Fulma_2_9_0_Elements_Button_fs__WEBPACK_IMPORTED_MODULE_21__["Option"](17, "OnClick", function (_arg1$$2) {
       dispatch$$6(new _Model_fs__WEBPACK_IMPORTED_MODULE_5__["Msg"](2, "RunSimulation"));
-    })]), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]("Run simulation", new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))];
-    resultPanel = react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$139, 1), ...children$$133);
+    })]), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]("Run simulation", new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_2__["List"]()))];
+    resultPanel = react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$139, 1), ...children$$133);
   }
 
   const props$$153 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](99, "Id", "main-container"), new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "columns")];
-  const children$$145 = [SettingsForm$$$view(model$$8, dispatch$$6), (props$$151 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](99, "Id", "results"), new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "column")], (children$$143 = [resultPanel], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$151, 1), ...children$$143)))];
-  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$153, 1), ...children$$145);
+  const children$$145 = [SettingsForm$$$view(model$$8, dispatch$$6), (props$$151 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](99, "Id", "results"), new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "column")], (children$$143 = [resultPanel], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$151, 1), ...children$$143)))];
+  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$153, 1), ...children$$145);
 }
 
 /***/ }),
@@ -46645,7 +46609,7 @@ function view(model$$8, dispatch$$6) {
 /*!**********************!*\
   !*** ./src/Model.fs ***!
   \**********************/
-/*! exports provided: Color, Color$reflection, Color$$$GenerateList$$Z4242E780, Strategy, Strategy$reflection, Strategy$$$GenerateList$$Z1725983A, ChallengeType, ChallengeType$reflection, AgentIdentity, AgentIdentity$reflection, GameInfo, GameInfo$reflection, Agent, Agent$reflection, Agent$$get_Id, Agent$$get_Color, Agent$$get_Payoff, Agent$$get_Strategy, Agent$$get_StrategyName, Agent$$get_LastRoundChallengeType, Agent$$UpdateGameInfo$$3454EE1B, ResolvedChallenge, ResolvedChallenge$reflection, ResolvedChallenge$$$Of$$Z37EB4020, ResolvedChallenge$$get_ChalengeType, PayoffMatrixType, PayoffMatrixType$reflection, PayoffMatrixType$$get_Cost, PayoffMatrixType$$get_VictoryBenefit, PayoffMatrixType$$SetV$$5E38073B, PayoffMatrixType$$SetC$$5E38073B, PayoffMatrixType$$get_Revard$0020$0028V$0029, PayoffMatrixType$$get_Cost$0020$0028C$0029, PayoffMatrixType$$ToMatrix, PayoffMatrixType$$GetPayoffFor$$Z5F957E0, PayoffMatrixType$$GetMyPayoff$$Z5F957E0, GameRound, GameRound$reflection, GameRound$$ToList, GameRound$$get_Agents, GameRound$$$get_Empty, GameRound$$AppendWith$$Z37EB4020, GameHistory, GameHistory$reflection, GameHistory$$Append$$ZD480438, GameHistory$$ToList, GameHistory$$Unwrap, GameHistory$$get_TotalRounds, GameHistory$$GetRoundByRoundNumber$$Z524259A4, GameHistory$$GetRoundCount, GameHistory$$get_HasHistory, GameHistory$$get_LastRoundChallenges, GameHistory$$get_FirstRoundChallenges, HistoryStatisticsView, HistoryStatisticsView$reflection, HistoryStatisticsView$$UpdateHistory$$30741D88, rand, GameInformation, GameInformation$reflection, GameInformation$$$InitGameInformationForAgents, PlannedRound, PlannedRound$reflection, PlannedRound$$PlayRound, GameState, GameState$reflection, GameState$$SimulateRounds$$6166C877, GameState$$SimulateRoundsPromise$$6166C877, GameParameters, GameParameters$reflection, SimulationFrame, SimulationFrame$reflection, StageStrategyFnOptions, StageStrategyFnOptions$reflection, UISetupState, UISetupState$reflection, GameSetup, GameSetup$reflection, GameSetup$$get_AgentCount, GameSetup$$get_PortionOfRed, GameSetup$$get_PayoffMatrix, GameSetup$$get_RoundsToPlay, GameSetup$$get_CountOfRed, GameSetup$$get_CountOfBlue, GameSetup$$get_ColorSpecs, GameSetup$$GenerateAgents, ShowResultsViewState, ShowResultsViewState$reflection, ResultViewState, ResultViewState$reflection, State, State$reflection, State$$get_CurrentRound, State$$get_CurrentRoundChallenges, State$$get_CurrentRoundAgents, State$$get_CurrentStageName, State$$get_CurrentStageMayUseColor, State$$get_CurrentStagePayoffMatrix, FieldValue, FieldValue$reflection, Msg, Msg$reflection */
+/*! exports provided: Color, Color$reflection, Color$$$GenerateList$$Z4242E780, Strategy, Strategy$reflection, Strategy$$$GenerateList$$Z1725983A, ChallengeType, ChallengeType$reflection, AgentIdentity, AgentIdentity$reflection, GameInfo, GameInfo$reflection, Agent, Agent$reflection, Agent$$get_Id, Agent$$get_Color, Agent$$get_Payoff, Agent$$get_Strategy, Agent$$get_StrategyName, Agent$$get_LastRoundChallengeType, Agent$$UpdateGameInfo$$4D7AC825, ResolvedChallenge, ResolvedChallenge$reflection, ResolvedChallenge$$$Of$$Z37EB4020, ResolvedChallenge$$get_ChalengeType, PayoffMatrixType, PayoffMatrixType$reflection, PayoffMatrixType$$get_Cost, PayoffMatrixType$$get_VictoryBenefit, PayoffMatrixType$$SetV$$32C73145, PayoffMatrixType$$SetC$$32C73145, PayoffMatrixType$$get_Revard$0020$0028V$0029, PayoffMatrixType$$get_Cost$0020$0028C$0029, PayoffMatrixType$$get_Change$0020of$0020hawk$0020$0028NMSE$0029, PayoffMatrixType$$ToMatrix, PayoffMatrixType$$GetPayoffFor$$Z5F957E0, PayoffMatrixType$$GetMyPayoff$$Z5F957E0, GameRound, GameRound$reflection, GameRound$$ToList, GameRound$$get_Agents, GameRound$$$get_Empty, GameRound$$AppendWith$$Z37EB4020, GameHistory, GameHistory$reflection, GameHistory$$Append$$ZD480438, GameHistory$$ToList, GameHistory$$Unwrap, GameHistory$$get_TotalRounds, GameHistory$$GetRoundByRoundNumber$$Z524259A4, GameHistory$$GetRoundCount, GameHistory$$get_HasHistory, GameHistory$$get_LastRoundChallenges, GameHistory$$get_FirstRoundChallenges, HistoryStatisticsView, HistoryStatisticsView$reflection, HistoryStatisticsView$$UpdateHistory$$30741D88, rand, GameInformation, GameInformation$reflection, GameInformation$$$InitGameInformationForAgents, PlannedRound, PlannedRound$reflection, PlannedRound$$PlayRound, GameState, GameState$reflection, GameState$$SimulateRounds$$6166C877, GameState$$SimulateRoundsPromise$$6166C877, GameParameters, GameParameters$reflection, SimulationFrame, SimulationFrame$reflection, StageStrategyFnOptions, StageStrategyFnOptions$reflection, UISetupState, UISetupState$reflection, GameSetup, GameSetup$reflection, GameSetup$$get_AgentCount, GameSetup$$get_PortionOfRed, GameSetup$$get_PayoffMatrix, GameSetup$$get_RoundsToPlay, GameSetup$$get_CountOfRed, GameSetup$$get_CountOfBlue, GameSetup$$get_ColorSpecs, GameSetup$$GenerateAgents, ShowResultsViewState, ShowResultsViewState$reflection, ResultViewState, ResultViewState$reflection, State, State$reflection, State$$get_CurrentRound, State$$get_CurrentRoundChallenges, State$$get_CurrentRoundAgents, State$$get_CurrentStageName, State$$get_CurrentStageMayUseColor, State$$get_CurrentStagePayoffMatrix, FieldValue, FieldValue$reflection, Msg, Msg$reflection */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -46670,7 +46634,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Agent$$get_Strategy", function() { return Agent$$get_Strategy; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Agent$$get_StrategyName", function() { return Agent$$get_StrategyName; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Agent$$get_LastRoundChallengeType", function() { return Agent$$get_LastRoundChallengeType; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Agent$$UpdateGameInfo$$3454EE1B", function() { return Agent$$UpdateGameInfo$$3454EE1B; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Agent$$UpdateGameInfo$$4D7AC825", function() { return Agent$$UpdateGameInfo$$4D7AC825; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResolvedChallenge", function() { return ResolvedChallenge; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResolvedChallenge$reflection", function() { return ResolvedChallenge$reflection; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResolvedChallenge$$$Of$$Z37EB4020", function() { return ResolvedChallenge$$$Of$$Z37EB4020; });
@@ -46679,10 +46643,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PayoffMatrixType$reflection", function() { return PayoffMatrixType$reflection; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PayoffMatrixType$$get_Cost", function() { return PayoffMatrixType$$get_Cost; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PayoffMatrixType$$get_VictoryBenefit", function() { return PayoffMatrixType$$get_VictoryBenefit; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PayoffMatrixType$$SetV$$5E38073B", function() { return PayoffMatrixType$$SetV$$5E38073B; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PayoffMatrixType$$SetC$$5E38073B", function() { return PayoffMatrixType$$SetC$$5E38073B; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PayoffMatrixType$$SetV$$32C73145", function() { return PayoffMatrixType$$SetV$$32C73145; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PayoffMatrixType$$SetC$$32C73145", function() { return PayoffMatrixType$$SetC$$32C73145; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PayoffMatrixType$$get_Revard$0020$0028V$0029", function() { return PayoffMatrixType$$get_Revard$0020$0028V$0029; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PayoffMatrixType$$get_Cost$0020$0028C$0029", function() { return PayoffMatrixType$$get_Cost$0020$0028C$0029; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PayoffMatrixType$$get_Change$0020of$0020hawk$0020$0028NMSE$0029", function() { return PayoffMatrixType$$get_Change$0020of$0020hawk$0020$0028NMSE$0029; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PayoffMatrixType$$ToMatrix", function() { return PayoffMatrixType$$ToMatrix; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PayoffMatrixType$$GetPayoffFor$$Z5F957E0", function() { return PayoffMatrixType$$GetPayoffFor$$Z5F957E0; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PayoffMatrixType$$GetMyPayoff$$Z5F957E0", function() { return PayoffMatrixType$$GetMyPayoff$$Z5F957E0; });
@@ -46751,17 +46716,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FieldValue$reflection", function() { return FieldValue$reflection; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Msg", function() { return Msg; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Msg$reflection", function() { return Msg$reflection; });
-/* harmony import */ var _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/Types.js */ "./.fable/fable-library.2.4.15/Types.js");
-/* harmony import */ var _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/Reflection.js */ "./.fable/fable-library.2.4.15/Reflection.js");
-/* harmony import */ var _fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/List.js */ "./.fable/fable-library.2.4.15/List.js");
-/* harmony import */ var _fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/String.js */ "./.fable/fable-library.2.4.15/String.js");
-/* harmony import */ var _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/Util.js */ "./.fable/fable-library.2.4.15/Util.js");
-/* harmony import */ var _fable_fable_library_2_4_15_Map_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/Map.js */ "./.fable/fable-library.2.4.15/Map.js");
-/* harmony import */ var _fable_fable_library_2_4_15_Array_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/Array.js */ "./.fable/fable-library.2.4.15/Array.js");
-/* harmony import */ var _Helpers_fs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Helpers.fs */ "./src/Helpers.fs");
-/* harmony import */ var _fable_Fable_Promise_2_1_0_PromiseImpl_fs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../.fable/Fable.Promise.2.1.0/PromiseImpl.fs */ "./.fable/Fable.Promise.2.1.0/PromiseImpl.fs");
-/* harmony import */ var _fable_fable_library_2_4_15_Date_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/Date.js */ "./.fable/fable-library.2.4.15/Date.js");
-/* harmony import */ var _fable_Fable_Promise_2_1_0_Promise_fs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../.fable/Fable.Promise.2.1.0/Promise.fs */ "./.fable/Fable.Promise.2.1.0/Promise.fs");
+/* harmony import */ var _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/Types.js */ "./.fable/fable-library.2.13.0/Types.js");
+/* harmony import */ var _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/Reflection.js */ "./.fable/fable-library.2.13.0/Reflection.js");
+/* harmony import */ var _fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/List.js */ "./.fable/fable-library.2.13.0/List.js");
+/* harmony import */ var _fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/Decimal.js */ "./.fable/fable-library.2.13.0/Decimal.js");
+/* harmony import */ var _fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/String.js */ "./.fable/fable-library.2.13.0/String.js");
+/* harmony import */ var _fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/Util.js */ "./.fable/fable-library.2.13.0/Util.js");
+/* harmony import */ var _fable_fable_library_2_13_0_Map_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/Map.js */ "./.fable/fable-library.2.13.0/Map.js");
+/* harmony import */ var _fable_fable_library_2_13_0_Array_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/Array.js */ "./.fable/fable-library.2.13.0/Array.js");
+/* harmony import */ var _Helpers_fs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Helpers.fs */ "./src/Helpers.fs");
+/* harmony import */ var _fable_Fable_Promise_2_1_0_PromiseImpl_fs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../.fable/Fable.Promise.2.1.0/PromiseImpl.fs */ "./.fable/Fable.Promise.2.1.0/PromiseImpl.fs");
+/* harmony import */ var _fable_fable_library_2_13_0_Date_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/Date.js */ "./.fable/fable-library.2.13.0/Date.js");
+/* harmony import */ var _fable_Fable_Promise_2_1_0_Promise_fs__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../.fable/Fable.Promise.2.1.0/Promise.fs */ "./.fable/Fable.Promise.2.1.0/Promise.fs");
 
 
 
@@ -46773,64 +46739,73 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const Color = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_Color(tag, name, ...fields) {
-  _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
-}, _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
+
+const Color = Object(_fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_Color(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
 function Color$reflection() {
-  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union"])("Model.Color", [], Color, () => ["Blue", "Red"]);
+  return Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union_type"])("Model.Color", [], Color, () => ["Blue", "Red"]);
 }
 function Color$$$GenerateList$$Z4242E780(specs) {
   const list = specs;
-  return Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_2__["collect"])(function mapping(tupledArg) {
+  return Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_2__["collect"])(function mapping(tupledArg) {
     const value = tupledArg[0];
     const count = tupledArg[1] | 0;
-    return Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_2__["initialize"])(count, function (_arg1) {
+    return Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_2__["initialize"])(count, function (_arg1) {
       return value;
     });
   }, list);
 }
-const Strategy = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_Strategy(tag, name, ...fields) {
-  _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
-}, _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
+const Strategy = Object(_fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_Strategy(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
 function Strategy$reflection() {
-  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union"])("Model.Strategy", [], Strategy, () => ["Dove", "Hawk"]);
+  return Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union_type"])("Model.Strategy", [], Strategy, () => ["Dove", "Hawk"]);
 }
 function Strategy$$$GenerateList$$Z1725983A(specs$$1) {
   const list$$1 = specs$$1;
-  return Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_2__["collect"])(function mapping$$1(tupledArg$$1) {
+  return Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_2__["collect"])(function mapping$$1(tupledArg$$1) {
     const value$$1 = tupledArg$$1[0];
     const count$$1 = tupledArg$$1[1] | 0;
-    return Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_2__["initialize"])(count$$1, function (_arg2) {
+    return Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_2__["initialize"])(count$$1, function (_arg2) {
       return value$$1;
     });
   }, list$$1);
 }
-const ChallengeType = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_ChallengeType(tag, name, ...fields) {
-  _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
-}, _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
+const ChallengeType = Object(_fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_ChallengeType(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
 function ChallengeType$reflection() {
-  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union"])("Model.ChallengeType", [], ChallengeType, () => ["DifferentColor", "SameColor"]);
+  return Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union_type"])("Model.ChallengeType", [], ChallengeType, () => ["DifferentColor", "SameColor"]);
 }
-const AgentIdentity = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_AgentIdentity(arg1, arg2) {
-  this.Id = arg1 | 0;
-  this.Color = arg2;
-}, _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
+const AgentIdentity = Object(_fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_AgentIdentity(Id, Color) {
+  this.Id = Id | 0;
+  this.Color = Color;
+}, _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
 function AgentIdentity$reflection() {
-  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record"])("Model.AgentIdentity", [], AgentIdentity, () => [["Id", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]], ["Color", Color$reflection()]]);
+  return Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record_type"])("Model.AgentIdentity", [], AgentIdentity, () => [["Id", _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"]], ["Color", Color$reflection()]]);
 }
-const GameInfo = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_GameInfo(arg1, arg2, arg3) {
-  this.Payoff = arg1;
-  this.PreviousChoice = arg2;
-  this.PreviousChallengeType = arg3;
-}, _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
+const GameInfo = Object(_fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_GameInfo(Payoff, PreviousChoice, PreviousChallengeType) {
+  this.Payoff = Payoff;
+  this.PreviousChoice = PreviousChoice;
+  this.PreviousChallengeType = PreviousChallengeType;
+}, _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
 function GameInfo$reflection() {
-  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record"])("Model.GameInfo", [], GameInfo, () => [["Payoff", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["float64"]], ["PreviousChoice", Strategy$reflection()], ["PreviousChallengeType", ChallengeType$reflection()]]);
+  return Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record_type"])("Model.GameInfo", [], GameInfo, () => [["Payoff", Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("System.Decimal")], ["PreviousChoice", Strategy$reflection()], ["PreviousChallengeType", ChallengeType$reflection()]]);
 }
-const Agent = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_Agent(tag, name, ...fields) {
-  _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
-}, _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
+const Agent = Object(_fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_Agent(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
 function Agent$reflection() {
-  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union"])("Model.Agent", [], Agent, () => [["AgentWithNoGames", [AgentIdentity$reflection()]], ["AgentWithGameInfo", [AgentIdentity$reflection(), GameInfo$reflection()]]]);
+  return Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union_type"])("Model.Agent", [], Agent, () => [["AgentWithNoGames", [["Item", AgentIdentity$reflection()]]], ["AgentWithGameInfo", [["Item1", AgentIdentity$reflection()], ["Item2", GameInfo$reflection()]]]]);
 }
 function Agent$$get_Id(this$) {
   if (this$.tag === 1) {
@@ -46855,7 +46830,7 @@ function Agent$$get_Payoff(this$$$2) {
     const payoff = this$$$2.fields[1].Payoff;
     return payoff;
   } else {
-    return 0;
+    return Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_3__["fromParts"])(0, 0, 0, false, 1);
   }
 }
 function Agent$$get_Strategy(this$$$3) {
@@ -46864,14 +46839,14 @@ function Agent$$get_Strategy(this$$$3) {
     return choice;
   } else {
     const a$$4 = this$$$3.fields[0];
-    return null;
+    return undefined;
   }
 }
 function Agent$$get_StrategyName(this$$$4) {
   if (this$$$4.tag === 1) {
     const choice$$1 = this$$$4.fields[1].PreviousChoice;
     const arg10 = choice$$1;
-    const clo1 = Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["toText"])(Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("%A"));
+    const clo1 = Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_4__["toText"])(Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_4__["printf"])("%A"));
     return clo1(arg10);
   } else {
     const a$$5 = this$$$4.fields[0];
@@ -46884,24 +46859,24 @@ function Agent$$get_LastRoundChallengeType(this$$$5) {
     return challengType;
   } else {
     const a$$6 = this$$$5.fields[0];
-    return null;
+    return undefined;
   }
 }
-function Agent$$UpdateGameInfo$$3454EE1B(this$$$6, payoff$$1, choice$$2, challengeType) {
+function Agent$$UpdateGameInfo$$4D7AC825(this$$$6, payoff$$1, choice$$2, challengeType) {
   if (this$$$6.tag === 1) {
     const payoffAccumulator = this$$$6.fields[1].Payoff;
     const a$$8 = this$$$6.fields[0];
-    return new Agent(1, "AgentWithGameInfo", a$$8, new GameInfo(payoffAccumulator + payoff$$1, choice$$2, challengeType));
+    return new Agent(1, "AgentWithGameInfo", a$$8, new GameInfo(Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_3__["op_Addition"])(payoffAccumulator, payoff$$1), choice$$2, challengeType));
   } else {
     const a$$7 = this$$$6.fields[0];
     return new Agent(1, "AgentWithGameInfo", a$$7, new GameInfo(payoff$$1, choice$$2, challengeType));
   }
 }
-const ResolvedChallenge = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_ResolvedChallenge(arg1) {
-  this.Players = arg1;
-}, _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
+const ResolvedChallenge = Object(_fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_ResolvedChallenge(Players) {
+  this.Players = Players;
+}, _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
 function ResolvedChallenge$reflection() {
-  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record"])("Model.ResolvedChallenge", [], ResolvedChallenge, () => [["Players", Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["tuple"])(Agent$reflection(), Agent$reflection())]]);
+  return Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record_type"])("Model.ResolvedChallenge", [], ResolvedChallenge, () => [["Players", Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["tuple_type"])(Agent$reflection(), Agent$reflection())]]);
 }
 function ResolvedChallenge$$$Of$$Z37EB4020(player1, player2) {
   return new ResolvedChallenge([player1, player2]);
@@ -46909,7 +46884,7 @@ function ResolvedChallenge$$$Of$$Z37EB4020(player1, player2) {
 function ResolvedChallenge$$get_ChalengeType(this$$$7) {
   var p2, p1;
 
-  if (p2 = this$$$7.Players[0], (p1 = this$$$7.Players[1], Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["equals"])(Agent$$get_Color(p1), Agent$$get_Color(p2)))) {
+  if (p2 = this$$$7.Players[0], (p1 = this$$$7.Players[1], Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_5__["equals"])(Agent$$get_Color(p1), Agent$$get_Color(p2)))) {
     const p2$$1 = this$$$7.Players[0];
     const p1$$1 = this$$$7.Players[1];
     return new ChallengeType(1, "SameColor");
@@ -46917,11 +46892,13 @@ function ResolvedChallenge$$get_ChalengeType(this$$$7) {
     return new ChallengeType(0, "DifferentColor");
   }
 }
-const PayoffMatrixType = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_PayoffMatrixType(tag, name, ...fields) {
-  _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
-}, _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
+const PayoffMatrixType = Object(_fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_PayoffMatrixType(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
 function PayoffMatrixType$reflection() {
-  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union"])("Model.PayoffMatrixType", [], PayoffMatrixType, () => [["FromRewardAndCost", [_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["float64"], _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["float64"]]]]);
+  return Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union_type"])("Model.PayoffMatrixType", [], PayoffMatrixType, () => [["FromRewardAndCost", [["reward", Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("System.Decimal")], ["cost", Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("System.Decimal")]]]]);
 }
 function PayoffMatrixType$$get_Cost(this$$$8) {
   const cost = this$$$8.fields[1];
@@ -46931,12 +46908,12 @@ function PayoffMatrixType$$get_VictoryBenefit(this$$$9) {
   const victory = this$$$9.fields[0];
   return victory;
 }
-function PayoffMatrixType$$SetV$$5E38073B(this$$$10, newValue) {
+function PayoffMatrixType$$SetV$$32C73145(this$$$10, newValue) {
   const victory$$1 = this$$$10.fields[0];
   const cost$$1 = this$$$10.fields[1];
   return new PayoffMatrixType(0, "FromRewardAndCost", newValue, cost$$1);
 }
-function PayoffMatrixType$$SetC$$5E38073B(this$$$11, newValue$$1) {
+function PayoffMatrixType$$SetC$$32C73145(this$$$11, newValue$$1) {
   const victory$$2 = this$$$11.fields[0];
   const cost$$2 = this$$$11.fields[1];
   return new PayoffMatrixType(0, "FromRewardAndCost", victory$$2, newValue$$1);
@@ -46949,179 +46926,199 @@ function PayoffMatrixType$$get_Cost$0020$0028C$0029(this$$$13) {
   const cost$$3 = this$$$13.fields[1];
   return cost$$3;
 }
-function PayoffMatrixType$$ToMatrix(this$$$14) {
-  const revard = this$$$14.fields[0];
-  const cost$$4 = this$$$14.fields[1];
-  return Object(_fable_fable_library_2_4_15_Map_js__WEBPACK_IMPORTED_MODULE_5__["ofList"])(Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_2__["ofArray"])([[[new Strategy(1, "Hawk"), new Strategy(1, "Hawk")], [(revard - cost$$4) / 2, (revard - cost$$4) / 2]], [[new Strategy(1, "Hawk"), new Strategy(0, "Dove")], [revard, 0]], [[new Strategy(0, "Dove"), new Strategy(1, "Hawk")], [0, revard]], [[new Strategy(0, "Dove"), new Strategy(0, "Dove")], [revard / 2, revard / 2]]]), {
-    Compare: _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["compareArrays"]
+function PayoffMatrixType$$get_Change$0020of$0020hawk$0020$0028NMSE$0029(this$$$14) {
+  const C = PayoffMatrixType$$get_Cost$0020$0028C$0029(this$$$14);
+  const V = PayoffMatrixType$$get_Revard$0020$0028V$0029(this$$$14);
+
+  if (Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_3__["equals"])(C, Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_3__["fromParts"])(0, 0, 0, false, 1))) {
+    return Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_3__["fromParts"])(10, 0, 0, false, 1);
+  } else {
+    const portionOfHawks = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_3__["op_Division"])(V, C);
+
+    if (Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_3__["compare"])(portionOfHawks, Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_3__["fromParts"])(10, 0, 0, false, 1)) > 0) {
+      return Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_3__["fromParts"])(10, 0, 0, false, 1);
+    } else {
+      return portionOfHawks;
+    }
+  }
+}
+function PayoffMatrixType$$ToMatrix(this$$$15) {
+  const revard = this$$$15.fields[0];
+  const cost$$4 = this$$$15.fields[1];
+  return Object(_fable_fable_library_2_13_0_Map_js__WEBPACK_IMPORTED_MODULE_6__["ofList"])(Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_2__["ofArray"])([[[new Strategy(1, "Hawk"), new Strategy(1, "Hawk")], [Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_3__["op_Division"])(Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_3__["op_Subtraction"])(revard, cost$$4), Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_3__["fromParts"])(20, 0, 0, false, 1)), Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_3__["op_Division"])(Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_3__["op_Subtraction"])(revard, cost$$4), Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_3__["fromParts"])(20, 0, 0, false, 1))]], [[new Strategy(1, "Hawk"), new Strategy(0, "Dove")], [revard, Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_3__["fromParts"])(0, 0, 0, false, 1)]], [[new Strategy(0, "Dove"), new Strategy(1, "Hawk")], [Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_3__["fromParts"])(0, 0, 0, false, 1), revard]], [[new Strategy(0, "Dove"), new Strategy(0, "Dove")], [Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_3__["op_Division"])(revard, Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_3__["fromParts"])(20, 0, 0, false, 1)), Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_3__["op_Division"])(revard, Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_3__["fromParts"])(20, 0, 0, false, 1))]]]), {
+    Compare: _fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_5__["compareArrays"]
   });
 }
-function PayoffMatrixType$$GetPayoffFor$$Z5F957E0(this$$$15, myChoise, opponentChoise) {
-  return Object(_fable_fable_library_2_4_15_Map_js__WEBPACK_IMPORTED_MODULE_5__["FSharpMap$$get_Item$$2B595"])(PayoffMatrixType$$ToMatrix(this$$$15), [myChoise, opponentChoise]);
+function PayoffMatrixType$$GetPayoffFor$$Z5F957E0(this$$$16, myChoise, opponentChoise) {
+  return Object(_fable_fable_library_2_13_0_Map_js__WEBPACK_IMPORTED_MODULE_6__["FSharpMap$$get_Item$$2B595"])(PayoffMatrixType$$ToMatrix(this$$$16), [myChoise, opponentChoise]);
 }
-function PayoffMatrixType$$GetMyPayoff$$Z5F957E0(this$$$16, myChoise$$1, opponentChoise$$1) {
-  const patternInput = Object(_fable_fable_library_2_4_15_Map_js__WEBPACK_IMPORTED_MODULE_5__["FSharpMap$$get_Item$$2B595"])(PayoffMatrixType$$ToMatrix(this$$$16), [myChoise$$1, opponentChoise$$1]);
+function PayoffMatrixType$$GetMyPayoff$$Z5F957E0(this$$$17, myChoise$$1, opponentChoise$$1) {
+  const patternInput = Object(_fable_fable_library_2_13_0_Map_js__WEBPACK_IMPORTED_MODULE_6__["FSharpMap$$get_Item$$2B595"])(PayoffMatrixType$$ToMatrix(this$$$17), [myChoise$$1, opponentChoise$$1]);
   const myPayoff = patternInput[0];
   return myPayoff;
 }
-const GameRound = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_GameRound(tag, name, ...fields) {
-  _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
-}, _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
+const GameRound = Object(_fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_GameRound(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
 function GameRound$reflection() {
-  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union"])("Model.GameRound", [], GameRound, () => [["Round", [Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list"])(ResolvedChallenge$reflection())]]]);
+  return Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union_type"])("Model.GameRound", [], GameRound, () => [["Round", [["Item", Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list_type"])(ResolvedChallenge$reflection())]]]]);
 }
-function GameRound$$ToList(this$$$17) {
-  const round = this$$$17.fields[0];
+function GameRound$$ToList(this$$$18) {
+  const round = this$$$18.fields[0];
   return round;
 }
-function GameRound$$get_Agents(this$$$18) {
-  const challenges = this$$$18.fields[0];
+function GameRound$$get_Agents(this$$$19) {
+  const challenges = this$$$19.fields[0];
   let list$$3;
   const list$$2 = challenges;
-  list$$3 = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_2__["collect"])(function mapping$$2(_arg3) {
+  list$$3 = Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_2__["collect"])(function mapping$$2(_arg3) {
     const p2$$2 = _arg3.Players[1];
     const p1$$2 = _arg3.Players[0];
-    return Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_2__["ofArray"])([p1$$2, p2$$2]);
+    return Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_2__["ofArray"])([p1$$2, p2$$2]);
   }, list$$2);
-  return Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_2__["sortBy"])(function projection(a$$9) {
+  return Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_2__["sortBy"])(function projection(a$$9) {
     return Agent$$get_Id(a$$9);
   }, list$$3, {
-    Compare: _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["comparePrimitives"]
+    Compare: _fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_5__["comparePrimitives"]
   });
 }
 function GameRound$$$get_Empty() {
-  return new GameRound(0, "Round", new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["List"]());
+  return new GameRound(0, "Round", new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["List"]());
 }
-function GameRound$$AppendWith$$Z37EB4020(this$$$19, player1$$1, player2$$1) {
-  const chalenges = this$$$19.fields[0];
-  return new GameRound(0, "Round", Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_2__["append"])(chalenges, new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["List"](ResolvedChallenge$$$Of$$Z37EB4020(player1$$1, player2$$1), new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["List"]())));
+function GameRound$$AppendWith$$Z37EB4020(this$$$20, player1$$1, player2$$1) {
+  const chalenges = this$$$20.fields[0];
+  return new GameRound(0, "Round", Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_2__["append"])(chalenges, new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["List"](ResolvedChallenge$$$Of$$Z37EB4020(player1$$1, player2$$1), new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["List"]())));
 }
-const GameHistory = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_GameHistory(tag, name, ...fields) {
-  _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
-}, _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
+const GameHistory = Object(_fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_GameHistory(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
 function GameHistory$reflection() {
-  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union"])("Model.GameHistory", [], GameHistory, () => [["Rounds", [Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["array"])(GameRound$reflection())]]]);
+  return Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union_type"])("Model.GameHistory", [], GameHistory, () => [["Rounds", [["Item", Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["array_type"])(GameRound$reflection())]]]]);
 }
-function GameHistory$$Append$$ZD480438(this$$$20, round$$1) {
-  const previousRounds = this$$$20.fields[0];
-  return new GameHistory(0, "Rounds", Object(_fable_fable_library_2_4_15_Array_js__WEBPACK_IMPORTED_MODULE_6__["append"])(previousRounds, [round$$1], Array));
+function GameHistory$$Append$$ZD480438(this$$$21, round$$1) {
+  const previousRounds = this$$$21.fields[0];
+  return new GameHistory(0, "Rounds", Object(_fable_fable_library_2_13_0_Array_js__WEBPACK_IMPORTED_MODULE_7__["append"])(previousRounds, [round$$1], Array));
 }
-function GameHistory$$ToList(this$$$21) {
-  const array = GameHistory$$Unwrap(this$$$21);
-  return Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_2__["ofArray"])(array);
+function GameHistory$$ToList(this$$$22) {
+  const array = GameHistory$$Unwrap(this$$$22);
+  return Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_2__["ofArray"])(array);
 }
-function GameHistory$$Unwrap(this$$$22) {
-  const rounds = this$$$22.fields[0];
+function GameHistory$$Unwrap(this$$$23) {
+  const rounds = this$$$23.fields[0];
   return rounds;
 }
-function GameHistory$$get_TotalRounds(this$$$23) {
-  return Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_2__["length"])(GameHistory$$ToList(this$$$23));
+function GameHistory$$get_TotalRounds(this$$$24) {
+  return Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_2__["length"])(GameHistory$$ToList(this$$$24));
 }
-function GameHistory$$GetRoundByRoundNumber$$Z524259A4(this$$$24, roundNumber) {
+function GameHistory$$GetRoundByRoundNumber$$Z524259A4(this$$$25, roundNumber) {
   const roundIndex = roundNumber - 1 | 0;
-  return Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_2__["item"])(roundIndex, GameHistory$$ToList(this$$$24));
+  return Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_2__["item"])(roundIndex, GameHistory$$ToList(this$$$25));
 }
-function GameHistory$$GetRoundCount(this$$$25) {
-  return Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_2__["length"])(GameHistory$$ToList(this$$$25));
+function GameHistory$$GetRoundCount(this$$$26) {
+  return Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_2__["length"])(GameHistory$$ToList(this$$$26));
 }
-function GameHistory$$get_HasHistory(this$$$26) {
+function GameHistory$$get_HasHistory(this$$$27) {
   let value$$2;
-  const array$$1 = GameHistory$$Unwrap(this$$$26);
+  const array$$1 = GameHistory$$Unwrap(this$$$27);
   value$$2 = array$$1.length === 0;
   return !value$$2;
 }
-function GameHistory$$get_LastRoundChallenges(this$$$27) {
-  const array$$2 = GameHistory$$Unwrap(this$$$27);
-  return Object(_fable_fable_library_2_4_15_Array_js__WEBPACK_IMPORTED_MODULE_6__["last"])(array$$2);
+function GameHistory$$get_LastRoundChallenges(this$$$28) {
+  const array$$2 = GameHistory$$Unwrap(this$$$28);
+  return Object(_fable_fable_library_2_13_0_Array_js__WEBPACK_IMPORTED_MODULE_7__["last"])(array$$2);
 }
-function GameHistory$$get_FirstRoundChallenges(this$$$28) {
-  const array$$3 = GameHistory$$Unwrap(this$$$28);
-  return Object(_fable_fable_library_2_4_15_Array_js__WEBPACK_IMPORTED_MODULE_6__["head"])(array$$3);
+function GameHistory$$get_FirstRoundChallenges(this$$$29) {
+  const array$$3 = GameHistory$$Unwrap(this$$$29);
+  return Object(_fable_fable_library_2_13_0_Array_js__WEBPACK_IMPORTED_MODULE_7__["head"])(array$$3);
 }
-const HistoryStatisticsView = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_HistoryStatisticsView(arg1, arg2) {
-  this.History = arg1;
-  this.AgentViewCache = arg2;
-}, _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
+const HistoryStatisticsView = Object(_fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_HistoryStatisticsView(History, AgentViewCache) {
+  this.History = History;
+  this.AgentViewCache = AgentViewCache;
+}, _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
 function HistoryStatisticsView$reflection() {
-  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record"])("Model.HistoryStatisticsView", [], HistoryStatisticsView, () => [["History", GameHistory$reflection()], ["AgentViewCache", Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("System.Collections.Generic.Dictionary`2", [Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["tuple"])(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"], _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]), Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Microsoft.FSharp.Collections.FSharpMap`2", [Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["tuple"])(ChallengeType$reflection(), Strategy$reflection(), Color$reflection()), _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]])])]]);
+  return Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record_type"])("Model.HistoryStatisticsView", [], HistoryStatisticsView, () => [["History", GameHistory$reflection()], ["AgentViewCache", Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("System.Collections.Generic.Dictionary`2", [Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["tuple_type"])(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"], _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"]), Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Microsoft.FSharp.Collections.FSharpMap`2", [Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["tuple_type"])(ChallengeType$reflection(), Strategy$reflection(), Color$reflection()), _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"]])])]]);
 }
-function HistoryStatisticsView$$UpdateHistory$$30741D88(this$$$29, history) {
-  return new HistoryStatisticsView(history, this$$$29.AgentViewCache);
+function HistoryStatisticsView$$UpdateHistory$$30741D88(this$$$30, history) {
+  return new HistoryStatisticsView(history, this$$$30.AgentViewCache);
 }
 const rand = {};
-const GameInformation = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_GameInformation(arg1, arg2, arg3, arg4, arg5, arg6) {
-  this.Agent = arg1;
-  this.OpponentColor = arg2;
-  this.PayoffMatrix = arg3;
-  this.HistoryView = arg4;
-  this.RandomNumber = arg5;
-  this.Cache = arg6;
-}, _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
+const GameInformation = Object(_fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_GameInformation(Agent, OpponentColor, PayoffMatrix, HistoryView, RandomNumber, Cache) {
+  this.Agent = Agent;
+  this.OpponentColor = OpponentColor;
+  this.PayoffMatrix = PayoffMatrix;
+  this.HistoryView = HistoryView;
+  this.RandomNumber = RandomNumber;
+  this.Cache = Cache;
+}, _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
 function GameInformation$reflection() {
-  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record"])("Model.GameInformation", [], GameInformation, () => [["Agent", Agent$reflection()], ["OpponentColor", Color$reflection()], ["PayoffMatrix", PayoffMatrixType$reflection()], ["HistoryView", HistoryStatisticsView$reflection()], ["RandomNumber", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["float64"]], ["Cache", Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("System.Collections.Generic.Dictionary`2", [Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["tuple"])(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"], _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]), Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("Microsoft.FSharp.Collections.FSharpMap`2", [Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["tuple"])(ChallengeType$reflection(), Strategy$reflection(), Color$reflection()), _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]])])]]);
+  return Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record_type"])("Model.GameInformation", [], GameInformation, () => [["Agent", Agent$reflection()], ["OpponentColor", Color$reflection()], ["PayoffMatrix", PayoffMatrixType$reflection()], ["HistoryView", HistoryStatisticsView$reflection()], ["RandomNumber", _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["float64_type"]], ["Cache", Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("System.Collections.Generic.Dictionary`2", [Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["tuple_type"])(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"], _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"]), Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("Microsoft.FSharp.Collections.FSharpMap`2", [Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["tuple_type"])(ChallengeType$reflection(), Strategy$reflection(), Color$reflection()), _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"]])])]]);
 }
 function GameInformation$$$InitGameInformationForAgents(cache, matrix, history$$1, agent1, agent2) {
   return [new GameInformation(agent1, Agent$$get_Color(agent2), matrix, new HistoryStatisticsView(history$$1, cache), Math.random(), cache), new GameInformation(agent2, Agent$$get_Color(agent1), matrix, new HistoryStatisticsView(history$$1, cache), Math.random(), cache)];
 }
-const PlannedRound = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_PlannedRound(arg1, arg2, arg3, arg4) {
-  this.PayoffMatrix = arg1;
-  this.StrategyFn = arg2;
-  this.StageName = arg3;
-  this.MayUseColor = arg4;
-}, _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
+const PlannedRound = Object(_fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_PlannedRound(PayoffMatrix, StrategyFn, StageName, MayUseColor) {
+  this.PayoffMatrix = PayoffMatrix;
+  this.StrategyFn = StrategyFn;
+  this.StageName = StageName;
+  this.MayUseColor = MayUseColor;
+}, _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
 function PlannedRound$reflection() {
-  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record"])("Model.PlannedRound", [], PlannedRound, () => [["PayoffMatrix", PayoffMatrixType$reflection()], ["StrategyFn", Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(GameInformation$reflection(), Strategy$reflection())], ["StageName", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]], ["MayUseColor", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]]);
+  return Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record_type"])("Model.PlannedRound", [], PlannedRound, () => [["PayoffMatrix", PayoffMatrixType$reflection()], ["StrategyFn", Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(GameInformation$reflection(), Strategy$reflection())], ["StageName", _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]], ["MayUseColor", _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]);
 }
-function PlannedRound$$PlayRound(this$$$30, cache$$1, agents, history$$2) {
+function PlannedRound$$PlayRound(this$$$31, cache$$1, agents, history$$2) {
   let gamePairs;
   let items;
   const l = agents;
-  items = Object(_Helpers_fs__WEBPACK_IMPORTED_MODULE_7__["ListHelpers$$$shuffle"])(l);
-  gamePairs = Object(_Helpers_fs__WEBPACK_IMPORTED_MODULE_7__["ListHelpers$$$toPairs"])(items);
+  items = Object(_Helpers_fs__WEBPACK_IMPORTED_MODULE_8__["ListHelpers$$$shuffle"])(l);
+  gamePairs = Object(_Helpers_fs__WEBPACK_IMPORTED_MODULE_8__["ListHelpers$$$toPairs"])(items);
 
   const play = function play(tupledArg$$2) {
     const agent1$$1 = tupledArg$$2[0];
     const agent2$$1 = tupledArg$$2[1];
     let patternInput$$1;
     const arg00 = cache$$1;
-    const arg10$$1 = this$$$30.PayoffMatrix;
+    const arg10$$1 = this$$$31.PayoffMatrix;
     const arg20 = history$$2;
     const arg30 = agent1$$1;
     const arg40 = agent2$$1;
     patternInput$$1 = GameInformation$$$InitGameInformationForAgents(arg00, arg10$$1, arg20, arg30, arg40);
     const gameInfoForAgent2 = patternInput$$1[1];
     const gameInfoForAgent1 = patternInput$$1[0];
-    const agent1Choise = this$$$30.StrategyFn(gameInfoForAgent1);
-    const agent2Choise = this$$$30.StrategyFn(gameInfoForAgent2);
-    const challengeType$$1 = Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["equals"])(Agent$$get_Color(agent1$$1), Agent$$get_Color(agent2$$1)) ? new ChallengeType(1, "SameColor") : new ChallengeType(0, "DifferentColor");
-    const patternInput$$2 = PayoffMatrixType$$GetPayoffFor$$Z5F957E0(this$$$30.PayoffMatrix, agent1Choise, agent2Choise);
+    const agent1Choise = this$$$31.StrategyFn(gameInfoForAgent1);
+    const agent2Choise = this$$$31.StrategyFn(gameInfoForAgent2);
+    const challengeType$$1 = Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_5__["equals"])(Agent$$get_Color(agent1$$1), Agent$$get_Color(agent2$$1)) ? new ChallengeType(1, "SameColor") : new ChallengeType(0, "DifferentColor");
+    const patternInput$$2 = PayoffMatrixType$$GetPayoffFor$$Z5F957E0(this$$$31.PayoffMatrix, agent1Choise, agent2Choise);
     const payoff2 = patternInput$$2[1];
     const payoff1 = patternInput$$2[0];
-    return new ResolvedChallenge([Agent$$UpdateGameInfo$$3454EE1B(agent1$$1, payoff1, agent1Choise, challengeType$$1), Agent$$UpdateGameInfo$$3454EE1B(agent2$$1, payoff2, agent2Choise, challengeType$$1)]);
+    return new ResolvedChallenge([Agent$$UpdateGameInfo$$4D7AC825(agent1$$1, payoff1, agent1Choise, challengeType$$1), Agent$$UpdateGameInfo$$4D7AC825(agent2$$1, payoff2, agent2Choise, challengeType$$1)]);
   };
 
   let arg0;
   const list$$4 = gamePairs;
-  arg0 = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_2__["map"])(play, list$$4);
+  arg0 = Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_2__["map"])(play, list$$4);
   return new GameRound(0, "Round", arg0);
 }
-const GameState = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_GameState(arg1, arg2, arg3) {
-  this.PayoffMatrix = arg1;
-  this.PlannedRounds = arg2;
-  this.ResolvedRounds = arg3;
-}, _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
+const GameState = Object(_fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_GameState(PayoffMatrix, PlannedRounds, ResolvedRounds) {
+  this.PayoffMatrix = PayoffMatrix;
+  this.PlannedRounds = PlannedRounds;
+  this.ResolvedRounds = ResolvedRounds;
+}, _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
 function GameState$reflection() {
-  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record"])("Model.GameState", [], GameState, () => [["PayoffMatrix", PayoffMatrixType$reflection()], ["PlannedRounds", Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list"])(PlannedRound$reflection())], ["ResolvedRounds", GameHistory$reflection()]]);
+  return Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record_type"])("Model.GameState", [], GameState, () => [["PayoffMatrix", PayoffMatrixType$reflection()], ["PlannedRounds", Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list_type"])(PlannedRound$reflection())], ["ResolvedRounds", GameHistory$reflection()]]);
 }
-function GameState$$SimulateRounds$$6166C877(this$$$31, agents$$1) {
-  const cache$$2 = Object(_fable_fable_library_2_4_15_Map_js__WEBPACK_IMPORTED_MODULE_5__["createMutable"])([], {
-    Equals: _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["equalArrays"],
-    GetHashCode: _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["structuralHash"]
+function GameState$$SimulateRounds$$6166C877(this$$$32, agents$$1) {
+  const cache$$2 = Object(_fable_fable_library_2_13_0_Map_js__WEBPACK_IMPORTED_MODULE_6__["createMutable"])([], {
+    Equals: _fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_5__["equalArrays"],
+    GetHashCode: _fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_5__["structuralHash"]
   });
   const initialValue = [agents$$1, new GameHistory(0, "Rounds", [])];
   let patternInput$$3;
-  const list$$5 = this$$$31.PlannedRounds;
-  patternInput$$3 = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_2__["fold"])(Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["uncurry"])(2, function folder(tupledArg$$3) {
+  const list$$5 = this$$$32.PlannedRounds;
+  patternInput$$3 = Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_2__["fold"])(Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_5__["uncurry"])(2, function folder(tupledArg$$3) {
     const agentsBefore = tupledArg$$3[0];
     const history$$3 = tupledArg$$3[1];
     return function (plannedRound) {
@@ -47137,26 +47134,26 @@ function GameState$$SimulateRounds$$6166C877(this$$$31, agents$$1) {
     };
   }), initialValue, list$$5);
   const playedRounds = patternInput$$3[1];
-  return new GameState(this$$$31.PayoffMatrix, this$$$31.PlannedRounds, playedRounds);
+  return new GameState(this$$$32.PayoffMatrix, this$$$32.PlannedRounds, playedRounds);
 }
-function GameState$$SimulateRoundsPromise$$6166C877(this$$$32, agents$$2) {
-  const cache$$3 = Object(_fable_fable_library_2_4_15_Map_js__WEBPACK_IMPORTED_MODULE_5__["createMutable"])([], {
-    Equals: _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["equalArrays"],
-    GetHashCode: _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["structuralHash"]
+function GameState$$SimulateRoundsPromise$$6166C877(this$$$33, agents$$2) {
+  const cache$$3 = Object(_fable_fable_library_2_13_0_Map_js__WEBPACK_IMPORTED_MODULE_6__["createMutable"])([], {
+    Equals: _fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_5__["equalArrays"],
+    GetHashCode: _fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_5__["structuralHash"]
   });
-  const builder$0040 = _fable_Fable_Promise_2_1_0_PromiseImpl_fs__WEBPACK_IMPORTED_MODULE_8__["promise"];
-  return Object(_fable_Fable_Promise_2_1_0_Promise_fs__WEBPACK_IMPORTED_MODULE_10__["PromiseBuilder$$Run$$212F1D4B"])(builder$0040, Object(_fable_Fable_Promise_2_1_0_Promise_fs__WEBPACK_IMPORTED_MODULE_10__["PromiseBuilder$$Delay$$62FBFDE1"])(builder$0040, function () {
+  const builder$0040 = _fable_Fable_Promise_2_1_0_PromiseImpl_fs__WEBPACK_IMPORTED_MODULE_9__["promise"];
+  return Object(_fable_Fable_Promise_2_1_0_Promise_fs__WEBPACK_IMPORTED_MODULE_11__["PromiseBuilder$$Run$$212F1D4B"])(builder$0040, Object(_fable_Fable_Promise_2_1_0_Promise_fs__WEBPACK_IMPORTED_MODULE_11__["PromiseBuilder$$Delay$$62FBFDE1"])(builder$0040, function () {
     var list$$6;
     const initialValue$$1 = Promise.resolve([agents$$2, new GameHistory(0, "Rounds", [])]);
-    const start = Object(_fable_fable_library_2_4_15_Date_js__WEBPACK_IMPORTED_MODULE_9__["now"])();
-    return (list$$6 = this$$$32.PlannedRounds, (Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_2__["fold"])(function folder$$1(accPromise, plannedRound$$1) {
+    const start = Object(_fable_fable_library_2_13_0_Date_js__WEBPACK_IMPORTED_MODULE_10__["now"])();
+    return (list$$6 = this$$$33.PlannedRounds, (Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_2__["fold"])(function folder$$1(accPromise, plannedRound$$1) {
       return accPromise.then(function (tupledArg$$4) {
         const agents$$3 = tupledArg$$4[0];
         const history$$4 = tupledArg$$4[1];
-        const builder$0040$$1 = _fable_Fable_Promise_2_1_0_PromiseImpl_fs__WEBPACK_IMPORTED_MODULE_8__["promise"];
-        return Object(_fable_Fable_Promise_2_1_0_Promise_fs__WEBPACK_IMPORTED_MODULE_10__["PromiseBuilder$$Run$$212F1D4B"])(builder$0040$$1, Object(_fable_Fable_Promise_2_1_0_Promise_fs__WEBPACK_IMPORTED_MODULE_10__["PromiseBuilder$$Delay$$62FBFDE1"])(builder$0040$$1, function () {
+        const builder$0040$$1 = _fable_Fable_Promise_2_1_0_PromiseImpl_fs__WEBPACK_IMPORTED_MODULE_9__["promise"];
+        return Object(_fable_Fable_Promise_2_1_0_Promise_fs__WEBPACK_IMPORTED_MODULE_11__["PromiseBuilder$$Run$$212F1D4B"])(builder$0040$$1, Object(_fable_Fable_Promise_2_1_0_Promise_fs__WEBPACK_IMPORTED_MODULE_11__["PromiseBuilder$$Delay$$62FBFDE1"])(builder$0040$$1, function () {
           return new Promise(resolve => setTimeout(resolve, 5)).then(function () {
-            const start$$1 = Object(_fable_fable_library_2_4_15_Date_js__WEBPACK_IMPORTED_MODULE_9__["now"])();
+            const start$$1 = Object(_fable_fable_library_2_13_0_Date_js__WEBPACK_IMPORTED_MODULE_10__["now"])();
             let roundResult$$1;
             const arg00$$2 = cache$$3;
             const arg10$$3 = agents$$3;
@@ -47164,11 +47161,11 @@ function GameState$$SimulateRoundsPromise$$6166C877(this$$$32, agents$$2) {
             roundResult$$1 = PlannedRound$$PlayRound(plannedRound$$1, arg00$$2, arg10$$3, arg20$$2);
             const updatedHistory$$1 = GameHistory$$Append$$ZD480438(history$$4, roundResult$$1);
             const agentsAfterRound$$1 = GameRound$$get_Agents(roundResult$$1);
-            const endTime = Object(_fable_fable_library_2_4_15_Date_js__WEBPACK_IMPORTED_MODULE_9__["now"])();
+            const endTime = Object(_fable_fable_library_2_13_0_Date_js__WEBPACK_IMPORTED_MODULE_10__["now"])();
             let arg10$$4;
-            let copyOfStruct = Object(_fable_fable_library_2_4_15_Date_js__WEBPACK_IMPORTED_MODULE_9__["op_Subtraction"])(endTime, start$$1);
+            let copyOfStruct = Object(_fable_fable_library_2_13_0_Date_js__WEBPACK_IMPORTED_MODULE_10__["op_Subtraction"])(endTime, start$$1);
             arg10$$4 = copyOfStruct;
-            const clo1$$1 = Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["toConsole"])(Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("Round took %A ms"));
+            const clo1$$1 = Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_4__["toConsole"])(Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_4__["printf"])("Round took %A ms"));
             clo1$$1(arg10$$4);
             return Promise.resolve([agentsAfterRound$$1, updatedHistory$$1]);
           });
@@ -47176,67 +47173,67 @@ function GameState$$SimulateRoundsPromise$$6166C877(this$$$32, agents$$2) {
       });
     }, initialValue$$1, list$$6))).then(function (_arg2$$1) {
       const playedRounds$$1 = _arg2$$1[1];
-      const endTime$$1 = Object(_fable_fable_library_2_4_15_Date_js__WEBPACK_IMPORTED_MODULE_9__["now"])();
+      const endTime$$1 = Object(_fable_fable_library_2_13_0_Date_js__WEBPACK_IMPORTED_MODULE_10__["now"])();
       let arg10$$5;
-      let copyOfStruct$$1 = Object(_fable_fable_library_2_4_15_Date_js__WEBPACK_IMPORTED_MODULE_9__["op_Subtraction"])(endTime$$1, start);
+      let copyOfStruct$$1 = Object(_fable_fable_library_2_13_0_Date_js__WEBPACK_IMPORTED_MODULE_10__["op_Subtraction"])(endTime$$1, start);
       arg10$$5 = copyOfStruct$$1;
-      const clo1$$2 = Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["toConsole"])(Object(_fable_fable_library_2_4_15_String_js__WEBPACK_IMPORTED_MODULE_3__["printf"])("Full simulation took %A ms"));
+      const clo1$$2 = Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_4__["toConsole"])(Object(_fable_fable_library_2_13_0_String_js__WEBPACK_IMPORTED_MODULE_4__["printf"])("Full simulation took %A ms"));
       clo1$$2(arg10$$5);
-      return Promise.resolve(new GameState(this$$$32.PayoffMatrix, this$$$32.PlannedRounds, playedRounds$$1));
+      return Promise.resolve(new GameState(this$$$33.PayoffMatrix, this$$$33.PlannedRounds, playedRounds$$1));
     });
   }));
 }
-const GameParameters = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_GameParameters(arg1, arg2, arg3) {
-  this.AgentCount = arg1 | 0;
-  this.PortionOfRed = arg2 | 0;
-  this.PayoffMatrix = arg3;
-}, _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
+const GameParameters = Object(_fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_GameParameters(AgentCount, PortionOfRed, PayoffMatrix) {
+  this.AgentCount = AgentCount | 0;
+  this.PortionOfRed = PortionOfRed | 0;
+  this.PayoffMatrix = PayoffMatrix;
+}, _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
 function GameParameters$reflection() {
-  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record"])("Model.GameParameters", [], GameParameters, () => [["AgentCount", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]], ["PortionOfRed", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]], ["PayoffMatrix", PayoffMatrixType$reflection()]]);
+  return Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record_type"])("Model.GameParameters", [], GameParameters, () => [["AgentCount", _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"]], ["PortionOfRed", _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"]], ["PayoffMatrix", PayoffMatrixType$reflection()]]);
 }
-const SimulationFrame = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_SimulationFrame(arg1, arg2, arg3, arg4, arg5) {
-  this.RoundCount = arg1 | 0;
-  this.StageName = arg2;
-  this.StrategyInitFnName = arg3;
-  this.SetPayoffForStage = arg4;
-  this.MayUseColor = arg5;
-}, _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
+const SimulationFrame = Object(_fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_SimulationFrame(RoundCount, StageName, StrategyInitFnName, SetPayoffForStage, MayUseColor) {
+  this.RoundCount = RoundCount | 0;
+  this.StageName = StageName;
+  this.StrategyInitFnName = StrategyInitFnName;
+  this.SetPayoffForStage = SetPayoffForStage;
+  this.MayUseColor = MayUseColor;
+}, _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
 function SimulationFrame$reflection() {
-  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record"])("Model.SimulationFrame", [], SimulationFrame, () => [["RoundCount", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]], ["StageName", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]], ["StrategyInitFnName", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]], ["SetPayoffForStage", Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(PayoffMatrixType$reflection(), PayoffMatrixType$reflection())], ["MayUseColor", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]]);
+  return Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record_type"])("Model.SimulationFrame", [], SimulationFrame, () => [["RoundCount", _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"]], ["StageName", _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]], ["StrategyInitFnName", _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]], ["SetPayoffForStage", Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(PayoffMatrixType$reflection(), PayoffMatrixType$reflection())], ["MayUseColor", _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]);
 }
-const StageStrategyFnOptions = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_StageStrategyFnOptions(arg1, arg2, arg3) {
-  this.DisplayName = arg1;
-  this.Name = arg2;
-  this.StrategyInitFn = arg3;
-}, _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
+const StageStrategyFnOptions = Object(_fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_StageStrategyFnOptions(DisplayName, Name, StrategyInitFn) {
+  this.DisplayName = DisplayName;
+  this.Name = Name;
+  this.StrategyInitFn = StrategyInitFn;
+}, _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
 function StageStrategyFnOptions$reflection() {
-  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record"])("Model.StageStrategyFnOptions", [], StageStrategyFnOptions, () => [["DisplayName", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]], ["Name", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]], ["StrategyInitFn", Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(GameParameters$reflection(), Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda"])(GameInformation$reflection(), Strategy$reflection()))]]);
+  return Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record_type"])("Model.StageStrategyFnOptions", [], StageStrategyFnOptions, () => [["DisplayName", _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]], ["Name", _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]], ["StrategyInitFn", Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(GameParameters$reflection(), Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["lambda_type"])(GameInformation$reflection(), Strategy$reflection()))]]);
 }
-const UISetupState = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_UISetupState(arg1) {
-  this.Stage1Options = arg1;
-}, _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
+const UISetupState = Object(_fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_UISetupState(Stage1Options) {
+  this.Stage1Options = Stage1Options;
+}, _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
 function UISetupState$reflection() {
-  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record"])("Model.UISetupState", [], UISetupState, () => [["Stage1Options", Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list"])(StageStrategyFnOptions$reflection())]]);
+  return Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record_type"])("Model.UISetupState", [], UISetupState, () => [["Stage1Options", Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list_type"])(StageStrategyFnOptions$reflection())]]);
 }
-const GameSetup = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_GameSetup(arg1, arg2) {
-  this.GameParameters = arg1;
-  this.SimulationFrames = arg2;
-}, _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
+const GameSetup = Object(_fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_GameSetup(GameParameters, SimulationFrames) {
+  this.GameParameters = GameParameters;
+  this.SimulationFrames = SimulationFrames;
+}, _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
 function GameSetup$reflection() {
-  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record"])("Model.GameSetup", [], GameSetup, () => [["GameParameters", GameParameters$reflection()], ["SimulationFrames", Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list"])(SimulationFrame$reflection())]]);
+  return Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record_type"])("Model.GameSetup", [], GameSetup, () => [["GameParameters", GameParameters$reflection()], ["SimulationFrames", Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["list_type"])(SimulationFrame$reflection())]]);
 }
-function GameSetup$$get_AgentCount(this$$$33) {
-  return this$$$33.GameParameters.AgentCount;
+function GameSetup$$get_AgentCount(this$$$34) {
+  return this$$$34.GameParameters.AgentCount;
 }
-function GameSetup$$get_PortionOfRed(this$$$34) {
-  return this$$$34.GameParameters.PortionOfRed;
+function GameSetup$$get_PortionOfRed(this$$$35) {
+  return this$$$35.GameParameters.PortionOfRed;
 }
-function GameSetup$$get_PayoffMatrix(this$$$35) {
-  return this$$$35.GameParameters.PayoffMatrix;
+function GameSetup$$get_PayoffMatrix(this$$$36) {
+  return this$$$36.GameParameters.PayoffMatrix;
 }
-function GameSetup$$get_RoundsToPlay(this$$$36) {
-  const list$$7 = this$$$36.SimulationFrames;
-  return Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_2__["sumBy"])(function projection$$1(f) {
+function GameSetup$$get_RoundsToPlay(this$$$37) {
+  const list$$7 = this$$$37.SimulationFrames;
+  return Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_2__["sumBy"])(function projection$$1(f) {
     return f.RoundCount;
   }, list$$7, {
     GetZero() {
@@ -47249,104 +47246,110 @@ function GameSetup$$get_RoundsToPlay(this$$$36) {
 
   }) | 0;
 }
-function GameSetup$$get_CountOfRed(this$$$37) {
+function GameSetup$$get_CountOfRed(this$$$38) {
   let value$$4;
-  const value$$3 = GameSetup$$get_AgentCount(this$$$37) * (GameSetup$$get_PortionOfRed(this$$$37) / 100);
-  value$$4 = Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["round"])(value$$3);
+  const value$$3 = GameSetup$$get_AgentCount(this$$$38) * (GameSetup$$get_PortionOfRed(this$$$38) / 100);
+  value$$4 = Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_5__["round"])(value$$3);
   return ~~value$$4 | 0;
 }
-function GameSetup$$get_CountOfBlue(this$$$38) {
-  return GameSetup$$get_AgentCount(this$$$38) - GameSetup$$get_CountOfRed(this$$$38);
+function GameSetup$$get_CountOfBlue(this$$$39) {
+  return GameSetup$$get_AgentCount(this$$$39) - GameSetup$$get_CountOfRed(this$$$39);
 }
-function GameSetup$$get_ColorSpecs(this$$$39) {
-  return Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_2__["ofArray"])([[new Color(1, "Red"), GameSetup$$get_CountOfRed(this$$$39)], [new Color(0, "Blue"), GameSetup$$get_CountOfBlue(this$$$39)]]);
+function GameSetup$$get_ColorSpecs(this$$$40) {
+  return Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_2__["ofArray"])([[new Color(1, "Red"), GameSetup$$get_CountOfRed(this$$$40)], [new Color(0, "Blue"), GameSetup$$get_CountOfBlue(this$$$40)]]);
 }
-function GameSetup$$GenerateAgents(this$$$40) {
+function GameSetup$$GenerateAgents(this$$$41) {
   let colors;
-  const l$$1 = Color$$$GenerateList$$Z4242E780(GameSetup$$get_ColorSpecs(this$$$40));
-  colors = Object(_Helpers_fs__WEBPACK_IMPORTED_MODULE_7__["ListHelpers$$$shuffle"])(l$$1);
-  const agentIds = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_2__["initialize"])(Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_2__["length"])(colors), function (x) {
+  const l$$1 = Color$$$GenerateList$$Z4242E780(GameSetup$$get_ColorSpecs(this$$$41));
+  colors = Object(_Helpers_fs__WEBPACK_IMPORTED_MODULE_8__["ListHelpers$$$shuffle"])(l$$1);
+  const agentIds = Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_2__["initialize"])(Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_2__["length"])(colors), function (x) {
     return x;
   });
-  return Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_2__["map2"])(function (color, agentId) {
+  return Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_2__["map2"])(function (color, agentId) {
     return new Agent(0, "AgentWithNoGames", new AgentIdentity(agentId, color));
   }, colors, agentIds);
 }
-const ShowResultsViewState = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_ShowResultsViewState(arg1) {
-  this.ShowRound = arg1 | 0;
-}, _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
+const ShowResultsViewState = Object(_fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_ShowResultsViewState(ShowRound) {
+  this.ShowRound = ShowRound | 0;
+}, _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
 function ShowResultsViewState$reflection() {
-  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record"])("Model.ShowResultsViewState", [], ShowResultsViewState, () => [["ShowRound", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]]]);
+  return Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record_type"])("Model.ShowResultsViewState", [], ShowResultsViewState, () => [["ShowRound", _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"]]]);
 }
-const ResultViewState = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_ResultViewState(tag, name, ...fields) {
-  _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
-}, _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
+const ResultViewState = Object(_fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_ResultViewState(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
 function ResultViewState$reflection() {
-  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union"])("Model.ResultViewState", [], ResultViewState, () => ["InitGame", "Loading", ["ShowResults", [_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]]]]);
+  return Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union_type"])("Model.ResultViewState", [], ResultViewState, () => ["InitGame", "Loading", ["ShowResults", [["roundNumber", _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"]]]]]);
 }
-const State = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_State(arg1, arg2, arg3, arg4) {
-  this.Setup = arg1;
-  this.GameState = arg2;
-  this.ViewState = arg3;
-  this.PlayAnimation = arg4;
-}, _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
+const State = Object(_fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_State(Setup, GameState, ViewState, PlayAnimation) {
+  this.Setup = Setup;
+  this.GameState = GameState;
+  this.ViewState = ViewState;
+  this.PlayAnimation = PlayAnimation;
+}, _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
 function State$reflection() {
-  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record"])("Model.State", [], State, () => [["Setup", GameSetup$reflection()], ["GameState", GameState$reflection()], ["ViewState", ResultViewState$reflection()], ["PlayAnimation", _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool"]]]);
+  return Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["record_type"])("Model.State", [], State, () => [["Setup", GameSetup$reflection()], ["GameState", GameState$reflection()], ["ViewState", ResultViewState$reflection()], ["PlayAnimation", _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["bool_type"]]]);
 }
-function State$$get_CurrentRound(this$$$41) {
-  if (this$$$41.ViewState.tag === 2) {
-    const round$$2 = this$$$41.ViewState.fields[0] | 0;
+function State$$get_CurrentRound(this$$$42) {
+  if (this$$$42.ViewState.tag === 2) {
+    const round$$2 = this$$$42.ViewState.fields[0] | 0;
     return round$$2 | 0;
   } else {
     return 0;
   }
 }
-function State$$get_CurrentRoundChallenges(this$$$42) {
-  return GameHistory$$GetRoundByRoundNumber$$Z524259A4(this$$$42.GameState.ResolvedRounds, State$$get_CurrentRound(this$$$42));
+function State$$get_CurrentRoundChallenges(this$$$43) {
+  return GameHistory$$GetRoundByRoundNumber$$Z524259A4(this$$$43.GameState.ResolvedRounds, State$$get_CurrentRound(this$$$43));
 }
-function State$$get_CurrentRoundAgents(this$$$43) {
-  if (this$$$43.ViewState.tag === 2) {
-    const round$$3 = this$$$43.ViewState.fields[0] | 0;
-    return GameRound$$get_Agents(GameHistory$$GetRoundByRoundNumber$$Z524259A4(this$$$43.GameState.ResolvedRounds, round$$3));
+function State$$get_CurrentRoundAgents(this$$$44) {
+  if (this$$$44.ViewState.tag === 2) {
+    const round$$3 = this$$$44.ViewState.fields[0] | 0;
+    return GameRound$$get_Agents(GameHistory$$GetRoundByRoundNumber$$Z524259A4(this$$$44.GameState.ResolvedRounds, round$$3));
   } else {
-    return new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["List"]();
+    return new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["List"]();
   }
 }
-function State$$get_CurrentStageName(this$$$44) {
-  if (this$$$44.ViewState.tag === 2) {
-    const round$$4 = this$$$44.ViewState.fields[0] | 0;
-    return Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_2__["item"])(round$$4 - 1, this$$$44.GameState.PlannedRounds).StageName;
+function State$$get_CurrentStageName(this$$$45) {
+  if (this$$$45.ViewState.tag === 2) {
+    const round$$4 = this$$$45.ViewState.fields[0] | 0;
+    return Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_2__["item"])(round$$4 - 1, this$$$45.GameState.PlannedRounds).StageName;
   } else {
     return "";
   }
 }
-function State$$get_CurrentStageMayUseColor(this$$$45) {
-  if (this$$$45.ViewState.tag === 2) {
-    const round$$5 = this$$$45.ViewState.fields[0] | 0;
-    return Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_2__["item"])(round$$5 - 1, this$$$45.GameState.PlannedRounds).MayUseColor;
+function State$$get_CurrentStageMayUseColor(this$$$46) {
+  if (this$$$46.ViewState.tag === 2) {
+    const round$$5 = this$$$46.ViewState.fields[0] | 0;
+    return Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_2__["item"])(round$$5 - 1, this$$$46.GameState.PlannedRounds).MayUseColor;
   } else {
     return false;
   }
 }
-function State$$get_CurrentStagePayoffMatrix(this$$$46) {
-  if (this$$$46.ViewState.tag === 2) {
-    const round$$6 = this$$$46.ViewState.fields[0] | 0;
-    return Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_2__["item"])(round$$6 - 1, this$$$46.GameState.PlannedRounds).PayoffMatrix;
+function State$$get_CurrentStagePayoffMatrix(this$$$47) {
+  if (this$$$47.ViewState.tag === 2) {
+    const round$$6 = this$$$47.ViewState.fields[0] | 0;
+    return Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_2__["item"])(round$$6 - 1, this$$$47.GameState.PlannedRounds).PayoffMatrix;
   } else {
-    return GameSetup$$get_PayoffMatrix(this$$$46.Setup);
+    return GameSetup$$get_PayoffMatrix(this$$$47.Setup);
   }
 }
-const FieldValue = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_FieldValue(tag, name, ...fields) {
-  _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
-}, _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
+const FieldValue = Object(_fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_FieldValue(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
 function FieldValue$reflection() {
-  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union"])("Model.FieldValue", [], FieldValue, () => [["RoundCountOfStage", [_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"], _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]]], ["ModeOfStage", [_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"], _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string"]]], ["AgentCount", [_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]]], ["PortionOfRed", [_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]]], ["BenefitOnVictory", [_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]]], ["CostOfLoss", [_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]]]]);
+  return Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union_type"])("Model.FieldValue", [], FieldValue, () => [["RoundCountOfStage", [["stageName", _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]], ["roundCount", _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"]]]], ["ModeOfStage", [["stageName", _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]], ["name", _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["string_type"]]]], ["AgentCount", [["agentCount", _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"]]]], ["PortionOfRed", [["percentsOfRed", _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"]]]], ["BenefitOnVictory", [["v", _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"]]]], ["CostOfLoss", [["c", _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"]]]]]);
 }
-const Msg = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_Msg(tag, name, ...fields) {
-  _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
-}, _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
+const Msg = Object(_fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Model_Msg(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
 function Msg$reflection() {
-  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union"])("Model.Msg", [], Msg, () => [["SetValue", [FieldValue$reflection()]], ["ShowRound", [_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]]], "RunSimulation", ["OnSimulationCompleted", [GameState$reflection()]], "ToInitialization", ["Tick", [Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["type"])("System.DateTime")]], "PlayAnimation", "StopAnimation"]);
+  return Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union_type"])("Model.Msg", [], Msg, () => [["SetValue", [["Item", FieldValue$reflection()]]], ["ShowRound", [["Item", _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"]]]], "RunSimulation", ["OnSimulationCompleted", [["Item", GameState$reflection()]]], "ToInitialization", ["Tick", [["Item", Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["class_type"])("System.DateTime")]]], "PlayAnimation", "StopAnimation"]);
 }
 
 /***/ }),
@@ -47355,7 +47358,7 @@ function Msg$reflection() {
 /*!***************************!*\
   !*** ./src/Simulation.fs ***!
   \***************************/
-/*! exports provided: Composition$002ECompositeStrategySetup, Composition$002ECompositeStrategySetup$reflection, Composition$$$compositeStrategy, GameMode$$$randomChoiceGame, GameMode$$$fixedGame, GameMode$$$cardDeckGame, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$keepSameStrategy, GameMode$$$onBasedOfLastEncounterWithOpponentColor, GameMode$$$highestEuOnDifferentColorGameForInvidualAgent, GameMode$$$highestEuOnDifferentColorGameForInvidualAgentNonCached, GameMode$$$highestEuOnDifferentColorGameWithFilter, GameMode$$$highestExpectedValueOnDifferentColorGame, GameMode$$$highestExpectedValueOnDifferentColorGameUsingOnlyDifferentColorStats, ExtraGameModes$$$nashMixedStrategyEquilibriumGameFromPayoffMatrix, ExtraGameModes$$$dependingHawksWithinColorSegment, ExtraGameModes$$$onHawksOnLastRound, IdealNashMixedDistribution$$$generate, IdealFiftyFiftyDistribution$$$generate, SimulationStages$$$allPlay, SimulationStages$$$stage1Game, SimulationStages$$$simulation_setup_random, SimulationStages$$$stage2Game, SimulationStages$$$stage1Game_withIdealNMSEDistribution, SimulationStages$$$stage1Game_withIdealFiftyFiftyDistribution, SimulationStages$$$stage2Game_v2_AllEncounter, SimulationStages$$$stage2Game_v3_keepSameAsSameColorStrategy, SimulationStages$$$stage2Game_v4_dependingHawksWithinColorSegmentAsSameColorStrategy, SimulationStages$$$stage2Game_v5_withFullIndividualHistory, SimulationStages$$$stage2Game_v5_withFullIndividualHistory_NonCached, SimulationStages$$$stage3Game, SimulationStages$$$stage3Game_onBasedOfLastEncounterWithOpponentColor, SimulationStageNames$$$AllPlayDove, SimulationStageNames$$$AllPlayHawk, SimulationStageNames$$$Random, SimulationStageNames$$$GuaranteedFiftyFifty, SimulationStageNames$$$ProbabilisticNSME, SimulationStageNames$$$GuaranteedNSME, SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory, SimulationStageOptions$$$AllOptions, SimulationStageOptions$$$getFn, Model$002ESimulationFrame$$SimulationFrame$002Eget_StrategyInitFn, Model$002EGameSetup$$GameSetup$002EToInitialGameState */
+/*! exports provided: Composition$002ECompositeStrategySetup, Composition$002ECompositeStrategySetup$reflection, Composition$$$compositeStrategy, GameMode$$$randomChoiceGame, GameMode$$$fixedGame, GameMode$$$cardDeckGame, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$keepSameStrategy, GameMode$$$onBasedOfLastEncounterWithOpponentColor, GameMode$$$highestEvOnDifferentColorGameForIndividualAgent, GameMode$$$highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics, GameMode$$$highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_UseNashOnExpectedValueTieWhenNoHistory, GameMode$$$highestEvOnDifferentColorGameForIndividualAgent_NonCached, GameMode$$$highestEuOnDifferentColorGameWithFilter, GameMode$$$highestExpectedValueOnDifferentColorGame, GameMode$$$highestExpectedValueOnDifferentColorGameUsingOnlyDifferentColorStats, ExtraGameModes$$$nashMixedStrategyEquilibriumGameFromPayoffMatrix, ExtraGameModes$$$dependingHawksWithinColorSegment, ExtraGameModes$$$onHawksOnLastRound, IdealNashMixedDistribution$$$generate, IdealFiftyFiftyDistribution$$$generate, SimulationStages$$$allPlay, SimulationStages$$$stage1Game, SimulationStages$$$highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStats, SimulationStages$$$highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStatsIsNMSE, SimulationStages$$$highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStatsIsNMSE_UseNashOnExpectedValueTieWhenNoHistory, SimulationStages$$$simulation_setup_random, SimulationStages$$$stage2Game, SimulationStages$$$stage1Game_withIdealNMSEDistribution, SimulationStages$$$stage1Game_withIdealFiftyFiftyDistribution, SimulationStages$$$stage2Game_v2_AllEncounter, SimulationStages$$$stage2Game_v3_keepSameAsSameColorStrategy, SimulationStages$$$stage2Game_v4_dependingHawksWithinColorSegmentAsSameColorStrategy, SimulationStages$$$stage2Game_v5_withFullIndividualHistory, SimulationStages$$$stage2Game_v5_withFullIndividualHistory_NonCached, SimulationStages$$$stage3Game, SimulationStages$$$stage3Game_onBasedOfLastEncounterWithOpponentColor, SimulationStageNames$$$Random, SimulationStageNames$$$ProbabilisticNSME, SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory, SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory_AllDove, SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory_AllHawk, SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory_50PercentHawk, SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory_NsmeHawk, SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory_NsmeHawk_UseNashOnExpectedValueTieWhenNoHistory, SimulationStageOptions$$$AllOptions, SimulationStageOptions$$$getFn, Model$002ESimulationFrame$$SimulationFrame$002Eget_StrategyInitFn, Model$002EGameSetup$$GameSetup$002EToInitialGameState */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -47369,8 +47372,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters", function() { return GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameMode$$$keepSameStrategy", function() { return GameMode$$$keepSameStrategy; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameMode$$$onBasedOfLastEncounterWithOpponentColor", function() { return GameMode$$$onBasedOfLastEncounterWithOpponentColor; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameMode$$$highestEuOnDifferentColorGameForInvidualAgent", function() { return GameMode$$$highestEuOnDifferentColorGameForInvidualAgent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameMode$$$highestEuOnDifferentColorGameForInvidualAgentNonCached", function() { return GameMode$$$highestEuOnDifferentColorGameForInvidualAgentNonCached; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameMode$$$highestEvOnDifferentColorGameForIndividualAgent", function() { return GameMode$$$highestEvOnDifferentColorGameForIndividualAgent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameMode$$$highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics", function() { return GameMode$$$highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameMode$$$highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_UseNashOnExpectedValueTieWhenNoHistory", function() { return GameMode$$$highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_UseNashOnExpectedValueTieWhenNoHistory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameMode$$$highestEvOnDifferentColorGameForIndividualAgent_NonCached", function() { return GameMode$$$highestEvOnDifferentColorGameForIndividualAgent_NonCached; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameMode$$$highestEuOnDifferentColorGameWithFilter", function() { return GameMode$$$highestEuOnDifferentColorGameWithFilter; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameMode$$$highestExpectedValueOnDifferentColorGame", function() { return GameMode$$$highestExpectedValueOnDifferentColorGame; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameMode$$$highestExpectedValueOnDifferentColorGameUsingOnlyDifferentColorStats", function() { return GameMode$$$highestExpectedValueOnDifferentColorGameUsingOnlyDifferentColorStats; });
@@ -47381,6 +47386,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IdealFiftyFiftyDistribution$$$generate", function() { return IdealFiftyFiftyDistribution$$$generate; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStages$$$allPlay", function() { return SimulationStages$$$allPlay; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStages$$$stage1Game", function() { return SimulationStages$$$stage1Game; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStages$$$highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStats", function() { return SimulationStages$$$highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStats; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStages$$$highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStatsIsNMSE", function() { return SimulationStages$$$highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStatsIsNMSE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStages$$$highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStatsIsNMSE_UseNashOnExpectedValueTieWhenNoHistory", function() { return SimulationStages$$$highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStatsIsNMSE_UseNashOnExpectedValueTieWhenNoHistory; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStages$$$simulation_setup_random", function() { return SimulationStages$$$simulation_setup_random; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStages$$$stage2Game", function() { return SimulationStages$$$stage2Game; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStages$$$stage1Game_withIdealNMSEDistribution", function() { return SimulationStages$$$stage1Game_withIdealNMSEDistribution; });
@@ -47392,24 +47400,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStages$$$stage2Game_v5_withFullIndividualHistory_NonCached", function() { return SimulationStages$$$stage2Game_v5_withFullIndividualHistory_NonCached; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStages$$$stage3Game", function() { return SimulationStages$$$stage3Game; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStages$$$stage3Game_onBasedOfLastEncounterWithOpponentColor", function() { return SimulationStages$$$stage3Game_onBasedOfLastEncounterWithOpponentColor; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStageNames$$$AllPlayDove", function() { return SimulationStageNames$$$AllPlayDove; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStageNames$$$AllPlayHawk", function() { return SimulationStageNames$$$AllPlayHawk; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStageNames$$$Random", function() { return SimulationStageNames$$$Random; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStageNames$$$GuaranteedFiftyFifty", function() { return SimulationStageNames$$$GuaranteedFiftyFifty; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStageNames$$$ProbabilisticNSME", function() { return SimulationStageNames$$$ProbabilisticNSME; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStageNames$$$GuaranteedNSME", function() { return SimulationStageNames$$$GuaranteedNSME; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory", function() { return SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory_AllDove", function() { return SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory_AllDove; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory_AllHawk", function() { return SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory_AllHawk; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory_50PercentHawk", function() { return SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory_50PercentHawk; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory_NsmeHawk", function() { return SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory_NsmeHawk; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory_NsmeHawk_UseNashOnExpectedValueTieWhenNoHistory", function() { return SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory_NsmeHawk_UseNashOnExpectedValueTieWhenNoHistory; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStageOptions$$$AllOptions", function() { return SimulationStageOptions$$$AllOptions; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimulationStageOptions$$$getFn", function() { return SimulationStageOptions$$$getFn; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Model$002ESimulationFrame$$SimulationFrame$002Eget_StrategyInitFn", function() { return Model$002ESimulationFrame$$SimulationFrame$002Eget_StrategyInitFn; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Model$002EGameSetup$$GameSetup$002EToInitialGameState", function() { return Model$002EGameSetup$$GameSetup$002EToInitialGameState; });
-/* harmony import */ var _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/Types.js */ "./.fable/fable-library.2.4.15/Types.js");
+/* harmony import */ var _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/Types.js */ "./.fable/fable-library.2.13.0/Types.js");
 /* harmony import */ var _Model_fs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Model.fs */ "./src/Model.fs");
-/* harmony import */ var _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/Reflection.js */ "./.fable/fable-library.2.4.15/Reflection.js");
-/* harmony import */ var _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/Util.js */ "./.fable/fable-library.2.4.15/Util.js");
-/* harmony import */ var _fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/List.js */ "./.fable/fable-library.2.4.15/List.js");
-/* harmony import */ var _Statistics_fs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Statistics.fs */ "./src/Statistics.fs");
-/* harmony import */ var _Helpers_fs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Helpers.fs */ "./src/Helpers.fs");
+/* harmony import */ var _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/Reflection.js */ "./.fable/fable-library.2.13.0/Reflection.js");
+/* harmony import */ var _fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/Util.js */ "./.fable/fable-library.2.13.0/Util.js");
+/* harmony import */ var _fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/List.js */ "./.fable/fable-library.2.13.0/List.js");
+/* harmony import */ var _fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/Decimal.js */ "./.fable/fable-library.2.13.0/Decimal.js");
+/* harmony import */ var _Statistics_fs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Statistics.fs */ "./src/Statistics.fs");
+/* harmony import */ var _Helpers_fs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Helpers.fs */ "./src/Helpers.fs");
 
 
 
@@ -47417,14 +47427,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const Composition$002ECompositeStrategySetup = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Simulation_Composition_CompositeStrategySetup(arg1, arg2, arg3, arg4) {
-  this.SameColorNoHistoryStrategy = arg1;
-  this.DifferentColorNoHistoryStrategy = arg2;
-  this.SameColorStrategy = arg3;
-  this.DifferentColorStrategy = arg4;
-}, _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
+
+
+const Composition$002ECompositeStrategySetup = Object(_fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Simulation_Composition_CompositeStrategySetup(SameColorNoHistoryStrategy, DifferentColorNoHistoryStrategy, SameColorStrategy, DifferentColorStrategy) {
+  this.SameColorNoHistoryStrategy = SameColorNoHistoryStrategy;
+  this.DifferentColorNoHistoryStrategy = DifferentColorNoHistoryStrategy;
+  this.SameColorStrategy = SameColorStrategy;
+  this.DifferentColorStrategy = DifferentColorStrategy;
+}, _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Record"]);
 function Composition$002ECompositeStrategySetup$reflection() {
-  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["record"])("Simulation.Composition.CompositeStrategySetup", [], Composition$002ECompositeStrategySetup, () => [["SameColorNoHistoryStrategy", Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["lambda"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameInformation$reflection"])(), Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy$reflection"])())], ["DifferentColorNoHistoryStrategy", Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["lambda"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameInformation$reflection"])(), Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy$reflection"])())], ["SameColorStrategy", Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["lambda"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameInformation$reflection"])(), Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy$reflection"])())], ["DifferentColorStrategy", Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["lambda"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameInformation$reflection"])(), Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy$reflection"])())]]);
+  return Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["record_type"])("Simulation.Composition.CompositeStrategySetup", [], Composition$002ECompositeStrategySetup, () => [["SameColorNoHistoryStrategy", Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["lambda_type"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameInformation$reflection"])(), Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy$reflection"])())], ["DifferentColorNoHistoryStrategy", Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["lambda_type"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameInformation$reflection"])(), Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy$reflection"])())], ["SameColorStrategy", Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["lambda_type"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameInformation$reflection"])(), Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy$reflection"])())], ["DifferentColorStrategy", Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_2__["lambda_type"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameInformation$reflection"])(), Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy$reflection"])())]]);
 }
 function Composition$$$compositeStrategy(setup, info) {
   var opponentColor$$4, opponentColor$$2, opponentColor;
@@ -47433,7 +47445,7 @@ function Composition$$$compositeStrategy(setup, info) {
 
   if (matchValue[0]) {
     $target$$3 = 1;
-  } else if (opponentColor = matchValue[1], !Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["equals"])(opponentColor, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Agent$$get_Color"])(info.Agent))) {
+  } else if (opponentColor = matchValue[1], !Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_3__["equals"])(opponentColor, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Agent$$get_Color"])(info.Agent))) {
     $target$$3 = 0;
   } else {
     $target$$3 = 1;
@@ -47452,7 +47464,7 @@ function Composition$$$compositeStrategy(setup, info) {
 
         if (matchValue[0]) {
           $target$$4 = 1;
-        } else if (opponentColor$$2 = matchValue[1], Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["equals"])(opponentColor$$2, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Agent$$get_Color"])(info.Agent))) {
+        } else if (opponentColor$$2 = matchValue[1], Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_3__["equals"])(opponentColor$$2, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Agent$$get_Color"])(info.Agent))) {
           $target$$4 = 0;
         } else {
           $target$$4 = 1;
@@ -47470,7 +47482,7 @@ function Composition$$$compositeStrategy(setup, info) {
               var $target$$5;
 
               if (matchValue[0]) {
-                if (opponentColor$$4 = matchValue[1], Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["equals"])(opponentColor$$4, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Agent$$get_Color"])(info.Agent))) {
+                if (opponentColor$$4 = matchValue[1], Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_3__["equals"])(opponentColor$$4, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Agent$$get_Color"])(info.Agent))) {
                   $target$$5 = 0;
                 } else {
                   $target$$5 = 1;
@@ -47510,21 +47522,21 @@ function GameMode$$$fixedGame(fixedStrategy, info$$2) {
 }
 function GameMode$$$cardDeckGame(deck, info$$3) {
   const cardIndex = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Agent$$get_Id"])(info$$3.Agent) | 0;
-  return Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_4__["item"])(cardIndex, deck);
+  return Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__["item"])(cardIndex, deck);
 }
 function GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters(info$$4) {
   let change$0020of$0020hawk;
   const C = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$get_Cost$0020$0028C$0029"])(info$$4.PayoffMatrix);
   const V = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$get_Revard$0020$0028V$0029"])(info$$4.PayoffMatrix);
 
-  if (C === 0) {
-    change$0020of$0020hawk = 1;
+  if (Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["equals"])(C, Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["fromParts"])(0, 0, 0, false, 1))) {
+    change$0020of$0020hawk = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["fromParts"])(10, 0, 0, false, 1);
   } else {
-    const portionOfHawks = V / C;
-    change$0020of$0020hawk = portionOfHawks > 1 ? 1 : portionOfHawks;
+    const portionOfHawks = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Division"])(V, C);
+    change$0020of$0020hawk = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["compare"])(portionOfHawks, Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["fromParts"])(10, 0, 0, false, 1)) > 0 ? Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["fromParts"])(10, 0, 0, false, 1) : portionOfHawks;
   }
 
-  if (info$$4.RandomNumber < change$0020of$0020hawk) {
+  if (info$$4.RandomNumber < Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["toNumber"])(change$0020of$0020hawk)) {
     return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk");
   } else {
     return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove");
@@ -47542,8 +47554,8 @@ function GameMode$$$keepSameStrategy(info$$5) {
 }
 function GameMode$$$onBasedOfLastEncounterWithOpponentColor(info$$6) {
   const myColor = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Agent$$get_Color"])(info$$6.Agent);
-  const lastRound = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["Model$002EGameRound$$GameRound$002EStrategyStatsFor$$4A800086"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameHistory$$get_LastRoundChallenges"])(info$$6.HistoryView.History), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["ChallengeType"](0, "DifferentColor"), myColor);
-  const matchValue$$2 = [Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["RoundStats$002EStrategyStats$$get_DoveN"])(lastRound), Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["RoundStats$002EStrategyStats$$get_HawkN"])(lastRound)];
+  const lastRound = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_6__["Model$002EGameRound$$GameRound$002EStrategyStatsFor$$4A800086"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameHistory$$get_LastRoundChallenges"])(info$$6.HistoryView.History), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["ChallengeType"](0, "DifferentColor"), myColor);
+  const matchValue$$2 = [Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_6__["RoundStats$002EStrategyStats$$get_DoveN"])(lastRound), Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_6__["RoundStats$002EStrategyStats$$get_HawkN"])(lastRound)];
 
   if (matchValue$$2[0] === 0) {
     return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk");
@@ -47553,142 +47565,215 @@ function GameMode$$$onBasedOfLastEncounterWithOpponentColor(info$$6) {
     return GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters(info$$6);
   }
 }
-function GameMode$$$highestEuOnDifferentColorGameForInvidualAgent(challengeTypeFilter, info$$7) {
-  var diff;
+function GameMode$$$highestEvOnDifferentColorGameForIndividualAgent(challengeTypeFilter, info$$7) {
+  var diff, diff$$2;
   const payoff = info$$7.PayoffMatrix;
   const history = info$$7.HistoryView;
   let opposingColorStats;
 
   if (challengeTypeFilter != null) {
     const challengeType = challengeTypeFilter;
-    opposingColorStats = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["Model$002EHistoryStatisticsView$$HistoryStatisticsView$002EStrategyStatsFor$$69D1B7BB"])(history, info$$7.Agent, challengeType, info$$7.OpponentColor);
+    opposingColorStats = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_6__["Model$002EHistoryStatisticsView$$HistoryStatisticsView$002EStrategyStatsFor$$69D1B7BB"])(history, info$$7.Agent, challengeType, info$$7.OpponentColor);
   } else {
-    opposingColorStats = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["Model$002EHistoryStatisticsView$$HistoryStatisticsView$002EStrategyStatsFor$$Z378B7C3C"])(history, info$$7.Agent, info$$7.OpponentColor);
+    opposingColorStats = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_6__["Model$002EHistoryStatisticsView$$HistoryStatisticsView$002EStrategyStatsFor$$Z378B7C3C"])(history, info$$7.Agent, info$$7.OpponentColor);
   }
 
-  const pHawk = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["RoundStats$002EStrategyStats$$get_HawkPortion"])(opposingColorStats);
-  const pDove = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["RoundStats$002EStrategyStats$$get_DovePortion"])(opposingColorStats);
-  const evHawk = pHawk * Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetMyPayoff$$Z5F957E0"])(payoff, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk")) + pDove * Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetMyPayoff$$Z5F957E0"])(payoff, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"));
-  const evDove = pHawk * Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetMyPayoff$$Z5F957E0"])(payoff, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk")) + pDove * Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetMyPayoff$$Z5F957E0"])(payoff, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"));
-  const matchValue$$3 = evHawk - evDove;
+  const pHawk = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_6__["RoundStats$002EStrategyStats$$get_HawkPortion"])(opposingColorStats);
+  const pDove = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_6__["RoundStats$002EStrategyStats$$get_DovePortion"])(opposingColorStats);
+  const evHawk = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Addition"])(Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Multiply"])(pHawk, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetMyPayoff$$Z5F957E0"])(payoff, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"))), Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Multiply"])(pDove, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetMyPayoff$$Z5F957E0"])(payoff, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"))));
+  const evDove = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Addition"])(Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Multiply"])(pHawk, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetMyPayoff$$Z5F957E0"])(payoff, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"))), Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Multiply"])(pDove, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetMyPayoff$$Z5F957E0"])(payoff, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"))));
+  const evDiff = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Subtraction"])(evHawk, evDove);
+  const decimal_epsilon = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["fromParts"])(1, 0, 0, false, 16);
 
-  if (matchValue$$3 === 0) {
+  if (diff = evDiff, Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["compare"])(Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["abs"])(diff), decimal_epsilon) <= 0) {
+    const diff$$1 = evDiff;
     return GameMode$$$randomChoiceGame(info$$7);
-  } else if (diff = matchValue$$3, diff > 0) {
-    const diff$$1 = matchValue$$3;
+  } else if (diff$$2 = evDiff, Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["compare"])(diff$$2, Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["fromParts"])(0, 0, 0, false, 1)) > 0) {
+    const diff$$3 = evDiff;
     return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk");
   } else {
     return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove");
   }
 }
-function GameMode$$$highestEuOnDifferentColorGameForInvidualAgentNonCached(challengeTypeFilter$$1, info$$8) {
-  var diff$$2;
+function GameMode$$$highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics(externalStatsHawkPortion, info$$8) {
+  var diff$$4, diff$$6;
   const payoff$$1 = info$$8.PayoffMatrix;
-  const history$$1 = info$$8.HistoryView.History;
+  const history$$1 = info$$8.HistoryView;
+  let pHawk$$1;
+
+  if (Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameHistory$$get_HasHistory"])(info$$8.HistoryView.History)) {
+    const opposingColor = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_6__["Model$002EHistoryStatisticsView$$HistoryStatisticsView$002EStrategyStatsFor$$Z378B7C3C"])(history$$1, info$$8.Agent, info$$8.OpponentColor);
+    const matchValue$$3 = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_6__["RoundStats$002EStrategyStats$$get_TotalN"])(opposingColor) | 0;
+    pHawk$$1 = matchValue$$3 === 0 ? externalStatsHawkPortion : Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_6__["RoundStats$002EStrategyStats$$get_HawkPortion"])(opposingColor);
+  } else {
+    pHawk$$1 = externalStatsHawkPortion;
+  }
+
+  const pDove$$1 = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Subtraction"])(Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["fromParts"])(10, 0, 0, false, 1), pHawk$$1);
+  const evHawk$$1 = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Addition"])(Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Multiply"])(pHawk$$1, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetMyPayoff$$Z5F957E0"])(payoff$$1, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"))), Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Multiply"])(pDove$$1, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetMyPayoff$$Z5F957E0"])(payoff$$1, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"))));
+  const evDove$$1 = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Addition"])(Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Multiply"])(pHawk$$1, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetMyPayoff$$Z5F957E0"])(payoff$$1, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"))), Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Multiply"])(pDove$$1, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetMyPayoff$$Z5F957E0"])(payoff$$1, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"))));
+  const evDiff$$1 = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Subtraction"])(evHawk$$1, evDove$$1);
+  const decimal_epsilon$$1 = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["fromParts"])(1, 0, 0, false, 16);
+
+  if (diff$$4 = evDiff$$1, Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["compare"])(Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["abs"])(diff$$4), decimal_epsilon$$1) <= 0) {
+    const diff$$5 = evDiff$$1;
+    return GameMode$$$randomChoiceGame(info$$8);
+  } else if (diff$$6 = evDiff$$1, Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["compare"])(diff$$6, Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["fromParts"])(0, 0, 0, false, 1)) > 0) {
+    const diff$$7 = evDiff$$1;
+    return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk");
+  } else {
+    return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove");
+  }
+}
+function GameMode$$$highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_UseNashOnExpectedValueTieWhenNoHistory(externalStatsHawkPortion$$1, info$$9) {
+  var diff$$8, diff$$10;
+  const payoff$$2 = info$$9.PayoffMatrix;
+  const history$$2 = info$$9.HistoryView;
+  let patternInput;
+
+  if (Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameHistory$$get_HasHistory"])(info$$9.HistoryView.History)) {
+    const opposingColor$$1 = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_6__["Model$002EHistoryStatisticsView$$HistoryStatisticsView$002EStrategyStatsFor$$Z378B7C3C"])(history$$2, info$$9.Agent, info$$9.OpponentColor);
+    const matchValue$$4 = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_6__["RoundStats$002EStrategyStats$$get_TotalN"])(opposingColor$$1) | 0;
+    patternInput = matchValue$$4 === 0 ? [externalStatsHawkPortion$$1, false] : [Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_6__["RoundStats$002EStrategyStats$$get_HawkPortion"])(opposingColor$$1), true];
+  } else {
+    patternInput = [externalStatsHawkPortion$$1, false];
+  }
+
+  const pHawk$$2 = patternInput[0];
+  const hadRelevantHistory = patternInput[1];
+  const pDove$$2 = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Subtraction"])(Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["fromParts"])(10, 0, 0, false, 1), pHawk$$2);
+  const evHawk$$2 = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Addition"])(Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Multiply"])(pHawk$$2, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetMyPayoff$$Z5F957E0"])(payoff$$2, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"))), Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Multiply"])(pDove$$2, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetMyPayoff$$Z5F957E0"])(payoff$$2, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"))));
+  const evDove$$2 = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Addition"])(Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Multiply"])(pHawk$$2, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetMyPayoff$$Z5F957E0"])(payoff$$2, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"))), Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Multiply"])(pDove$$2, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetMyPayoff$$Z5F957E0"])(payoff$$2, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"))));
+  const evDiff$$2 = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Subtraction"])(evHawk$$2, evDove$$2);
+  const decimal_epsilon$$2 = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["fromParts"])(1, 0, 0, false, 16);
+
+  if (diff$$8 = evDiff$$2, Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["compare"])(Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["abs"])(diff$$8), decimal_epsilon$$2) <= 0) {
+    const diff$$9 = evDiff$$2;
+
+    if (hadRelevantHistory) {
+      return GameMode$$$randomChoiceGame(info$$9);
+    } else {
+      return GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters(info$$9);
+    }
+  } else if (diff$$10 = evDiff$$2, Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["compare"])(diff$$10, Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["fromParts"])(0, 0, 0, false, 1)) > 0) {
+    const diff$$11 = evDiff$$2;
+    return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk");
+  } else {
+    return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove");
+  }
+}
+function GameMode$$$highestEvOnDifferentColorGameForIndividualAgent_NonCached(challengeTypeFilter$$1, info$$10) {
+  var diff$$12, diff$$14;
+  const payoff$$3 = info$$10.PayoffMatrix;
+  const history$$3 = info$$10.HistoryView.History;
   let opposingColorStats$$1;
 
   if (challengeTypeFilter$$1 != null) {
     const challengeType$$1 = challengeTypeFilter$$1;
-    opposingColorStats$$1 = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["Model$002EGameHistory$$GameHistory$002EStrategyStatsFor$$69D1B7BB"])(history$$1, info$$8.Agent, challengeType$$1, info$$8.OpponentColor);
+    opposingColorStats$$1 = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_6__["Model$002EGameHistory$$GameHistory$002EStrategyStatsFor$$69D1B7BB"])(history$$3, info$$10.Agent, challengeType$$1, info$$10.OpponentColor);
   } else {
-    opposingColorStats$$1 = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["Model$002EGameHistory$$GameHistory$002EStrategyStatsFor$$Z378B7C3C"])(history$$1, info$$8.Agent, info$$8.OpponentColor);
+    opposingColorStats$$1 = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_6__["Model$002EGameHistory$$GameHistory$002EStrategyStatsFor$$Z378B7C3C"])(history$$3, info$$10.Agent, info$$10.OpponentColor);
   }
 
-  const pHawk$$1 = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["RoundStats$002EStrategyStats$$get_HawkPortion"])(opposingColorStats$$1);
-  const pDove$$1 = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["RoundStats$002EStrategyStats$$get_DovePortion"])(opposingColorStats$$1);
-  const evHawk$$1 = pHawk$$1 * Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetMyPayoff$$Z5F957E0"])(payoff$$1, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk")) + pDove$$1 * Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetMyPayoff$$Z5F957E0"])(payoff$$1, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"));
-  const evDove$$1 = pHawk$$1 * Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetMyPayoff$$Z5F957E0"])(payoff$$1, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk")) + pDove$$1 * Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetMyPayoff$$Z5F957E0"])(payoff$$1, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"));
-  const matchValue$$4 = evHawk$$1 - evDove$$1;
+  const pHawk$$3 = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_6__["RoundStats$002EStrategyStats$$get_HawkPortion"])(opposingColorStats$$1);
+  const pDove$$3 = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_6__["RoundStats$002EStrategyStats$$get_DovePortion"])(opposingColorStats$$1);
+  const evHawk$$3 = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Addition"])(Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Multiply"])(pHawk$$3, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetMyPayoff$$Z5F957E0"])(payoff$$3, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"))), Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Multiply"])(pDove$$3, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetMyPayoff$$Z5F957E0"])(payoff$$3, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"))));
+  const evDove$$3 = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Addition"])(Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Multiply"])(pHawk$$3, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetMyPayoff$$Z5F957E0"])(payoff$$3, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"))), Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Multiply"])(pDove$$3, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetMyPayoff$$Z5F957E0"])(payoff$$3, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"))));
+  const evDiff$$3 = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Subtraction"])(evHawk$$3, evDove$$3);
+  const decimal_epsilon$$3 = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["fromParts"])(1, 0, 0, false, 16);
 
-  if (matchValue$$4 === 0) {
-    return GameMode$$$randomChoiceGame(info$$8);
-  } else if (diff$$2 = matchValue$$4, diff$$2 > 0) {
-    const diff$$3 = matchValue$$4;
+  if (diff$$12 = evDiff$$3, Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["compare"])(Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["abs"])(diff$$12), decimal_epsilon$$3) <= 0) {
+    const diff$$13 = evDiff$$3;
+    return GameMode$$$randomChoiceGame(info$$10);
+  } else if (diff$$14 = evDiff$$3, Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["compare"])(diff$$14, Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["fromParts"])(0, 0, 0, false, 1)) > 0) {
+    const diff$$15 = evDiff$$3;
     return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk");
   } else {
     return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove");
   }
 }
-function GameMode$$$highestEuOnDifferentColorGameWithFilter(challengeTypeFilter$$2, info$$9) {
-  var diff$$4;
-  const payoff$$2 = info$$9.PayoffMatrix;
-  const lastRound$$1 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameHistory$$get_LastRoundChallenges"])(info$$9.HistoryView.History);
+function GameMode$$$highestEuOnDifferentColorGameWithFilter(challengeTypeFilter$$2, info$$11) {
+  var diff$$16, diff$$18;
+  const payoff$$4 = info$$11.PayoffMatrix;
+  const lastRound$$1 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameHistory$$get_LastRoundChallenges"])(info$$11.HistoryView.History);
   let opposingColorStats$$2;
 
   if (challengeTypeFilter$$2 != null) {
     const challengeType$$2 = challengeTypeFilter$$2;
-    opposingColorStats$$2 = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["Model$002EGameRound$$GameRound$002EStrategyStatsFor$$4A800086"])(lastRound$$1, challengeType$$2, info$$9.OpponentColor);
+    opposingColorStats$$2 = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_6__["Model$002EGameRound$$GameRound$002EStrategyStatsFor$$4A800086"])(lastRound$$1, challengeType$$2, info$$11.OpponentColor);
   } else {
-    opposingColorStats$$2 = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["Model$002EGameRound$$GameRound$002EStrategyStatsFor$$2DA0A019"])(lastRound$$1, info$$9.OpponentColor);
+    opposingColorStats$$2 = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_6__["Model$002EGameRound$$GameRound$002EStrategyStatsFor$$2DA0A019"])(lastRound$$1, info$$11.OpponentColor);
   }
 
-  const pHawk$$2 = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["RoundStats$002EStrategyStats$$get_HawkPortion"])(opposingColorStats$$2);
-  const pDove$$2 = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["RoundStats$002EStrategyStats$$get_DovePortion"])(opposingColorStats$$2);
-  const evHawk$$2 = pHawk$$2 * Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetMyPayoff$$Z5F957E0"])(payoff$$2, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk")) + pDove$$2 * Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetMyPayoff$$Z5F957E0"])(payoff$$2, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"));
-  const evDove$$2 = pHawk$$2 * Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetMyPayoff$$Z5F957E0"])(payoff$$2, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk")) + pDove$$2 * Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetMyPayoff$$Z5F957E0"])(payoff$$2, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"));
-  const matchValue$$5 = evHawk$$2 - evDove$$2;
+  const pHawk$$4 = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_6__["RoundStats$002EStrategyStats$$get_HawkPortion"])(opposingColorStats$$2);
+  const pDove$$4 = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_6__["RoundStats$002EStrategyStats$$get_DovePortion"])(opposingColorStats$$2);
+  const evHawk$$4 = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Addition"])(Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Multiply"])(pHawk$$4, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetMyPayoff$$Z5F957E0"])(payoff$$4, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"))), Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Multiply"])(pDove$$4, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetMyPayoff$$Z5F957E0"])(payoff$$4, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"))));
+  const evDove$$4 = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Addition"])(Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Multiply"])(pHawk$$4, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetMyPayoff$$Z5F957E0"])(payoff$$4, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"))), Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Multiply"])(pDove$$4, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetMyPayoff$$Z5F957E0"])(payoff$$4, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"))));
+  const evDiff$$4 = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Subtraction"])(evHawk$$4, evDove$$4);
+  const decimal_epsilon$$4 = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["fromParts"])(1, 0, 0, false, 16);
 
-  if (matchValue$$5 === 0) {
-    return GameMode$$$randomChoiceGame(info$$9);
-  } else if (diff$$4 = matchValue$$5, diff$$4 > 0) {
-    const diff$$5 = matchValue$$5;
+  if (diff$$16 = evDiff$$4, Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["compare"])(Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["abs"])(diff$$16), decimal_epsilon$$4) <= 0) {
+    const diff$$17 = evDiff$$4;
+    return GameMode$$$randomChoiceGame(info$$11);
+  } else if (diff$$18 = evDiff$$4, Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["compare"])(diff$$18, Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["fromParts"])(0, 0, 0, false, 1)) > 0) {
+    const diff$$19 = evDiff$$4;
     return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk");
   } else {
     return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove");
   }
 }
 const GameMode$$$highestExpectedValueOnDifferentColorGame = (() => {
-  const challengeTypeFilter$$3 = null;
-  return function (info$$10) {
-    return GameMode$$$highestEuOnDifferentColorGameWithFilter(challengeTypeFilter$$3, info$$10);
+  const challengeTypeFilter$$3 = undefined;
+  return function (info$$12) {
+    return GameMode$$$highestEuOnDifferentColorGameWithFilter(challengeTypeFilter$$3, info$$12);
   };
 })();
 const GameMode$$$highestExpectedValueOnDifferentColorGameUsingOnlyDifferentColorStats = (() => {
   const challengeTypeFilter$$4 = new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["ChallengeType"](0, "DifferentColor");
-  return function (info$$11) {
-    return GameMode$$$highestEuOnDifferentColorGameWithFilter(challengeTypeFilter$$4, info$$11);
+  return function (info$$13) {
+    return GameMode$$$highestEuOnDifferentColorGameWithFilter(challengeTypeFilter$$4, info$$13);
   };
 })();
-function ExtraGameModes$$$nashMixedStrategyEquilibriumGameFromPayoffMatrix(info$$12) {
+function ExtraGameModes$$$nashMixedStrategyEquilibriumGameFromPayoffMatrix(info$$14) {
   let change$0020of$0020hawk$$1;
-  const patternInput = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetPayoffFor$$Z5F957E0"])(info$$12.PayoffMatrix, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"));
-  const hawkMax = patternInput[0];
-  const doveMin = patternInput[1];
-  const patternInput$$1 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetPayoffFor$$Z5F957E0"])(info$$12.PayoffMatrix, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"));
-  const doveMax = patternInput$$1[0];
-  const patternInput$$2 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetPayoffFor$$Z5F957E0"])(info$$12.PayoffMatrix, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"));
-  const hawkMin = patternInput$$2[0];
-  const matchValue$$6 = hawkMin - doveMin;
+  const patternInput$$1 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetPayoffFor$$Z5F957E0"])(info$$14.PayoffMatrix, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"));
+  const hawkMax = patternInput$$1[0];
+  const doveMin = patternInput$$1[1];
+  const patternInput$$2 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetPayoffFor$$Z5F957E0"])(info$$14.PayoffMatrix, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"));
+  const doveMax = patternInput$$2[0];
+  const patternInput$$3 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$GetPayoffFor$$Z5F957E0"])(info$$14.PayoffMatrix, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"));
+  const hawkMin = patternInput$$3[0];
+  const matchValue$$5 = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Subtraction"])(hawkMin, doveMin);
 
-  if (matchValue$$6 === 0) {
-    change$0020of$0020hawk$$1 = 1;
+  if (Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["equals"])(matchValue$$5, Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["fromParts"])(0, 0, 0, false, 1))) {
+    change$0020of$0020hawk$$1 = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["fromParts"])(10, 0, 0, false, 1);
   } else {
-    const hawksPerDove = (doveMax - hawkMax) / (hawkMin - doveMin);
-    const portionOfHawks$$1 = hawksPerDove / (1 + hawksPerDove);
-    change$0020of$0020hawk$$1 = portionOfHawks$$1 > 1 ? 1 : portionOfHawks$$1;
+    const hawksPerDove = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Division"])(Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Subtraction"])(doveMax, hawkMax), Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Subtraction"])(hawkMin, doveMin));
+    const portionOfHawks$$1 = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Division"])(hawksPerDove, Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Addition"])(Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["fromParts"])(10, 0, 0, false, 1), hawksPerDove));
+    change$0020of$0020hawk$$1 = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["compare"])(portionOfHawks$$1, Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["fromParts"])(10, 0, 0, false, 1)) > 0 ? Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["fromParts"])(10, 0, 0, false, 1) : portionOfHawks$$1;
   }
 
-  if (change$0020of$0020hawk$$1 > info$$12.RandomNumber) {
+  if (Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["compare"])(change$0020of$0020hawk$$1, new _fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["default"](info$$14.RandomNumber)) > 0) {
     return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk");
   } else {
     return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove");
   }
 }
-function ExtraGameModes$$$dependingHawksWithinColorSegment(info$$13) {
-  const lastRoundStats = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["Model$002EGameRound$$GameRound$002EStrategyStatsFor$$2DA0A019"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameHistory$$get_LastRoundChallenges"])(info$$13.HistoryView.History), info$$13.OpponentColor);
-  const hawkPortion = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["RoundStats$002EStrategyStats$$get_HawkPortion"])(lastRoundStats);
+function ExtraGameModes$$$dependingHawksWithinColorSegment(info$$15) {
+  const lastRoundStats = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_6__["Model$002EGameRound$$GameRound$002EStrategyStatsFor$$2DA0A019"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameHistory$$get_LastRoundChallenges"])(info$$15.HistoryView.History), info$$15.OpponentColor);
+  const hawkPortion = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_6__["RoundStats$002EStrategyStats$$get_HawkPortion"])(lastRoundStats);
 
-  if (hawkPortion > info$$13.RandomNumber) {
+  if (Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["compare"])(hawkPortion, new _fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["default"](info$$15.RandomNumber)) > 0) {
     return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk");
   } else {
     return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove");
   }
 }
-function ExtraGameModes$$$onHawksOnLastRound(info$$14) {
-  const lastRoundStats$$1 = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["Model$002EGameRound$$GameRound$002EStrategyStats"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameHistory$$get_LastRoundChallenges"])(info$$14.HistoryView.History));
-  const hawkPortion$$1 = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_5__["RoundStats$002EStrategyStats$$get_HawkPortion"])(lastRoundStats$$1);
+function ExtraGameModes$$$onHawksOnLastRound(info$$16) {
+  const lastRoundStats$$1 = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_6__["Model$002EGameRound$$GameRound$002EStrategyStats"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameHistory$$get_LastRoundChallenges"])(info$$16.HistoryView.History));
+  const hawkPortion$$1 = Object(_Statistics_fs__WEBPACK_IMPORTED_MODULE_6__["RoundStats$002EStrategyStats$$get_HawkPortion"])(lastRoundStats$$1);
 
-  if (hawkPortion$$1 > info$$14.RandomNumber) {
+  if (Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["compare"])(hawkPortion$$1, new _fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["default"](info$$16.RandomNumber)) > 0) {
     return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk");
   } else {
     return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove");
@@ -47696,128 +47781,166 @@ function ExtraGameModes$$$onHawksOnLastRound(info$$14) {
 }
 function IdealNashMixedDistribution$$$generate(setup$$1) {
   let hawkCount;
-  const playerCount = setup$$1.AgentCount;
-  const matchValue$$7 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$get_Cost$0020$0028C$0029"])(setup$$1.PayoffMatrix);
+  const playerCount = new _fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["default"](setup$$1.AgentCount);
+  const matchValue$$6 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$get_Cost$0020$0028C$0029"])(setup$$1.PayoffMatrix);
 
-  if (matchValue$$7 === 0) {
+  if (Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["equals"])(matchValue$$6, Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["fromParts"])(0, 0, 0, false, 1))) {
     hawkCount = setup$$1.AgentCount;
   } else {
-    const hawkCountFloat = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$get_Revard$0020$0028V$0029"])(setup$$1.PayoffMatrix) / Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$get_Cost$0020$0028C$0029"])(setup$$1.PayoffMatrix) * playerCount;
-    const value = Math.floor(hawkCountFloat);
-    hawkCount = ~~value;
+    const hawkCountFloat = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Multiply"])(Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["op_Division"])(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$get_Revard$0020$0028V$0029"])(setup$$1.PayoffMatrix), Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$get_Cost$0020$0028C$0029"])(setup$$1.PayoffMatrix)), playerCount);
+    const value = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["floor"])(hawkCountFloat);
+    hawkCount = ~~Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["toNumber"])(value);
   }
 
   const doveCount = setup$$1.AgentCount - hawkCount | 0;
-  const l = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy$$$GenerateList$$Z1725983A"])(Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_4__["ofArray"])([[new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"), hawkCount], [new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"), doveCount]]));
-  return Object(_Helpers_fs__WEBPACK_IMPORTED_MODULE_6__["ListHelpers$$$shuffle"])(l);
+  const l = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy$$$GenerateList$$Z1725983A"])(Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__["ofArray"])([[new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"), hawkCount], [new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"), doveCount]]));
+  return Object(_Helpers_fs__WEBPACK_IMPORTED_MODULE_7__["ListHelpers$$$shuffle"])(l);
 }
 function IdealFiftyFiftyDistribution$$$generate(setup$$2) {
   const doveCount$$1 = ~~(setup$$2.AgentCount / 2) | 0;
   const hawkCount$$1 = setup$$2.AgentCount - doveCount$$1 | 0;
-  const l$$1 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy$$$GenerateList$$Z1725983A"])(Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_4__["ofArray"])([[new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"), hawkCount$$1], [new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"), doveCount$$1]]));
-  return Object(_Helpers_fs__WEBPACK_IMPORTED_MODULE_6__["ListHelpers$$$shuffle"])(l$$1);
+  const l$$1 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy$$$GenerateList$$Z1725983A"])(Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__["ofArray"])([[new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk"), hawkCount$$1], [new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove"), doveCount$$1]]));
+  return Object(_Helpers_fs__WEBPACK_IMPORTED_MODULE_7__["ListHelpers$$$shuffle"])(l$$1);
 }
 function SimulationStages$$$allPlay(fixedStrategy$$1, _setup) {
-  return function (info$$15) {
-    return GameMode$$$fixedGame(fixedStrategy$$1, info$$15);
+  return function (info$$17) {
+    return GameMode$$$fixedGame(fixedStrategy$$1, info$$17);
   };
 }
 function SimulationStages$$$stage1Game(_setup$$1) {
   return GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters;
 }
-function SimulationStages$$$simulation_setup_random(_setup$$2) {
-  const setup$$3 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$randomChoiceGame, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$randomChoiceGame);
-  return function (info$$21) {
-    return Composition$$$compositeStrategy(setup$$3, info$$21);
+function SimulationStages$$$highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStats(hawkPortion$$2, _setup$$2) {
+  const setup$$3 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, function (info$$20) {
+    return GameMode$$$highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics(hawkPortion$$2, info$$20);
+  }, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, function (info$$22) {
+    return GameMode$$$highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics(hawkPortion$$2, info$$22);
+  });
+  return function (info$$23) {
+    return Composition$$$compositeStrategy(setup$$3, info$$23);
   };
 }
-function SimulationStages$$$stage2Game(_setup$$3) {
-  const setup$$4 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$highestExpectedValueOnDifferentColorGameUsingOnlyDifferentColorStats);
-  return function (info$$25) {
-    return Composition$$$compositeStrategy(setup$$4, info$$25);
-  };
-}
-function SimulationStages$$$stage1Game_withIdealNMSEDistribution(setup$$5) {
-  const deck$$1 = IdealNashMixedDistribution$$$generate(setup$$5);
-  return function (info$$26) {
-    return GameMode$$$cardDeckGame(deck$$1, info$$26);
-  };
-}
-function SimulationStages$$$stage1Game_withIdealFiftyFiftyDistribution(setup$$6) {
-  const deck$$2 = IdealFiftyFiftyDistribution$$$generate(setup$$6);
-  return function (info$$27) {
-    return GameMode$$$cardDeckGame(deck$$2, info$$27);
-  };
-}
-function SimulationStages$$$stage2Game_v2_AllEncounter(_setup$$4) {
-  const setup$$7 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$highestExpectedValueOnDifferentColorGame);
-  return function (info$$31) {
-    return Composition$$$compositeStrategy(setup$$7, info$$31);
-  };
-}
-function SimulationStages$$$stage2Game_v3_keepSameAsSameColorStrategy(_setup$$5) {
-  const setup$$8 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$keepSameStrategy, GameMode$$$highestExpectedValueOnDifferentColorGame);
-  return function (info$$35) {
-    return Composition$$$compositeStrategy(setup$$8, info$$35);
-  };
-}
-function SimulationStages$$$stage2Game_v4_dependingHawksWithinColorSegmentAsSameColorStrategy(_setup$$6) {
-  const setup$$9 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, ExtraGameModes$$$dependingHawksWithinColorSegment, GameMode$$$highestExpectedValueOnDifferentColorGame);
-  return function (info$$39) {
-    return Composition$$$compositeStrategy(setup$$9, info$$39);
-  };
-}
-function SimulationStages$$$stage2Game_v5_withFullIndividualHistory(_setup$$7) {
-  var challengeTypeFilter$$5;
-  const setup$$10 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, (challengeTypeFilter$$5 = null, function (info$$43) {
-    return GameMode$$$highestEuOnDifferentColorGameForInvidualAgent(challengeTypeFilter$$5, info$$43);
+function SimulationStages$$$highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStatsIsNMSE(setup$$4) {
+  var externalStatsHawkPortion$$2, externalStatsHawkPortion$$3;
+  const setup$$5 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, (externalStatsHawkPortion$$2 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$get_Change$0020of$0020hawk$0020$0028NMSE$0029"])(setup$$4.PayoffMatrix), function (info$$25) {
+    return GameMode$$$highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics(externalStatsHawkPortion$$2, info$$25);
+  }), GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, (externalStatsHawkPortion$$3 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$get_Change$0020of$0020hawk$0020$0028NMSE$0029"])(setup$$4.PayoffMatrix), function (info$$27) {
+    return GameMode$$$highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics(externalStatsHawkPortion$$3, info$$27);
   }));
+  return function (info$$28) {
+    return Composition$$$compositeStrategy(setup$$5, info$$28);
+  };
+}
+function SimulationStages$$$highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStatsIsNMSE_UseNashOnExpectedValueTieWhenNoHistory(setup$$6) {
+  var externalStatsHawkPortion$$4, externalStatsHawkPortion$$5;
+  const setup$$7 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, (externalStatsHawkPortion$$4 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$get_Change$0020of$0020hawk$0020$0028NMSE$0029"])(setup$$6.PayoffMatrix), function (info$$30) {
+    return GameMode$$$highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_UseNashOnExpectedValueTieWhenNoHistory(externalStatsHawkPortion$$4, info$$30);
+  }), GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, (externalStatsHawkPortion$$5 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_1__["PayoffMatrixType$$get_Change$0020of$0020hawk$0020$0028NMSE$0029"])(setup$$6.PayoffMatrix), function (info$$32) {
+    return GameMode$$$highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_UseNashOnExpectedValueTieWhenNoHistory(externalStatsHawkPortion$$5, info$$32);
+  }));
+  return function (info$$33) {
+    return Composition$$$compositeStrategy(setup$$7, info$$33);
+  };
+}
+function SimulationStages$$$simulation_setup_random(_setup$$3) {
+  const setup$$8 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$randomChoiceGame, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$randomChoiceGame);
+  return function (info$$38) {
+    return Composition$$$compositeStrategy(setup$$8, info$$38);
+  };
+}
+function SimulationStages$$$stage2Game(_setup$$4) {
+  const setup$$9 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$highestExpectedValueOnDifferentColorGameUsingOnlyDifferentColorStats);
+  return function (info$$42) {
+    return Composition$$$compositeStrategy(setup$$9, info$$42);
+  };
+}
+function SimulationStages$$$stage1Game_withIdealNMSEDistribution(setup$$10) {
+  const deck$$1 = IdealNashMixedDistribution$$$generate(setup$$10);
+  return function (info$$43) {
+    return GameMode$$$cardDeckGame(deck$$1, info$$43);
+  };
+}
+function SimulationStages$$$stage1Game_withIdealFiftyFiftyDistribution(setup$$11) {
+  const deck$$2 = IdealFiftyFiftyDistribution$$$generate(setup$$11);
   return function (info$$44) {
-    return Composition$$$compositeStrategy(setup$$10, info$$44);
+    return GameMode$$$cardDeckGame(deck$$2, info$$44);
   };
 }
-function SimulationStages$$$stage2Game_v5_withFullIndividualHistory_NonCached(setup$$11) {
-  var challengeTypeFilter$$6;
-  const setup$$12 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, (challengeTypeFilter$$6 = null, function (info$$48) {
-    return GameMode$$$highestEuOnDifferentColorGameForInvidualAgentNonCached(challengeTypeFilter$$6, info$$48);
+function SimulationStages$$$stage2Game_v2_AllEncounter(_setup$$5) {
+  const setup$$12 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$highestExpectedValueOnDifferentColorGame);
+  return function (info$$48) {
+    return Composition$$$compositeStrategy(setup$$12, info$$48);
+  };
+}
+function SimulationStages$$$stage2Game_v3_keepSameAsSameColorStrategy(_setup$$6) {
+  const setup$$13 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$keepSameStrategy, GameMode$$$highestExpectedValueOnDifferentColorGame);
+  return function (info$$52) {
+    return Composition$$$compositeStrategy(setup$$13, info$$52);
+  };
+}
+function SimulationStages$$$stage2Game_v4_dependingHawksWithinColorSegmentAsSameColorStrategy(_setup$$7) {
+  const setup$$14 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, ExtraGameModes$$$dependingHawksWithinColorSegment, GameMode$$$highestExpectedValueOnDifferentColorGame);
+  return function (info$$56) {
+    return Composition$$$compositeStrategy(setup$$14, info$$56);
+  };
+}
+function SimulationStages$$$stage2Game_v5_withFullIndividualHistory(_setup$$8) {
+  var challengeTypeFilter$$5;
+  const setup$$15 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, (challengeTypeFilter$$5 = undefined, function (info$$60) {
+    return GameMode$$$highestEvOnDifferentColorGameForIndividualAgent(challengeTypeFilter$$5, info$$60);
   }));
-  return function (info$$49) {
-    return Composition$$$compositeStrategy(setup$$12, info$$49);
+  return function (info$$61) {
+    return Composition$$$compositeStrategy(setup$$15, info$$61);
   };
 }
-function SimulationStages$$$stage3Game(setup$$13) {
-  const setup$$14 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$keepSameStrategy, GameMode$$$highestExpectedValueOnDifferentColorGame);
-  return function (info$$53) {
-    return Composition$$$compositeStrategy(setup$$14, info$$53);
+function SimulationStages$$$stage2Game_v5_withFullIndividualHistory_NonCached(setup$$16) {
+  var challengeTypeFilter$$6;
+  const setup$$17 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, (challengeTypeFilter$$6 = undefined, function (info$$65) {
+    return GameMode$$$highestEvOnDifferentColorGameForIndividualAgent_NonCached(challengeTypeFilter$$6, info$$65);
+  }));
+  return function (info$$66) {
+    return Composition$$$compositeStrategy(setup$$17, info$$66);
   };
 }
-function SimulationStages$$$stage3Game_onBasedOfLastEncounterWithOpponentColor(setup$$15) {
-  const setup$$16 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$onBasedOfLastEncounterWithOpponentColor, GameMode$$$onBasedOfLastEncounterWithOpponentColor);
-  return function (info$$58) {
-    return Composition$$$compositeStrategy(setup$$16, info$$58);
+function SimulationStages$$$stage3Game(setup$$18) {
+  const setup$$19 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$keepSameStrategy, GameMode$$$highestExpectedValueOnDifferentColorGame);
+  return function (info$$70) {
+    return Composition$$$compositeStrategy(setup$$19, info$$70);
   };
 }
-const SimulationStageNames$$$AllPlayDove = "AllPlayDove";
-const SimulationStageNames$$$AllPlayHawk = "AllPlayHawk";
-const SimulationStageNames$$$Random = "RandomFiftyFifty";
-const SimulationStageNames$$$GuaranteedFiftyFifty = "IdealFiftyFifty";
-const SimulationStageNames$$$ProbabilisticNSME = "ProbabilisticNSME";
-const SimulationStageNames$$$GuaranteedNSME = "GuaranteedNSME";
-const SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory = "HighestExpectedValueOnBaseOfHistory";
-const SimulationStageOptions$$$AllOptions = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_4__["ofArray"])([new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["StageStrategyFnOptions"]("All play Dove", SimulationStageNames$$$AllPlayDove, Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["uncurry"])(2, (() => {
-  const fixedStrategy$$2 = new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](0, "Dove");
-  return function (_setup$$8) {
-    return SimulationStages$$$allPlay(fixedStrategy$$2, _setup$$8);
+function SimulationStages$$$stage3Game_onBasedOfLastEncounterWithOpponentColor(setup$$20) {
+  const setup$$21 = new Composition$002ECompositeStrategySetup(GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$nashMixedStrategyEquilibriumGameFromPayoffParameters, GameMode$$$onBasedOfLastEncounterWithOpponentColor, GameMode$$$onBasedOfLastEncounterWithOpponentColor);
+  return function (info$$75) {
+    return Composition$$$compositeStrategy(setup$$21, info$$75);
   };
-})())), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["StageStrategyFnOptions"]("All play Hawk", SimulationStageNames$$$AllPlayHawk, Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["uncurry"])(2, (() => {
-  const fixedStrategy$$3 = new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["Strategy"](1, "Hawk");
+}
+const SimulationStageNames$$$Random = "random";
+const SimulationStageNames$$$ProbabilisticNSME = "stage1";
+const SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory = "stage2";
+const SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory_AllDove = "stage2_dove";
+const SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory_AllHawk = "stage2_hawks";
+const SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory_50PercentHawk = "stage2_half";
+const SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory_NsmeHawk = "stage2_random";
+const SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory_NsmeHawk_UseNashOnExpectedValueTieWhenNoHistory = "stage2_nmse";
+const SimulationStageOptions$$$AllOptions = Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__["ofArray"])([new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["StageStrategyFnOptions"]("Highest EV - External stats all play Dove", SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory_AllDove, Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_3__["uncurry"])(2, (() => {
+  const hawkPortion$$3 = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["fromParts"])(0, 0, 0, false, 1);
   return function (_setup$$9) {
-    return SimulationStages$$$allPlay(fixedStrategy$$3, _setup$$9);
+    return SimulationStages$$$highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStats(hawkPortion$$3, _setup$$9);
   };
-})())), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["StageStrategyFnOptions"]("Random (Hawk probability = 0.5)", SimulationStageNames$$$Random, Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["uncurry"])(2, SimulationStages$$$simulation_setup_random)), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["StageStrategyFnOptions"]("Ideal 50%/50% distribution", SimulationStageNames$$$GuaranteedFiftyFifty, Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["uncurry"])(2, SimulationStages$$$stage1Game_withIdealFiftyFiftyDistribution)), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["StageStrategyFnOptions"]("NMSE strategy", SimulationStageNames$$$ProbabilisticNSME, Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["uncurry"])(2, SimulationStages$$$stage1Game)), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["StageStrategyFnOptions"]("Ideal NMSE distribution", SimulationStageNames$$$GuaranteedNSME, Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["uncurry"])(2, SimulationStages$$$stage1Game_withIdealNMSEDistribution)), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["StageStrategyFnOptions"]("Highest expected value (individual history)", SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory, Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["uncurry"])(2, SimulationStages$$$stage2Game_v5_withFullIndividualHistory))]);
+})())), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["StageStrategyFnOptions"]("Highest EV - External stats all play Hawk", SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory_AllHawk, Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_3__["uncurry"])(2, (() => {
+  const hawkPortion$$4 = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["fromParts"])(10, 0, 0, false, 1);
+  return function (_setup$$10) {
+    return SimulationStages$$$highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStats(hawkPortion$$4, _setup$$10);
+  };
+})())), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["StageStrategyFnOptions"]("Highest EV - External stats 50% play Hawk", SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory_50PercentHawk, Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_3__["uncurry"])(2, (() => {
+  const hawkPortion$$5 = Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_5__["fromParts"])(5, 0, 0, false, 1);
+  return function (_setup$$11) {
+    return SimulationStages$$$highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStats(hawkPortion$$5, _setup$$11);
+  };
+})())), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["StageStrategyFnOptions"]("Highest EV - External stats (V/C) play Hawk (50%/50% on tie)", SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory_NsmeHawk, Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_3__["uncurry"])(2, SimulationStages$$$highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStatsIsNMSE)), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["StageStrategyFnOptions"]("Highest EV - External stats (V/C) play Hawk (V/C on tie)", SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory_NsmeHawk_UseNashOnExpectedValueTieWhenNoHistory, Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_3__["uncurry"])(2, SimulationStages$$$highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStatsIsNMSE_UseNashOnExpectedValueTieWhenNoHistory)), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["StageStrategyFnOptions"]("NMSE strategy", SimulationStageNames$$$ProbabilisticNSME, Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_3__["uncurry"])(2, SimulationStages$$$stage1Game)), new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["StageStrategyFnOptions"]("Highest expected value (individual history)", SimulationStageNames$$$HighestExpectedValueOnBasedOfHistory, Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_3__["uncurry"])(2, SimulationStages$$$stage2Game_v5_withFullIndividualHistory))]);
 function SimulationStageOptions$$$getFn(name) {
   var list;
-  return Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_3__["curry"])(2, (list = SimulationStageOptions$$$AllOptions, (Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_4__["find"])(function predicate(o) {
+  return Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_3__["curry"])(2, (list = SimulationStageOptions$$$AllOptions, (Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__["find"])(function predicate(o) {
     return o.Name === name;
   }, list))).StrategyInitFn);
 }
@@ -47829,12 +47952,12 @@ function Model$002EGameSetup$$GameSetup$002EToInitialGameState(this$$$1) {
   let plannedRounds;
   let list$$2;
   const list$$1 = this$$$1.SimulationFrames;
-  list$$2 = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_4__["filter"])(function predicate$$1(f) {
+  list$$2 = Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__["filter"])(function predicate$$1(f) {
     return f.RoundCount > 0;
   }, list$$1);
-  plannedRounds = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_4__["collect"])(function mapping(frame) {
+  plannedRounds = Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__["collect"])(function mapping(frame) {
     const plannedRound = new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["PlannedRound"](frame.SetPayoffForStage(payoffMatrix), Model$002ESimulationFrame$$SimulationFrame$002Eget_StrategyInitFn(frame)(this$$$1.GameParameters), frame.StageName, frame.MayUseColor);
-    return Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_4__["replicate"])(frame.RoundCount, plannedRound);
+    return Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__["replicate"])(frame.RoundCount, plannedRound);
   }, list$$2);
   return new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameState"](payoffMatrix, plannedRounds, new _Model_fs__WEBPACK_IMPORTED_MODULE_1__["GameHistory"](0, "Rounds", []));
 }
@@ -47889,14 +48012,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Model$002EGameHistory$$GameHistory$002EStrategyStatsFor$$69D1B7BB", function() { return Model$002EGameHistory$$GameHistory$002EStrategyStatsFor$$69D1B7BB; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Model$002EGameHistory$$GameHistory$002EFirstRoundWithNConsecutiveRoundOfSeparatedColors$$Z524259A4", function() { return Model$002EGameHistory$$GameHistory$002EFirstRoundWithNConsecutiveRoundOfSeparatedColors$$Z524259A4; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Model$002EGameHistory$$GameHistory$002EDominatingColorAfterSeparation$$Z524259A4", function() { return Model$002EGameHistory$$GameHistory$002EDominatingColorAfterSeparation$$Z524259A4; });
-/* harmony import */ var _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/Types.js */ "./.fable/fable-library.2.4.15/Types.js");
-/* harmony import */ var _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/Reflection.js */ "./.fable/fable-library.2.4.15/Reflection.js");
-/* harmony import */ var _Model_fs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Model.fs */ "./src/Model.fs");
-/* harmony import */ var _fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/List.js */ "./.fable/fable-library.2.4.15/List.js");
-/* harmony import */ var _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/Util.js */ "./.fable/fable-library.2.4.15/Util.js");
-/* harmony import */ var _fable_fable_library_2_4_15_Map_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/Map.js */ "./.fable/fable-library.2.4.15/Map.js");
-/* harmony import */ var _fable_fable_library_2_4_15_Array_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/Array.js */ "./.fable/fable-library.2.4.15/Array.js");
-/* harmony import */ var _fable_fable_library_2_4_15_Option_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../.fable/fable-library.2.4.15/Option.js */ "./.fable/fable-library.2.4.15/Option.js");
+/* harmony import */ var _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/Types.js */ "./.fable/fable-library.2.13.0/Types.js");
+/* harmony import */ var _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/Reflection.js */ "./.fable/fable-library.2.13.0/Reflection.js");
+/* harmony import */ var _fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/Decimal.js */ "./.fable/fable-library.2.13.0/Decimal.js");
+/* harmony import */ var _Model_fs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Model.fs */ "./src/Model.fs");
+/* harmony import */ var _fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/List.js */ "./.fable/fable-library.2.13.0/List.js");
+/* harmony import */ var _fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/Util.js */ "./.fable/fable-library.2.13.0/Util.js");
+/* harmony import */ var _fable_fable_library_2_13_0_Map_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/Map.js */ "./.fable/fable-library.2.13.0/Map.js");
+/* harmony import */ var _fable_fable_library_2_13_0_Array_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/Array.js */ "./.fable/fable-library.2.13.0/Array.js");
+/* harmony import */ var _fable_fable_library_2_13_0_Option_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../.fable/fable-library.2.13.0/Option.js */ "./.fable/fable-library.2.13.0/Option.js");
 
 
 
@@ -47905,11 +48029,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const RoundStats$002EStrategyStats = Object(_fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Statistics_RoundStats_StrategyStats(tag, name, ...fields) {
-  _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"].call(this, tag, name, ...fields);
-}, _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
+
+
+const RoundStats$002EStrategyStats = Object(_fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["declare"])(function Statistics_RoundStats_StrategyStats(tag, name, ...fields) {
+  this.tag = tag | 0;
+  this.name = name;
+  this.fields = fields;
+}, _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["Union"]);
 function RoundStats$002EStrategyStats$reflection() {
-  return Object(_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union"])("Statistics.RoundStats.StrategyStats", [], RoundStats$002EStrategyStats, () => [["HakwDoveStats", [_fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"], _fable_fable_library_2_4_15_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32"]]]]);
+  return Object(_fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["union_type"])("Statistics.RoundStats.StrategyStats", [], RoundStats$002EStrategyStats, () => [["HakwDoveStats", [["hawkN", _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"]], ["doveN", _fable_fable_library_2_13_0_Reflection_js__WEBPACK_IMPORTED_MODULE_1__["int32_type"]]]]]);
 }
 function RoundStats$002EStrategyStats$$get_HawkN(this$) {
   const n = this$.fields[0] | 0;
@@ -47924,69 +48052,69 @@ function RoundStats$002EStrategyStats$$get_TotalN(this$$$2) {
 }
 function RoundStats$002EStrategyStats$$get_HawkPortion(this$$$3) {
   if (RoundStats$002EStrategyStats$$get_TotalN(this$$$3) === 0) {
-    return 0;
+    return Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_2__["fromParts"])(0, 0, 0, false, 1);
   } else {
-    return RoundStats$002EStrategyStats$$get_HawkN(this$$$3) / RoundStats$002EStrategyStats$$get_TotalN(this$$$3);
+    return Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_2__["op_Division"])(new _fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_2__["default"](RoundStats$002EStrategyStats$$get_HawkN(this$$$3)), new _fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_2__["default"](RoundStats$002EStrategyStats$$get_TotalN(this$$$3)));
   }
 }
 function RoundStats$002EStrategyStats$$get_DovePortion(this$$$4) {
   if (RoundStats$002EStrategyStats$$get_TotalN(this$$$4) === 0) {
-    return 0;
+    return Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_2__["fromParts"])(0, 0, 0, false, 1);
   } else {
-    return 1 - RoundStats$002EStrategyStats$$get_HawkPortion(this$$$4);
+    return Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_2__["op_Subtraction"])(Object(_fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_2__["fromParts"])(10, 0, 0, false, 1), RoundStats$002EStrategyStats$$get_HawkPortion(this$$$4));
   }
 }
 function RoundStats$$$calcRoundAggregates(round) {
-  const items = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameRound$$ToList"])(round);
+  const items = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_3__["GameRound$$ToList"])(round);
   let elements;
   let list$$2;
   let list$$1;
   const list = items;
-  list$$1 = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_3__["collect"])(function mapping(challenge) {
+  list$$1 = Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__["collect"])(function mapping(challenge) {
     const a2 = challenge.Players[1];
     const a1 = challenge.Players[0];
-    const challengeType = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["ResolvedChallenge$$get_ChalengeType"])(challenge);
-    return Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_3__["ofArray"])([[challengeType, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["Agent$$get_Strategy"])(a1), Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["Agent$$get_Color"])(a1)], [challengeType, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["Agent$$get_Strategy"])(a2), Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["Agent$$get_Color"])(a2)]]);
+    const challengeType = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_3__["ResolvedChallenge$$get_ChalengeType"])(challenge);
+    return Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__["ofArray"])([[challengeType, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_3__["Agent$$get_Strategy"])(a1), Object(_Model_fs__WEBPACK_IMPORTED_MODULE_3__["Agent$$get_Color"])(a1)], [challengeType, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_3__["Agent$$get_Strategy"])(a2), Object(_Model_fs__WEBPACK_IMPORTED_MODULE_3__["Agent$$get_Color"])(a2)]]);
   }, list);
-  list$$2 = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_3__["groupBy"])(function projection(x) {
+  list$$2 = Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__["groupBy"])(function projection(x) {
     return x;
   }, list$$1, {
-    Equals: _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["equalArrays"],
-    GetHashCode: _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["structuralHash"]
+    Equals: _fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_5__["equalArrays"],
+    GetHashCode: _fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_5__["structuralHash"]
   });
-  elements = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_3__["map"])(function mapping$$1(tupledArg) {
+  elements = Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__["map"])(function mapping$$1(tupledArg) {
     const key = tupledArg[0];
     const items$$1 = tupledArg[1];
-    return [key, Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_3__["length"])(items$$1)];
+    return [key, Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__["length"])(items$$1)];
   }, list$$2);
-  return Object(_fable_fable_library_2_4_15_Map_js__WEBPACK_IMPORTED_MODULE_5__["ofList"])(elements, {
-    Compare: _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["compareArrays"]
+  return Object(_fable_fable_library_2_13_0_Map_js__WEBPACK_IMPORTED_MODULE_6__["ofList"])(elements, {
+    Compare: _fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_5__["compareArrays"]
   });
 }
 function RoundStats$$$filterOnlyAgentOwnMoves(agent, round$$1) {
   let list$$4;
-  const list$$3 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameRound$$ToList"])(round$$1);
-  list$$4 = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_3__["filter"])(function predicate(challenge$$1) {
+  const list$$3 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_3__["GameRound$$ToList"])(round$$1);
+  list$$4 = Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__["filter"])(function predicate(challenge$$1) {
     const player2 = challenge$$1.Players[1];
     const player1 = challenge$$1.Players[0];
 
-    if (Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["Agent$$get_Id"])(agent) === Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["Agent$$get_Id"])(player1)) {
+    if (Object(_Model_fs__WEBPACK_IMPORTED_MODULE_3__["Agent$$get_Id"])(agent) === Object(_Model_fs__WEBPACK_IMPORTED_MODULE_3__["Agent$$get_Id"])(player1)) {
       return true;
     } else {
-      return Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["Agent$$get_Id"])(agent) === Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["Agent$$get_Id"])(player2);
+      return Object(_Model_fs__WEBPACK_IMPORTED_MODULE_3__["Agent$$get_Id"])(agent) === Object(_Model_fs__WEBPACK_IMPORTED_MODULE_3__["Agent$$get_Id"])(player2);
     }
   }, list$$3);
-  return Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_3__["head"])(list$$4);
+  return Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__["head"])(list$$4);
 }
 function RoundStats$$$selectTheOtherAgentStatsTuple(agent$$1, challenge$$2) {
   const a2$$1 = challenge$$2.Players[1];
   const a1$$1 = challenge$$2.Players[0];
-  const challengeType$$1 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["ResolvedChallenge$$get_ChalengeType"])(challenge$$2);
+  const challengeType$$1 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_3__["ResolvedChallenge$$get_ChalengeType"])(challenge$$2);
 
-  if (Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["Agent$$get_Id"])(a1$$1) === Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["Agent$$get_Id"])(agent$$1)) {
-    return [challengeType$$1, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["Agent$$get_Strategy"])(a2$$1), Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["Agent$$get_Color"])(a2$$1)];
+  if (Object(_Model_fs__WEBPACK_IMPORTED_MODULE_3__["Agent$$get_Id"])(a1$$1) === Object(_Model_fs__WEBPACK_IMPORTED_MODULE_3__["Agent$$get_Id"])(agent$$1)) {
+    return [challengeType$$1, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_3__["Agent$$get_Strategy"])(a2$$1), Object(_Model_fs__WEBPACK_IMPORTED_MODULE_3__["Agent$$get_Color"])(a2$$1)];
   } else {
-    return [challengeType$$1, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["Agent$$get_Strategy"])(a1$$1), Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["Agent$$get_Color"])(a1$$1)];
+    return [challengeType$$1, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_3__["Agent$$get_Strategy"])(a1$$1), Object(_Model_fs__WEBPACK_IMPORTED_MODULE_3__["Agent$$get_Color"])(a1$$1)];
   }
 }
 function RoundStats$$$calcRoundAggregatesForAgentsWithCacheRecursive(cache, roundIndex, agent$$2, history) {
@@ -47999,24 +48127,24 @@ function RoundStats$$$calcRoundAggregatesForAgentsWithCacheRecursive(cache, roun
     const round$$3 = $arg$$5;
     challenge$$3 = RoundStats$$$filterOnlyAgentOwnMoves(agent$$2, round$$3);
     key$$1 = RoundStats$$$selectTheOtherAgentStatsTuple(agent$$2, challenge$$3);
-    return Object(_fable_fable_library_2_4_15_Map_js__WEBPACK_IMPORTED_MODULE_5__["ofList"])(new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["List"]([key$$1, 1], new _fable_fable_library_2_4_15_Types_js__WEBPACK_IMPORTED_MODULE_0__["List"]()), {
-      Compare: _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["compareArrays"]
+    return Object(_fable_fable_library_2_13_0_Map_js__WEBPACK_IMPORTED_MODULE_6__["ofList"])(new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["List"]([key$$1, 1], new _fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_0__["List"]()), {
+      Compare: _fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_5__["compareArrays"]
     });
   };
 
-  const matchValue = [cache.has([roundIndex, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["Agent$$get_Id"])(agent$$2)]), roundIndex];
+  const matchValue = [cache.has([roundIndex, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_3__["Agent$$get_Id"])(agent$$2)]), roundIndex];
 
   if (matchValue[0]) {
-    return Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["getItemFromDict"])(cache, [roundIndex, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["Agent$$get_Id"])(agent$$2)]);
+    return Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_5__["getItemFromDict"])(cache, [roundIndex, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_3__["Agent$$get_Id"])(agent$$2)]);
   } else if (matchValue[1] === 0) {
-    const firstRound = calcForRound(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameHistory$$Unwrap"])(history)[roundIndex]);
-    Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["addToDict"])(cache, [roundIndex, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["Agent$$get_Id"])(agent$$2)], firstRound);
+    const firstRound = calcForRound(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_3__["GameHistory$$Unwrap"])(history)[roundIndex]);
+    Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_5__["addToDict"])(cache, [roundIndex, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_3__["Agent$$get_Id"])(agent$$2)], firstRound);
     return firstRound;
   } else {
     const round$$4 = matchValue[1] | 0;
     const previousRoundIndex = round$$4 - 1 | 0;
     const previousRound = RoundStats$$$calcRoundAggregatesForAgentsWithCacheRecursive(cache, previousRoundIndex, agent$$2, history);
-    const thisRound = calcForRound(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameHistory$$Unwrap"])(history)[roundIndex]);
+    const thisRound = calcForRound(Object(_Model_fs__WEBPACK_IMPORTED_MODULE_3__["GameHistory$$Unwrap"])(history)[roundIndex]);
 
     const selectKey = function selectKey(tupledArg$$1) {
       const key$$2 = tupledArg$$1[0];
@@ -48031,16 +48159,16 @@ function RoundStats$$$calcRoundAggregatesForAgentsWithCacheRecursive(cache, roun
     let currentRoundStats;
     let elements$$1;
     let list$$7;
-    const list$$5 = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_3__["concat"])([(table = previousRound, (Object(_fable_fable_library_2_4_15_Map_js__WEBPACK_IMPORTED_MODULE_5__["toList"])(table))), (table$$1 = thisRound, (Object(_fable_fable_library_2_4_15_Map_js__WEBPACK_IMPORTED_MODULE_5__["toList"])(table$$1)))]);
-    list$$7 = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_3__["groupBy"])(selectKey, list$$5, {
-      Equals: _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["equalArrays"],
-      GetHashCode: _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["structuralHash"]
+    const list$$5 = Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__["concat"])([(table = previousRound, (Object(_fable_fable_library_2_13_0_Map_js__WEBPACK_IMPORTED_MODULE_6__["toList"])(table))), (table$$1 = thisRound, (Object(_fable_fable_library_2_13_0_Map_js__WEBPACK_IMPORTED_MODULE_6__["toList"])(table$$1)))]);
+    list$$7 = Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__["groupBy"])(selectKey, list$$5, {
+      Equals: _fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_5__["equalArrays"],
+      GetHashCode: _fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_5__["structuralHash"]
     });
-    elements$$1 = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_3__["map"])(function mapping$$2(tupledArg$$3) {
+    elements$$1 = Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__["map"])(function mapping$$2(tupledArg$$3) {
       var list$$6;
       const key$$3 = tupledArg$$3[0];
       const items$$2 = tupledArg$$3[1];
-      return [key$$3, (list$$6 = items$$2, (Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_3__["sumBy"])(selectValue, list$$6, {
+      return [key$$3, (list$$6 = items$$2, (Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__["sumBy"])(selectValue, list$$6, {
         GetZero() {
           return 0;
         },
@@ -48051,41 +48179,41 @@ function RoundStats$$$calcRoundAggregatesForAgentsWithCacheRecursive(cache, roun
 
       })))];
     }, list$$7);
-    currentRoundStats = Object(_fable_fable_library_2_4_15_Map_js__WEBPACK_IMPORTED_MODULE_5__["ofList"])(elements$$1, {
-      Compare: _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["compareArrays"]
+    currentRoundStats = Object(_fable_fable_library_2_13_0_Map_js__WEBPACK_IMPORTED_MODULE_6__["ofList"])(elements$$1, {
+      Compare: _fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_5__["compareArrays"]
     });
-    Object(_fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["addToDict"])(cache, [roundIndex, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["Agent$$get_Id"])(agent$$2)], currentRoundStats);
+    Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_5__["addToDict"])(cache, [roundIndex, Object(_Model_fs__WEBPACK_IMPORTED_MODULE_3__["Agent$$get_Id"])(agent$$2)], currentRoundStats);
     return currentRoundStats;
   }
 }
 function RoundStats$$$calcRoundAggregatesForAgentsWithCache(cache$$1, agent$$3, history$$1) {
-  const lastRountIndex = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameHistory$$get_TotalRounds"])(history$$1) - 1 | 0;
+  const lastRountIndex = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_3__["GameHistory$$get_TotalRounds"])(history$$1) - 1 | 0;
   return RoundStats$$$calcRoundAggregatesForAgentsWithCacheRecursive(cache$$1, lastRountIndex, agent$$3, history$$1);
 }
 function RoundStats$$$calcRoundAggregatesForAgents(agent$$4, history$$2) {
   let elements$$2;
   let array$$2;
   let array$$1;
-  const array = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameHistory$$Unwrap"])(history$$2);
-  array$$1 = Object(_fable_fable_library_2_4_15_Array_js__WEBPACK_IMPORTED_MODULE_6__["map"])(function mapping$$3($arg$$14) {
+  const array = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_3__["GameHistory$$Unwrap"])(history$$2);
+  array$$1 = Object(_fable_fable_library_2_13_0_Array_js__WEBPACK_IMPORTED_MODULE_7__["map"])(function mapping$$3($arg$$14) {
     let challenge$$4;
     const round$$5 = $arg$$14;
     challenge$$4 = RoundStats$$$filterOnlyAgentOwnMoves(agent$$4, round$$5);
     return RoundStats$$$selectTheOtherAgentStatsTuple(agent$$4, challenge$$4);
   }, array, Array);
-  array$$2 = Object(_fable_fable_library_2_4_15_Array_js__WEBPACK_IMPORTED_MODULE_6__["groupBy"])(function projection$$3(x$$1) {
+  array$$2 = Object(_fable_fable_library_2_13_0_Array_js__WEBPACK_IMPORTED_MODULE_7__["groupBy"])(function projection$$3(x$$1) {
     return x$$1;
   }, array$$1, Array, {
-    Equals: _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["equalArrays"],
-    GetHashCode: _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["structuralHash"]
+    Equals: _fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_5__["equalArrays"],
+    GetHashCode: _fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_5__["structuralHash"]
   });
-  elements$$2 = Object(_fable_fable_library_2_4_15_Array_js__WEBPACK_IMPORTED_MODULE_6__["map"])(function mapping$$4(tupledArg$$4) {
+  elements$$2 = Object(_fable_fable_library_2_13_0_Array_js__WEBPACK_IMPORTED_MODULE_7__["map"])(function mapping$$4(tupledArg$$4) {
     const key$$4 = tupledArg$$4[0];
     const items$$3 = tupledArg$$4[1];
     return [key$$4, items$$3.length];
   }, array$$2, Array);
-  return Object(_fable_fable_library_2_4_15_Map_js__WEBPACK_IMPORTED_MODULE_5__["ofArray"])(elements$$2, {
-    Compare: _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["compareArrays"]
+  return Object(_fable_fable_library_2_13_0_Map_js__WEBPACK_IMPORTED_MODULE_6__["ofArray"])(elements$$2, {
+    Compare: _fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_5__["compareArrays"]
   });
 }
 function RoundStats$$$aggregateBy(keyFn, aggs) {
@@ -48094,24 +48222,24 @@ function RoundStats$$$aggregateBy(keyFn, aggs) {
   let list$$9;
   let list$$8;
   const table$$2 = aggs;
-  list$$8 = Object(_fable_fable_library_2_4_15_Map_js__WEBPACK_IMPORTED_MODULE_5__["toList"])(table$$2);
-  list$$9 = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_3__["map"])(function mapping$$5(tupledArg$$5) {
+  list$$8 = Object(_fable_fable_library_2_13_0_Map_js__WEBPACK_IMPORTED_MODULE_6__["toList"])(table$$2);
+  list$$9 = Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__["map"])(function mapping$$5(tupledArg$$5) {
     const key$$5 = tupledArg$$5[0];
     const total = tupledArg$$5[1] | 0;
     return [keyFn(key$$5), total];
   }, list$$8);
-  list$$11 = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_3__["groupBy"])(function projection$$4(tupledArg$$6) {
+  list$$11 = Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__["groupBy"])(function projection$$4(tupledArg$$6) {
     const key$$6 = tupledArg$$6[0];
     return key$$6;
   }, list$$9, {
-    Equals: _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["equals"],
-    GetHashCode: _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["structuralHash"]
+    Equals: _fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_5__["equals"],
+    GetHashCode: _fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_5__["structuralHash"]
   });
-  elements$$3 = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_3__["map"])(function mapping$$6(tupledArg$$7) {
+  elements$$3 = Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__["map"])(function mapping$$6(tupledArg$$7) {
     var list$$10;
     const key$$7 = tupledArg$$7[0];
     const subAggs = tupledArg$$7[1];
-    return [key$$7, (list$$10 = subAggs, (Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_3__["sumBy"])(function projection$$5(tupledArg$$8) {
+    return [key$$7, (list$$10 = subAggs, (Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__["sumBy"])(function projection$$5(tupledArg$$8) {
       const value$$1 = tupledArg$$8[1] | 0;
       return value$$1 | 0;
     }, list$$10, {
@@ -48125,23 +48253,23 @@ function RoundStats$$$aggregateBy(keyFn, aggs) {
 
     })))];
   }, list$$11);
-  return Object(_fable_fable_library_2_4_15_Map_js__WEBPACK_IMPORTED_MODULE_5__["ofList"])(elements$$3, {
-    Compare: _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["compare"]
+  return Object(_fable_fable_library_2_13_0_Map_js__WEBPACK_IMPORTED_MODULE_6__["ofList"])(elements$$3, {
+    Compare: _fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_5__["compare"]
   });
 }
 function RoundStats$$$valueOrZero(map, key$$8) {
-  const matchValue$$1 = Object(_fable_fable_library_2_4_15_Map_js__WEBPACK_IMPORTED_MODULE_5__["FSharpMap$$TryFind$$2B595"])(map, key$$8);
+  const matchValue$$1 = Object(_fable_fable_library_2_13_0_Map_js__WEBPACK_IMPORTED_MODULE_6__["FSharpMap$$TryFind$$2B595"])(map, key$$8);
 
   if (matchValue$$1 != null) {
-    const v = Object(_fable_fable_library_2_4_15_Option_js__WEBPACK_IMPORTED_MODULE_7__["value"])(matchValue$$1);
+    const v = Object(_fable_fable_library_2_13_0_Option_js__WEBPACK_IMPORTED_MODULE_8__["value"])(matchValue$$1);
     return v;
   } else {
     return null;
   }
 }
 function RoundStats$$$strategyStatsForChallengeTypeAndColor(roundAggs, challengeType$$2, color) {
-  const hawkN = RoundStats$$$valueOrZero(roundAggs, [challengeType$$2, new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["Strategy"](1, "Hawk"), color]) | 0;
-  const doveN = RoundStats$$$valueOrZero(roundAggs, [challengeType$$2, new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["Strategy"](0, "Dove"), color]) | 0;
+  const hawkN = RoundStats$$$valueOrZero(roundAggs, [challengeType$$2, new _Model_fs__WEBPACK_IMPORTED_MODULE_3__["Strategy"](1, "Hawk"), color]) | 0;
+  const doveN = RoundStats$$$valueOrZero(roundAggs, [challengeType$$2, new _Model_fs__WEBPACK_IMPORTED_MODULE_3__["Strategy"](0, "Dove"), color]) | 0;
   return new RoundStats$002EStrategyStats(0, "HakwDoveStats", hawkN, doveN);
 }
 function RoundStats$$$strategyStatsForChallengeType(roundAggs$$1, challengeType$$3) {
@@ -48150,8 +48278,8 @@ function RoundStats$$$strategyStatsForChallengeType(roundAggs$$1, challengeType$
     const strategy = tupledArg$$9[1];
     return [challenge$$5, strategy];
   }, roundAggs$$1);
-  const hawkN$$1 = RoundStats$$$valueOrZero(subAgg, [challengeType$$3, new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["Strategy"](1, "Hawk")]) | 0;
-  const doveN$$1 = RoundStats$$$valueOrZero(subAgg, [challengeType$$3, new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["Strategy"](0, "Dove")]) | 0;
+  const hawkN$$1 = RoundStats$$$valueOrZero(subAgg, [challengeType$$3, new _Model_fs__WEBPACK_IMPORTED_MODULE_3__["Strategy"](1, "Hawk")]) | 0;
+  const doveN$$1 = RoundStats$$$valueOrZero(subAgg, [challengeType$$3, new _Model_fs__WEBPACK_IMPORTED_MODULE_3__["Strategy"](0, "Dove")]) | 0;
   return new RoundStats$002EStrategyStats(0, "HakwDoveStats", hawkN$$1, doveN$$1);
 }
 function RoundStats$$$strategyStatsForColor(roundAggs$$2, color$$1) {
@@ -48160,8 +48288,8 @@ function RoundStats$$$strategyStatsForColor(roundAggs$$2, color$$1) {
     const color$$2 = tupledArg$$10[2];
     return [strategy$$1, color$$2];
   }, roundAggs$$2);
-  const hawkN$$2 = RoundStats$$$valueOrZero(subAgg$$1, [new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["Strategy"](1, "Hawk"), color$$1]) | 0;
-  const doveN$$2 = RoundStats$$$valueOrZero(subAgg$$1, [new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["Strategy"](0, "Dove"), color$$1]) | 0;
+  const hawkN$$2 = RoundStats$$$valueOrZero(subAgg$$1, [new _Model_fs__WEBPACK_IMPORTED_MODULE_3__["Strategy"](1, "Hawk"), color$$1]) | 0;
+  const doveN$$2 = RoundStats$$$valueOrZero(subAgg$$1, [new _Model_fs__WEBPACK_IMPORTED_MODULE_3__["Strategy"](0, "Dove"), color$$1]) | 0;
   return new RoundStats$002EStrategyStats(0, "HakwDoveStats", hawkN$$2, doveN$$2);
 }
 function RoundStats$$$strategyStats(roundAggs$$3) {
@@ -48169,8 +48297,8 @@ function RoundStats$$$strategyStats(roundAggs$$3) {
     const strategy$$2 = tupledArg$$11[1];
     return strategy$$2;
   }, roundAggs$$3);
-  const hawkN$$3 = RoundStats$$$valueOrZero(subAgg$$2, new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["Strategy"](1, "Hawk")) | 0;
-  const doveN$$3 = RoundStats$$$valueOrZero(subAgg$$2, new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["Strategy"](0, "Dove")) | 0;
+  const hawkN$$3 = RoundStats$$$valueOrZero(subAgg$$2, new _Model_fs__WEBPACK_IMPORTED_MODULE_3__["Strategy"](1, "Hawk")) | 0;
+  const doveN$$3 = RoundStats$$$valueOrZero(subAgg$$2, new _Model_fs__WEBPACK_IMPORTED_MODULE_3__["Strategy"](0, "Dove")) | 0;
   return new RoundStats$002EStrategyStats(0, "HakwDoveStats", hawkN$$3, doveN$$3);
 }
 function Model$002EHistoryStatisticsView$$HistoryStatisticsView$002EAggregates$$2DC09C3D(this$$$5, agent$$5) {
@@ -48205,9 +48333,9 @@ function Model$002EGameRound$$GameRound$002EStrategyStatsFor$$4A800086(this$$$14
 }
 function Model$002EGameRound$$GameRound$002Eget_FullyDominatingColor(this$$$15) {
   var all$$2, all;
-  const red = Model$002EGameRound$$GameRound$002EStrategyStatsFor$$4A800086(this$$$15, new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["ChallengeType"](0, "DifferentColor"), new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["Color"](1, "Red"));
-  const blue = Model$002EGameRound$$GameRound$002EStrategyStatsFor$$4A800086(this$$$15, new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["ChallengeType"](0, "DifferentColor"), new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["Color"](0, "Blue"));
-  const both = Model$002EGameRound$$GameRound$002EStrategyStatsFor$$412F88BF(this$$$15, new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["ChallengeType"](0, "DifferentColor"));
+  const red = Model$002EGameRound$$GameRound$002EStrategyStatsFor$$4A800086(this$$$15, new _Model_fs__WEBPACK_IMPORTED_MODULE_3__["ChallengeType"](0, "DifferentColor"), new _Model_fs__WEBPACK_IMPORTED_MODULE_3__["Color"](1, "Red"));
+  const blue = Model$002EGameRound$$GameRound$002EStrategyStatsFor$$4A800086(this$$$15, new _Model_fs__WEBPACK_IMPORTED_MODULE_3__["ChallengeType"](0, "DifferentColor"), new _Model_fs__WEBPACK_IMPORTED_MODULE_3__["Color"](0, "Blue"));
+  const both = Model$002EGameRound$$GameRound$002EStrategyStatsFor$$412F88BF(this$$$15, new _Model_fs__WEBPACK_IMPORTED_MODULE_3__["ChallengeType"](0, "DifferentColor"));
   const matchValue$$2 = [RoundStats$002EStrategyStats$$get_HawkN(red), RoundStats$002EStrategyStats$$get_HawkN(blue), RoundStats$002EStrategyStats$$get_HawkN(both)];
   var $target$$107;
 
@@ -48225,7 +48353,7 @@ function Model$002EGameRound$$GameRound$002Eget_FullyDominatingColor(this$$$15) 
     case 0:
       {
         const all$$1 = matchValue$$2[2] | 0;
-        return new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["Color"](0, "Blue");
+        return new _Model_fs__WEBPACK_IMPORTED_MODULE_3__["Color"](0, "Blue");
       }
 
     case 1:
@@ -48246,12 +48374,12 @@ function Model$002EGameRound$$GameRound$002Eget_FullyDominatingColor(this$$$15) 
           case 0:
             {
               const all$$3 = matchValue$$2[2] | 0;
-              return new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["Color"](1, "Red");
+              return new _Model_fs__WEBPACK_IMPORTED_MODULE_3__["Color"](1, "Red");
             }
 
           case 1:
             {
-              return null;
+              return undefined;
             }
         }
       }
@@ -48264,59 +48392,47 @@ function Model$002EGameRound$$GameRound$002Eget_PayoffAccumulativeAvgForRedAndBl
   let breakdown;
   let elements$$4;
   let list$$14;
-  const list$$12 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameRound$$get_Agents"])(this$$$17);
-  list$$14 = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_3__["groupBy"])(function projection$$6(agent$$10) {
-    return Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["Agent$$get_Color"])(agent$$10);
+  const list$$12 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_3__["GameRound$$get_Agents"])(this$$$17);
+  list$$14 = Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__["groupBy"])(function projection$$6(agent$$10) {
+    return Object(_Model_fs__WEBPACK_IMPORTED_MODULE_3__["Agent$$get_Color"])(agent$$10);
   }, list$$12, {
-    Equals: _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["equals"],
-    GetHashCode: _fable_fable_library_2_4_15_Util_js__WEBPACK_IMPORTED_MODULE_4__["structuralHash"]
+    Equals: _fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_5__["equals"],
+    GetHashCode: _fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_5__["structuralHash"]
   });
-  elements$$4 = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_3__["map"])(function mapping$$7(tupledArg$$12) {
+  elements$$4 = Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__["map"])(function mapping$$7(tupledArg$$12) {
     var list$$13;
     const color$$7 = tupledArg$$12[0];
     const agents = tupledArg$$12[1];
-    return [color$$7, (list$$13 = agents, (Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_3__["averageBy"])(function projection$$7(a) {
-      return Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["Agent$$get_Payoff"])(a);
+    return [color$$7, (list$$13 = agents, (Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__["averageBy"])(function projection$$7(a) {
+      return Object(_Model_fs__WEBPACK_IMPORTED_MODULE_3__["Agent$$get_Payoff"])(a);
     }, list$$13, {
       GetZero() {
-        return 0;
+        return new _fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_2__["default"](0);
       },
 
-      Add($x$$29, $y$$30) {
-        return $x$$29 + $y$$30;
-      },
-
-      DivideByInt($x$$27, $i$$28) {
-        return $x$$27 / $i$$28;
-      }
-
+      Add: _fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_2__["op_Addition"],
+      DivideByInt: _fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_2__["op_Division"]
     })))];
   }, list$$14);
-  breakdown = Object(_fable_fable_library_2_4_15_Map_js__WEBPACK_IMPORTED_MODULE_5__["ofList"])(elements$$4, {
+  breakdown = Object(_fable_fable_library_2_13_0_Map_js__WEBPACK_IMPORTED_MODULE_6__["ofList"])(elements$$4, {
     Compare($x$$31, $y$$32) {
       return $x$$31.CompareTo($y$$32);
     }
 
   });
   let avgAll;
-  const list$$15 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameRound$$get_Agents"])(this$$$17);
-  avgAll = Object(_fable_fable_library_2_4_15_List_js__WEBPACK_IMPORTED_MODULE_3__["averageBy"])(function projection$$8(a$$1) {
-    return Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["Agent$$get_Payoff"])(a$$1);
+  const list$$15 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_3__["GameRound$$get_Agents"])(this$$$17);
+  avgAll = Object(_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_4__["averageBy"])(function projection$$8(a$$1) {
+    return Object(_Model_fs__WEBPACK_IMPORTED_MODULE_3__["Agent$$get_Payoff"])(a$$1);
   }, list$$15, {
     GetZero() {
-      return 0;
+      return new _fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_2__["default"](0);
     },
 
-    Add($x$$35, $y$$36) {
-      return $x$$35 + $y$$36;
-    },
-
-    DivideByInt($x$$33, $i$$34) {
-      return $x$$33 / $i$$34;
-    }
-
+    Add: _fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_2__["op_Addition"],
+    DivideByInt: _fable_fable_library_2_13_0_Decimal_js__WEBPACK_IMPORTED_MODULE_2__["op_Division"]
   });
-  return [RoundStats$$$valueOrZero(breakdown, new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["Color"](1, "Red")), RoundStats$$$valueOrZero(breakdown, new _Model_fs__WEBPACK_IMPORTED_MODULE_2__["Color"](0, "Blue")), avgAll];
+  return [RoundStats$$$valueOrZero(breakdown, new _Model_fs__WEBPACK_IMPORTED_MODULE_3__["Color"](1, "Red")), RoundStats$$$valueOrZero(breakdown, new _Model_fs__WEBPACK_IMPORTED_MODULE_3__["Color"](0, "Blue")), avgAll];
 }
 function Model$002EGameHistory$$GameHistory$002EAggregates$$2DC09C3D(this$$$18, agent$$11) {
   return RoundStats$$$calcRoundAggregatesForAgents(agent$$11, this$$$18);
@@ -48339,11 +48455,11 @@ function Model$002EGameHistory$$GameHistory$002EFirstRoundWithNConsecutiveRoundO
   let array$$8;
   let array$$6;
   let array$$4;
-  const array$$3 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameHistory$$Unwrap"])(this$$$23);
-  array$$4 = Object(_fable_fable_library_2_4_15_Array_js__WEBPACK_IMPORTED_MODULE_6__["mapIndexed"])(function mapping$$8(index, round$$6) {
+  const array$$3 = Object(_Model_fs__WEBPACK_IMPORTED_MODULE_3__["GameHistory$$Unwrap"])(this$$$23);
+  array$$4 = Object(_fable_fable_library_2_13_0_Array_js__WEBPACK_IMPORTED_MODULE_7__["mapIndexed"])(function mapping$$8(index, round$$6) {
     return [index + 1, round$$6];
   }, array$$3, Array);
-  array$$6 = Object(_fable_fable_library_2_4_15_Array_js__WEBPACK_IMPORTED_MODULE_6__["windowed"])(requiredRoundCount, array$$4);
+  array$$6 = Object(_fable_fable_library_2_13_0_Array_js__WEBPACK_IMPORTED_MODULE_7__["windowed"])(requiredRoundCount, array$$4);
   array$$8 = array$$6.filter(function predicate$$2(window$) {
     const array$$5 = window$;
     return array$$5.every(function predicate$$1(tupledArg$$13) {
@@ -48351,23 +48467,23 @@ function Model$002EGameHistory$$GameHistory$002EFirstRoundWithNConsecutiveRoundO
       return Model$002EGameRound$$GameRound$002Eget_InDifferentColorEncountersColorsHaveSeparated(round$$7);
     });
   });
-  array$$9 = Object(_fable_fable_library_2_4_15_Array_js__WEBPACK_IMPORTED_MODULE_6__["map"])(function mapping$$9(window$$$1) {
+  array$$9 = Object(_fable_fable_library_2_13_0_Array_js__WEBPACK_IMPORTED_MODULE_7__["map"])(function mapping$$9(window$$$1) {
     const array$$7 = window$$$1;
-    return Object(_fable_fable_library_2_4_15_Array_js__WEBPACK_IMPORTED_MODULE_6__["last"])(array$$7);
+    return Object(_fable_fable_library_2_13_0_Array_js__WEBPACK_IMPORTED_MODULE_7__["last"])(array$$7);
   }, array$$8, Array);
-  array$$10 = Object(_fable_fable_library_2_4_15_Array_js__WEBPACK_IMPORTED_MODULE_6__["map"])(function mapping$$10(tupledArg$$14) {
+  array$$10 = Object(_fable_fable_library_2_13_0_Array_js__WEBPACK_IMPORTED_MODULE_7__["map"])(function mapping$$10(tupledArg$$14) {
     const roundNumber = tupledArg$$14[0] | 0;
     return roundNumber | 0;
   }, array$$9, Int32Array);
-  return Object(_fable_fable_library_2_4_15_Array_js__WEBPACK_IMPORTED_MODULE_6__["tryHead"])(array$$10);
+  return Object(_fable_fable_library_2_13_0_Array_js__WEBPACK_IMPORTED_MODULE_7__["tryHead"])(array$$10);
 }
 function Model$002EGameHistory$$GameHistory$002EDominatingColorAfterSeparation$$Z524259A4(this$$$24, requiredConsecutiveSeparatedRounds) {
   let option$$1;
   const option = Model$002EGameHistory$$GameHistory$002EFirstRoundWithNConsecutiveRoundOfSeparatedColors$$Z524259A4(this$$$24, requiredConsecutiveSeparatedRounds);
-  option$$1 = Object(_fable_fable_library_2_4_15_Option_js__WEBPACK_IMPORTED_MODULE_7__["map"])(function mapping$$11(arg00) {
-    return Object(_Model_fs__WEBPACK_IMPORTED_MODULE_2__["GameHistory$$GetRoundByRoundNumber$$Z524259A4"])(this$$$24, arg00);
+  option$$1 = Object(_fable_fable_library_2_13_0_Option_js__WEBPACK_IMPORTED_MODULE_8__["map"])(function mapping$$11(arg00) {
+    return Object(_Model_fs__WEBPACK_IMPORTED_MODULE_3__["GameHistory$$GetRoundByRoundNumber$$Z524259A4"])(this$$$24, arg00);
   }, option);
-  return Object(_fable_fable_library_2_4_15_Option_js__WEBPACK_IMPORTED_MODULE_7__["bind"])(function binder(round$$8) {
+  return Object(_fable_fable_library_2_13_0_Option_js__WEBPACK_IMPORTED_MODULE_8__["bind"])(function binder(round$$8) {
     return Model$002EGameRound$$GameRound$002Eget_FullyDominatingColor(round$$8);
   }, option$$1);
 }
