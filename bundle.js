@@ -46461,7 +46461,7 @@ function Fields$$$dropdownField(dispatch$$3, props$$72) {
 function Authors$$$render() {
   var props$$79, children$$77, props$$81, children$$79;
   const props$$83 = [new _fable_Fable_React_6_0_0_Fable_React_Props_fs__WEBPACK_IMPORTED_MODULE_4__["HTMLAttr"](64, "ClassName", "column authors")];
-  const children$$81 = [(props$$79 = [], (children$$77 = ["Amadae Hawk-Dove Binary Model 1.0 by S.M. Amadae"], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("p", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$79, 1), ...children$$77))), (props$$81 = [], (children$$79 = ["Programmed by Ari-Pekka Lappi (Flowa Oy)"], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("p", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$81, 1), ...children$$79)))];
+  const children$$81 = [(props$$79 = [], (children$$77 = ["Amadae Hawk-Dove Binary Model 2.0 by S.M. Amadae"], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("p", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$79, 1), ...children$$77))), (props$$81 = [], (children$$79 = ["Programmed by Ari-Pekka Lappi (Flowa Oy)"], react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("p", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$81, 1), ...children$$79)))];
   return react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", Object(_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_0__["createObj"])(props$$83, 1), ...children$$81);
 }
 function SettingsForm$$$view(model$$4, dispatch$$4) {
