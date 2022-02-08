@@ -301,7 +301,7 @@ module Fields =
 module Authors = 
     let render () =
         div [ ClassName "column authors" ] [
-            p [] [(str "Amadae Hawk-Dove Binary Model 1.0 by S.M. Amadae")]
+            p [] [(str "Amadae Hawk-Dove Binary Model 2.0 by S.M. Amadae")]
             p [] [(str "Programmed by Ari-Pekka Lappi (Flowa Oy)")]
         ]
 
