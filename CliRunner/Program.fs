@@ -54,6 +54,7 @@ let generateGameSetup (simulationSetup: SimulationSingleRunSetup)  =
         {
             SimulationFrame.RoundCount = roundCount
             StageName = stageName // "Simulation - Stage 2"
+            ModeLabel = "Mode"
             StrategyInitFnName = strategyMode
             MayUseColor = true
             SetPayoffForStage = id

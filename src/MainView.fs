@@ -313,17 +313,19 @@ module SettingsForm =
         let dropdownField = Fields.dropdownField dispatch
         let renderStageRoundCountFields (isDisabled: bool) =
             model.Setup.SimulationFrames
-            |> List.map<SimulationFrame, ReactElement>
-                (fun f ->
+            |> List.mapi<SimulationFrame, ReactElement>
+                (fun i f ->
                     div []
                         [
                             h3 [] [str f.StageName]
                             dropdownField
                                 {
                                    Disabled = isDisabled
-                                   Label = "Mode"
+                                   Label = f.ModeLabel
                                    SelectedValue = f.StrategyInitFnName
-                                   Options = SimulationStageOptions.AllOptions |> List.map (fun o -> (o.Name, o.DisplayName))
+                                   Options = SimulationStageOptions.AllOptions
+                                            |> List.filter (fun o -> o.OnlyInStage = i + 1)
+                                            |> List.map (fun o -> (o.Name, o.DisplayName))
                                    OnChange = (fun value -> (ModeOfStage (f.StageName, value)))
                                 }
                             numberField

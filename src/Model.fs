@@ -324,6 +324,7 @@ type SimulationFrame =
     {
         RoundCount: int
         StageName: string
+        ModeLabel: string
         StrategyInitFnName: string // GameParameters -> StrategyFn
         SetPayoffForStage: PayoffMatrixType -> PayoffMatrixType
         MayUseColor: bool
@@ -333,6 +334,7 @@ type StageStrategyFnOptions =
     {
         DisplayName: string
         Name: string
+        OnlyInStage: int
         StrategyInitFn: GameParameters -> StrategyFn
     }
 type UISetupState = {

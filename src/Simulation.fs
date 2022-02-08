@@ -421,42 +421,42 @@ module SimulationStageOptions =
     let AllOptions =
         [
             {
+                StageStrategyFnOptions.Name = SimulationStageNames.ProbabilisticNSME
+                DisplayName = "Play Mixed Strategy Nash Equilibrium"
+                OnlyInStage = 1
+                StrategyInitFn = SimulationStages.stage1Game
+            }
+            {
+                StageStrategyFnOptions.Name = SimulationStageNames.HighestExpectedValueOnBasedOfHistory_NsmeHawk_UseNashOnExpectedValueTieWhenNoHistory
+                OnlyInStage = 2
+                DisplayName = "Play Hawk with p = V/C, Dove otherwise"
+                StrategyInitFn = SimulationStages.highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStatsIsNMSE_UseNashOnExpectedValueTieWhenNoHistory
+            }
+            {
                 StageStrategyFnOptions.Name = SimulationStageNames.HighestExpectedValueOnBasedOfHistory_AllDove
-                DisplayName = "Highest EV - External stats all play Dove"
+                DisplayName = "Expect Dove"
+                OnlyInStage = 2
                 StrategyInitFn = SimulationStages.highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStats 0.0m
             }
             {
                 StageStrategyFnOptions.Name = SimulationStageNames.HighestExpectedValueOnBasedOfHistory_AllHawk
-                DisplayName = "Highest EV - External stats all play Hawk"
+                DisplayName = "Expect Hawk"
+                OnlyInStage = 2
                 StrategyInitFn = SimulationStages.highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStats 1.0m
             }
             {
                 StageStrategyFnOptions.Name = SimulationStageNames.HighestExpectedValueOnBasedOfHistory_50PercentHawk
-                DisplayName = "Highest EV - External stats 50% play Hawk"
+                DisplayName = "Play Hawk with p = 0.5, Dove otherwise"
+                OnlyInStage = 2
                 StrategyInitFn = SimulationStages.highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStats 0.5m
             }
+            // Moved
+//            {
+//                StageStrategyFnOptions.Name = SimulationStageNames.HighestExpectedValueOnBasedOfHistory_NsmeHawk
+//                DisplayName = "Expect Hawk with p = V/C"
+//                StrategyInitFn = SimulationStages.highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStatsIsNMSE
+//            }
 
-            {
-                StageStrategyFnOptions.Name = SimulationStageNames.HighestExpectedValueOnBasedOfHistory_NsmeHawk
-                DisplayName = "Highest EV - External stats (V/C) play Hawk (50%/50% on tie)"
-                StrategyInitFn = SimulationStages.highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStatsIsNMSE
-            }
-
-            {
-                StageStrategyFnOptions.Name = SimulationStageNames.HighestExpectedValueOnBasedOfHistory_NsmeHawk_UseNashOnExpectedValueTieWhenNoHistory
-                DisplayName = "Highest EV - External stats (V/C) play Hawk (V/C on tie)"
-                StrategyInitFn = SimulationStages.highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStatsIsNMSE_UseNashOnExpectedValueTieWhenNoHistory
-            }
-            {
-                StageStrategyFnOptions.Name = SimulationStageNames.ProbabilisticNSME
-                DisplayName = "NMSE strategy"
-                StrategyInitFn = SimulationStages.stage1Game
-            }
-            {
-                StageStrategyFnOptions.Name = SimulationStageNames.HighestExpectedValueOnBasedOfHistory
-                DisplayName = "Highest expected value (individual history)"
-                StrategyInitFn = SimulationStages.stage2Game_v5_withFullIndividualHistory
-            }
         ]
 
     let getFn (name: string) =

@@ -29,17 +29,19 @@ let init () =
             }
             SimulationFrames = [
                 {
-                    SimulationFrame.RoundCount = 20
+                    SimulationFrame.RoundCount = 0
                     SetPayoffForStage = id
                     StageName = "Stage 1"
+                    ModeLabel = "Mode: Color-blind play"
                     StrategyInitFnName = SimulationStageNames.ProbabilisticNSME
-                    MayUseColor = true
+                    MayUseColor = false
                 }
                 {
                      SimulationFrame.RoundCount = 100
                      SetPayoffForStage = id
                      StageName = "Stage 2"
-                     StrategyInitFnName = SimulationStageNames.HighestExpectedValueOnBasedOfHistory
+                     ModeLabel = "Mode: Play cued by interactant’s color"
+                     StrategyInitFnName = SimulationStageNames.HighestExpectedValueOnBasedOfHistory_NsmeHawk_UseNashOnExpectedValueTieWhenNoHistory
                      MayUseColor = true
                 }
             ]
