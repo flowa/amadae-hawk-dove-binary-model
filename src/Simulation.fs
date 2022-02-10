@@ -429,7 +429,7 @@ module SimulationStageOptions =
             {
                 StageStrategyFnOptions.Name = SimulationStageNames.HighestExpectedValueOnBasedOfHistory_NsmeHawk_UseNashOnExpectedValueTieWhenNoHistory
                 OnlyInStage = 2
-                DisplayName = "Play Hawk with p = V/C, Dove otherwise"
+                DisplayName = "Play Mixed Strategy Nash Equilibrium"
                 StrategyInitFn = SimulationStages.highestEvOnDifferentColorGameForIndividualAgent_WithExternalStatistics_FixedStatsIsNMSE_UseNashOnExpectedValueTieWhenNoHistory
             }
             {

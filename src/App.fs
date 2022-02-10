@@ -40,7 +40,7 @@ let init () =
                      SimulationFrame.RoundCount = 100
                      SetPayoffForStage = id
                      StageName = "Stage 2"
-                     ModeLabel = "Mode: Play cued by interactant’s color"
+                     ModeLabel = "Mode: Color-reactive play w/1st decision rule"
                      StrategyInitFnName = SimulationStageNames.HighestExpectedValueOnBasedOfHistory_NsmeHawk_UseNashOnExpectedValueTieWhenNoHistory
                      MayUseColor = true
                 }
