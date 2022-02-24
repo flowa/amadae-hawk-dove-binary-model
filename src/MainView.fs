@@ -303,7 +303,13 @@ module Authors =
         div [ ClassName "column authors" ] [
             p [] [(str "Amadae Hawk-Dove Binary Model 2.0 by S.M. Amadae")]
             p [] [(str "Programmed by Ari-Pekka Lappi (Flowa Oy)")]
-        ]
+            hr [Style [CSSProp.Margin "0.5em" ]]
+            a [ Style [CSSProp.Color "Gray" ]
+                Href "https://github.com/flowa/amadae-hawk-dove-binary-model"
+            ] [
+                Icon.icon [ Icon.Size IsSmall ] [ Fa.i [ Fa.Brand.Github ] [] ]
+                (str "Source code")]
+            ]
 
 module SettingsForm =
     open Common
@@ -509,13 +515,33 @@ let view (model: State) dispatch =
                         str (sprintf "Results")
                     ]
                     br []
-                    Button.button
-                        [
-                            Button.Color IsPrimary
-                            Button.Size IsLarge
-                            Button.OnClick (fun _ -> dispatch RunSimulation)
+                    div [] [
+                        Button.button [
+                                Button.Color IsPrimary
+                                Button.Size IsLarge
+                                Button.OnClick (fun _ -> dispatch RunSimulation)
+                            ] [ str "Run simulation" ]
+
+                        a   [ ClassName "button is-large is-outlined"
+                              Target "_blank"
+
+                              Style [ CSSProp.MarginLeft "3em" ]
+
+                              Href "HDBDocumentation-Feb2022.pdf"
+                            ] [ str "Download model description as pdf"]
+                    ]
+
+
+                    hr []
+
+                    iframe [
+                        Src "HDBDocumentation-Feb2022.pdf"
+                        Style [
+                            CSSProp.Width "100%"
+                            CSSProp.MinHeight "650px"
+                            CSSProp.Height "100%"
                         ]
-                        [ str "Run simulation" ]
+                    ] []
                 ]
         | Loading ->
             div []
