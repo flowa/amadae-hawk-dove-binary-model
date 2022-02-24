@@ -25,6 +25,7 @@ module.exports = (env, ...opt) =>
                 patterns: [
                     {from: "public/global.css", to: "global.css"},
                     {from: "public/favicon.png", to: "favicon.png"},
+                    {from: "public/HDBDocumentation-Feb2022.pdf", to: "HDBDocumentation-Feb2022.pdf"},
                     ghPages ? {from: "public/gh-pages", to: ""} : undefined
                 ].filter(r => r),
             }),

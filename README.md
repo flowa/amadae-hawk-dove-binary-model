@@ -1,15 +1,26 @@
 # Amadae Hawk Dove binary model simulation
 
 ## Synopsis
+The Amadae Hawk-Dove Binary (HDB) model of discrimination uses game theoretic agent-
+based modeling to study how localized individual choices result in overarching social patterns.
+This model provides a minimalist account of the sufficient conditions to yield a systemic pattern
+of discrimination. It uses a Hawk Dove game with the added feature that a binary marker is
+applied to otherwise homogenous agents throughout a population to create two groups, with
+members of one group with an arbitrary tag (such as Red), and members of the second group
+with an arbitrary tag (such as Blue).
 
-The repository contains simulation for Amadae Hawk Dove Binary Model by [S.M. Amadae](https://amadae.com/).
+[Read full description of the model](https://flowa.github.io/amadae-hawk-dove-binary-model/HDBDocumentation-Feb2022.pdf)
 
-Try out simulation here: 
+---
+
+This repository contains source code for Amadae Hawk-Dove Binary Model by [S.M. Amadae](https://amadae.com/).
+
+You can try out the simulation: 
 * https://flowa.github.io/amadae-hawk-dove-binary-model/
 
 The simulation is related to the article(s):
-
-* https://www.noemamag.com/binary-labels-reinforce-systemic-discrimination/
+* [Red Queen and Red King Effects in cultural agent-based modeling: Hawk Dove Binary and Systemic Discrimination](https://www.tandfonline.com/doi/full/10.1080/0022250X.2021.2012668)
+* [Binary Labels Reinforce Systemic Discrimination](https://www.noemamag.com/binary-labels-reinforce-systemic-discrimination/)
 
 ---
 
