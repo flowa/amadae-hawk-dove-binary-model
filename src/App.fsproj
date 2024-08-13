@@ -1,6 +1,6 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Helpers.fs" />
@@ -21,5 +21,6 @@
     <PackageReference Include="Fable.Jester" Version="0.22.0" />
     <PackageReference Include="Fulma" Version="2.9.0" />
     <PackageReference Include="Fulma.Extensions.Wikiki.Slider" Version="2.0.1" />
+    <PackageReference Update="FSharp.Core" Version="8.0.400" />
   </ItemGroup>
 </Project>

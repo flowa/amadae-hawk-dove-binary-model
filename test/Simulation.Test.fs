@@ -18,7 +18,7 @@ module TestData  =
     module GameInfo =
         let getDefaultTestInfo () =
             let cache = new AgentViewCache()
-            let matrix = FromRewardAndCost(10.0, 20.0)
+            let matrix = FromRewardAndCost(10.0m, 20.0m)
             let history = Rounds ([||])
             let info, _ =
                 GameInformation.InitGameInformationForAgents
@@ -67,13 +67,13 @@ Jest.describe("Test game modes: nashMixedStrategyEquilibriumGameFromPayoffParame
        {
            Name = "It should return Hawk when V/C = 1"
            FunctionToTest = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
-           Input = { info with RandomNumber = 0.9999999; PayoffMatrix = (FromRewardAndCost (1.0, 1.0)) }
+           Input = { info with RandomNumber = 0.9999999; PayoffMatrix = (FromRewardAndCost (1.0m, 1.0m)) }
            ExpectedOutput = Hawk
        }
        {
            Name = "It should return Hawk when C = 0"
            FunctionToTest = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
-           Input = { info with RandomNumber = 0.999999; PayoffMatrix = (FromRewardAndCost (1.0, 0.0)) }
+           Input = { info with RandomNumber = 0.999999; PayoffMatrix = (FromRewardAndCost (1.0m, 0.0m)) }
            ExpectedOutput = Hawk
        }
        {
@@ -91,7 +91,7 @@ Jest.describe("Test game modes: nashMixedStrategyEquilibriumGameFromPayoffParame
        {
            Name = "It should return Dove when V/C = 0"
            FunctionToTest = GameMode.nashMixedStrategyEquilibriumGameFromPayoffParameters
-           Input = { info with RandomNumber = 0.0; PayoffMatrix = (FromRewardAndCost (0.0, 1.0)) }
+           Input = { info with RandomNumber = 0.0; PayoffMatrix = (FromRewardAndCost (0.0m, 1.0m)) }
            ExpectedOutput = Dove
        }
     ]
@@ -143,12 +143,12 @@ Jest.describe("Test game modes: randomChoiceGame", fun () ->
 )
 
 Jest.describe("Test game modes: keepSameStrategy", fun () ->
-    let agent1 = TestData.Agents.Blue1.UpdateGameInfo(10.0, Hawk,  DifferentColor)
-    let agent2 = TestData.Agents.Red1.UpdateGameInfo(0.0, Dove,  DifferentColor)
+    let agent1 = TestData.Agents.Blue1.UpdateGameInfo(10.0m, Hawk,  DifferentColor)
+    let agent2 = TestData.Agents.Red1.UpdateGameInfo(0.0m, Dove,  DifferentColor)
     let agent3 = TestData.Agents.Blue1
     let agent4 = TestData.Agents.Red1
 
-    let matrix = FromRewardAndCost (10.0, 40.0)
+    let matrix = FromRewardAndCost (10.0m, 40.0m)
     let history = Rounds [| GameRound.Empty.AppendWith(agent1, agent2) |]
     let agent1Info, agent2Info =
         let cache = new AgentViewCache()
@@ -202,15 +202,15 @@ type HighestEuTestInput =
     }
 
 Jest.describe(
-    sprintf "Test game modes: highestEuOnDifferentColorGameUsingAllEncounters and highestEuOnDifferentColorGame \n\t - PayoffMatrix for all tests is: %A" ((FromRewardAndCost (10.0, 20.0)).ToMatrix()),
+    sprintf "Test game modes: highestEuOnDifferentColorGameUsingAllEncounters and highestEuOnDifferentColorGame \n\t - PayoffMatrix for all tests is: %A" ((FromRewardAndCost (10.0m, 20.0m)).ToMatrix()),
     fun () ->
-        let blueHawk = TestData.Agents.Blue1.UpdateGameInfo(0.0, Hawk,  DifferentColor)
-        let blueDove = TestData.Agents.Blue2.UpdateGameInfo(0.0, Dove,  DifferentColor)
-        let redHawk  = TestData.Agents.Red1.UpdateGameInfo(0.0, Hawk,  DifferentColor)
-        let redDove  = TestData.Agents.Red2.UpdateGameInfo(0.0, Dove,  DifferentColor)
-        let sameColorBlueHawk  = TestData.Agents.Blue1.UpdateGameInfo(0.0, Hawk,  SameColor)
+        let blueHawk = TestData.Agents.Blue1.UpdateGameInfo(0.0m, Hawk,  DifferentColor)
+        let blueDove = TestData.Agents.Blue2.UpdateGameInfo(0.0m, Dove,  DifferentColor)
+        let redHawk  = TestData.Agents.Red1.UpdateGameInfo(0.0m, Hawk,  DifferentColor)
+        let redDove  = TestData.Agents.Red2.UpdateGameInfo(0.0m, Dove,  DifferentColor)
+        let sameColorBlueHawk  = TestData.Agents.Blue1.UpdateGameInfo(0.0m, Hawk,  SameColor)
 
-        let matrix = FromRewardAndCost (10.0, 20.0)
+        let matrix = FromRewardAndCost (10.0m, 20.0m)
         let ``history Red 1H 1D, Blue 2H 0D`` = Rounds [|
             GameRound.Empty
                 .AppendWith(blueHawk, redDove)

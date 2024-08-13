@@ -4,6 +4,7 @@ open Helpers
 open System
 open System.Collections.Generic
 
+[<Struct>]
 type Color =
     | Blue
     | Red
@@ -13,6 +14,7 @@ type Color =
         |> List.collect (fun (value, count) ->
                 List.init count (fun _ -> value))
 
+[<Struct>]
 type Strategy =
     | Dove
     | Hawk
@@ -22,22 +24,27 @@ type Strategy =
         |> List.collect (fun (value, count) ->
                 List.init count (fun _ -> value))
 
+[<Struct>]
 type ChallengeType =
     | DifferentColor
     | SameColor
 
+[<Struct>]
 type AgentIdentity =
     {
         Id: int
         Color: Color
     }
 
+[<Struct>]
 type GameInfo =
     {
         Payoff: decimal
         PreviousChoice: Strategy
         PreviousChallengeType: ChallengeType
     }
+
+type Selection = ValueTuple<ChallengeType, Strategy, Color>
 
 type Agent =
     | AgentWithNoGames of AgentIdentity
@@ -177,7 +184,7 @@ type GameHistory =
     member this.FirstRoundChallenges
         with get() = this.Unwrap() |> Array.head
 
-type AgentViewCache = Dictionary<int * int, Map<(ChallengeType * Strategy * Color), int>>
+type AgentViewCache = Dictionary<struct (int * int), Map<(struct (ChallengeType * Strategy * Color)), int>>
 
 type HistoryStatisticsView =
     {
@@ -199,7 +206,7 @@ type GameInformation =
         // Random number is passed as a part of game information
         // so that strategies are easier to test
         RandomNumber: float
-        Cache: Dictionary<int * int, Map<ChallengeType * Strategy * Color, int>>
+        Cache: Dictionary<struct (int * int), Map<Selection, int>>
     }
     static member InitGameInformationForAgents cache matrix history (agent1: Agent) (agent2: Agent) =
         {
@@ -377,10 +384,12 @@ type GameSetup =
                     Color = color
                 }) colors agentIds
 
+[<Struct>]
 type ShowResultsViewState =
     {
         ShowRound: int
     }
+[<Struct>]
 type ResultViewState =
     | InitGame
     | Loading

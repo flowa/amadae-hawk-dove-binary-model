@@ -17,7 +17,7 @@ module RoundStats =
         member this.HawkPortion with get() = if this.TotalN = 0 then 0.0m else (decimal this.HawkN) / (decimal this.TotalN)
         member this.DovePortion with get() = if this.TotalN = 0 then 0.0m else 1.0m - this.HawkPortion
 
-    let calcRoundAggregates (round: GameRound): Map<ChallengeType * Strategy * Color, int> =
+    let calcRoundAggregates (round: GameRound): Map<Selection, int> =
         let items = round.ToList()
         items
         |>  List.collect (
@@ -25,8 +25,8 @@ module RoundStats =
                 let (a1, a2) = challenge.Players
                 let challengeType = challenge.ChalengeType
                 [
-                    (challengeType, a1.Strategy.Value, a1.Color)
-                    (challengeType, a2.Strategy.Value, a2.Color)
+                    struct (challengeType, a1.Strategy.Value, a1.Color)
+                    struct (challengeType, a2.Strategy.Value, a2.Color)
                 ]
             )
         |> List.groupBy id
@@ -45,13 +45,13 @@ module RoundStats =
         let (a1, a2) = challenge.Players
         let challengeType = challenge.ChalengeType
         if (a1.Id = agent.Id) then
-            (challengeType, a2.Strategy.Value, a2.Color)
+            struct (challengeType, a2.Strategy.Value, a2.Color)
         else
-            (challengeType, a1.Strategy.Value, a1.Color)
+            struct (challengeType, a1.Strategy.Value, a1.Color)
 
     let rec calcRoundAggregatesForAgentsWithCacheRecursive
         (cache: AgentViewCache)
-        (roundIndex: int, agent: Agent, history: GameHistory): Map<ChallengeType * Strategy * Color, int> =
+        (roundIndex: int, agent: Agent, history: GameHistory): Map<Selection, int> =
             let calcForRound (round: GameRound) =
                 let key = (filterOnlyAgentOwnMoves agent >> selectTheOtherAgentStatsTuple agent) round
                 Map.ofList [key, 1]
@@ -76,7 +76,7 @@ module RoundStats =
                         (thisRound |> Map.toList)
                     ]
                     |> List.groupBy selectKey
-                    |> List.map (fun (key, items) -> (key, items |> List.sumBy selectValue))
+                    |> List.map (fun (key, items) -> key, items |> List.sumBy selectValue)
                     |> Map.ofList
                 cache.Add((roundIndex, agent.Id), currentRoundStats)
                 currentRoundStats
@@ -85,7 +85,7 @@ module RoundStats =
         let lastRountIndex = history.TotalRounds - 1
         calcRoundAggregatesForAgentsWithCacheRecursive cache (lastRountIndex, agent, history)
 
-    let calcRoundAggregatesForAgents(agent: Agent, history: GameHistory): Map<ChallengeType * Strategy * Color, int> =
+    let calcRoundAggregatesForAgents(agent: Agent, history: GameHistory): Map<Selection, int> =
         history.Unwrap()
         |> Array.map (filterOnlyAgentOwnMoves agent >> selectTheOtherAgentStatsTuple agent)
         |> Array.groupBy id
@@ -93,14 +93,14 @@ module RoundStats =
         |> Map.ofArray
 
     let aggregateBy<'a when 'a : equality and 'a : comparison>
-        (keyFn: ChallengeType * Strategy * Color -> 'a)
-        (aggs: Map<ChallengeType * Strategy * Color, int>): Map<'a, int> =
+        (keyFn: Selection -> 'a)
+        (aggs: Map<Selection, int>): Map<'a, int> =
         aggs
-        |> Map.toList
-        |> List.map (fun (key, total) -> (keyFn key), total)
-        |> List.groupBy (fun (key, _) -> key)
-        |> List.map (fun (key, subAggs) -> key, subAggs |> List.sumBy (fun (_, value) -> value))
-        |> Map.ofList
+        |> Map.toArray
+        |> Array.map (fun (key, total) -> (keyFn key), total)
+        |> Array.groupBy (fun (key, _) -> key)
+        |> Array.map (fun (key, subAggs) -> key, subAggs |> Array.sumBy (fun (_, value) -> value))
+        |> Map.ofArray
 
     let valueOrZero<'key, 'value when 'key : equality and 'key : comparison> (map: Map<'key, 'value>) (key: 'key) =
         match map.TryFind(key) with
@@ -108,25 +108,25 @@ module RoundStats =
         | Some v -> v
 
 
-    let strategyStatsForChallengeTypeAndColor roundAggs (challengeType: ChallengeType) (color: Color) =
+    let strategyStatsForChallengeTypeAndColor (roundAggs:Map<Selection, int>) (challengeType: ChallengeType) (color: Color) =
         let hawkN = valueOrZero roundAggs (challengeType, Hawk, color)
         let doveN = valueOrZero roundAggs (challengeType, Dove, color)
         HakwDoveStats (hawkN, doveN)
 
-    let strategyStatsForChallengeType roundAggs (challengeType: ChallengeType) =
-        let subAgg = aggregateBy (fun (challenge, strategy, _) -> (challenge, strategy)) roundAggs
+    let strategyStatsForChallengeType (roundAggs:Map<Selection, int>) (challengeType: ChallengeType) =
+        let subAgg = aggregateBy (fun struct (challenge, strategy, _) -> (challenge, strategy)) roundAggs
         let hawkN = valueOrZero subAgg (challengeType, Hawk)
         let doveN = valueOrZero subAgg (challengeType, Dove)
         HakwDoveStats (hawkN, doveN)
 
-    let strategyStatsForColor roundAggs (color: Color) =
-        let subAgg = aggregateBy (fun (_, strategy, color) -> (strategy, color)) roundAggs
+    let strategyStatsForColor (roundAggs:Map<Selection, int>) (color: Color) =
+        let subAgg = aggregateBy (fun struct (_, strategy, color) -> (strategy, color)) roundAggs
         let hawkN = valueOrZero subAgg (Hawk, color)
         let doveN = valueOrZero subAgg (Dove, color)
         HakwDoveStats (hawkN, doveN)
 
-    let strategyStats roundAggs =
-        let subAgg = aggregateBy (fun (_, strategy, _) -> strategy) roundAggs
+    let strategyStats (roundAggs:Map<Selection, int>) =
+        let subAgg = aggregateBy (fun struct (_, strategy, _) -> strategy) roundAggs
         let hawkN = valueOrZero subAgg Hawk
         let doveN = valueOrZero subAgg Dove
         HakwDoveStats (hawkN, doveN)
@@ -190,8 +190,7 @@ module ModelExtensions =
                 |> Array.filter (fun window ->
                     window
                     |> Array.forall (fun (_, round) -> round.InDifferentColorEncountersColorsHaveSeparated))
-                |> Array.map (fun window -> window |> Array.last)
-                |> Array.map (fun (roundNumber, _) -> roundNumber)
+                |> Array.map (Array.last >> fst)
                 |> Array.tryHead
 
         member this.DominatingColorAfterSeparation (requiredConsecutiveSeparatedRounds: int) =
