@@ -248,8 +248,7 @@ module SimStats =
               (compEncounter p2 p1) ]
         let compressRound (roundIndex: int) (round: GameRound) : string list =
             round.ToList()
-            |> List.map (compressResolvedChallenge roundIndex)
-            |> List.concat
+            |> List.collect (compressResolvedChallenge roundIndex)
 
         games.ResolvedRounds.Unwrap()
         |> Seq.mapi compressRound
@@ -269,17 +268,15 @@ let runSimulationsWithOneSetup (simulationRunSetup: SimulationSingleRunSetup)  =
 
     let firstRoundDoveCountAvg =
             results
-            |> List.map (fun game ->
+            |> List.averageBy (fun game ->
                 let stat = game.ResolvedRounds.FirstRoundChallenges.StrategyStats ()
                 (float) stat.DoveN)
-            |> List.average
 
     let firstRoundHawkCountAvg =
         results
-        |> List.map (fun game ->
+        |> List.averageBy (fun game ->
             let stat = game.ResolvedRounds.FirstRoundChallenges.StrategyStats ()
             (float) stat.HawkN)
-        |> List.average
 
     let startCalc = DateTime.Now 
     let firstSeparations = SimStats.firstRoundsWithNConsecutiveSeparatedRounds simulationRunSetup.Stage1Rounds 1 results
@@ -461,13 +458,12 @@ let main argv =
     printfn "==========================="
     let accParse (this: CliParams) (str: string): CliParams =
         let parseIntList (listStr: string) =
-            listStr.Split(",")
+            listStr.Split ','
             |> Seq.map Int32.Parse
             |> List.ofSeq
         let parseHawkSetup (listStr: string)=
-            listStr.Split(",")
-            |> Seq.map Int32.Parse
-            |> Seq.map (fun percents -> decimal percents / 100.0m)
+            listStr.Split ','
+            |> Seq.map (Int32.Parse >> fun percents -> decimal percents / 100.0m)
             |> List.ofSeq
         let parseMode (str: string) =
             (SimulationStageOptions.AllOptions
