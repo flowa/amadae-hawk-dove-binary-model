@@ -442,13 +442,15 @@ type CliParams =
                printfn $"Parsed: \n\n {this} \n\n
                     Usage
                     =====
-                    dotnet run id=<id:string> runs=<runsCount: int> agents=<agents: int> stage1=<stage1Round: int>*<mode:string> stage2=<stage2Round: int>*<mode:string> reds=<redAgentSetup: int list> hawks=<expectedHawkPercents: int list>
+                    dotnet run id=<id:string> runs=<runsCount: int> agents=<agents: int> stage1=<stage1Round: int>-<mode:string> stage2=<stage2Round: int>-<mode:string> reds=<redAgentSetup: int list> hawks=<expectedHawkPercents: int list>
 
                     id and stage1 are optional. Other parameters are mandatory
 
                     Example
                     =======
-                    dotnet run id=test runs=100 agents=200 stage2=250*stage2_nmse red=10;50;90 hawk=10;30;50;70;90
+                    dotnet run id=test runs=100 agents=200 stage2=250-stage2_nmse red=10,50,90 hawk=10,30,50,70,90
+
+                    For more examples, see README.md
                     "
                1
 

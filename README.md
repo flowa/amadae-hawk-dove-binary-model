@@ -74,8 +74,8 @@ where:
 * `agents` (integer) How many agents is used in each simulation". Example `200`
 * `stage2` (specific format: `integer`-`mode name`) How many rounds of simulation is ran with given model. Example `250-stage2_dove` means 250 rounds with stage2_dove mode
 * `stage1` (OPTIONAL; specific format: `integer`-`mode name`) How many rounds of simulation is ran with given model. Example `250-stage2_dove` means 250 rounds with stage2_dove mode
-* `red` (integer OR integer list, delimiter = ';'). Example `"10;30;50"` or just `10`. Note: Use qoutes (") for the list
-* `hawk` (integer list, delimiter = ';'). Example `"10;30;50;70;90"` or `90`. Note: Use qoutes (") for the list
+* `red` (integer OR integer list, delimiter = ','). Example `"10,30,50"` or just `10`. Note: Use qoutes (") for the list
+* `hawk` (integer list, delimiter = ','). Example `"10,30,50,70,90"` or `90`. Note: Use qoutes (") for the list
 
 Simulation is run once for each red and for each hawk setups. 
 
