@@ -6,15 +6,17 @@
     <ProjectReference Include="..\src\App.fsproj" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App.Test.fs" />
     <Compile Include="Helpers.Test.fs" />
     <Compile Include="Model.Test.fs" />
     <Compile Include="Simulation.Test.fs" />
+    <Compile Include="TestRunner.fs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Elmish" Version="3.0.6" />
-    <PackageReference Include="Fable.Browser.Dom" Version="1.2.0" />
-    <PackageReference Include="Fable.Core" Version="3.1.5" />
+    <PackageReference Include="Fable.Browser.Dom" Version="2.16.0" />
+    <PackageReference Include="Fable.Core" Version="3.7.1" />
     <PackageReference Include="Fable.Elmish.React" Version="3.0.1" />
-    <PackageReference Include="Fable.Jester" Version="0.22.0" />
+    <PackageReference Include="Fable.Mocha" Version="2.14.0" />
   </ItemGroup>
 </Project>

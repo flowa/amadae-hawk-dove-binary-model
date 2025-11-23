@@ -1,9 +1,10 @@
-module App
+module App.Test
 open Model
-open Fable.Jester
+open Fable.Mocha
 
-Jest.describe("can run basic tests", fun () ->
-    Jest.test("running a test", fun () ->
-        Jest.expect(1+1).toEqual(2)
-    )
-)
+let tests = testList "can run basic tests" [
+    testCase "running a test" <| fun () ->
+        Expect.equal (1+1) 2 "1+1 should equal 2"
+]
+
+Mocha.runTests tests |> ignore

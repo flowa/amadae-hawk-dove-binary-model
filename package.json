@@ -11,10 +11,8 @@
     "build": "webpack",
     "build:ghPages": "webpack --env ghPages --env prod",
     "deploy": "gh-pages -d dist",
-    "test": "fable-splitter -c splitter.config.js --config=jest.config.js --commonjs && jest --verbose",
-    "watch-test:build": "fable-splitter -c splitter.config.js -w --commonjs",
-    "watch-test:run": "jest --config=jest.config.js --watchAll",
-    "watch-test": "npm-run-all --parallel watch-test:*"
+    "test": "webpack --config webpack.test.config.js && mocha output/tests.js",
+    "watch-test": "webpack --watch --config webpack.test.config.js"
   },
   "dependencies": {
     "bulma": "^0.8.2",
@@ -25,15 +23,13 @@
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
-    "@testing-library/jest-dom": "^5.11.1",
     "copy-webpack-plugin": "^6.3.1",
-    "fable-compiler": "^2.4.15",
-    "fable-loader": "^2.1.8",
+    "fable-compiler": "^2.13.0",
+    "fable-loader": "^2.1.9",
     "fable-splitter": "^2.2.1",
     "gh-pages": "^3.1.0",
     "glob-parent": ">=5.1.2",
-    "jest": "^26.1.0",
-    "npm-run-all": "^4.1.5",
+    "mocha": "^9.2.0",
     "source-map-loader": "^1.0.0",
     "webpack": "^4.41.6",
     "webpack-cli": "^4.9.1",

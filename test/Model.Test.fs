@@ -1,27 +1,32 @@
 module Model.Test
 
 open Model
-open Fable.Jester
+open Fable.Mocha
 
-Jest.describe("Color", fun () ->
-    Jest.test("GenerateList", fun () ->
+let colorTests = testList "Color" [
+    testCase "GenerateList" <| fun () ->
         let specs = [(Red, 2); (Blue, 3)]
         let colorList = Color.GenerateList specs
-        Jest.expect(colorList).toHaveLength(5);
-        Jest.expect(colorList.[0]).toEqual(Red)
-        Jest.expect(colorList.[4]).toEqual(Blue)
-    )
-)
+        Expect.equal colorList.Length 5 "color list should have length 5"
+        Expect.equal colorList.[0] Red "first element should be Red"
+        Expect.equal colorList.[4] Blue "last element should be Blue"
+]
 
-Jest.describe("Strategy", fun () ->
-    Jest.test("GenerateList", fun () ->
+let strategyTests = testList "Strategy" [
+    testCase "GenerateList" <| fun () ->
         let specs = [(Hawk, 2); (Dove, 3)]
         let colorList = Strategy.GenerateList specs
-        Jest.expect(colorList).toHaveLength(5);
-        Jest.expect(colorList.[0]).toEqual(Hawk)
-        Jest.expect(colorList.[1]).toEqual(Hawk)
-        Jest.expect(colorList.[2]).toEqual(Dove)
-        Jest.expect(colorList.[3]).toEqual(Dove)
-        Jest.expect(colorList.[4]).toEqual(Dove)
-    )
-)
+        Expect.equal colorList.Length 5 "strategy list should have length 5"
+        Expect.equal colorList.[0] Hawk "first element should be Hawk"
+        Expect.equal colorList.[1] Hawk "second element should be Hawk"
+        Expect.equal colorList.[2] Dove "third element should be Dove"
+        Expect.equal colorList.[3] Dove "fourth element should be Dove"
+        Expect.equal colorList.[4] Dove "fifth element should be Dove"
+]
+
+let tests = testList "Model tests" [
+    colorTests
+    strategyTests
+]
+
+Mocha.runTests tests |> ignore
